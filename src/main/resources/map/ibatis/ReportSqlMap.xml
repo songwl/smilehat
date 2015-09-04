@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap> 
+	<!-- 一段时间内，医院的总计患者数量(丙肝抗体阳性数) -->
+	<select id="report.patient.total" resultClass="mapBean" parameterClass="map" >
+		select count(id) as 'total',hospital_id from  t_patient  
+		<dynamic prepend="where">
+			<isNotEmpty  prepend="AND" property="createTimeStart" >	
+			<![CDATA[ 		
+				t_patient.create_time >=#createTimeStart#
+			]]>	
+			</isNotEmpty>
+			<isNotEmpty  prepend="AND" property="createTimeEnd">
+			<![CDATA[ 	   t_patient.create_time <=#createTimeEnd#
+			]]>	
+			</isNotEmpty>
+			<isNotEmpty property="hids" prepend="AND">
+            	t_patient.hospital_id in 
+				<iterate property="hids" conjunction="," close=")" open="(">
+				     #hids[]#
+				</iterate> 
+			</isNotEmpty>
+		</dynamic> 
+		group by hospital_id		
+	</select> 
+	<!-- 一段时间内，医院的总计RNA检测数(丙肝RNA检测数) -->
+	<select id="report.rnacheck.total" resultClass="mapBean" parameterClass="map" >	  
+		select count(id) as 'total',hospital_id from  t_patient  
+		where t_patient.rna_flag=1 
+		<isNotEmpty  prepend="AND" property="createTimeStart" >	
+		<![CDATA[ 		
+			t_patient.rna_create_time >=#createTimeStart#
+		]]>	
+		</isNotEmpty>
+		<isNotEmpty  prepend="AND" property="createTimeEnd">
+		<![CDATA[ 	   t_patient.rna_create_time <=#createTimeEnd#
+		]]>	
+		</isNotEmpty>
+		<isNotEmpty property="hids" prepend="AND">
+            	t_patient.hospital_id in 
+			<iterate property="hids" conjunction="," close=")" open="(">
+				     #hids[]#
+			</iterate> 
+		</isNotEmpty> 
+		group by hospital_id		
+	</select> 
+	
+	
+	<!-- 一段时间内，医院的总计RNA检测阳性数(丙肝RNA检测阳性数) -->
+	<select id="report.rnaresult.total" resultClass="mapBean" parameterClass="map" >	  
+		select count(id) as 'total',hospital_id from  t_patient  
+		where t_patient.rna_flag=1 and t_patient.rna_result=2
+		<isNotEmpty  prepend="AND" property="createTimeStart" >	
+		<![CDATA[ 		
+			t_patient.rna_create_time >=#createTimeStart#
+		]]>	
+		</isNotEmpty>
+		<isNotEmpty  prepend="AND" property="createTimeEnd">
+		<![CDATA[ 	   t_patient.rna_create_time <=#createTimeEnd#
+		]]>	
+		</isNotEmpty>
+		<isNotEmpty property="hids" prepend="AND">
+            	t_patient.hospital_id in 
+			<iterate property="hids" conjunction="," close=")" open="(">
+				     #hids[]#
+			</iterate> 
+		</isNotEmpty> 
+		group by hospital_id		
+	</select> 
+	
+	<!-- 一段时间内，医院的总计新增派罗欣用户数(新增派罗欣用户数) -->
+	<select id="report.groupin.total" resultClass="mapBean" parameterClass="map" >	  
+		select count(id) as 'total',hospital_id from  t_patient  
+		where group_in_status=1
+		<isNotEmpty  prepend="AND" property="createTimeStart" >	
+		<![CDATA[ 		
+			t_patient.rna_create_time >=#createTimeStart#
+		]]>	
+		</isNotEmpty>
+		<isNotEmpty  prepend="AND" property="createTimeEnd">
+		<![CDATA[ 	   t_patient.rna_create_time <=#createTimeEnd#
+		]]>	
+		</isNotEmpty>
+		<isNotEmpty property="hids" prepend="AND">
+            	t_patient.hospital_id in 
+			<iterate property="hids" conjunction="," close=")" open="(">
+				     #hids[]#
+			</iterate> 
+		</isNotEmpty> 
+		group by hospital_id		
+	</select> 
+	
+	
+	
+	<!-- 一段时间内，医院的总计联系患者数(联系患者数患者不重复计算) -->
+	<select id="report.contact.total" resultClass="mapBean" parameterClass="map" >	  
+		
+		select count(distinct t_visit_record.patient_id) as 'total',t_patient.hospital_id
+		from t_visit_record,t_patient 
+		where t_visit_record.patient_id=t_patient.id
+		<isNotEmpty  prepend="AND" property="createTimeStart" >	
+		<![CDATA[ 		
+			t_visit_record.create_time >=#createTimeStart#
+		]]>	
+		</isNotEmpty>
+		<isNotEmpty  prepend="AND" property="createTimeEnd">
+		<![CDATA[ 	
+		    t_visit_record.create_time <=#createTimeEnd#
+		]]>	
+		</isNotEmpty>
+		<isNotEmpty property="hids" prepend="AND">
+            	t_patient.hospital_id in 
+			<iterate property="hids" conjunction="," close=")" open="(">
+				     #hids[]#
+			</iterate> 
+		</isNotEmpty> 
+		 group by t_patient.hospital_id	
+	</select> 
+    
+</sqlMap>
+

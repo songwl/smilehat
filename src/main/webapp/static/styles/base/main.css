@@ -1,0 +1,63 @@
+.index-portal-body {  
+	min-width: 600px;
+}
+
+.index-portal-body .index-portal-left  {
+    width: 24%;
+	min-height:400px; 
+	margin: 5px; 
+	float:left;
+}
+
+.index-portal-body .index-portal-center {
+	min-height:400px;  
+	width: 48%;
+	float:left;
+	margin: 5px;	 
+}
+
+.index-portal-body .index-portal-center .sortDragVar-left{
+	float: left;
+	width: 49%;
+}
+.index-portal-body .index-portal-center .sortDragVar-right{
+	float: right;
+	width: 49%;
+   
+}
+
+.index-portal-body .index-portal-right {
+	min-height:400px;  
+	width: 24%;
+	float:left;
+	margin: 5px;
+	 
+}
+
+.index-portal-body .sortDragVar{
+  min-height:100px;  
+}
+.index-portal-body .sortDragVar .panel{
+	margin: 5px 0px;
+}
+
+#cygn_logo_list li{
+	float: left; 
+	text-align:center;
+	margin-top:10px;
+	width: 20%;
+}
+#cygn_logo_list li img{
+	width: 80px;
+	height: 80px;
+}
+
+table.viewTable th, table.viewTable td{
+	line-height: 30px;
+	font-size: 14px;
+	padding-left: 10px;
+}
+
+input.cachebox{
+	display: none;
+}

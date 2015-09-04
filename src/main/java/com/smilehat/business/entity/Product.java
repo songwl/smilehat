@@ -1,0 +1,284 @@
+package com.smilehat.business.entity;
+
+import javax.persistence.*; 
+
+import com.smilehat.constants.Constants;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import java.util.*;
+
+import com.smilehat.modules.entity.IdEntity;
+
+ 
+
+/**
+ * 
+ * @author yang
+ *
+ */
+@Entity
+@Table(name = Constants.TABLE_PREFIX +"product")
+public class Product extends IdEntity {
+
+	 
+     private java.lang.String name;//产品名称
+     private java.lang.String title;//标题
+     private java.lang.String description;//描述
+     private java.util.Date createTime;//创建时间
+     private java.util.Date updateTime;//更新时间
+     private java.util.Date publishTime;//发布时间
+     private java.util.Date startTime;//上市开始时间
+     private java.util.Date endTime;//上市结束时间
+     private java.lang.String branchInfo;//规格
+     private java.lang.String priceUnit;//价格单位
+     private java.lang.Double price;//价格
+     private java.lang.Double quantity;//供应量
+     private java.lang.String quantityUnit;//供应量单位
+     //private java.lang.Long regionId;
+     private java.lang.String regionDetail;//详细地址
+     private java.lang.Long userId;
+     //private java.lang.Long categoryId;
+     private  java.lang.Integer sort;//排序字段
+	 
+     private Region region;//区域
+     private Category category;//品类
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "name" )
+	public java.lang.String getName() {
+		return this.name;
+	}
+	
+	public void setName(java.lang.String value) {
+		this.name = value;
+	}
+	
+	/**
+	 * @return
+	 */
+	public java.lang.Integer getSort() {
+		return sort;
+	}
+
+	public void setSort(java.lang.Integer sort) {
+		this.sort = sort;
+	}
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "title" )
+	public java.lang.String getTitle() {
+		return this.title;
+	}
+	
+	public void setTitle(java.lang.String value) {
+		this.title = value;
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "description" )
+	public java.lang.String getDescription() {
+		return this.description;
+	}
+	
+	/**
+	 * @return
+	 */
+	@ManyToOne
+	@JoinColumn(name = "region_id")
+	public Region getRegion() {
+		return region;
+	}
+
+	public void setRegion(Region region) {
+		this.region = region;
+	}
+
+	/**
+	 * @return
+	 */
+	@ManyToOne
+	@JoinColumn(name = "categoty_id")
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public void setDescription(java.lang.String value) {
+		this.description = value;
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "create_time" )
+	public java.util.Date getCreateTime() {
+		return this.createTime;
+	}
+	
+	public void setCreateTime(java.util.Date value) {
+		this.createTime = value;
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "update_time" )
+	public java.util.Date getUpdateTime() {
+		return this.updateTime;
+	}
+	
+	public void setUpdateTime(java.util.Date value) {
+		this.updateTime = value;
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "publish_time" )
+	public java.util.Date getPublishTime() {
+		return this.publishTime;
+	}
+	
+	public void setPublishTime(java.util.Date value) {
+		this.publishTime = value;
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "start_time" )
+	public java.util.Date getStartTime() {
+		return this.startTime;
+	}
+	
+	public void setStartTime(java.util.Date value) {
+		this.startTime = value;
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "end_time" )
+	public java.util.Date getEndTime() {
+		return this.endTime;
+	}
+	
+	public void setEndTime(java.util.Date value) {
+		this.endTime = value;
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "branch_info" )
+	public java.lang.String getBranchInfo() {
+		return this.branchInfo;
+	}
+	
+	public void setBranchInfo(java.lang.String value) {
+		this.branchInfo = value;
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "price_unit" )
+	public java.lang.String getPriceUnit() {
+		return this.priceUnit;
+	}
+	
+	public void setPriceUnit(java.lang.String value) {
+		this.priceUnit = value;
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "price" )
+	public java.lang.Double getPrice() {
+		return this.price;
+	}
+	
+	public void setPrice(java.lang.Double value) {
+		this.price = value;
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "quantity" )
+	public java.lang.Double getQuantity() {
+		return this.quantity;
+	}
+	
+	public void setQuantity(java.lang.Double value) {
+		this.quantity = value;
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "quantity_unit" )
+	public java.lang.String getQuantityUnit() {
+		return this.quantityUnit;
+	}
+	
+	public void setQuantityUnit(java.lang.String value) {
+		this.quantityUnit = value;
+	}
+	
+	
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "region_detail" )
+	public java.lang.String getRegionDetail() {
+		return this.regionDetail;
+	}
+	
+	public void setRegionDetail(java.lang.String value) {
+		this.regionDetail = value;
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "user_id" )
+	public java.lang.Long getUserId() {
+		return this.userId;
+	}
+	
+	public void setUserId(java.lang.Long value) {
+		this.userId = value;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
+}
+
