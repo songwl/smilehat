@@ -41,7 +41,7 @@ import com.google.common.collect.Lists;
 import com.smilehat.business.core.entity.security.Authority;
 import com.smilehat.business.core.entity.security.Role;
 import com.smilehat.business.core.entity.security.User;
-import com.smilehat.constants.Constants;
+import com.smilehat.constants.Enums;
 
 public class ShiroDbRealm extends AuthorizingRealm {
 
@@ -58,8 +58,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
 			//byte[] salt = Encodes.decodeHex(user.getSalt());
 			//			new SimpleAuthenticationInfo(new ShiroUser(user.getId(), user.getLoginName(), user.getName()),
 			//					user.getPassword(), ByteSource.Util.bytes(salt), getName());
-			return new SimpleAuthenticationInfo(new ShiroUser(user.getId(), user.getLoginName(), user.getName(), user
-					.getUserType()), user.getPassword(), getName());
+			return new SimpleAuthenticationInfo(new ShiroUser(user.getId(), user.getLoginName(), user.getName(), user.getUserType()), user.getPassword(), getName());
 		} else {
 			return null;
 		}
@@ -88,12 +87,12 @@ public class ShiroDbRealm extends AuthorizingRealm {
 		info.addRoles(roles);
 		info.addStringPermissions(permissions);
 
-		if (1 == user.getUserType()) {
+		/*if (1 == user.getUserType()) {
 			info.addRole(Constants.SYS_ROLE_MEMBER);
 		}
 		if (2 == user.getUserType()) {
 			info.addRole(Constants.SYS_ROLE_EMPLOYEE);
-		}
+		}*/
 
 		return info;
 	}
@@ -121,13 +120,13 @@ public class ShiroDbRealm extends AuthorizingRealm {
 		public Long id;
 		public String loginName;
 		public String name;
-		public Long userType = 1L; // 1.前台会员 2.后台员工
+		public String userType;
 
 		public ShiroUser(Long id, String loginName, String name) {
-			this(id, loginName, name, 0L);
+			this(id, loginName, name, Enums.USER_TYPE.PERSON.name());
 		}
 
-		public ShiroUser(Long id, String loginName, String name, Long userType) {
+		public ShiroUser(Long id, String loginName, String name, String userType) {
 			this.id = id;
 			this.loginName = loginName;
 			this.name = name;

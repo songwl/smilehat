@@ -95,19 +95,26 @@
 					</div>
 					<div class="accordionContent">
 						<ul class="tree treeFolder"> 
-							<li><a>内容管理</a>
+							<li><a>发布管理</a>
+								<ul>
+									<li><a href="${sctx}/product" target="navTab" rel="app_product">产品管理</a></li>
+									<li><a href="${sctx}/purchase" target="navTab" rel="app_purchase">采购管理</a></li>
+								</ul></li>
+							<li><a>政府管理</a>
+								<ul>
+									<li><a href="${sctx}/government" target="navTab" rel="app_government">政府管理</a></li>
+								</ul></li>
+							<li><a>配置管理</a>
 								<ul>
 									<li><a href="${sctx}/certlabel" target="navTab" rel="app_certlabel">认证标签管理</a></li>
 									<li><a href="${sctx}/category" target="navTab" rel="app_category">品类管理</a></li>
 									<li><a href="${sctx}/region" target="navTab" rel="app_region">区域信息</a></li>
 								</ul></li>
-							<li><a>业务管理</a>
+							<li><a>商户管理</a>
 								<ul>
-									<li><a href="${sctx}/product" target="navTab" rel="app_product">产品管理</a></li>
-									<li><a href="${sctx}/purchase" target="navTab" rel="app_purchase">采购管理</a></li>
-									<li><a href="${sctx}/government" target="navTab" rel="app_government">政府管理</a></li>
-								<!--<li><a href="demo_page1.html" target="navTab" rel="demo_page2">业务二</a></li>-->
-								</ul></li> 
+									<li><a href="${sctx}/user" target="navTab" rel="sys_user">商户管理</a></li>
+									<li><a href="${sctx}/user" target="navTab" rel="sys_user">待审核商户</a></li>
+								</ul></li>
 						</ul>
 					</div> 
 					
@@ -120,7 +127,7 @@
 						<ul class="tree treeFolder"> 
 							<li><a>权限管理</a>
 								<ul>
-									<li><a href="${sctx}/user" target="navTab" rel="sys_user">用户管理</a></li>
+									<%-- <li><a href="${sctx}/user" target="navTab" rel="sys_user">用户管理</a></li> --%>
 									<li><a href="${sctx}/role" target="navTab" rel="sys_role">角色管理</a></li>
 									<li><a href="${sctx}/authority" target="navTab" rel="sys_authority">授权管理</a></li>
 									<li><a href="${sctx}/resource" target="navTab" rel="sys_resource">资源管理</a></li>

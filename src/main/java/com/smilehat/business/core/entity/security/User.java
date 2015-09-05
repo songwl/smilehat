@@ -4,11 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -18,22 +20,31 @@ import org.hibernate.validator.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Lists;
 import com.smilehat.business.core.entity.sys.upload.Attach;
+import com.smilehat.business.entity.Customer;
 import com.smilehat.constants.Constants;
 import com.smilehat.modules.entity.IdEntity;
 
 @Entity
 @Table(name = Constants.TABLE_PREFIX + "user")
 public class User extends IdEntity {
-	private String loginName;
+	private String loginName; //手机号作为登录名
 	private String name;
+	private String email;
 	private String plainPassword;
 	private String password;
 	private String salt;
 	private Date createTime;
-	private Long userType = 1L; //1.前台会员 2.后台员工
-	private Boolean isEnabled = Boolean.TRUE;
+	private Date registerDate;
 	private Date updateTime;
+	private String userType; //Enums.USER_TYPE 中定义
+	private Boolean isEnabled = Boolean.TRUE; //默认可用
+	private java.lang.Boolean isDeleted = Boolean.FALSE; // 默认未删除
+	private java.lang.Boolean isAudit;//是否审核通过
+	private java.util.Date auditTime;//审核时间
+
 	private Attach photoAttach;
+
+	private Customer customer;
 
 	private List<Attach> attachs = Lists.newArrayList();
 	private List<Role> roleList = Lists.newArrayList();
@@ -110,15 +121,11 @@ public class User extends IdEntity {
 		this.attachs = attachs;
 	}
 
-	/**
-	 * 
-	 * @return 1.前台会员 2.后台员工
-	 */
-	public Long getUserType() {
+	public String getUserType() {
 		return userType;
 	}
 
-	public void setUserType(Long userType) {
+	public void setUserType(String userType) {
 		this.userType = userType;
 	}
 
@@ -148,9 +155,57 @@ public class User extends IdEntity {
 		this.photoAttach = photoAttach;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public java.lang.Boolean getIsDeleted() {
+		return isDeleted;
+	}
+
+	public void setIsDeleted(java.lang.Boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+	public java.lang.Boolean getIsAudit() {
+		return isAudit;
+	}
+
+	public void setIsAudit(java.lang.Boolean isAudit) {
+		this.isAudit = isAudit;
+	}
+
+	public java.util.Date getAuditTime() {
+		return auditTime;
+	}
+
+	public void setAuditTime(java.util.Date auditTime) {
+		this.auditTime = auditTime;
+	}
+
+	public Date getRegisterDate() {
+		return registerDate;
+	}
+
+	public void setRegisterDate(Date registerDate) {
+		this.registerDate = registerDate;
+	}
+
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
 	}
-
 }
