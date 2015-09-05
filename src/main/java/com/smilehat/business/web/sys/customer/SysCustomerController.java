@@ -25,7 +25,7 @@ import com.smilehat.constants.Constants;
 
 /**
  * 
- * @author yang
+ * @author song
  *
  */
 @Controller
@@ -45,7 +45,7 @@ public class SysCustomerController extends BaseController {
 
 		PageRequest pageRequest = this.getPageRequest();
 		Map<String, Object> searchParams = this.getSearchRequest();
-
+		searchParams.put("EQ_isDeleted", Boolean.FALSE);
 		Page<Customer> page = customerService.findPage(searchParams, pageRequest);
 		model.addAttribute("page", page);
 
@@ -68,8 +68,8 @@ public class SysCustomerController extends BaseController {
 	}
 
 	@RequestMapping(value = BaseController.CREATE, method = RequestMethod.POST)
-	public ModelAndView create(@Valid Customer customer) {
-		customerService.save(customer);
+	public ModelAndView create(@Valid Customer customer, @RequestParam(value = "photoAttachId", required = false) Long photoAttachId, @RequestParam(required = false) Long regionId) {
+		customerService.createCustomer(customer, photoAttachId, regionId);
 		return this.ajaxDoneSuccess("创建成功");
 	}
 
@@ -87,8 +87,9 @@ public class SysCustomerController extends BaseController {
 	}
 
 	@RequestMapping(value = BaseController.UPDATE, method = RequestMethod.POST)
-	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Customer customer) {
-		customerService.save(customer);
+	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Customer customer, @RequestParam(value = "photoAttachId", required = false) Long photoAttachId,
+			@RequestParam(required = false) Long regionId) {
+		customerService.saveCustomer(customer, photoAttachId, regionId);
 		return this.ajaxDoneSuccess("修改成功");
 	}
 

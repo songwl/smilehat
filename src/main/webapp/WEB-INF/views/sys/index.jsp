@@ -112,7 +112,7 @@
 								</ul></li>
 							<li><a>商户管理</a>
 								<ul>
-									<li><a href="${sctx}/user" target="navTab" rel="sys_user">商户管理</a></li>
+									<li><a href="${sctx}/customer" target="navTab" rel="sys_user">商户管理</a></li>
 									<li><a href="${sctx}/user" target="navTab" rel="sys_user">待审核商户</a></li>
 								</ul></li>
 						</ul>

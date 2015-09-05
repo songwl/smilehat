@@ -14,11 +14,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.smilehat.business.core.entity.security.User;
+import com.smilehat.business.core.service.security.UserService;
+import com.smilehat.business.core.service.sys.upload.AttachService;
 import com.smilehat.business.entity.Customer;
 import com.smilehat.business.entity.Product;
 import com.smilehat.business.entity.Purchase;
 import com.smilehat.business.repository.CustomerDao;
 import com.smilehat.modules.service.BaseService;
+import com.smilehat.util.CoreUtils;
+import com.smilehat.util.MD5Util;
 
 /**
  * 
@@ -49,6 +53,50 @@ public class CustomerService extends BaseService<Customer> {
 	@Autowired
 	private PurchaseService purchaseService;
 
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private AttachService attachService;
+
+	@Autowired
+	private RegionService regionService;
+
+	public void createCustomer(Customer customer, Long photoAttachId, Long regionId) {
+		User user = customer.getUser();
+		user.setPassword(MD5Util.MD5(user.getPlainPassword()));
+		user.setCreateTime(CoreUtils.nowtime());
+		user.setUpdateTime(CoreUtils.nowtime());
+		user.setRegisterDate(CoreUtils.nowtime());
+		if (photoAttachId != null) {
+			user.setPhotoAttach(attachService.findUniqueBy("id", photoAttachId));
+		}
+		Long[] roleIds = new Long[] { 1L };
+		userService.save(user, roleIds);
+
+		if (regionId != null) {
+			customer.setRegion(regionService.getObjectById(regionId));
+		}
+		this.save(customer);
+	}
+
+	public void saveCustomer(Customer customer, Long photoAttachId, Long regionId) {
+		User user = customer.getUser();
+		user.setUpdateTime(CoreUtils.nowtime());
+		if (photoAttachId != null) {
+			user.setPhotoAttach(attachService.findUniqueBy("id", photoAttachId));
+		}
+		if (photoAttachId != null) {
+			user.setPhotoAttach(attachService.findUniqueBy("id", photoAttachId));
+		}
+		userService.save(user);
+
+		if (regionId != null) {
+			customer.setRegion(regionService.getObjectById(regionId));
+		}
+		this.save(customer);
+	}
+
 	/**
 	 * 删除商户
 	 * 同时删除该商户产品信息和发布的供求信息
@@ -57,11 +105,11 @@ public class CustomerService extends BaseService<Customer> {
 	public void deleteCustomer(Long id) {
 		Customer customer = customerDao.findOne(id);
 		customer.setIsDeleted(Boolean.TRUE);
+		this.save(customer);
 
 		User user = customer.getUser();
 		user.setIsDeleted(Boolean.TRUE);
-
-		this.save(customer);
+		userService.save(user);
 
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("EQ_user", user);
@@ -91,4 +139,5 @@ public class CustomerService extends BaseService<Customer> {
 			deleteCustomer(id);
 		}
 	}
+
 }
