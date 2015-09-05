@@ -67,7 +67,18 @@
 					</dl>
 					<dl>
 						<dt><label>区域:</label></dt>
-						<dd><input type="text" id="region" name="region.regionName" class="required" size="30" value="${vm.region.regionName}" validate="{required:true}"/>						</dd>
+						<dd>
+							<select class="required combox" selectedValue="${vm.region.parent.parent.id}" ref="w_combox_city" dataUrl="${sctx}/region/selectJson" refUrl="${sctx}/region/selectJson?pid={value}">
+								<option value="">----省----</option> 
+							</select>
+							<select class="required combox" selectedValue="${vm.region.parent.id}" id="w_combox_city" ref="w_combox_area" refUrl="${sctx}/region/selectJson?pid={value}">
+								<option value="">----市----</option> 
+							</select>
+							<select class="required combox" name="regionId" selectedValue="${vm.region.id}" id="w_combox_area">
+								<option value="">----区----</option> 
+							</select>
+<%-- 						<input type="text" id="region" name="region.regionName" class="required" size="30" value="${vm.region.regionName}" validate="{required:true}"/>						 --%>
+						</dd>
 					</dl>
 					<dl>
 						<dt><label>详细地址:</label></dt>
@@ -79,7 +90,14 @@
 <!-- 					</dl> -->
 					<dl>
 						<dt><label>品类名称:</label></dt>
-						<dd><input type="text" id="category" name="category.categoryName" class="required" size="30" value="${vm.category.categoryName}" validate="{required:true}"/>						</dd>
+						<dd>
+							<dd>
+								<input type="hidden" class="changeValidate" name="categoryTree.id" value="${vm.category.id}" <c:if test="${not empty id}"></c:if>/> 
+								<input name="categoryTree.name" value="${vm.category.name}" type="text" readonly="readonly" /> 
+								<a class="btnLook" href="${sctx}/category/select" lookupGroup="categoryTree">查找带回</a>
+							</dd>	
+<%-- 							<input type="text" id="category" name="category.categoryName" class="required" size="30" value="${vm.category.categoryName}" validate="{required:true}"/>						 --%>
+						</dd>
 					</dl>
 		</div>
 		<div class="formBar">

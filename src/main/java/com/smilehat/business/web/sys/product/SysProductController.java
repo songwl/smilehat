@@ -2,6 +2,7 @@ package com.smilehat.business.web.sys.product;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,13 +14,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.google.common.collect.Maps;
+import com.smilehat.business.entity.Category;
+import com.smilehat.business.entity.Customer;
 import com.smilehat.business.entity.Product;
+import com.smilehat.business.service.CategoryService;
+import com.smilehat.business.service.CustomerService;
 import com.smilehat.business.service.ProductService;
 import com.smilehat.business.core.web.BaseController;
 import com.smilehat.constants.Constants;
 import com.smilehat.util.CoreUtils;
 
 import java.util.*;
+
 import com.smilehat.modules.entity.IdEntity;
 
  
@@ -34,11 +42,15 @@ public class SysProductController extends BaseController {
 	 
 	@Autowired
 	private ProductService productService;
+	@Autowired
+	private CustomerService customerService;
+	
 	public static final String PATH = "sys/product";
 	public static final String PATH_LIST = PATH +Constants.SPT+ "list";
 	public static final String PATH_EDIT = PATH + Constants.SPT+"edit";
 	public static final String PATH_VIEW = PATH + Constants.SPT+"view";
 	public static final String PATH_SEARCH = PATH + Constants.SPT+"search";
+	public static final String PATH_SELECT = PATH + "/select";
 	
 	@RequestMapping(value = "")
 	public String list(Model model, HttpServletRequest request) {
@@ -129,5 +141,22 @@ public class SysProductController extends BaseController {
 		return null;
 	}
 	
+	/**
+	 * 商户
+	 * @param model
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "select")
+	public String select(Model model, HttpServletRequest request) {
+		PageRequest pageRequest = this.getPageRequest("user.registerDate", "desc");
+		Map<String, Object> searchParams = this.getSearchRequest();
+		searchParams.put("EQ_isDeleted", false);//所有未删除的商户，false未删除，true
+		
+		Page<Customer> page = customerService.findPage(searchParams, pageRequest);
+		model.addAttribute("page", page);
+		
+		return PATH_SELECT;
+	}
 
 }
