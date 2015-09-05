@@ -1,13 +1,18 @@
 package com.smilehat.business.entity;
 
-import javax.persistence.*; 
+import java.util.List;
 
-import com.smilehat.constants.Constants;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.util.*;
-
+import com.google.common.collect.Lists;
+import com.smilehat.constants.Constants;
 import com.smilehat.modules.entity.IdEntity;
 
  
@@ -28,7 +33,9 @@ public class Category extends IdEntity {
      private java.lang.Integer sort;//品类顺序
      private java.util.Date createTime;//创建时间
      
-	 private Category category;//父级品类
+	 private Category parent;//父级品类
+	 
+	 private List<Category> children = Lists.newArrayList();
 
 	
 	/**
@@ -62,13 +69,14 @@ public class Category extends IdEntity {
 	 */
 	@ManyToOne
 	@JoinColumn(name = "parent_id")
-	public Category getCategory() {
-		return category;
+	public Category getParent() {
+		return parent;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setParent(Category parent) {
+		this.parent = parent;
 	}
+
 	
 	/**
 	 * @return
@@ -78,7 +86,6 @@ public class Category extends IdEntity {
 		return this.sort;
 	}
 	
-
 	public void setSort(java.lang.Integer value) {
 		this.sort = value;
 	}
@@ -94,6 +101,19 @@ public class Category extends IdEntity {
 	
 	public void setCreateTime(java.util.Date value) {
 		this.createTime = value;
+	}
+	
+	/**
+	 * 一个父栏目有多个子栏目
+	 * @return
+	 */
+	@OneToMany(mappedBy = "parent")
+	public List<Category> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<Category> children) {
+		this.children = children;
 	}
 	
 	

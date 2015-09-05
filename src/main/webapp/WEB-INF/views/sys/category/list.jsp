@@ -1,7 +1,18 @@
   <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="/WEB-INF/inc/include.inc.jsp"%>
+<c:set var="onClickTemplet" value="setSelectedNote('{id}')"></c:set>
 <tag:pagerForm action="#rel#" id="pagerForm"></tag:pagerForm>
 
+
+<div class="tabsContent" style="border-width: 0px 1px 1px 1px;">
+			<div>
+				<div id="viewCatalogTree" layoutH="45" style="float: left; display: block; overflow: auto; width: 240px; border: solid 1px #CCC; line-height: 21px; background: #fff">
+					<tag:tree root="${categorylist}" isRoot="true" childFieldName="children" idFieldName="id" nameFieldName="categoryName" pidFieldName="parent"
+					onClickTemplet="${onClickTemplet}" className="tree treeFolder expand"></tag:tree>
+				</div>
+			</div>
+		</div>
+		
 <div class="pageHeader">
 	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="${ctx}/sys/category" method="post">
 		<div class="searchBar">
@@ -32,7 +43,7 @@
 <div class="pageContent">
 	<div class="panelBar">
 		<ul class="toolBar">
-			<li><a class="add" title="添加" href="${ctx}/sys/category/new?navTabId=sys_category" target="dialog" rel="category_new"><span>添加</span></a></li>
+			<li><a class="add" title="添加" href="${ctx}/sys/category/new?navTabId=app_category" target="dialog" rel="category_new"><span>添加</span></a></li>
 			<li><a class="edit" title="编辑" href="${ctx}/sys/category/update/{sid}?navTabId=sys_category" target="dialog" rel="category_update"
 				warn="请选择一个记录"><span>编辑</span></a></li>
 			<li><a title="确实要删除这些记录吗?" target="selectedTodo" rel="ids" href="${ctx}/sys/category/delete" class="delete"><span>删除</span></a></li>
@@ -78,3 +89,12 @@
 		<tag:pagination page="${page}" numPerPageOnchange="navTabPageBreak({numPerPage:this.value})"></tag:pagination>
 	</div>
 </div>
+
+<script type="text/javascript">
+	function setSelectedNote(id) {
+		if(id){
+			$("#sid").val(id);
+			$("#pid").val(id);
+		} 
+	}	
+</script>

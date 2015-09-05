@@ -1,7 +1,11 @@
 package com.smilehat.business.web.sys.category;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,15 +16,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.google.common.collect.Maps;
+import com.smilehat.business.core.web.BaseController;
 import com.smilehat.business.entity.Category;
 import com.smilehat.business.service.CategoryService;
-import com.smilehat.business.core.web.BaseController;
 import com.smilehat.constants.Constants;
-import com.smilehat.util.CoreUtils;
-
-import java.util.*;
-import com.smilehat.modules.entity.IdEntity;
 
  
 /**
@@ -39,15 +42,19 @@ public class SysCategoryController extends BaseController {
 	public static final String PATH_EDIT = PATH + Constants.SPT+"edit";
 	public static final String PATH_VIEW = PATH + Constants.SPT+"view";
 	public static final String PATH_SEARCH = PATH + Constants.SPT+"search";
+	public static final String PATH_SELECT = PATH + "/select";
 	
 	@RequestMapping(value = "")
 	public String list(Model model, HttpServletRequest request) {
 
 		PageRequest pageRequest = this.getPageRequest();
 		Map<String, Object> searchParams = this.getSearchRequest();
-	 
-
 		Page<Category> page = categoryService.findPage(searchParams, pageRequest);
+		
+		searchParams = Maps.newHashMap();
+		searchParams.put("ISNULL_parent", null);
+		List<Category> categoryList = categoryService.findAll(searchParams, "sort", "asc");
+		model.addAttribute("categorylist", categoryList);
 		model.addAttribute("page", page);
 	
 		return PATH_LIST;
@@ -71,8 +78,8 @@ public class SysCategoryController extends BaseController {
 	}
 
 	@RequestMapping(value =  BaseController.CREATE, method = RequestMethod.POST)
-	public ModelAndView create(@Valid Category category) {
-		categoryService.save(category);		 
+	public ModelAndView create(@Valid Category category,@RequestParam(value="categoryTree.id") Long parentId) {
+		categoryService.save(category,parentId);		 
 		return this.ajaxDoneSuccess("创建成功");
 	}
 
@@ -91,8 +98,8 @@ public class SysCategoryController extends BaseController {
 	}
 
 	@RequestMapping(value = BaseController.UPDATE, method = RequestMethod.POST)
-	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Category category) {
-		categoryService.save(category);		
+	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Category category,@RequestParam(value="categoryTree.id") Long parentId) {
+		categoryService.save(category,parentId);		
 		return this.ajaxDoneSuccess("修改成功");
 	}
 
@@ -129,5 +136,33 @@ public class SysCategoryController extends BaseController {
 		return null;
 	}
 	
+	/**
+	 * 栏目树
+	 * @param model
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "select")
+	public String select(Model model, HttpServletRequest request) {
+		Map<String, Object> searchParams = Maps.newHashMap();
+		searchParams.put("ISNULL_parent", null);
+		List<Category> category = categoryService.findAll(searchParams, "sort", "asc");
+		model.addAttribute("categorylist", category);
+		return PATH_SELECT;
+	}
+	
+	@RequestMapping(value = "checkparent")
+	@ResponseBody
+	public Boolean checkParent(@RequestParam(value = "id") Long id,
+			@RequestParam(value = "catalogTree.id", required = false) Long pid) {
+		//当前的设置的上级栏目，不能是本栏目的子栏目(会递归出错)
+		if (id == null || pid == null) {
+			return true;
+		}
+		if (id.equals(pid)) {
+			return false;
+		}
+		return !categoryService.isParent(pid, id);
+	}
 
 }
