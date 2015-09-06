@@ -4,8 +4,8 @@
 <div class="pageContent">
 	<form method="post" action="${ctx}/sys/certlabel/${action}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
 		<input type="hidden" name="id" value="${id}">
-		<vsc:token tokenName=".certlabel.create"></vsc:token>
-		<vsc:callback></vsc:callback>
+		<tag:token tokenName=".certlabel.create"></tag:token>
+		<tag:callback></tag:callback>
 		<div class="pageFormContent" layoutH="56">
 					<dl>
 						<dt><label>认证标签名称:</label></dt>

@@ -83,8 +83,8 @@ public class SysProductController extends BaseController {
 	}
 
 	@RequestMapping(value =  BaseController.CREATE, method = RequestMethod.POST)
-	public ModelAndView create(@Valid Product product) {
-		productService.save(product);		 
+	public ModelAndView create(@Valid Product product,@RequestParam(required = false) Long regionId) {
+		productService.createProduct(product, regionId);		 
 		return this.ajaxDoneSuccess("创建成功");
 	}
 
@@ -103,8 +103,8 @@ public class SysProductController extends BaseController {
 	}
 
 	@RequestMapping(value = BaseController.UPDATE, method = RequestMethod.POST)
-	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Product product) {
-		productService.save(product);		
+	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Product product,@RequestParam(required = false) Long regionId) {
+		productService.saveProduct(product, regionId);		
 		return this.ajaxDoneSuccess("修改成功");
 	}
 

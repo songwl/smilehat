@@ -4,8 +4,8 @@
 <div class="pageContent">
 	<form method="post" action="${ctx}/sys/government/${action}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
 		<input type="hidden" name="id" value="${id}">
-		<vsc:token tokenName=".government.create"></vsc:token>
-		<vsc:callback></vsc:callback>
+		<tag:token tokenName=".government.create"></tag:token>
+		<tag:callback></tag:callback>
 		<div class="pageFormContent" layoutH="56">
 					<dl>
 						<dt><label>政府名称:</label></dt>

@@ -59,7 +59,7 @@
 						<a title="查找带回" href="javascript:$.bringBack({id:'${item.user.id}', loginName:'${item.user.loginName}',name:'${item.user.name}'})" class="btnSelect">选择</a>
 						</c:if>
 					</td>
-					<td><a href="${sctx}/customer/view/${item.id}" target="dialog" title="查看商户" rel="sys_customer_view"> ${item.user.loginName} </a></td>
+					<td>${item.user.loginName}</td>
 					<td>${item.user.name}</td>
 					<td><s:message code="user.usertype.${item.user.userType}"></s:message></td>
 					<td><fmt:formatDate value="${item.user.registerDate}" pattern="yyyy-MM-dd HH:mm" /></td>

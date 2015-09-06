@@ -6,18 +6,13 @@
 	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="${ctx}/sys/purchase" method="post">
 		<div class="searchBar">
 			<ul class="searchContent">
-				   
-<!-- 				<li><label>USER_ID:</label>  -->
-<%-- 					<input type="text" value="${param.search_LIKE_userId}" name="search_LIKE_userId" /> </li>    --%>
-				<li><label>品类名称:</label> 
-					<input type="text" value="${param.search_LIKE_category.categoryName}" name="search_LIKE_category。categoryName" /> </li>      
-<!-- 				<li><label>QUANTITY:</label>  -->
-<%-- 					<input type="text" value="${param.search_LIKE_quantity}" name="search_LIKE_quantity" /> </li>    --%>
-<!-- 				<li><label>QUANTITY_UNIT:</label>  -->
-<%-- 					<input type="text" value="${param.search_LIKE_quantityUnit}" name="search_LIKE_quantityUnit" /> </li>       --%>
-<!-- 				<li><label>CREATE_TIME:</label>  <input type="text" class="date" size="9" -->
-<%-- 					value="${param.search_GTE_createTime}" dateFmt="yyyy-MM-dd" name="search_GTE_createTime" readonly="true" />- <input type="text" --%>
-<%-- 					class="date" size="9" value="${param.search_LTE_createTime}" dateFmt="yyyy-MM-dd" name="search_LTE_createTime" readonly="true" /> </li>    --%>
+				<li><label>商户选择:</label> 
+				<dd>
+					<div style="float:left;">
+					<input value="${param.search_IN_user.id}" name="search_IN_user.id" type="hidden" /> 
+					<input value="${param.search_IN_user.name}" name="search_IN_user.name" /> </div>
+					<a class="btnLook" rel="customer_select" title="选择商户" href="${ctx}/sys/product/select" lookupGroup="search_IN_user">查找带回</a>
+				</dd>
 				<li><label>发布时间:</label>  <input type="text" class="date" size="9"
 					value="${param.search_GTE_publishTime}" dateFmt="yyyy-MM-dd" name="search_GTE_publishTime" readonly="true" />- <input type="text"
 					class="date" size="9" value="${param.search_LTE_publishTime}" dateFmt="yyyy-MM-dd" name="search_LTE_publishTime" readonly="true" /> </li>   
@@ -29,8 +24,6 @@
 								<button type="submit">检索</button>
 							</div>
 						</div></li>
-<%-- 					<li><a rel="_purchase_search" class="button" href="${ctx}/sys/purchase/search" target="dialog" minable="false" --%>
-<!-- 						fresh="false" title="高级检索"><span>高级检索</span></a></li> -->
 				</ul>
 			</div>
 		</div>
@@ -39,8 +32,8 @@
 <div class="pageContent">
 	<div class="panelBar">
 		<ul class="toolBar">
-			<li><a class="add" title="添加" href="${ctx}/sys/purchase/new?navTabId=_purchase" target="dialog" rel="purchase_new"><span>添加</span></a></li>
-			<li><a class="edit" title="编辑" href="${ctx}/sys/purchase/update/{sid}?navTabId=_purchase" target="dialog" rel="purchase_update"
+			<li><a class="add" title="添加" href="${ctx}/sys/purchase/new?navTabId=app_purchase" target="dialog" rel="purchase_new"><span>添加</span></a></li>
+			<li><a class="edit" title="编辑" href="${ctx}/sys/purchase/update/{sid}?navTabId=app_purchase" target="dialog" rel="purchase_update"
 				warn="请选择一个记录"><span>编辑</span></a></li>
 			<li><a title="确实要删除这些记录吗?" target="selectedTodo" rel="ids" href="${ctx}/sys/purchase/delete" class="delete"><span>删除</span></a></li>
 			<li class="line">line</li>
@@ -52,14 +45,12 @@
 			<tr>
 				<th width="40" align="center">序号</th>
 				<th width="30"><input type="checkbox" group="ids" class="checkboxCtrl"></th>    
-				<th <tag:orderField name="userId"/>>user_id</th>   
+				<th <tag:orderField name="user.name"/>>商户名称</th>   
 				<th <tag:orderField name="category.categoryName"/>>品类名称</th>   
 				<th <tag:orderField name="title"/>>标题</th>   
-				<th <tag:orderField name="description"/>>描述</th>   
-				<th <tag:orderField name="quantity"/>>采购量</th>   
-				<th <tag:orderField name="quantityUnit"/>>采购量单位</th>   
-				<th <tag:orderField name="price"/>>采购价格</th>   
-				<th <tag:orderField name="priceUnit"/>>采购价格单位</th>   
+<!-- 				<th <tag:orderField name="description"/>>描述</th>    -->
+				<th <tag:orderField name="quantity"/>>采购量(单位)</th>   
+				<th <tag:orderField name="price"/>>采购价格(单位)</th>   
 				<th <tag:orderField name="createTime"/>>创建时间</th>   
 				<th <tag:orderField name="updateTime"/>>更新时间</th>   
 				<th <tag:orderField name="publishTime"/>>发布时间</th>  
@@ -71,21 +62,17 @@
 				<tr target="sid" rel="${varitem.id}">
 					<td align="center">${varindex.count}</td>
 					<td><input name="ids" value="${varitem.id }" type="checkbox"></td>    
-					<td> <a href="${ctx}/sys/purchase/view/${varitem.id}" target="dialog" title="查看"> ${varitem.userId} </a> 
+					<td> ${varitem.user.name} 
 					</td>   
-					<td> <a href="${ctx}/sys/purchase/view/${varitem.id}" target="dialog" title="查看"> ${varitem.categoryId} </a> 
+					<td> ${varitem.category.categoryName} 
 					</td>   
-					<td> <a href="${ctx}/sys/purchase/view/${varitem.id}" target="dialog" title="查看"> ${varitem.title} </a> 
+					<td> <a href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" target="dialog" title="查看"> ${varitem.title} </a> 
 					</td>   
-					<td> <a href="${ctx}/sys/purchase/view/${varitem.id}" target="dialog" title="查看"> ${varitem.description} </a> 
+<%-- 					<td> <a href="${ctx}/sys/purchase/view/${varitem.id}" target="dialog" title="查看"> ${varitem.description} </a>  --%>
+<!-- 					</td>    -->
+					<td>  ${varitem.quantity} ( ${varitem.quantityUnit})
 					</td>   
-					<td> <a href="${ctx}/sys/purchase/view/${varitem.id}" target="dialog" title="查看"> ${varitem.quantity} </a> 
-					</td>   
-					<td> <a href="${ctx}/sys/purchase/view/${varitem.id}" target="dialog" title="查看"> ${varitem.quantityUnit} </a> 
-					</td>   
-					<td> <a href="${ctx}/sys/purchase/view/${varitem.id}" target="dialog" title="查看"> ${varitem.price} </a> 
-					</td>   
-					<td> <a href="${ctx}/sys/purchase/view/${varitem.id}" target="dialog" title="查看"> ${varitem.priceUnit} </a> 
+					<td> ${varitem.price} (${varitem.priceUnit} )
 					</td>   
 					<td> <fmt:formatDate value='${ varitem.createTime}' pattern='yyyy-MM-dd'/> 
 					</td>   
@@ -93,7 +80,7 @@
 					</td>   
 					<td> <fmt:formatDate value='${ varitem.publishTime}' pattern='yyyy-MM-dd'/> 
 					</td>  
-					<td><a title="编辑" target="dialog" ref="purchase_update" href="${ctx}/sys/purchase/update/${varitem.id}" class="btnEdit">编辑</a> <a title="删除"
+					<td><a title="编辑" target="dialog" ref="purchase_update" href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" class="btnEdit">编辑</a> <a title="删除"
 						target="ajaxTodo" href="${ctx}/sys/purchase/delete/${varitem.id}" class="btnDel">删除</a></td>
 				</tr>
 			</c:forEach>

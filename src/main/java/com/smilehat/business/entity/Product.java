@@ -103,7 +103,7 @@ public class Product extends IdEntity {
 	 * @return
 	 */
 	@ManyToOne
-	@JoinColumn(name = "categoty_id")
+	@JoinColumn(name = "category_id")
 	public Category getCategory() {
 		return category;
 	}

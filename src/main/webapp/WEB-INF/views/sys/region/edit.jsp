@@ -4,8 +4,8 @@
 <div class="pageContent">
 	<form method="post" action="${ctx}/sys/region/${action}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
 		<input type="hidden" name="id" value="${id}">
-		<vsc:token tokenName="sys.region.create"></vsc:token>
-		<vsc:callback></vsc:callback>
+		<tag:token tokenName="sys.region.create"></tag:token>
+		<tag:callback></tag:callback>
 		<div class="pageFormContent" layoutH="56">
 					<dl>
 						<dt><label>区域CODE:</label></dt>

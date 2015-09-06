@@ -33,12 +33,12 @@
 <div class="pageContent">
 	<div class="panelBar">
 		<ul class="toolBar">
-			<li><a class="add" title="添加" href="${ctx}/sys/product/new?navTabId=_product" target="dialog" rel="product_new"><span>添加</span></a></li>
+			<li><a class="add" title="添加" href="${ctx}/sys/product/new?navTabId=app_product" target="dialog" rel="product_new"><span>添加</span></a></li>
 <%-- 			<li><a class="edit" title="编辑" href="${ctx}/sys/product/update/{sid}?navTabId=_product" target="dialog" rel="product_update" --%>
 <!-- 				warn="请选择一个记录"><span>编辑</span></a></li> -->
 			<li><a title="确实要删除这些记录吗?" target="selectedTodo" rel="ids" href="${ctx}/sys/product/delete" class="delete"><span>删除</span></a></li>
-			<li class="line">line</li>
-			<li><a class="icon" href="${ctx}/sys/product/export" target="dwzExport" targetType="navTab" title="确实要导出这些记录吗?"><span>导出</span></a></li>
+<!-- 			<li class="line">line</li> -->
+<%-- 			<li><a class="icon" href="${ctx}/sys/product/export" target="dwzExport" targetType="navTab" title="确实要导出这些记录吗?"><span>导出</span></a></li> --%>
 		</ul>
 	</div>
 	<table class="table" width="100%" layoutH="138">
@@ -72,9 +72,9 @@
 				<tr target="sid" rel="${varitem.id}">
 					<td align="center">${varindex.count}</td>
 					<td><input name="ids" value="${varitem.id }" type="checkbox"></td>    
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}" target="dialog" title="查看"> ${varitem.name} </a> 
+					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="查看"> ${varitem.name} </a> 
 					</td>   
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}" target="dialog" title="查看"> ${varitem.title} </a> 
+					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="查看"> ${varitem.title} </a> 
 					</td>   
 <%-- 					<td> <a href="${ctx}/sys/product/view/${varitem.id}" target="dialog" title="查看"> ${varitem.description} </a>  --%>
 <!-- 					</td>    -->
@@ -90,24 +90,22 @@
 					</td>   
 <%-- 					<td> <fmt:formatDate value='${ varitem.endTime}' pattern='yyyy-MM-dd'/>  --%>
 <!-- 					</td>    -->
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}" target="dialog" title="查看"> ${varitem.branchInfo} </a> 
+					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="查看"> ${varitem.branchInfo} </a> 
 					</td>   
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}" target="dialog" title="查看"> ${varitem.price} </a> (
-					 	<a href="${ctx}/sys/product/update/${varitem.id}" target="dialog" title="查看"> ${varitem.priceUnit} </a>) 
+					<td>${varitem.price} (${varitem.priceUnit}) 
 					</td>  
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}" target="dialog" title="查看"> ${varitem.quantity} </a>( 
-					<a href="${ctx}/sys/product/update/${varitem.id}" target="dialog" title="查看"> ${varitem.quantityUnit} </a> )
+					<td> ${varitem.quantity}(${varitem.quantityUnit})
 					</td>   
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}" target="dialog" title="查看"> ${varitem.regio.regionName} </a> 
+					<td> ${varitem.region.regionName}
 					</td>   
 <%-- 					<td> <a href="${ctx}/sys/product/view/${varitem.id}" target="dialog" title="查看"> ${varitem.regionDetail} </a>  --%>
 <!-- 					</td>    -->
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}" target="dialog" title="查看"> ${varitem.user.name} </a> 
+					<td>${varitem.user.name}
 					</td>   
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}" target="dialog" title="查看"> ${varitem.categoryId} </a> 
+					<td>${varitem.category.categoryName} 
 					</td>  
-					<td><a title="编辑" target="dialog" ref="product_update" href="${ctx}/sys/product/update/${varitem.id}" class="btnEdit">编辑</a> <a title="删除"
-						target="ajaxTodo" href="${ctx}/sys/product/delete/${varitem.id}" class="btnDel">删除</a></td>
+					<td><a title="编辑" target="dialog" ref="product_update" href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" class="btnEdit">编辑</a> 
+						<a title="删除" target="ajaxTodo" href="${ctx}/sys/product/delete/${varitem.id}" class="btnDel">删除</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

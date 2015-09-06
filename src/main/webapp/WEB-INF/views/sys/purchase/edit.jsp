@@ -4,16 +4,22 @@
 <div class="pageContent">
 	<form method="post" action="${ctx}/sys/purchase/${action}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
 		<input type="hidden" name="id" value="${id}">
-		<vsc:token tokenName=".purchase.create"></vsc:token>
-		<vsc:callback></vsc:callback>
+		<tag:token tokenName=".purchase.create"></tag:token>
+		<tag:callback></tag:callback>
 		<div class="pageFormContent" layoutH="56">
-<!-- 					<dl> -->
-<!-- 						<dt><label>USER_ID:</label></dt> -->
-<%-- 						<dd><input type="text" id="userId" name="userId" class="required" size="30" value="${vm.userId}" validate="{required:true}"/>						</dd> --%>
-<!-- 					</dl> -->
+					<dl>
+						<dt><label>所属商户:</label></dt>
+						<dd><input type="text" id="userId" name="userId" class="required" size="30" value="${vm.user.name}" validate="{required:true}"/>						</dd>
+					</dl>
 					<dl>
 						<dt><label>品类名称:</label></dt>
-						<dd><input type="text" id="category" name="category.categoryName" class="required" size="30" value="${vm.category.categoryName}" validate="{required:true}"/>						</dd>
+						<dd>
+							<dd>
+								<input type="hidden" class="changeValidate" name="categoryTree.id" value="${vm.category.id}" <c:if test="${not empty id}"></c:if>/> 
+								<input name="categoryTree.name" value="${vm.category.categoryName}" type="text" readonly="readonly" /> 
+								<a class="btnLook" href="${sctx}/category/select" lookupGroup="categoryTree">查找带回</a>
+							</dd>	
+						</dd>
 					</dl>
 					<dl>
 						<dt><label>标题:</label></dt>
