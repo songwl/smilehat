@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.smilehat.business.entity.Category;
 import com.smilehat.business.entity.Region;
 import com.smilehat.business.repository.RegionDao;
 import com.smilehat.modules.service.BaseService;
@@ -36,4 +38,35 @@ public class RegionService extends BaseService<Region>{
 		return this.regionDao;
 	}
 	
+	/**
+	 * 判断某个栏目是不是另一个栏目的上级(不限层次)栏目
+	 * id的上级栏目包括pid 返回 true,否则返回flase
+	 * @param id 目标栏目 
+	 * @param pid 上级栏目ID
+	 * @return 
+	 */
+	public Boolean isParent(Long id, Long pid) {
+		if (id == null || pid == null) {
+			return false;
+		}
+		Region obj = this.regionDao.findOne(id);
+		if (obj != null) {
+			return isParent(obj, pid);
+		}
+		return false;
+	}
+	
+	private Boolean isParent(Region obj, Long pid) {
+		if (obj != null) {
+			if (obj.getParent() != null) {
+				if (obj.getParent().getId().equals(pid)) {
+					return true;
+				} else {
+					return isParent(obj.getParent(), pid);
+				}
+			}
+			return false;
+		}
+		return false;
+	}
 }

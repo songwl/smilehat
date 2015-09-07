@@ -5,13 +5,13 @@
 
 
 <div class="tabsContent" style="border-width: 0px 1px 1px 1px;">
-			<div>
-				<div id="viewCatalogTree" layoutH="45" style="float: left; display: block; overflow: auto; width: 240px; border: solid 1px #CCC; line-height: 21px; background: #fff">
-					<tag:tree root="${categorylist}" isRoot="true" childFieldName="children" idFieldName="id" nameFieldName="categoryName" pidFieldName="parent"
-					onClickTemplet="${onClickTemplet}" className="tree treeFolder expand"></tag:tree>
-				</div>
-			</div>
+	<div>
+		<div id="viewCatalogTree" layoutH="45" style="float: left; display: block; overflow: auto; width: 240px; border: solid 1px #CCC; line-height: 21px; background: #fff">
+			<tag:tree root="${categorylist}" isRoot="true" childFieldName="children" idFieldName="id" nameFieldName="categoryName" pidFieldName="parent"
+			onClickTemplet="${onClickTemplet}" className="tree treeFolder expand"></tag:tree>
 		</div>
+	</div>
+</div>
 		
 <div class="pageHeader">
 	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="${ctx}/sys/category" method="post">

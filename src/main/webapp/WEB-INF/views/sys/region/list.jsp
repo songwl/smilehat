@@ -6,7 +6,6 @@
 	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="${ctx}/sys/region" method="post">
 		<div class="searchBar">
 			<ul class="searchContent">
-				   
 <!-- 				<li><label>REGION_CODE:</label>  -->
 <%-- 					<input type="text" value="${param.search_LIKE_regionCode}" name="search_LIKE_regionCode" /> </li>    --%>
 				<li><label>区域名称:</label> 
@@ -49,8 +48,8 @@
 				<th <tag:orderField name="regionCode"/>>区域代码</th>   
 				<th <tag:orderField name="regionName"/>>区域名称</th>   
 				<th <tag:orderField name="parent.regionName"/>>上级区域名称</th>   
-				<th <tag:orderField name="regionLevel"/>>区域等级</th>   
-				<th <tag:orderField name="regionSort"/>>区域顺序</th>   
+<!-- 				<th <tag:orderField name="regionLevel"/>>区域等级</th>    -->
+<!-- 				<th <tag:orderField name="regionSort"/>>区域顺序</th>    -->
 				<th <tag:orderField name="regionNameEn"/>>区域英文名称</th>   
 				<th <tag:orderField name="regionShortnameEn"/>>区域英文缩写</th>  
 				<th width="200">操作</th>
@@ -67,10 +66,10 @@
 					</td>   
 					<td> <a href="${ctx}/sys/region/view/${varitem.id}" target="dialog" title="查看"> ${varitem.parent.regionName} </a> 
 					</td>   
-					<td> <a href="${ctx}/sys/region/view/${varitem.id}" target="dialog" title="查看"> ${varitem.regionLevel} </a> 
-					</td>   
-					<td> <a href="${ctx}/sys/region/view/${varitem.id}" target="dialog" title="查看"> ${varitem.regionSort} </a> 
-					</td>   
+<%-- 					<td> <a href="${ctx}/sys/region/view/${varitem.id}" target="dialog" title="查看"> ${varitem.regionLevel} </a>  --%>
+<!-- 					</td>    -->
+<%-- 					<td> <a href="${ctx}/sys/region/view/${varitem.id}" target="dialog" title="查看"> ${varitem.regionSort} </a>  --%>
+<!-- 					</td>    -->
 					<td> <a href="${ctx}/sys/region/view/${varitem.id}" target="dialog" title="查看"> ${varitem.regionNameEn} </a> 
 					</td>   
 					<td> <a href="${ctx}/sys/region/view/${varitem.id}" target="dialog" title="查看"> ${varitem.regionShortnameEn} </a> 

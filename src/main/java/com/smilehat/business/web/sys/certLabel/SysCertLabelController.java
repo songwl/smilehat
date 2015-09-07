@@ -2,6 +2,7 @@ package com.smilehat.business.web.sys.certLabel;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,13 +14,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.smilehat.business.entity.CertLabel;
 import com.smilehat.business.service.CertLabelService;
+import com.smilehat.business.core.service.sys.upload.AttachService;
 import com.smilehat.business.core.web.BaseController;
 import com.smilehat.constants.Constants;
 import com.smilehat.util.CoreUtils;
 
 import java.util.*;
+
 import com.smilehat.modules.entity.IdEntity;
 
  
@@ -34,6 +38,9 @@ public class SysCertLabelController extends BaseController {
 	 
 	@Autowired
 	private CertLabelService certLabelService;
+	@Autowired
+	private AttachService attachService;
+	
 	public static final String PATH = "sys/certlabel";
 	public static final String PATH_LIST = PATH +Constants.SPT+ "list";
 	public static final String PATH_EDIT = PATH + Constants.SPT+"edit";
@@ -71,8 +78,10 @@ public class SysCertLabelController extends BaseController {
 	}
 
 	@RequestMapping(value =  BaseController.CREATE, method = RequestMethod.POST)
-	public ModelAndView create(@Valid CertLabel certLabel) {
+	public ModelAndView create(@Valid CertLabel certLabel, @RequestParam(value = "photoAttachId", required = false) Long photoAttachId) {
+		certLabel.setPhotoAttach(attachService.findUniqueBy("id", photoAttachId));
 		certLabelService.save(certLabel);		 
+		
 		return this.ajaxDoneSuccess("创建成功");
 	}
 
@@ -91,7 +100,8 @@ public class SysCertLabelController extends BaseController {
 	}
 
 	@RequestMapping(value = BaseController.UPDATE, method = RequestMethod.POST)
-	public ModelAndView update(@Valid @ModelAttribute("preloadModel") CertLabel certLabel) {
+	public ModelAndView update(@Valid @ModelAttribute("preloadModel") CertLabel certLabel, @RequestParam(value = "photoAttachId", required = false) Long photoAttachId) {
+		certLabel.setPhotoAttach(attachService.findUniqueBy("id", photoAttachId));
 		certLabelService.save(certLabel);		
 		return this.ajaxDoneSuccess("修改成功");
 	}

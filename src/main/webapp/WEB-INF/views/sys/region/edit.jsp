@@ -17,6 +17,11 @@
 					</dl>
 					<dl>
 						<dt><label>上级区域:</label></dt>
+<!-- 						<dd> -->
+<%-- 							<input type="hidden" class="changeValidate" name="regionTree.id" value="${vm.parent.id}" <c:if test="${not empty id}">validate="{remoteAsync:'${sctx}/region/checkparent?id=${vm.id}',messages:{remoteAsync:'上级栏目部不能是当前栏目的子栏目'}}"</c:if>/>  --%>
+<%-- 							<input name="regionTree.name" value="${vm.parent.regionName}" type="text" readonly="readonly" />  --%>
+<%-- 							<a class="btnLook" href="${sctx}/region/select" lookupGroup="regionTree">查找带回</a> --%>
+<!-- 						</dd> -->
 						<dd><input type="text" id="parent" name="parent.regionName" class="required" size="30" value="${vm.parent.regionName}" validate="{required:true}"/>						</dd>
 					</dl>
 					<dl>

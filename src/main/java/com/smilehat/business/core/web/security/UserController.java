@@ -91,6 +91,7 @@ public class UserController extends SysBaseController {
 	public ModelAndView create(@Valid User user, @RequestParam(value = "photoAttachId", required = false) Long photoAttachId, @RequestParam("role.id") Long[] roleIds) {
 		user.setPassword(user.getPlainPassword());
 		user.setCreateTime(CoreUtils.nowtime());
+		user.setPhotoAttach(attachService.findUniqueBy("id", photoAttachId));
 		userService.save(user, roleIds);
 		return this.ajaxDoneSuccess("创建成功");
 	}

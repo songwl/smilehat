@@ -1,9 +1,14 @@
 package com.smilehat.business.entity;
 
 import javax.persistence.*; 
+
+import com.smilehat.business.core.entity.sys.upload.Attach;
 import com.smilehat.constants.Constants;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import java.util.*;
+
 import com.smilehat.modules.entity.IdEntity;
 
  
@@ -24,8 +29,19 @@ public class CertLabel extends IdEntity {
      private java.lang.String certType;//认证类型
      private java.lang.String certType2;//认证类型二级分类
      private  java.lang.Integer sort;//排序字段
-	 
+     private Attach photoAttach;//标签图标
 
+     
+    @ManyToOne
+ 	@JoinColumn(name = "photo_attach_id")
+ 	public Attach getPhotoAttach() {
+ 		return photoAttach;
+ 	}
+
+ 	public void setPhotoAttach(Attach photoAttach) {
+ 		this.photoAttach = photoAttach;
+ 	}
+ 	
      /**
  	 * @return
  	 */

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.smilehat.business.core.entity.security.User;
+import com.smilehat.business.core.service.security.UserService;
 import com.smilehat.business.entity.Customer;
 import com.smilehat.business.entity.Product;
 import com.smilehat.business.repository.ProductDao;
@@ -29,7 +30,11 @@ public class ProductService extends BaseService<Product>{
 	@Autowired
 	private ProductDao productDao;
 
-    
+	@Autowired
+	private RegionService regionService;
+	
+	@Autowired
+	private UserService userService;
   	
 	@Override
 	public PagingAndSortingRepository<Product, Long> getPagingAndSortingRepositoryDao() {
@@ -41,19 +46,24 @@ public class ProductService extends BaseService<Product>{
 		return this.productDao;
 	}
 	
-	@Autowired
-	private RegionService regionService;
 	
-	public void createProduct(Product product, Long regionId) {
+	
+	public void createProduct(Product product, Long regionId,Long userId) {
 		if (regionId != null) {
 			product.setRegion(regionService.getObjectById(regionId));
+		}
+		if (userId != null) {
+			product.setUser(userService.getObjectById(userId));
 		}
 		this.save(product);
 	}
 	
-	public void saveProduct(Product product, Long regionId) {
+	public void saveProduct(Product product, Long regionId,Long userId) {
 		if (regionId != null) {
 			product.setRegion(regionService.getObjectById(regionId));
+		}
+		if (userId != null) {
+			product.setUser(userService.getObjectById(userId));
 		}
 		this.save(product);
 	}

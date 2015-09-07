@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alibaba.fastjson.JSONArray;
 import com.google.common.collect.Maps;
 import com.smilehat.business.core.web.BaseController;
+import com.smilehat.business.entity.Category;
 import com.smilehat.business.entity.Region;
 import com.smilehat.business.service.RegionService;
 import com.smilehat.constants.Constants;
@@ -43,6 +44,7 @@ public class SysRegionController extends BaseController {
 	public static final String PATH_EDIT = PATH + Constants.SPT + "edit";
 	public static final String PATH_VIEW = PATH + Constants.SPT + "view";
 	public static final String PATH_SEARCH = PATH + Constants.SPT + "search";
+	public static final String PATH_SELECT = PATH + "/select";
 
 	@RequestMapping(value = "")
 	public String list(Model model, HttpServletRequest request) {
@@ -146,4 +148,33 @@ public class SysRegionController extends BaseController {
 		return jsonArray;
 	}
 
+
+	/**
+	 * 栏目树
+	 * @param model
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "select")
+	public String select(Model model, HttpServletRequest request) {
+		Map<String, Object> searchParams = Maps.newHashMap();
+		searchParams.put("ISNULL_parent", null);
+		List<Region> region = regionService.findAll(searchParams, "regionSort", "asc");
+		model.addAttribute("regionlist", region);
+		return PATH_SELECT;
+	}
+	
+	@RequestMapping(value = "checkparent")
+	@ResponseBody
+	public Boolean checkParent(@RequestParam(value = "id") Long id,
+			@RequestParam(value = "regionTree.id", required = false) Long pid) {
+		//当前的设置的上级栏目，不能是本栏目的子栏目(会递归出错)
+		if (id == null || pid == null) {
+			return true;
+		}
+		if (id.equals(pid)) {
+			return false;
+		}
+		return !regionService.isParent(pid, id);
+	}
 }

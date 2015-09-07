@@ -23,6 +23,9 @@ INSERT INTO `t_dict` VALUES ('22', 'QUANTITY_UNIY', '吨', 'dun', null, null);
 INSERT INTO `t_dict` VALUES ('23', 'QUANTITY_UNIY', '尾', 'wei', null, null);
 INSERT INTO `t_dict` VALUES ('24', 'QUANTITY_UNIY', '件', 'jian', null, null);
 INSERT INTO `t_dict` VALUES ('25', 'QUANTITY_UNIY', '只', 'zhi', null, null);
+
+
+alter table t_cert_label add photo_attach_id bigint(20);
 INSERT INTO `t_dict` VALUES ('26', 'QUANTITY_UNIY', '个', 'ge', null, null);
 INSERT INTO `t_dict` VALUES ('27', 'QUANTITY_UNIY', '克', 'ke', null, null);
 INSERT INTO `t_dict` VALUES ('28', 'QUANTITY_UNIY', '袋', 'dai', null, null);
