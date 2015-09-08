@@ -11,7 +11,7 @@
 						<dt><label>商户选择:</label> </dt>
 						<dd
 							<input value="${param.user.id}" name="user.id" type="hidden" /> 
-							<input value="${param.user.name}" name="user.name" />
+							<input value="${param.user.name}" name="user.name" readonly="readonly" type="text" />
 							<a class="btnLook" rel="customer_select" title="选择商户" href="${ctx}/sys/product/select" lookupGroup="user">查找带回</a>
 						</dd>
 					</dl>
