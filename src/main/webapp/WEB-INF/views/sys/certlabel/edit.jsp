@@ -20,7 +20,11 @@
 					</dl> 
 					<dl class="nowrap">
 						<dt><label>是否可选择:</label></dt>
-						<dd><input type="text" id="isAllowCheck" name="isAllowCheck" class="required" size="30" value="${vm.isAllowCheck}" validate="{required:true}"/>						</dd>
+						<dd>
+<%-- 							<input type="text" id="isAllowCheck" name="isAllowCheck" class="required" size="30" value="${vm.isAllowCheck}" validate="{required:true}"/> --%>
+							<input name="isAllowCheck" type="radio" value="${vm.isAllowCheck}" checked="checked"/>是</label>
+							<input name="isAllowCheck" type="radio" value="${vm.isAllowCheck}" />否</label>  						
+						</dd>
 					</dl>
 					
 					<dl class="nowrap">
@@ -33,7 +37,9 @@
 					</dl>
 					<dl class="nowrap">
 						<dt><label>认证描述:</label></dt>
-						<dd><input type="text" id="certDesc" name="certDesc" class="required" size="30" value="${vm.certDesc}" validate="{required:true}"/>						</dd>
+						<dd>
+							<textarea rows="" cols="" id="certDesc" name="certDesc" style="width: 480px;"> ${vm.certDesc}</textarea>
+						</dd>
 					</dl>
 		</div>
 		<div class="formBar">

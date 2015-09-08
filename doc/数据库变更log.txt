@@ -14,22 +14,23 @@ INSERT INTO `t_dict` VALUES ('13', 'PRICE_UNIT', '元/粒', 'yuan_li', null, null)
 INSERT INTO `t_dict` VALUES ('14', 'PRICE_UNIT', '元/包', 'yuan_bao', null, null);
 INSERT INTO `t_dict` VALUES ('15', 'PRICE_UNIT', '元/盒', 'yuan_he', null, null);
 INSERT INTO `t_dict` VALUES ('16', 'PRICE_UNIT', '元/箱', 'yuan_xiang', null, null);
-INSERT INTO `t_dict` VALUES ('17', 'QUANTITY_UNIY', '公斤', 'gongjin', null, null);
-INSERT INTO `t_dict` VALUES ('18', 'QUANTITY_UNIY', '斤', 'jin', null, null);
-INSERT INTO `t_dict` VALUES ('19', 'QUANTITY_UNIY', '棵', 'ke', null, null);
-INSERT INTO `t_dict` VALUES ('20', 'QUANTITY_UNIY', '株', 'zhu', null, null);
-INSERT INTO `t_dict` VALUES ('21', 'QUANTITY_UNIY', '头', 'tou', null, null);
-INSERT INTO `t_dict` VALUES ('22', 'QUANTITY_UNIY', '吨', 'dun', null, null);
-INSERT INTO `t_dict` VALUES ('23', 'QUANTITY_UNIY', '尾', 'wei', null, null);
-INSERT INTO `t_dict` VALUES ('24', 'QUANTITY_UNIY', '件', 'jian', null, null);
-INSERT INTO `t_dict` VALUES ('25', 'QUANTITY_UNIY', '只', 'zhi', null, null);
+INSERT INTO `t_dict` VALUES ('17', 'QUANTITY_UNIT', '公斤', 'gongjin', null, null);
+INSERT INTO `t_dict` VALUES ('18', 'QUANTITY_UNIT', '斤', 'jin', null, null);
+INSERT INTO `t_dict` VALUES ('19', 'QUANTITY_UNIT', '棵', 'ke', null, null);
+INSERT INTO `t_dict` VALUES ('20', 'QUANTITY_UNIT', '株', 'zhu', null, null);
+INSERT INTO `t_dict` VALUES ('21', 'QUANTITY_UNIT', '头', 'tou', null, null);
+INSERT INTO `t_dict` VALUES ('22', 'QUANTITY_UNIT', '吨', 'dun', null, null);
+INSERT INTO `t_dict` VALUES ('23', 'QUANTITY_UNIT', '尾', 'wei', null, null);
+INSERT INTO `t_dict` VALUES ('24', 'QUANTITY_UNIT', '件', 'jian', null, null);
+INSERT INTO `t_dict` VALUES ('25', 'QUANTITY_UNIT', '只', 'zhi', null, null);
+INSERT INTO `t_dict` VALUES ('26', 'QUANTITY_UNIT', '个', 'ge', null, null);
+INSERT INTO `t_dict` VALUES ('27', 'QUANTITY_UNIT', '克', 'ke', null, null);
+INSERT INTO `t_dict` VALUES ('28', 'QUANTITY_UNIT', '袋', 'dai', null, null);
+INSERT INTO `t_dict` VALUES ('29', 'QUANTITY_UNIT', '粒', 'li', null, null);
+INSERT INTO `t_dict` VALUES ('30', 'QUANTITY_UNIT', '包', 'bao', null, null);
+INSERT INTO `t_dict` VALUES ('31', 'QUANTITY_UNIT', '盒', 'he', null, null);
+INSERT INTO `t_dict` VALUES ('32', 'QUANTITY_UNIT', '箱', 'xiang', null, null);
+
 
 
 alter table t_cert_label add photo_attach_id bigint(20);
-INSERT INTO `t_dict` VALUES ('26', 'QUANTITY_UNIY', '个', 'ge', null, null);
-INSERT INTO `t_dict` VALUES ('27', 'QUANTITY_UNIY', '克', 'ke', null, null);
-INSERT INTO `t_dict` VALUES ('28', 'QUANTITY_UNIY', '袋', 'dai', null, null);
-INSERT INTO `t_dict` VALUES ('29', 'QUANTITY_UNIY', '粒', 'li', null, null);
-INSERT INTO `t_dict` VALUES ('30', 'QUANTITY_UNIY', '包', 'bao', null, null);
-INSERT INTO `t_dict` VALUES ('31', 'QUANTITY_UNIY', '盒', 'he', null, null);
-INSERT INTO `t_dict` VALUES ('32', 'QUANTITY_UNIY', '箱', 'xiang', null, null);

@@ -15,9 +15,12 @@
 						<a class="btnLook" rel="customer_select" title="选择商户" href="${ctx}/sys/product/select" lookupGroup="search_IN_user">查找带回</a>
 					</dd>	
 				</li> 
-				<li><label>发布时间:</label>  <input type="text" class="date" size="9"
-					value="${param.search_GTE_publishTime}" dateFmt="yyyy-MM-dd" name="search_GTE_publishTime" readonly="true" />- <input type="text"
-					class="date" size="9" value="${param.search_LTE_publishTime}" dateFmt="yyyy-MM-dd" name="search_LTE_publishTime" readonly="true" /> </li>      
+				<li>
+					<label>发布时间:</label>  
+					<input type="text" class="date" size="9"
+					value="${param.search_GTE_publishTime}" dateFmt="yyyy-MM-dd" name="search_GTE_publishTime" readonly="true" />- 
+					<input type="text"	class="date" size="9" value="${param.search_LTE_publishTime}" dateFmt="yyyy-MM-dd" name="search_LTE_publishTime" readonly="true" /> 
+				</li>      
 			</ul>
 			<div class="subBar">
 				<ul>

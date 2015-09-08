@@ -24,7 +24,7 @@ public class CertLabel extends IdEntity {
 
 	 
      private java.lang.String certName;//认证标签名称
-     private java.lang.Integer isAllowCheck;//是否用户可选择
+     private java.lang.Integer isAllowCheck;//是否用户可选择 ,0是用户可选择，1是用户不可选择
      private java.lang.String certDesc;//认证说明
      private java.lang.String certType;//认证类型
      private java.lang.String certType2;//认证类型二级分类

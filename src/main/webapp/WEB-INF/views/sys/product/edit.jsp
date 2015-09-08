@@ -12,7 +12,7 @@
 						<dd
 							<input value="${param.user.id}" name="user.id" type="hidden" /> 
 							<input value="${param.user.name}" name="user.name" readonly="readonly" type="text" />
-							<a class="btnLook" rel="customer_select" title="选择商户" href="${ctx}/sys/product/select" lookupGroup="user">查找带回</a>
+							<a class="btnLook"  title="选择商户" href="${ctx}/sys/product/select" lookupGroup="user">查找带回</a>
 						</dd>
 					</dl>
 					<dl class="nowrap">
@@ -49,40 +49,33 @@
 							</dd>	
 						</dd>
 					</dl>
-					<dl >
-						<dt><label>上市开始时间:</label></dt>
-						<dd><input type="text" id="startTime" name="startTime" class="date" value="<fmt:formatDate value='${vm.startTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" validate="{required:true}"/>
-							<a class="inputDateButton" href="javascript:void(0);">选择</a>
-						</dd>
-					</dl>
-					<dl>
-						<dt><label>上市结束时间:</label></dt>
-						<dd><input type="text" id="endTime" name="endTime" class="date" value="<fmt:formatDate value='${vm.endTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" validate="{required:true}"/>
+					<dl  class="nowrap" >
+						<dt><label>上市时间:</label></dt>
+						<dd>
+							<input type="text" id="startTime" name="startTime" class="date" value="<fmt:formatDate value='${vm.startTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" />
+							<a class="inputDateButton" href="javascript:void(0);">选择</a>-
+							<input type="text" id="endTime" name="endTime" class="date" value="<fmt:formatDate value='${vm.endTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" />
 							<a class="inputDateButton" href="javascript:void(0);">选择</a>
 						</dd>
 					</dl>
 					<dl  class="nowrap">
 						<dt><label>规格:</label></dt>
-						<dd><input type="text" id="branchInfo" name="branchInfo" class="required" size="30" value="${vm.branchInfo}" validate="{required:true}"/>						</dd>
+						<dd><input type="text" id="branchInfo" name="branchInfo" class="required" size="30" value="${vm.branchInfo}" />						</dd>
 					</dl>
 					
-					<dl>
+					<dl class="nowrap">
 						<dt><label>价格:</label></dt>
 						<dd>
-							<input type="text" id="price" name="price" class="required" size="30" value="${vm.price}" validate="{required:true}"/>						
+							<input type="text" id="price" name="price" class="required" size="30" value="${vm.price}" validate="{required:true}"/>		
+							<select    id="priceUnit" name="priceUnit"  class="required combox"  selectedValue="${vm.priceUnit}"   dataUrl="${sctx}/dict/selectDictByType?dictType=PRICE_UNIT" />				
 						</dd>
 					</dl>
-					<dl>
-						<dt><label>价格单位:</label></dt>
-						<dd><input type="text" id="priceUnit" name="priceUnit" class="required" size="30" value="${vm.priceUnit}" validate="{required:true}"/>						</dd>
-					</dl>
-					<dl>
+					<dl class="nowrap">
 						<dt><label>供应量:</label></dt>
-						<dd><input type="text" id="quantity" name="quantity" class="required" size="30" value="${vm.quantity}" validate="{required:true}"/>						</dd>
-					</dl>
-					<dl>
-						<dt><label>供应量单位:</label></dt>
-						<dd><input type="text" id="quantityUnit" name="quantityUnit" class="required" size="30" value="${vm.quantityUnit}" validate="{required:true}"/>						</dd>
+						<dd>
+							<input type="text" id="quantity" name="quantity" class="required" size="30" value="${vm.quantity}"  />	
+							<select id="quantityUnit" name="quantityUnit"  class="required combox"  selectedValue="${vm.quantityUnit}" dataUrl="${sctx}/dict/selectDictByType?dictType=QUANTITY_UNIT"  />
+						</dd>
 					</dl>
 					<dl class="nowrap">
 					<dt>区域：</dt>
@@ -101,7 +94,7 @@
 					</dl>
 					<dl class="nowrap">
 						<dt><label>详细地址:</label></dt>
-						<dd><input type="text" id="regionDetail" name="regionDetail" class="required" size="30" value="${vm.regionDetail}" validate="{required:true}"/>						</dd>
+						<dd><input type="text" id="regionDetail" name="regionDetail" class="required" size="30" value="${vm.regionDetail}" validate="{required:true}" style="width: 480px;"/>						</dd>
 					</dl>
 <!-- 					<dl> -->
 <!-- 						<dt><label>USER_ID:</label></dt> -->
@@ -109,7 +102,9 @@
 <!-- 					</dl> -->
 					<dl class="nowrap">
 						<dt><label>产品描述:</label></dt>
-						<dd><input type="text" id="description" name="description" class="required" size="30" value="${vm.description}" validate="{required:true}"/>						</dd>
+						<dd>
+							<textarea rows="" cols="" id="description" name="description" style="width: 480px;"> ${vm.description}</textarea>
+						</dd>
 					</dl>
 		</div>
 		<div class="formBar">
