@@ -33,11 +33,11 @@
 	<div class="panelBar">
 		<ul class="toolBar">
 			<li><a class="add" title="添加" href="${ctx}/sys/purchase/new?navTabId=app_purchase" target="dialog" rel="purchase_new"><span>添加</span></a></li>
-			<li><a class="edit" title="编辑" href="${ctx}/sys/purchase/update/{sid}?navTabId=app_purchase" target="dialog" rel="purchase_update"
-				warn="请选择一个记录"><span>编辑</span></a></li>
+<%-- 			<li><a class="edit" title="编辑" href="${ctx}/sys/purchase/update/{sid}?navTabId=app_purchase" target="dialog" rel="purchase_update" --%>
+<!-- 				warn="请选择一个记录"><span>编辑</span></a></li> -->
 			<li><a title="确实要删除这些记录吗?" target="selectedTodo" rel="ids" href="${ctx}/sys/purchase/delete" class="delete"><span>删除</span></a></li>
 			<li class="line">line</li>
-			<li><a class="icon" href="${ctx}/sys/purchase/export" target="dwzExport" targetType="navTab" title="确实要导出这些记录吗?"><span>导出</span></a></li>
+<%-- 			<li><a class="icon" href="${ctx}/sys/purchase/export" target="dwzExport" targetType="navTab" title="确实要导出这些记录吗?"><span>导出</span></a></li> --%>
 		</ul>
 	</div>
 	<table class="table" width="100%" layoutH="138">
@@ -51,8 +51,8 @@
 <!-- 				<th <tag:orderField name="description"/>>描述</th>    -->
 				<th <tag:orderField name="quantity"/>>采购量(单位)</th>   
 				<th <tag:orderField name="price"/>>采购价格(单位)</th>   
-				<th <tag:orderField name="createTime"/>>创建时间</th>   
-				<th <tag:orderField name="updateTime"/>>更新时间</th>   
+<!-- 				<th <tag:orderField name="createTime"/>>创建时间</th>    -->
+<!-- 				<th <tag:orderField name="updateTime"/>>更新时间</th>    -->
 				<th <tag:orderField name="publishTime"/>>发布时间</th>  
 				<th width="200">操作</th>
 			</tr>
@@ -66,18 +66,18 @@
 					</td>   
 					<td> ${varitem.category.categoryName} 
 					</td>   
-					<td> <a href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" target="dialog" title="查看"> ${varitem.title} </a> 
+					<td> <a href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" target="dialog" title="编辑"> ${varitem.title} </a> 
 					</td>   
-<%-- 					<td> <a href="${ctx}/sys/purchase/view/${varitem.id}" target="dialog" title="查看"> ${varitem.description} </a>  --%>
+<%-- 					<td> <a href="${ctx}/sys/purchase/view/${varitem.id}" target="dialog" title="编辑"> ${varitem.description} </a>  --%>
 <!-- 					</td>    -->
 					<td>  ${varitem.quantity} ( ${varitem.quantityUnit})
 					</td>   
 					<td> ${varitem.price} (${varitem.priceUnit} )
 					</td>   
-					<td> <fmt:formatDate value='${ varitem.createTime}' pattern='yyyy-MM-dd'/> 
-					</td>   
-					<td> <fmt:formatDate value='${ varitem.updateTime}' pattern='yyyy-MM-dd'/> 
-					</td>   
+<%-- 					<td> <fmt:formatDate value='${ varitem.createTime}' pattern='yyyy-MM-dd'/>  --%>
+<!-- 					</td>    -->
+<%-- 					<td> <fmt:formatDate value='${ varitem.updateTime}' pattern='yyyy-MM-dd'/>  --%>
+<!-- 					</td>    -->
 					<td> <fmt:formatDate value='${ varitem.publishTime}' pattern='yyyy-MM-dd'/> 
 					</td>  
 					<td><a title="编辑" target="dialog" ref="purchase_update" href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" class="btnEdit">编辑</a> <a title="删除"

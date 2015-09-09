@@ -7,6 +7,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.shiro.util.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,10 +21,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONArray;
 import com.google.common.collect.Maps;
 import com.smilehat.business.core.entity.sys.Dict;
 import com.smilehat.business.core.service.sys.DictService;
 import com.smilehat.business.core.web.BaseController;
+import com.smilehat.business.entity.Region;
 import com.smilehat.business.web.sys.SysBaseController;
 import com.smilehat.constants.Constants;
 
@@ -133,6 +136,26 @@ public class DictController extends SysBaseController {
 			return dictService.getObjectById(id);
 		}
 		return null;
+	}
+	
+	@RequestMapping(value = "selectDictByType")
+	@ResponseBody
+	public Object selectDictByType(@RequestParam(required = true) String dictType) {
+		Map<String, Object> filterParams = Maps.newHashMap();
+		filterParams.put("EQ_type", dictType);
+		List<Dict> dictList = dictService.findAll(filterParams, this.getSortOrderBy(), this.getSortOrderDesc());
+
+		JSONArray jsonArray = new JSONArray();
+		if (!CollectionUtils.isEmpty(dictList)) {
+			for (Dict dict : dictList) {
+				JSONArray item = new JSONArray();
+				item.add(dict.getId());
+				item.add(dict.getName());
+				item.add(dict.getCode());
+				jsonArray.add(item);
+			}
+		}
+		return jsonArray;
 	}
 
 }

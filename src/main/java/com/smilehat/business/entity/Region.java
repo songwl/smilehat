@@ -1,13 +1,17 @@
 package com.smilehat.business.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import com.google.common.collect.Lists;
 import com.smilehat.constants.Constants;
 import com.smilehat.modules.entity.IdEntity;
 
@@ -30,8 +34,9 @@ public class Region extends IdEntity {
      private java.lang.String regionNameEn;//区域英文名称
      private java.lang.String regionShortnameEn;//区域英文名称缩写
      
-	private Region parent;//父级区域
+	 private Region parent;//父级区域
 	 
+	 private List<Region> children = Lists.newArrayList();
 	
 	/**
 	 * @return
@@ -124,6 +129,18 @@ public class Region extends IdEntity {
 		this.regionShortnameEn = value;
 	}
 	
+	/**
+	 * 一个父栏目有多个子栏目
+	 * @return
+	 */
+	@OneToMany(mappedBy = "parent")
+	public List<Region> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<Region> children) {
+		this.children = children;
+	}
 	
 	@Override
 	public String toString() {

@@ -8,15 +8,19 @@
 			<ul class="searchContent">
 				   
 				<li><label>商户选择:</label> 
-				<dd>
-					<div style="float:left;">
-					<input value="${param.search_IN_user.id}" name="search_IN_user.id" type="hidden" /> 
-					<input value="${param.search_IN_user.name}" name="search_IN_user.name" /> </div>
-					<a class="btnLook" rel="customer_select" title="选择商户" href="${ctx}/sys/product/select" lookupGroup="search_IN_user">查找带回</a>
-				</dd>
-				<li><label>发布时间:</label>  <input type="text" class="date" size="9"
-					value="${param.search_GTE_publishTime}" dateFmt="yyyy-MM-dd" name="search_GTE_publishTime" readonly="true" />- <input type="text"
-					class="date" size="9" value="${param.search_LTE_publishTime}" dateFmt="yyyy-MM-dd" name="search_LTE_publishTime" readonly="true" /> </li>      
+					<dd>
+						<div style="float:left;">
+						<input value="${param.search_IN_user.id}" name="search_IN_user.id" type="hidden" /> 
+						<input value="${param.search_IN_user.name}" name="search_IN_user.name" /> </div>
+						<a class="btnLook" rel="customer_select" title="选择商户" href="${ctx}/sys/product/select" lookupGroup="search_IN_user">查找带回</a>
+					</dd>	
+				</li> 
+				<li>
+					<label>发布时间:</label>  
+					<input type="text" class="date" size="9"
+					value="${param.search_GTE_publishTime}" dateFmt="yyyy-MM-dd" name="search_GTE_publishTime" readonly="true" />- 
+					<input type="text"	class="date" size="9" value="${param.search_LTE_publishTime}" dateFmt="yyyy-MM-dd" name="search_LTE_publishTime" readonly="true" /> 
+				</li>      
 			</ul>
 			<div class="subBar">
 				<ul>
@@ -72,11 +76,11 @@
 				<tr target="sid" rel="${varitem.id}">
 					<td align="center">${varindex.count}</td>
 					<td><input name="ids" value="${varitem.id }" type="checkbox"></td>    
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="查看"> ${varitem.name} </a> 
+					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="编辑"> ${varitem.name} </a> 
 					</td>   
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="查看"> ${varitem.title} </a> 
+					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="编辑"> ${varitem.title} </a> 
 					</td>   
-<%-- 					<td> <a href="${ctx}/sys/product/view/${varitem.id}" target="dialog" title="查看"> ${varitem.description} </a>  --%>
+<%-- 					<td> <a href="${ctx}/sys/product/view/${varitem.id}" target="dialog" title="编辑"> ${varitem.description} </a>  --%>
 <!-- 					</td>    -->
 <%-- 					<td> <fmt:formatDate value='${ varitem.createTime}' pattern='yyyy-MM-dd'/>  --%>
 <!-- 					</td>    -->
@@ -90,7 +94,7 @@
 					</td>   
 <%-- 					<td> <fmt:formatDate value='${ varitem.endTime}' pattern='yyyy-MM-dd'/>  --%>
 <!-- 					</td>    -->
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="查看"> ${varitem.branchInfo} </a> 
+					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="编辑"> ${varitem.branchInfo} </a> 
 					</td>   
 					<td>${varitem.price} (${varitem.priceUnit}) 
 					</td>  
@@ -98,7 +102,7 @@
 					</td>   
 					<td> ${varitem.region.regionName}
 					</td>   
-<%-- 					<td> <a href="${ctx}/sys/product/view/${varitem.id}" target="dialog" title="查看"> ${varitem.regionDetail} </a>  --%>
+<%-- 					<td> <a href="${ctx}/sys/product/view/${varitem.id}" target="dialog" title="编辑"> ${varitem.regionDetail} </a>  --%>
 <!-- 					</td>    -->
 					<td>${varitem.user.name}
 					</td>   
