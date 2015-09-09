@@ -140,4 +140,13 @@ public class CustomerService extends BaseService<Customer> {
 		}
 	}
 
+	/**
+	 * 商户审核
+	 * @param customer
+	 */
+	public void auditCustomer(Customer customer) {
+		Long[] roleIds = new Long[] { 7L };
+		userService.save(customer.getUser(), roleIds);
+	}
+
 }

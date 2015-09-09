@@ -6,29 +6,25 @@
 		<table class="viewTable">
 			<tbody>
 				<tr>
+					<td width="10%" align="right">上级品类:</td>
+					<td align="left">${vm.parent.categoryName}</td>
+				</tr>
+				<tr>
 					<td width="10%" align="right">品类名称:</td>
-					<td align="left">
-${vm.categoryName}					</td>
+					<td align="left">${vm.categoryName}</td>
 				</tr>
 				<tr>
 					<td width="10%" align="right">品类代码:</td>
-					<td align="left">
-${vm.categoryCode}					</td>
+					<td align="left">${vm.categoryCode}</td>
 				</tr>
+				
 				<tr>
-					<td width="10%" align="right">上级品类:</td>
-					<td align="left">
-${vm.category.categoryName}					</td>
+					<td width="10%" align="right">排序:</td>
+					<td align="left">${vm.sort}</td>
 				</tr>
-<!-- 				<tr> -->
-<!-- 					<td width="10%" align="right">SORT:</td> -->
-<!-- 					<td align="left"> -->
-<%-- ${vm.sort}					</td> --%>
-<!-- 				</tr> -->
 				<tr>
 					<td width="10%" align="right">创建时间:</td>
-					<td align="left">
-<fmt:formatDate value='${vm.createTime}' pattern='yyyy-MM-dd HH:mm:ss'/>					</td>
+					<td align="left"><fmt:formatDate value='${vm.createTime}' pattern='yyyy-MM-dd HH:mm:ss'/></td>
 				</tr>
 			</tbody>
 		</table> 

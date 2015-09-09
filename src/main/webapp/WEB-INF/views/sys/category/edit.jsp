@@ -23,15 +23,10 @@
 							<a class="btnLook" href="${sctx}/category/select" lookupGroup="categoryTree">查找带回</a>
 						</dd>					
 					</dl>
-<!-- 					<dl> -->
-<!-- 						<dt><label>SORT:</label></dt> -->
-<%-- 						<dd><input type="text" id="sort" name="sort" class="required" size="30" value="${vm.sort}" validate="{required:true}"/>						</dd> --%>
-<!-- 					</dl> -->
-<!-- 					<dl> -->
-<!-- 						<dt><label>CREATE_TIME:</label></dt> -->
-<%-- 						<dd><input type="text" id="createTime" name="createTime" class="date" value="<fmt:formatDate value='${vm.createTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" validate="{required:true}"/> --%>
-<!-- <a class="inputDateButton" href="javascript:void(0);">选择</a>						</dd> -->
-<!-- 					</dl> -->
+					<dl>
+						<dt><label>排序值:</label></dt>
+						<dd><input type="text" id="sort" name="sort" class="required" size="30" value="${vm.sort}" validate="{required:true}"/>						</dd>
+					</dl>
 		</div>
 		<div class="formBar">
 			<ul> 

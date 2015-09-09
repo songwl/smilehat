@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,51 +22,45 @@ import com.smilehat.business.core.web.BaseController;
 import com.smilehat.business.entity.Category;
 import com.smilehat.business.service.CategoryService;
 import com.smilehat.constants.Constants;
+import com.smilehat.util.CoreUtils;
 
- 
 /**
  * 
  * @author yang
  *
  */
 @Controller
-@RequestMapping(value =  Constants.SPT+SysCategoryController.PATH)
+@RequestMapping(value = Constants.SPT + SysCategoryController.PATH)
 public class SysCategoryController extends BaseController {
-	 
+
 	@Autowired
 	private CategoryService categoryService;
 	public static final String PATH = "sys/category";
-	public static final String PATH_LIST = PATH +Constants.SPT+ "list";
-	public static final String PATH_EDIT = PATH + Constants.SPT+"edit";
-	public static final String PATH_VIEW = PATH + Constants.SPT+"view";
-	public static final String PATH_SEARCH = PATH + Constants.SPT+"search";
+	public static final String PATH_LIST = PATH + Constants.SPT + "list";
+	public static final String PATH_EDIT = PATH + Constants.SPT + "edit";
+	public static final String PATH_VIEW = PATH + Constants.SPT + "view";
+	public static final String PATH_SEARCH = PATH + Constants.SPT + "search";
 	public static final String PATH_SELECT = PATH + "/select";
-	
-	@RequestMapping(value = "")
-	public String list(Model model, HttpServletRequest request) {
 
-		PageRequest pageRequest = this.getPageRequest();
-		Map<String, Object> searchParams = this.getSearchRequest();
-		Page<Category> page = categoryService.findPage(searchParams, pageRequest);
-		
-		searchParams = Maps.newHashMap();
+	@RequestMapping(value = "")
+	public String list(Model model, @RequestParam(required = false, value = "id") Long id) {
+		Map<String, Object> searchParams = Maps.newHashMap();
 		searchParams.put("ISNULL_parent", null);
 		List<Category> categoryList = categoryService.findAll(searchParams, "sort", "asc");
 		model.addAttribute("categorylist", categoryList);
-		model.addAttribute("page", page);
-	
+		//当前选中的栏目 可以是null 
+		model.addAttribute("vm", this.getModel(id));
+
 		return PATH_LIST;
 	}
-	
+
 	@RequestMapping(value = "export")
-	public ModelAndView exportList(HttpServletRequest request){
+	public ModelAndView exportList(HttpServletRequest request) {
 		Map<String, Object> searchParams = this.getSearchRequest();
-		List<Category> list=categoryService.findAll(searchParams, this.getSortOrderBy(), this.getSortOrderDesc());
+		List<Category> list = categoryService.findAll(searchParams, this.getSortOrderBy(), this.getSortOrderDesc());
 		return this.reportView(PATH_LIST, list, REPORT_FORMAT_XLS);
-		
+
 	}
-	
-	
 
 	@RequestMapping(value = BaseController.NEW, method = RequestMethod.GET)
 	public String createForm(Model model) {
@@ -77,45 +69,44 @@ public class SysCategoryController extends BaseController {
 		return PATH_EDIT;
 	}
 
-	@RequestMapping(value =  BaseController.CREATE, method = RequestMethod.POST)
-	public ModelAndView create(@Valid Category category,@RequestParam(value="categoryTree.id") Long parentId) {
-		categoryService.save(category,parentId);		 
+	@RequestMapping(value = BaseController.CREATE, method = RequestMethod.POST)
+	public ModelAndView create(@Valid Category category, @RequestParam(value = "categoryTree.id") Long parentId) {
+		category.setCreateTime(CoreUtils.nowtime());
+		categoryService.save(category, parentId);
 		return this.ajaxDoneSuccess("创建成功");
 	}
 
-	@RequestMapping(value =  BaseController.UPDATE+"/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = BaseController.UPDATE + "/{id}", method = RequestMethod.GET)
 	public String updateForm(@PathVariable("id") java.lang.Long id, Model model) {
 		model.addAttribute("vm", categoryService.getObjectById(id));
 		model.addAttribute("action", BaseController.UPDATE);
 		return PATH_EDIT;
 	}
-	
-	
-	@RequestMapping(value =  BaseController.VIEW+"/{id}", method = RequestMethod.GET)
+
+	@RequestMapping(value = BaseController.VIEW + "/{id}", method = RequestMethod.GET)
 	public String view(@PathVariable("id") java.lang.Long id, Model model) {
 		model.addAttribute("vm", categoryService.getObjectById(id));
 		return PATH_VIEW;
 	}
 
 	@RequestMapping(value = BaseController.UPDATE, method = RequestMethod.POST)
-	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Category category,@RequestParam(value="categoryTree.id") Long parentId) {
-		categoryService.save(category,parentId);		
+	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Category category, @RequestParam(value = "categoryTree.id") Long parentId) {
+		categoryService.save(category, parentId);
 		return this.ajaxDoneSuccess("修改成功");
 	}
 
-	@RequestMapping(value = BaseController.DELETE+"/{id}")
+	@RequestMapping(value = BaseController.DELETE + "/{id}")
 	public ModelAndView delete(@PathVariable("id") java.lang.Long id) {
-		categoryService.deleteById(id);		 
+		categoryService.deleteById(id);
 		return this.ajaxDoneSuccess("删除成功");
 	}
-	
-	@RequestMapping(value = BaseController.DELETE,method = RequestMethod.POST)
+
+	@RequestMapping(value = BaseController.DELETE, method = RequestMethod.POST)
 	public ModelAndView deleteBatch(@RequestParam java.lang.Long[] ids) {
-		categoryService.deleteByIds(ids);		 
+		categoryService.deleteByIds(ids);
 		return this.ajaxDoneSuccess("删除成功");
 	}
-	
-	
+
 	/**
 	 *  高级查询界面
 	 * @param id
@@ -123,11 +114,10 @@ public class SysCategoryController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "search")
-	public String search(HttpServletRequest request) {	 
+	public String search(HttpServletRequest request) {
 		return PATH_SEARCH;
 	}
 
-	 
 	@ModelAttribute("preloadModel")
 	public Category getModel(@RequestParam(value = "id", required = false) java.lang.Long id) {
 		if (id != null) {
@@ -135,7 +125,7 @@ public class SysCategoryController extends BaseController {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * 栏目树
 	 * @param model
@@ -150,11 +140,10 @@ public class SysCategoryController extends BaseController {
 		model.addAttribute("categorylist", category);
 		return PATH_SELECT;
 	}
-	
+
 	@RequestMapping(value = "checkparent")
 	@ResponseBody
-	public Boolean checkParent(@RequestParam(value = "id") Long id,
-			@RequestParam(value = "catalogTree.id", required = false) Long pid) {
+	public Boolean checkParent(@RequestParam(value = "id") Long id, @RequestParam(value = "catalogTree.id", required = false) Long pid) {
 		//当前的设置的上级栏目，不能是本栏目的子栏目(会递归出错)
 		if (id == null || pid == null) {
 			return true;
