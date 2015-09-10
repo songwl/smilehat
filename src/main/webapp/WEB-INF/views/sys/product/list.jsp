@@ -12,7 +12,7 @@
 						<div style="float:left;">
 						<input value="${param.search_IN_user.id}" name="search_IN_user.id" type="hidden" /> 
 						<input value="${param.search_IN_user.name}" name="search_IN_user.name" /> </div>
-						<a class="btnLook" rel="customer_select" title="选择商户" href="${ctx}/sys/product/select" lookupGroup="search_IN_user">查找带回</a>
+						<a class="btnLook" rel="customer_select" title="选择商户" href="${ctx}/sys/customer/select" lookupGroup="search_IN_user">查找带回</a>
 					</dd>	
 				</li> 
 				<li>
@@ -52,20 +52,11 @@
 				<th width="30"><input type="checkbox" group="ids" class="checkboxCtrl"></th>    
 				<th <tag:orderField name="name"/>>产品名称</th>   
 				<th <tag:orderField name="title"/>>产品标题</th>   
-<!-- 				<th <tag:orderField name="description"/>>产品描述</th>    -->
-<!-- 				<th <tag:orderField name="createTime"/>>创建时间</th>    -->
-<!-- 				<th <tag:orderField name="updateTime"/>>更新时间</th>    -->
 				<th <tag:orderField name="publishTime"/>>发布时间</th>   
-<!-- 				<th <tag:orderField name="startTime"/>>上市开始时间</th>    -->
-<!-- 				<th <tag:orderField name="endTime"/>>上市结束时间</th>    -->
 				<th >上市时间</th>	
-				<th <tag:orderField name="branchInfo"/>>规格</th>   
 				<th <tag:orderField name="price"/>>价格(单位)</th>   
-<!-- 				<th <tag:orderField name="priceUnit"/>>价格单位</th>    -->
 				<th <tag:orderField name="quantity"/>>供应量(单位)</th>   
-<!-- 				<th <tag:orderField name="quantityUnit"/>>供应量单位</th>    -->
 				<th <tag:orderField name="region.regionName"/>>区域名称</th>   
-<!-- 				<th <tag:orderField name="regionDetail"/>>详细地址</th>    -->
 				<th <tag:orderField name="user.name"/>>所属商户</th>   
 				<th <tag:orderField name="category.categoryName"/>>品类名称</th>  
 				<th width="200">操作</th>
@@ -76,25 +67,14 @@
 				<tr target="sid" rel="${varitem.id}">
 					<td align="center">${varindex.count}</td>
 					<td><input name="ids" value="${varitem.id }" type="checkbox"></td>    
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="编辑"> ${varitem.name} </a> 
+					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="编辑" rel="product_update"> ${varitem.name} </a> 
 					</td>   
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="编辑"> ${varitem.title} </a> 
+					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="编辑" rel="product_update"> ${varitem.title} </a> 
 					</td>   
-<%-- 					<td> <a href="${ctx}/sys/product/view/${varitem.id}" target="dialog" title="编辑"> ${varitem.description} </a>  --%>
-<!-- 					</td>    -->
-<%-- 					<td> <fmt:formatDate value='${ varitem.createTime}' pattern='yyyy-MM-dd'/>  --%>
-<!-- 					</td>    -->
-<%-- 					<td> <fmt:formatDate value='${ varitem.updateTime}' pattern='yyyy-MM-dd'/>  --%>
-<!-- 					</td>    -->
 					<td> <fmt:formatDate value='${varitem.publishTime}' pattern='yyyy-MM-dd'/> 
 					</td>   
 					<td> <fmt:formatDate value='${varitem.startTime}' pattern='yyyy-MM-dd'/>- 
 						<fmt:formatDate value='${varitem.endTime}' pattern='yyyy-MM-dd'/> 
-					
-					</td>   
-<%-- 					<td> <fmt:formatDate value='${ varitem.endTime}' pattern='yyyy-MM-dd'/>  --%>
-<!-- 					</td>    -->
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="编辑"> ${varitem.branchInfo} </a> 
 					</td>   
 					<td>${varitem.price} (${varitem.priceUnit}) 
 					</td>  
@@ -102,13 +82,11 @@
 					</td>   
 					<td> ${varitem.region.regionName}
 					</td>   
-<%-- 					<td> <a href="${ctx}/sys/product/view/${varitem.id}" target="dialog" title="编辑"> ${varitem.regionDetail} </a>  --%>
-<!-- 					</td>    -->
 					<td>${varitem.user.name}
 					</td>   
 					<td>${varitem.category.categoryName} 
 					</td>  
-					<td><a title="编辑" target="dialog" ref="product_update" href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" class="btnEdit">编辑</a> 
+					<td><a title="编辑" target="dialog" rel="product_update" href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" class="btnEdit">编辑</a> 
 						<a title="删除" target="ajaxTodo" href="${ctx}/sys/product/delete/${varitem.id}" class="btnDel">删除</a></td>
 				</tr>
 			</c:forEach>

@@ -3,7 +3,7 @@
    
 <tag:pagerForm action="#rel#" id="pagerForm" cacheName="uids"></tag:pagerForm> 
 <div class="pageHeader">
-	<form rel="pagerForm" method="post" action="${sctx}/product/select" onsubmit="return dwzSearch(this, 'dialog');">
+	<form rel="pagerForm" method="post" action="${sctx}/customer/select" onsubmit="return dwzSearch(this, 'dialog');">
 		<div class="searchBar">
 		   <input name="single" value="${param.single}" type="hidden">  	   
 		  

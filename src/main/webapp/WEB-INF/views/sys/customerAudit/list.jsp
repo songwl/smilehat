@@ -34,15 +34,6 @@
 	</form>
 </div>
 <div class="pageContent">
-	<div class="panelBar">
-		<ul class="toolBar">
-			<li><a class="add" title="添加用户" rel="sys_customer_new" href="${sctx}/customer/new?navTabId=app_customer" target="dialog"><span>添加</span></a></li>
-			<li><a class="edit" title="编辑用户" rel="sys_customer_update" href="${sctx}/customer/update/{sid}?navTabId=app_customer" target="dialog" warn="请选择一个用户"><span>编辑</span></a></li>
-			<li><a title="确实要删除这些商户吗?" target="selectedTodo" rel="ids" href="${sctx}/customer/delete" class="delete"><span>删除</span></a></li>
-			<li class="line">line</li>
-
-		</ul>
-	</div>
 	<table class="table" width="100%" layoutH="138">
 		<thead>
 			<tr>
@@ -60,12 +51,12 @@
 				<tr target="sid" rel="${item.id}">
 					<td align="center">${index.count}</td>
 					<td><input name="ids" value="${item.id}" type="checkbox"></td>
-					<td><a href="${sctx}/customer/update/${item.id}" target="dialog" title="查看商户" rel="sys_customer_view"> ${item.user.loginName} </a></td>
+					<td>${item.user.loginName} </td>
 					<td>${item.user.name}</td>
 					<td><s:message code="user.usertype.${item.user.userType}"></s:message></td>
 					<td><fmt:formatDate value="${item.user.registerDate}" pattern="yyyy-MM-dd HH:mm" /></td>
 					<td><a title="删除 ${item.user.name}" target="ajaxTodo" href="${sctx}/customer/delete/${item.id}" class="btnDel">删除</a>
-						<a title="审核" rel="sys_user_reset" target="dialog" href="${sctx}/customerAudit/view/${item.user.id}" class="btnEdit">审核</a>
+						<a title="审核" rel="sys_user_reset" target="dialog" href="${sctx}/customerAudit/view/${item.id}?navTabId=app_customer_audit" class="btnEdit">审核</a>
 					</td>
 				</tr>
 			</c:forEach>

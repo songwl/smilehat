@@ -1,9 +1,11 @@
   <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="/WEB-INF/inc/include.inc.jsp"%>
 <tag:pagerForm action="#rel#" id="pagerForm"></tag:pagerForm>
+<form rel="pagerForm" method="post" action="${sctx}/customer/purchase/list/${userId}" onsubmit="return dwzSearch(this, 'dialog');">
+</form>
 
 <div class="pageContent">
-	<table class="table" width="100%" layoutH="138">
+	<table class="table" width="100%" layoutH="88">
 		<thead>
 			<tr>
 				<th width="40" align="center">序号</th>
@@ -41,6 +43,6 @@
 		</tbody>
 	</table>
 	<div class="panelBar">
-		<tag:pagination page="${page}" numPerPageOnchange="navTabPageBreak({numPerPage:this.value})"></tag:pagination>
+		<tag:pagination page="${page}" numPerPageOnchange="dialogPageBreak({numPerPage:this.value},'customer-purchase')"></tag:pagination>
 	</div>
 </div>

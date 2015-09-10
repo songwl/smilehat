@@ -112,8 +112,8 @@
 								</ul></li>
 							<li><a>商户管理</a>
 								<ul>
-									<li><a href="${sctx}/customer" target="navTab" rel="sys_user">商户管理</a></li>
-									<li><a href="${sctx}/customerAudit" target="navTab" rel="sys_user">待审核商户</a></li>
+									<li><a href="${sctx}/customer" target="navTab" rel="app_customer">商户管理</a></li>
+									<li><a href="${sctx}/customerAudit" target="navTab" rel="app_customer_audit">待审核商户</a></li>
 								</ul></li>
 						</ul>
 					</div> 

@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.smilehat.business.core.service.security.UserService;
 import com.smilehat.business.entity.Purchase;
 import com.smilehat.business.repository.PurchaseDao;
 import com.smilehat.modules.service.BaseService;
@@ -18,14 +20,18 @@ import com.smilehat.modules.service.BaseService;
  */
 @Service
 @Transactional
-public class PurchaseService extends BaseService<Purchase>{
+public class PurchaseService extends BaseService<Purchase> {
 	private static Logger logger = LoggerFactory.getLogger(PurchaseService.class);
-  
+
 	@Autowired
 	private PurchaseDao purchaseDao;
 
-    
-  	
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private CategoryService categoryService;
+
 	@Override
 	public PagingAndSortingRepository<Purchase, Long> getPagingAndSortingRepositoryDao() {
 		return this.purchaseDao;
@@ -35,5 +41,17 @@ public class PurchaseService extends BaseService<Purchase>{
 	public JpaSpecificationExecutor<Purchase> getJpaSpecificationExecutorDao() {
 		return this.purchaseDao;
 	}
-	
+
+	public void savePurchase(Purchase purchase, Long userId, Long categoryId) {
+		if (userId != null) {
+			purchase.setUser(userService.getObjectById(userId));
+		}
+
+		if (categoryId != null) {
+			purchase.setCategory(categoryService.getObjectById(categoryId));
+		}
+		this.save(purchase);
+
+	}
+
 }

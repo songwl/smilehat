@@ -52,6 +52,7 @@ public class SysCustomerController extends BaseController {
 	public static final String PATH_EDIT = PATH + Constants.SPT + "edit";
 	public static final String PATH_VIEW = PATH + Constants.SPT + "view";
 	public static final String PATH_SEARCH = PATH + Constants.SPT + "search";
+	public static final String PATH_SELECT = PATH + "/select";
 
 	@RequestMapping(value = "")
 	public String list(Model model, HttpServletRequest request) {
@@ -164,6 +165,25 @@ public class SysCustomerController extends BaseController {
 		model.addAttribute("page", page);
 
 		return "sys/customer/purchaseList";
+	}
+
+	/**
+	 * 商户
+	 * @param model
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "select")
+	public String select(Model model, HttpServletRequest request) {
+		PageRequest pageRequest = this.getPageRequest("user.registerDate", "desc");
+		Map<String, Object> searchParams = this.getSearchRequest();
+		searchParams.put("EQ_isDeleted", false);//所有未删除的商户，false未删除，true
+		searchParams.put("EQ_user.isAudit", Boolean.TRUE);
+
+		Page<Customer> page = customerService.findPage(searchParams, pageRequest);
+		model.addAttribute("page", page);
+
+		return PATH_SELECT;
 	}
 
 }

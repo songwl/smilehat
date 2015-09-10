@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="/WEB-INF/inc/include.inc.jsp"%>
 <div class="pageContent">
-<form method="get" action="${sctx}/customer/audit/${vm.id}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+<form method="POST" action="${sctx}/customerAudit/audit/${vm.id}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
 	<tag:callback></tag:callback>
 	<div class="pageFormContent" layoutH="56">
 		<table class="viewTable">
 			<tbody>
 				<tr>
-					<td width="15%" align="right">登录名：</td>
+					<td width="15%" align="right">登录名(手机)：</td>
 					<td width="30%" align="left">${vm.user.loginName}</td>
 					<td width="15%" align="right">称呼：</td>
 					<td align="left">${vm.user.name}</td>
@@ -20,7 +20,7 @@
 				</tr>
 				<tr>
 					<td align="right" valign="top">头像：</td>
-					<td align="left" colspan="3"><img src="${ctx}/${vm.photoAttach.downloadPath}" onerror="javascript:this.src='${ctx}/static/styles/base/images/user_default.jpg'" width="180"
+					<td align="left" colspan="3"><img src="${ctx}/${vm.user.photoAttach.downloadPath}" onerror="javascript:this.src='${ctx}/static/styles/base/images/user_default.jpg'" width="180"
 						height="180" /></td>
 				</tr>
 				<tr>
@@ -61,8 +61,8 @@
 				<tr>
 					<td align="right" valign="top">审核：</td>
 					<td align="left" colspan="3">
-						<input type="radio" name="isAudit" name="1"  />通过
-						<input type="radio" name="isAudit" name="0" class="required" />不通过
+						<input type="radio" name="isAudit" value="1"  />通过
+						<input type="radio" name="isAudit" value="0" checked />不通过
 					</td>
 				</tr>
 			</tbody>

@@ -49,7 +49,7 @@ public class SysCustomerAuditController extends BaseController {
 		PageRequest pageRequest = this.getPageRequest();
 		Map<String, Object> searchParams = this.getSearchRequest();
 		searchParams.put("EQ_isDeleted", Boolean.FALSE);
-		searchParams.put("NOTEQ_user.isAudit", Boolean.TRUE);
+		searchParams.put("ISNULL_user.isAudit", null);
 		Page<Customer> page = customerService.findPage(searchParams, pageRequest);
 		model.addAttribute("page", page);
 
@@ -62,7 +62,7 @@ public class SysCustomerAuditController extends BaseController {
 		return PATH_VIEW;
 	}
 
-	@RequestMapping(value = "audit", method = RequestMethod.POST)
+	@RequestMapping(value = "audit/{id}", method = RequestMethod.POST)
 	public ModelAndView update(@PathVariable("id") java.lang.Long id, @RequestParam Boolean isAudit) {
 		Customer customer = customerService.getObjectById(id);
 		User user = customer.getUser();

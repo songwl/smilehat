@@ -11,7 +11,7 @@
 					<div style="float:left;">
 					<input value="${param.search_IN_user.id}" name="search_IN_user.id" type="hidden" /> 
 					<input value="${param.search_IN_user.name}" name="search_IN_user.name" /> </div>
-					<a class="btnLook" rel="customer_select" title="选择商户" href="${ctx}/sys/product/select" lookupGroup="search_IN_user">查找带回</a>
+					<a class="btnLook" rel="customer_select" title="选择商户" href="${ctx}/sys/customer/select" lookupGroup="search_IN_user">查找带回</a>
 				</dd>
 				<li><label>发布时间:</label>  <input type="text" class="date" size="9"
 					value="${param.search_GTE_publishTime}" dateFmt="yyyy-MM-dd" name="search_GTE_publishTime" readonly="true" />- <input type="text"
@@ -48,11 +48,8 @@
 				<th <tag:orderField name="user.name"/>>商户名称</th>   
 				<th <tag:orderField name="category.categoryName"/>>品类名称</th>   
 				<th <tag:orderField name="title"/>>标题</th>   
-<!-- 				<th <tag:orderField name="description"/>>描述</th>    -->
 				<th <tag:orderField name="quantity"/>>采购量(单位)</th>   
 				<th <tag:orderField name="price"/>>采购价格(单位)</th>   
-<!-- 				<th <tag:orderField name="createTime"/>>创建时间</th>    -->
-<!-- 				<th <tag:orderField name="updateTime"/>>更新时间</th>    -->
 				<th <tag:orderField name="publishTime"/>>发布时间</th>  
 				<th width="200">操作</th>
 			</tr>
@@ -66,21 +63,15 @@
 					</td>   
 					<td> ${varitem.category.categoryName} 
 					</td>   
-					<td> <a href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" target="dialog" title="编辑"> ${varitem.title} </a> 
+					<td> <a href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" rel="purchase_update" target="dialog" title="编辑"> ${varitem.title} </a> 
 					</td>   
-<%-- 					<td> <a href="${ctx}/sys/purchase/view/${varitem.id}" target="dialog" title="编辑"> ${varitem.description} </a>  --%>
-<!-- 					</td>    -->
 					<td>  ${varitem.quantity} ( ${varitem.quantityUnit})
 					</td>   
 					<td> ${varitem.price} (${varitem.priceUnit} )
 					</td>   
-<%-- 					<td> <fmt:formatDate value='${ varitem.createTime}' pattern='yyyy-MM-dd'/>  --%>
-<!-- 					</td>    -->
-<%-- 					<td> <fmt:formatDate value='${ varitem.updateTime}' pattern='yyyy-MM-dd'/>  --%>
-<!-- 					</td>    -->
 					<td> <fmt:formatDate value='${ varitem.publishTime}' pattern='yyyy-MM-dd'/> 
 					</td>  
-					<td><a title="编辑" target="dialog" ref="purchase_update" href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" class="btnEdit">编辑</a> <a title="删除"
+					<td><a title="编辑" target="dialog" rel="purchase_update" href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" class="btnEdit">编辑</a> <a title="删除"
 						target="ajaxTodo" href="${ctx}/sys/purchase/delete/${varitem.id}" class="btnDel">删除</a></td>
 				</tr>
 			</c:forEach>

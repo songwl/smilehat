@@ -7,59 +7,51 @@
 		<tag:token tokenName=".purchase.create"></tag:token>
 		<tag:callback></tag:callback>
 		<div class="pageFormContent" layoutH="56">
-					<dl>
-						<dt><label>所属商户:</label></dt>
-						<dd><input type="text" id="userId" name="userId" class="required" size="30" value="${vm.user.name}" validate="{required:true}"/>						</dd>
-					</dl>
-					<dl>
-						<dt><label>品类名称:</label></dt>
-						<dd>
-							<dd>
-								<input type="hidden" class="changeValidate" name="categoryTree.id" value="${vm.category.id}" <c:if test="${not empty id}"></c:if>/> 
-								<input name="categoryTree.name" value="${vm.category.categoryName}" type="text" readonly="readonly" /> 
-								<a class="btnLook" href="${sctx}/category/select" lookupGroup="categoryTree">查找带回</a>
-							</dd>	
-						</dd>
-					</dl>
-					<dl>
-						<dt><label>标题:</label></dt>
-						<dd><input type="text" id="title" name="title" class="required" size="30" value="${vm.title}" validate="{required:true}"/>						</dd>
-					</dl>
-					<dl>
-						<dt><label>描述:</label></dt>
-						<dd><input type="text" id="description" name="description" class="required" size="30" value="${vm.description}" validate="{required:true}"/>						</dd>
-					</dl>
-					<dl>
-						<dt><label>采购量:</label></dt>
-						<dd><input type="text" id="quantity" name="quantity" class="required" size="30" value="${vm.quantity}" validate="{required:true}"/>						</dd>
-					</dl>
-					<dl>
-						<dt><label>采购量单位:</label></dt>
-						<dd><input type="text" id="quantityUnit" name="quantityUnit" class="required" size="30" value="${vm.quantityUnit}" validate="{required:true}"/>						</dd>
-					</dl>
-					<dl>
-						<dt><label>价格:</label></dt>
-						<dd><input type="text" id="price" name="price" class="required" size="30" value="${vm.price}" validate="{required:true}"/>						</dd>
-					</dl>
-					<dl>
-						<dt><label>价格单位:</label></dt>
-						<dd><input type="text" id="priceUnit" name="priceUnit" class="required" size="30" value="${vm.priceUnit}" validate="{required:true}"/>						</dd>
-					</dl>
-<!-- 					<dl> -->
-<!-- 						<dt><label>CREATE_TIME:</label></dt> -->
-<%-- 						<dd><input type="text" id="createTime" name="createTime" class="date" value="<fmt:formatDate value='${vm.createTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" validate="{required:true}"/> --%>
-<!-- <a class="inputDateButton" href="javascript:void(0);">选择</a>						</dd> -->
-<!-- 					</dl> -->
-<!-- 					<dl> -->
-<!-- 						<dt><label>UPDATE_TIME:</label></dt> -->
-<%-- 						<dd><input type="text" id="updateTime" name="updateTime" class="date" value="<fmt:formatDate value='${vm.updateTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" validate="{required:true}"/> --%>
-<!-- <a class="inputDateButton" href="javascript:void(0);">选择</a>						</dd> -->
-<!-- 					</dl> -->
-<!-- 					<dl> -->
-<!-- 						<dt><label>PUBLISH_TIME:</label></dt> -->
-<%-- 						<dd><input type="text" id="publishTime" name="publishTime" class="date" value="<fmt:formatDate value='${vm.publishTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" validate="{required:true}"/> --%>
-<!-- <a class="inputDateButton" href="javascript:void(0);">选择</a>						</dd> -->
-<!-- 					</dl> -->
+			<dl class="nowrap">
+				<dt><label>所属商户:</label></dt>
+				<dd>
+					<input value="${vm.user.id}" name="userId" id="user.id" type="hidden" /> 
+					<input value="${vm.user.name}" name="userName" id="user.name" readonly="readonly" type="text" />
+					<a class="btnLook" rel="customer_select" title="选择商户" href="${sctx}/customer/select" lookupGroup="user">查找带回</a>						
+				</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt><label>品类名称:</label></dt>
+				<dd>
+					<dd>
+						<input type="hidden" name="categoryId" id="categoryTree.id" value="${vm.category.id}" /> 
+						<input name="categoryName" id="categoryTree.name" value="${vm.category.categoryName}" type="text" readonly="readonly" /> 
+						<a class="btnLook" href="${sctx}/category/select" lookupGroup="categoryTree">查找带回</a>
+					</dd>	
+				</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt><label>标题:</label></dt>
+				<dd><input type="text" id="title" name="title" class="required" size="50" value="${vm.title}" validate="{required:true}"/>						</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt><label>采购量:</label></dt>
+				<dd>
+					<input type="text" id="quantity" name="quantity" class="required" size="18" value="${vm.quantity}"  />	
+					<select id="quantityUnit" name="quantityUnit"  class="required combox"  selectedValue="${vm.quantityUnit}" dataUrl="${sctx}/dict/selectDictByType?dictType=QUANTITY_UNIT">
+					</select>
+											
+				</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt><label>价格:</label></dt>
+				<dd>
+					<input type="text" id="price" name="price" class="required" size="18" value="${vm.price}" validate="{required:true}"/>		
+					<select  id="priceUnit" name="priceUnit"  class="required combox"  selectedValue="${vm.priceUnit}"   dataUrl="${sctx}/dict/selectDictByType?dictType=PRICE_UNIT">
+					</select>						
+				</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt><label>产品描述:</label></dt>
+				<dd>
+					<textarea rows="" cols="" id="description" name="description" style="width: 480px;">${vm.description}</textarea>
+				</dd>
+			</dl>
 		</div>
 		<div class="formBar">
 			<ul> 

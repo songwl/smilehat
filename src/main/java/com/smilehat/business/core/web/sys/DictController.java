@@ -26,7 +26,6 @@ import com.google.common.collect.Maps;
 import com.smilehat.business.core.entity.sys.Dict;
 import com.smilehat.business.core.service.sys.DictService;
 import com.smilehat.business.core.web.BaseController;
-import com.smilehat.business.entity.Region;
 import com.smilehat.business.web.sys.SysBaseController;
 import com.smilehat.constants.Constants;
 
@@ -137,7 +136,7 @@ public class DictController extends SysBaseController {
 		}
 		return null;
 	}
-	
+
 	@RequestMapping(value = "selectDictByType")
 	@ResponseBody
 	public Object selectDictByType(@RequestParam(required = true) String dictType) {
@@ -149,9 +148,9 @@ public class DictController extends SysBaseController {
 		if (!CollectionUtils.isEmpty(dictList)) {
 			for (Dict dict : dictList) {
 				JSONArray item = new JSONArray();
-				item.add(dict.getId());
-				item.add(dict.getName());
+				//item.add(dict.getId());
 				item.add(dict.getCode());
+				item.add(dict.getName());
 				jsonArray.add(item);
 			}
 		}
