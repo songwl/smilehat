@@ -4,6 +4,14 @@
     padding:0;
 }
 
+body, html {
+	background-color: #F9F9F9;
+}
+
+div {
+display: block;
+}
+
 header {
     width: 96%;
     height: 46px;
@@ -19,7 +27,10 @@ header a{
 header h1 {
     float: left;
     margin: 0 2% 0 0;
-    display: inline;
+	display: inline-block;
+}
+.search {
+width: 50%;
 }
 
 header div{
@@ -42,7 +53,7 @@ input.search-txt {
 	width: 100%;
 	margin-top: 6px;
 	overflow: hidden;
-	height: 20px;
+	height: 25px;
 	border-radius: 5px;
 }
 header #userCenter{
@@ -61,7 +72,11 @@ div#product_purchase_select {
 	float: left;
 	position: fixed;
 	display: block;
-	height: 140px;
+	width: 100%;
+}
+
+.userCenter {
+float: right;
 }
 
 .list
@@ -84,4 +99,43 @@ div#product_purchase_select div{
 
 div#product_purchase_select div img{
 	width:100%
+}
+
+div#product_purchase_publish {
+bottom: 10px;
+position: fixed;
+display: block;
+width: 100%;
+text-align: center;
+}
+
+img#btn_pp {
+width: 30%;
+height: 30%;
+}
+
+img#mian_line {
+padding-left: 20%;
+}
+
+input.search_purchase {
+height: 25px;
+width: 100%;
+border: 1px #FF9C59 solid;
+border-radius: 5px
+}
+
+img.search_down {
+width: 25px;
+background: 0 0 no-repeat;
+}
+
+div#purchase_search {
+width: 100%;
+float: left;
+}
+
+#purchase_search div {
+width: 50%;
+float: left;
 }

@@ -32,15 +32,31 @@
         </div>
 	</header>
 	<div id="main_div">
+<%-- 		<img class="mian_line" id="mian_line" src="${ctx}/static/images/xuline.png" > --%>
+		<div id="main_list">
+			<div id="purchase_search">
+				<div class="region_search">
+		            <input type="text" placeholder="区域选择" class="search_purchase">
+		            <img class="search_down" background="${ctx}/static/images/search_down.png">
+		        </div>
+		        <div class="category_search">
+		            <input type="text" placeholder="品类选择" class="search_purchase">
+		            <img class="search_down" src="${ctx}/static/images/search_down.png">
+		        </div>
+			</div>
+		</div>
 	</div>
 	<div id="product_purchase_select">
        <div>
        	<img class="product_select" id="product_select" src="${ctx}/static/images/product_selected.png"  alt="供应">
        </div>
        <div>
-       	<img class="purchase_select" id="purchase_select" src="${ctx}/static/images/purchase_notselectd.png"  alt="采购">
+       		<img class="purchase_select" id="purchase_select" src="${ctx}/static/images/purchase_notselectd.png"  alt="采购">
+       		
        </div>
 	</div>
-
+	<div id="product_purchase_publish">
+		<img class="btn_pp" id="btn_pp" src="${ctx}/static/images/btn_pp_not.png"  alt="发布">
+	</div>
 </body>
 </html>
