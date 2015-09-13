@@ -5,7 +5,7 @@
 }
 
 body, html {
-	background-color: #F9F9F9;
+	background-color: #FFFFFF;
 	font: normal 100% Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	font-family: 'Microsoft YaHei';
@@ -17,10 +17,10 @@ font-size: 14px;
 }
 
 header {
-    width: 96%;
-    height: 46px;
+    width: 100%;
+    height: 60px;
     padding: 11px 2% 12px 2%;
-    background: #FF9C59;
+    background: #FAA74B;
     overflow: hidden;
 }
 
@@ -28,13 +28,18 @@ header a{
 	text-decoration: none
 }
 
-header h1 {
-    float: left;
-    margin: 0 2% 0 0;
-	display: inline-block;
-	width: 25%;
+header div.logo {
+	width: 30%;
 }
-.search {
+
+/* header .logo h1 { */
+/*     float: left; */
+/*     margin: 0 2% 0 0; */
+/* 	display: inline-block; */
+/* } */
+
+
+div.search {
 width: 50%;
 }
 
@@ -47,8 +52,8 @@ label.page-title-text {
 	color: white;
 	text-align: left;
 	font-weight: bold;
-	font-size:0.6em;
-	line-height: 0.8em;
+	font-size:1.5em;
+	line-height: 1.5em;
 	padding: 0.15em 0;
 }
 
@@ -67,7 +72,6 @@ header #userCenter{
 }
 
 img.user_info {
-	width: 50px;
 	height: 45px;
 	padding-left: 10px;
 }
@@ -138,25 +142,41 @@ background: 0 0 no-repeat;
 div#purchase_search {
 width: 100%;
 float: left;
+padding-left: 10px;
+padding-right: 10px;
 }
 
-#purchase_search div {
+#purchase_search > div {
 width: 50%;
 float: left;
-padding-top: 10px;
+padding: 10px 0px 20px 0px;
+
+}
+
+#purchase_search .btn-my-select{
+	border:1px solid orange;
+	color:#D3D4D6;
+}
+
+#purchase_search .btn-my-group{
+	width:100%;
 }
 
 div#main_list {
-padding-left: 20%;
+margin-left: 20%;
+background:#F8F8F8;
+border-left: 2px #FF9C59 dotted;
+min-height: 600px;
 }
 
 div#product_list {
-	width: 98%;
-	padding: 2% 1% 2% 1%;
+	width: 100%;
+	padding:2% 0 2% 0;
 	overflow: hidden;
 }
 
 ul.list {
+	padding-left: 10px;
 	width: 100%;
 	overflow: hidden;
 	background:url('/smilehat/static/images/product_bg.png')no-repeat;
@@ -192,7 +212,7 @@ height: 24px;
 line-height: 24px;
 margin-right: 2%;
 font-weight: bold;
-font-size: 0.9em;
+font-size: 1.2em;
 color: #000000;;
 }
 
@@ -208,7 +228,7 @@ color: #ff4d4d;
 height: 24px;
 line-height: 20px;
 font-size: 0.9em;
-color: #333;
+color: #838488;
 }
 
 .list li a .row3 {
@@ -222,11 +242,11 @@ overflow: hidden;
 }
 
 .list li a .row3 .right .place_who {
-float: left;
+/* float: left; */
 height: 20px;
 line-height: 20px;
 font-size: 0.9em;
-color: #333;
+color: #838488;
 }
 
 .list li a .row3 .left .lv {
