@@ -76,9 +76,11 @@
 					<td> <fmt:formatDate value='${varitem.startTime}' pattern='yyyy-MM-dd'/>- 
 						<fmt:formatDate value='${varitem.endTime}' pattern='yyyy-MM-dd'/> 
 					</td>   
-					<td>${varitem.price} (${varitem.priceUnit}) 
+					<td>${varitem.price} 
+						<span class="showDictLabel" dictType="PRICE_UNIT" dictCode="${varitem.priceUnit}"></span> 
 					</td>  
-					<td> ${varitem.quantity}(${varitem.quantityUnit})
+					<td> ${varitem.quantity}
+						<span class="showDictLabel" dictType="QUANTITY_UNIT" dictCode="${varitem.quantityUnit}"></span>
 					</td>   
 					<td> ${varitem.region.regionName}
 					</td>   
@@ -96,3 +98,5 @@
 		<tag:pagination page="${page}" numPerPageOnchange="navTabPageBreak({numPerPage:this.value})"></tag:pagination>
 	</div>
 </div>
+
+<script type="text/javascript" src="${ctx}/static/js/base/dict.js"></script>

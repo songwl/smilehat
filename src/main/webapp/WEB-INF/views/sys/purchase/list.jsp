@@ -65,9 +65,11 @@
 					</td>   
 					<td> <a href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" rel="purchase_update" target="dialog" title="编辑"> ${varitem.title} </a> 
 					</td>   
-					<td>  ${varitem.quantity} ( ${varitem.quantityUnit})
+					<td>  ${varitem.quantity} 
+						<span class="showDictLabel" dictType="PRICE_UNIT" dictCode="${varitem.priceUnit}"></span>
 					</td>   
-					<td> ${varitem.price} (${varitem.priceUnit} )
+					<td> ${varitem.price} 
+						<span class="showDictLabel" dictType="QUANTITY_UNIT" dictCode="${varitem.quantityUnit}"></span>
 					</td>   
 					<td> <fmt:formatDate value='${ varitem.publishTime}' pattern='yyyy-MM-dd'/> 
 					</td>  
@@ -81,3 +83,5 @@
 		<tag:pagination page="${page}" numPerPageOnchange="navTabPageBreak({numPerPage:this.value})"></tag:pagination>
 	</div>
 </div>
+
+<script type="text/javascript" src="${ctx}/static/js/base/dict.js"></script>

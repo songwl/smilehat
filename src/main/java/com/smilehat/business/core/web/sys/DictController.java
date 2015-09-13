@@ -157,4 +157,17 @@ public class DictController extends SysBaseController {
 		return jsonArray;
 	}
 
+	@RequestMapping(value = "selectDictLabel")
+	@ResponseBody
+	public Object selectDictLabel(@RequestParam(required = true) String dictType, @RequestParam(required = true) String dictCode) {
+		Map<String, Object> filterParams = Maps.newHashMap();
+		filterParams.put("EQ_type", dictType);
+		filterParams.put("EQ_code", dictCode);
+		List<Dict> dictList = dictService.findAll(filterParams, this.getSortOrderBy(), this.getSortOrderDesc());
+
+		if (!CollectionUtils.isEmpty(dictList)) {
+			return dictList.get(0).getName();
+		}
+		return "";
+	}
 }

@@ -52,7 +52,7 @@ label.page-title-text {
 	color: white;
 	text-align: left;
 	font-weight: bold;
-	font-size:1.5em;
+	font-size:18px;
 	line-height: 1.5em;
 	padding: 0.15em 0;
 }
@@ -147,15 +147,23 @@ padding-right: 10px;
 }
 
 #purchase_search > div {
-width: 50%;
+width: 49%;
 float: left;
 padding: 10px 0px 20px 0px;
+}
 
+#purchase_search > div:FIRST-CHILD {
+	margin-right: 2%;	
 }
 
 #purchase_search .btn-my-select{
 	border:1px solid orange;
 	color:#D3D4D6;
+	width:78%;
+}
+
+#purchase_search .btn-my-select2{
+	width:22%;
 }
 
 #purchase_search .btn-my-group{
@@ -172,25 +180,25 @@ min-height: 600px;
 div#product_list {
 	width: 100%;
 	padding:2% 0 2% 0;
-	overflow: hidden;
 }
 
 ul.list {
-	padding-left: 10px;
 	width: 100%;
-	overflow: hidden;
-	background:url('/smilehat/static/images/product_bg.png')no-repeat;
 }
 
-li{
+ul.list li{
 	float: left;
-	width: 100%;
-	padding: 5px 0 5px 0;
-	border-bottom: 1px #ccc solid;
+	width: 107%;
+	padding: 5px 10px 16px 15%;
+	/* border-bottom: 1px #ccc solid; */
 	overflow: hidden;
+	background: url('/smilehat/static/images/product_bg.png')no-repeat;
+	position: relative;
+	left: -7%;
+	margin-bottom: 15px;
 }
 
-.list li a {
+ul.list li a {
 	float: left;
 	width: 100%;
 	overflow: hidden;
@@ -198,6 +206,7 @@ li{
 
 .list li a .row1 {
 	overflow: hidden;
+	height: 40px;
 }
 
 .list li a .row1 .left {
@@ -207,7 +216,6 @@ overflow: hidden;
 }
 
 .list li a .row1 .left .name {
-float: left;
 height: 24px;
 line-height: 24px;
 margin-right: 2%;
@@ -216,19 +224,35 @@ font-size: 1.2em;
 color: #000000;;
 }
 
-.list li a .row1 .right {
-float: right;
-height: 24px;
-line-height: 24px;
-font-size: 1.2em;
-color: #ff4d4d;
-}
 
-.list li a .row2 {
+.list li a .category{
 height: 24px;
 line-height: 20px;
 font-size: 0.9em;
 color: #838488;
+}
+
+
+.list li a .row1 .right {
+float: right;
+height: 40px;
+line-height: 40px;
+font-size: 1.3em;
+color: #ff4d4d;
+}
+
+.list li a .row1 .right .unit{
+height: 40px;
+line-height: 40px;
+font-size: 10px;
+color: #838488;
+}
+
+.list li a .row2 {
+	width:100%;
+	height:1px;
+	background-color: #ffffff;
+	margin: 4px 0;
 }
 
 .list li a .row3 {

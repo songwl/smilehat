@@ -2,6 +2,7 @@ package com.smilehat.business.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -89,7 +90,7 @@ public class Product extends IdEntity {
 	/**
 	 * @return
 	 */
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "region_id")
 	public Region getRegion() {
 		return region;

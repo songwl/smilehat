@@ -17,7 +17,7 @@ public class HfiveIndexController extends HfiveBaseController {
 
 	@RequestMapping(value = "/index")
 	public String home(Model model) {
-		return V_PATH_INDEX;
+		return "hfive/index";
 	}
 
 }

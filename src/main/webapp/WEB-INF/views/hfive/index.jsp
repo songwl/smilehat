@@ -3,8 +3,9 @@
 <!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta content="black" name="apple-mobile-web-app-status-bar-style" />
@@ -15,7 +16,7 @@
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="${ctx}/static/js/jquery/1.7.2/jquery.min.js"></script>
+<script src="${ctx}/static/js/jquery/1.11.3/jquery-1.11.3.min.js"></script>
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="${ctx}/static/bootstrap/3.3.5/js/bootstrap.js"></script>
@@ -51,7 +52,7 @@
 					<!-- Split button -->
 					<div class="btn-group btn-my-group">
 					  <button type="button" class="btn btn-default btn-my-select">地区选择</button>
-					  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1"  aria-haspopup="true" aria-expanded="false">
+					  <button type="button" class="btn btn-warning btn-my-select2 dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1"  aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
@@ -70,7 +71,7 @@
 		        <div class="category_search">
 		        	<div class="btn-group btn-my-group">
 					  <button type="button" class="btn btn-default btn-my-select">品类选择</button>
-					  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  <button type="button" class="btn btn-warning btn-my-select2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    <span class="caret"></span>
 					    <span class="sr-only">Toggle Dropdown</span>
 					  </button>
@@ -90,16 +91,131 @@
 			<div id="product_list">
 				<ul class="list">
 					<li>
-						<a href="">
+						<a href="#">
 							<div class="row1">
 								<div class="left">
-									<span class="name">金帅苹果</span>
-									<span>&nbsp;</span>
-									<span class="tu">&nbsp;</span>
+									<div class="name">
+										金帅苹果
+									</div>
+									<div class="category">品类：苹果</div>
 								</div>
-								<div class="right">0.7元/斤</div>
+								<div class="right"><span class="unit">￥</span> 0.7 <span class="unit">/斤</span></div>
 							</div>
-							<div class="row2">品类：苹果</div>
+							<div class="row2"></div>
+							<div class="row3">
+								<div class="left">
+									<img class="product_cert"  src="${ctx}/static/images/location.png">
+									<img class="product_cert" src="${ctx}/static/images/location.png">
+									<img class="product_cert" src="${ctx}/static/images/location.png">
+<!-- 									<span class="lv"></span> -->
+								</div>
+								<div class="right">
+									<img class="product_cert" src="${ctx}/static/images/location.png">
+									<span class="place_who">上海浦东新区直桥镇供销中心</span>
+								</div>
+							</div>
+						</a>
+					</li>
+					
+					
+					<li>
+						<a href="#">
+							<div class="row1">
+								<div class="left">
+									<div class="name">
+										金帅苹果
+									</div>
+									<div class="category">品类：苹果</div>
+								</div>
+								<div class="right"><span class="unit">￥</span> 0.7 <span class="unit">/斤</span></div>
+							</div>
+							<div class="row2"></div>
+							<div class="row3">
+								<div class="left">
+									<img class="product_cert"  src="${ctx}/static/images/location.png">
+									<img class="product_cert" src="${ctx}/static/images/location.png">
+									<img class="product_cert" src="${ctx}/static/images/location.png">
+<!-- 									<span class="lv"></span> -->
+								</div>
+								<div class="right">
+									<img class="product_cert" src="${ctx}/static/images/location.png">
+									<span class="place_who">上海浦东新区直桥镇供销中心</span>
+								</div>
+							</div>
+						</a>
+					</li>
+					
+					
+					
+					<li>
+						<a href="#">
+							<div class="row1">
+								<div class="left">
+									<div class="name">
+										金帅苹果
+									</div>
+									<div class="category">品类：苹果</div>
+								</div>
+								<div class="right"><span class="unit">￥</span> 0.7 <span class="unit">/斤</span></div>
+							</div>
+							<div class="row2"></div>
+							<div class="row3">
+								<div class="left">
+									<img class="product_cert"  src="${ctx}/static/images/location.png">
+									<img class="product_cert" src="${ctx}/static/images/location.png">
+									<img class="product_cert" src="${ctx}/static/images/location.png">
+<!-- 									<span class="lv"></span> -->
+								</div>
+								<div class="right">
+									<img class="product_cert" src="${ctx}/static/images/location.png">
+									<span class="place_who">上海浦东新区直桥镇供销中心</span>
+								</div>
+							</div>
+						</a>
+					</li>
+					
+					
+					
+					<li>
+						<a href="#">
+							<div class="row1">
+								<div class="left">
+									<div class="name">
+										金帅苹果
+									</div>
+									<div class="category">品类：苹果</div>
+								</div>
+								<div class="right"><span class="unit">￥</span> 0.7 <span class="unit">/斤</span></div>
+							</div>
+							<div class="row2"></div>
+							<div class="row3">
+								<div class="left">
+									<img class="product_cert"  src="${ctx}/static/images/location.png">
+									<img class="product_cert" src="${ctx}/static/images/location.png">
+									<img class="product_cert" src="${ctx}/static/images/location.png">
+<!-- 									<span class="lv"></span> -->
+								</div>
+								<div class="right">
+									<img class="product_cert" src="${ctx}/static/images/location.png">
+									<span class="place_who">上海浦东新区直桥镇供销中心</span>
+								</div>
+							</div>
+						</a>
+					</li>
+					
+					
+					<li>
+						<a href="#">
+							<div class="row1">
+								<div class="left">
+									<div class="name">
+										金帅苹果
+									</div>
+									<div class="category">品类：苹果</div>
+								</div>
+								<div class="right"><span class="unit">￥</span> 0.7 <span class="unit">/斤</span></div>
+							</div>
+							<div class="row2"></div>
 							<div class="row3">
 								<div class="left">
 									<img class="product_cert"  src="${ctx}/static/images/location.png">
@@ -132,5 +248,6 @@
 	<div id="product_purchase_publish">
 		<img class="btn_pp" id="btn_pp" src="${ctx}/static/images/btn_pp_not.png"  alt="发布">
 	</div>
+	
 </body>
 </html>
