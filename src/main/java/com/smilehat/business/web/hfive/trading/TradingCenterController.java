@@ -12,7 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.smilehat.business.entity.Product;
+import com.smilehat.business.entity.Purchase;
 import com.smilehat.business.service.ProductService;
+import com.smilehat.business.service.PurchaseService;
 import com.smilehat.business.web.hfive.HfiveBaseController;
 import com.smilehat.constants.Constants;
 
@@ -25,6 +27,9 @@ public class TradingCenterController extends HfiveBaseController {
 
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private PurchaseService purchaseService;
 
 	@RequestMapping(value = "/product/center")
 	public String productCenter(Model model, HttpServletRequest request) {
@@ -44,4 +49,21 @@ public class TradingCenterController extends HfiveBaseController {
 		return "hfive/trading/productList";
 	}
 
+	@RequestMapping(value = "/purchase/center")
+	public String purchaseCenter(Model model, HttpServletRequest request) {
+		return "hfive/trading/purchaseCenter";
+	}
+
+	@RequestMapping(value = "/purchase/list")
+	public String purchaseList(Model model, HttpServletRequest request) {
+
+		PageRequest pageRequest = this.getPageRequest("publishTime", "desc");
+		Map<String, Object> searchParams = this.getSearchRequest();
+		searchParams.put("EQ_isDeleted", false);
+
+		Page<Purchase> page = purchaseService.findPage(searchParams, pageRequest);
+		model.addAttribute("page", page);
+
+		return "hfive/trading/purchaseList";
+	}
 }

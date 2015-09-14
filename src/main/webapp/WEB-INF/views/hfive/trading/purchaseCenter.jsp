@@ -45,9 +45,8 @@
         </div>
 	</header>
 	<div id="main_div">
-<%-- 		<img class="mian_line" id="mian_line" src="${ctx}/static/images/xuline.png" > --%>
-		<div id="main_list">
-			<form id="productForm" action="${ctx}/trading/product/list" method="post">
+		<div id="main_list_purchase">
+			<form id="productForm" action="${ctx}/trading/purchase/list" method="post">
 				<input type="hidden" name="pageNum" value="1" />
 				<input type="hidden" name="numPerPage" value="10" />
 				<div id="purchase_search">
@@ -94,7 +93,7 @@
 			</form>
 			
 			<div id="product_list">
-				<ul class="list">
+				<ul class="list_purchase">
 					
 				</ul>
 			</div>
@@ -104,10 +103,10 @@
 	</div>
 	<div id="product_purchase_select">
        <div>
-       		<img class="product_select" id="product_select" src="${ctx}/static/images/product_selected.png"  alt="供应">
+       		<img class="product_select" id="product_select" src="${ctx}/static/images/product_notselected.png"  alt="供应">
        </div>
        <div>
-       		<img class="purchase_select" id="purchase_select" src="${ctx}/static/images/purchase_notselectd.png"  alt="采购">
+       		<img class="purchase_select" id="purchase_select" src="${ctx}/static/images/purchase_selectd.png"  alt="采购">
        		
        </div>
 	</div>
@@ -125,35 +124,12 @@
 				
 				$.post($form.attr("action"), $form.serialize(),
 				   function(html){
-						$("#product_list .list").append(html);
+						$("#product_list .list_purchase").append(html);
 				   }, "html");
 			}
 			
-	 		$(function () {
-				    $(".product_select").bind("click", function () {
-	//	 		        $(".product_select").src="${ctx}/static/images/product_notselected.png";
-				        location.href='/smilehat/hfive/trading/product/center';
-				    });
-				
-				    $(".purchase_select").bind("click", function () {
-	//	 		    	 $(".purchase_select").src="${ctx}/static/images/purchase_selectd.png";
-				    	 location.href='/smilehat/hfive/trading/purchase/center';
-				    });
-				}
-				);
-			});
-		
-	 			$(function () {
-			    $(".product_select").bind("click", function () {
-	// 		        $(".product_select").src="${ctx}/static/images/product_notselected.png";
-			        location.href='/smilehat/hfive/trading/product/center';
-			    });
-			
-			    $(".purchase_select").bind("click", function () {
-	// 		    	 $(".purchase_select").src="${ctx}/static/images/purchase_selectd.png";
-			    	 location.href='/smilehat/hfive/trading/purchase/center';
-			    });
 		});
+		
 		
 	</script>
 </body>
