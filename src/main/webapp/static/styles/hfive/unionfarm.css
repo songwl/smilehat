@@ -191,14 +191,15 @@ ul.list {
 }
 
 ul.list li{
-	float: left;
-	width: 107%;
+/* 	float: left; */
+	width: 100%;
 	padding: 5px 10px 16px 15%;
 	overflow: hidden;
-	background: url('/smilehat/static/images/product_bg.png')no-repeat;
+/* 	background: url('/smilehat/static/images/product_bg.png')no-repeat; */
 	position: relative;
-	left: -7%;
+/* 	left: -7%; */
 	margin-bottom: 15px;
+	background-color: #FFFFFF;
 }
 
 ul.list li a {
