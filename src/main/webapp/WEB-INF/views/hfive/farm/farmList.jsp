@@ -3,7 +3,7 @@
 
 	<c:forEach items="${page.content}" var="varitem" varStatus="varindex">
 		<li>
-			<a href="#">
+			<a href="${ctx}/farm/detail/${varitem.id}">
 				<div class="row1">
 					<div class="left">
 						<div class="name">

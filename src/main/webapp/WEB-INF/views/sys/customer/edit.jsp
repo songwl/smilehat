@@ -31,7 +31,7 @@
 						</dl>
 						<br/>
 						<dl class="nowrap">
-							<dt>称呼：</dt>
+							<dt>名称：</dt>
 							<dd>
 								<input name="user.name" class="required" type="text" size="30" value="${vm.user.name}" validate="{required:true}" />
 							</dd>
