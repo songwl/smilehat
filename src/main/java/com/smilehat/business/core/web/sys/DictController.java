@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Maps;
 import com.smilehat.business.core.entity.sys.Dict;
 import com.smilehat.business.core.service.sys.DictService;
@@ -166,8 +167,10 @@ public class DictController extends SysBaseController {
 		List<Dict> dictList = dictService.findAll(filterParams, this.getSortOrderBy(), this.getSortOrderDesc());
 
 		if (!CollectionUtils.isEmpty(dictList)) {
-			return dictList.get(0).getName();
+			JSONObject json = new JSONObject();
+			json.put("label", dictList.get(0).getName());
+			return json;
 		}
-		return "";
+		return null;
 	}
 }

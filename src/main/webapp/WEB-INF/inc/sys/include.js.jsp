@@ -65,3 +65,8 @@
 <script src="${ctx}/static/js/vsc/vsc.fastjson.min.js" type="text/javascript"></script>
 <script src="${ctx}/static/js/vsc/vsc.sys.min.js" type="text/javascript"></script>
 --%>
+
+
+<script type="text/javascript">
+    var CTX = '${ctx}';
+</script>

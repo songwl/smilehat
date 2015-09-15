@@ -114,12 +114,13 @@ div#product_purchase_publish {
 bottom: 10px;
 position: fixed;
 display: block;
-width: 100%;
+width: 30%;
 text-align: center;
+left: 35%;
 }
 
 img#btn_pp {
-width: 30%;
+width: 100%;
 height: 30%;
 }
 

@@ -4,25 +4,14 @@
 <!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<meta content="black" name="apple-mobile-web-app-status-bar-style" />
-
-<!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="${ctx}/static/bootstrap/3.3.5/css/bootstrap.css">
-
-<link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
-
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="${ctx}/static/js/jquery/1.11.3/jquery-1.11.3.min.js"></script>
-
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="${ctx}/static/bootstrap/3.3.5/js/bootstrap.js"></script>
-<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
-
-<title>微笑草帽</title>
+	<%@ include file="/WEB-INF/inc/hfive/include.meta.jsp"%>
+	<title>微笑草帽</title>
+	
+	<%@ include file="/WEB-INF/inc/hfive/include.css.jsp"%>
+	<link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
+	
+	<%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
+	
 </head>
 <body>
 	<header>
@@ -46,7 +35,7 @@
 	</header>
 	<div id="main_div">
 		<div id="main_list_purchase">
-			<form id="productForm" action="${ctx}/trading/purchase/list" method="post">
+			<form id="purchaseForm" action="${ctx}/trading/purchase/list" method="post">
 				<input type="hidden" name="pageNum" value="1" />
 				<input type="hidden" name="numPerPage" value="10" />
 				<div id="purchase_search">
@@ -101,31 +90,20 @@
 	</div>
 	<div id="product_purchase_select">
        <div>
-       		<img class="product_select" id="product_select" src="${ctx}/static/images/product_notselected.png"  alt="供应">
+       		<a href="${ctx}/trading/product/center"><img class="product_select" id="product_select" src="${ctx}/static/images/product_notselected.png"  alt="供应"></a>
        </div>
        <div>
-       		<img class="purchase_select" id="purchase_select" src="${ctx}/static/images/purchase_selectd.png"  alt="采购">
-       		
+       		<a href="${ctx}/trading/purchase/center"><img class="purchase_select" id="purchase_select" src="${ctx}/static/images/purchase_selectd.png"  alt="采购"></a>
        </div>
 	</div>
 	<div id="product_purchase_publish">
 		<img class="btn_pp" id="btn_pp" src="${ctx}/static/images/btn_pp_not.png"  alt="发布">
 	</div>
 	
-	
+	<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(function(){
-			getProdct();
-			
-			function getProdct(){
-				var $form = $("#productForm");
-				
-				$.post($form.attr("action"), $form.serialize(),
-				   function(html){
-						$("#product_list .list_purchase").append(html);
-				   }, "html");
-			}
-			
+			getItemList($("#purchaseForm"),$("#product_list .list_purchase"));
 		});
 		
 		
