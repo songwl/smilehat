@@ -9,8 +9,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.smilehat.business.core.web.BaseController;
 import com.smilehat.business.entity.Customer;
 import com.smilehat.business.service.CustomerService;
 import com.smilehat.business.web.hfive.HfiveBaseController;
@@ -42,6 +45,13 @@ public class UnionFarmController extends HfiveBaseController {
 		model.addAttribute("page", page);
 
 		return "hfive/farm/farmList";
+	}
+	
+	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
+	public String updateForm(@PathVariable("id") java.lang.Long id, Model model) {
+		model.addAttribute("vm", customerService.getObjectById(id));
+		model.addAttribute("action", BaseController.UPDATE);
+		return "hfive/farm/farmDetail";
 	}
 
 }
