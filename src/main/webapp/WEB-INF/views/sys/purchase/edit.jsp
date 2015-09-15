@@ -29,13 +29,20 @@
 				<dt><label>标题:</label></dt>
 				<dd><input type="text" id="title" name="title" class="required" size="50" value="${vm.title}" validate="{required:true}"/>						</dd>
 			</dl>
+			<dl  class="nowrap">
+				<dt><label>规格:</label></dt>
+				<dd>
+<%-- 							<input type="text" id="branchInfo" name="branchInfo" class="required" size="50" value="${vm.branchInfo}" />	 --%>
+					<select  id="branchInfo" name=branchInfo  class="required combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
+					</select>
+				</dd>
+			</dl>
 			<dl class="nowrap">
 				<dt><label>采购量:</label></dt>
 				<dd>
 					<input type="text" id="quantity" name="quantity" class="required" size="18" value="${vm.quantity}"  />	
 					<select id="quantityUnit" name="quantityUnit"  class="required combox"  selectedValue="${vm.quantityUnit}" dataUrl="${sctx}/dict/selectDictByType?dictType=QUANTITY_UNIT">
 					</select>
-											
 				</dd>
 			</dl>
 			<dl class="nowrap">

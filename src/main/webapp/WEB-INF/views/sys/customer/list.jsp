@@ -49,7 +49,7 @@
 				<th width="40" align="center">序号</th>
 				<th width="30"><input type="checkbox" group="ids" class="checkboxCtrl"></th>
 				<th>登录名(手机)</th>
-				<th>称呼</th>
+				<th>商户名称</th>
 				<th <tag:orderField name="userType"/>>商户类型</th>
 				<th width="140" align="center" <tag:orderField name="registerDate"/>>注册时间</th>
 				<th width="120">操作</th>

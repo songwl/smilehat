@@ -98,8 +98,6 @@
 				</ul>
 			</div>
 		</div>
-		
-		
 	</div>
 	<div id="product_purchase_select">
        <div>

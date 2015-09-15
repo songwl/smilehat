@@ -42,6 +42,7 @@ public class User extends IdEntity {
 	private java.lang.Boolean isAudit = Boolean.FALSE;//是否审核通过
 	private java.util.Date auditTime;//审核时间
 
+	
 	private Attach photoAttach;
 
 	private Customer customer;

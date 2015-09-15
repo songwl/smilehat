@@ -9,8 +9,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.smilehat.business.core.web.BaseController;
 import com.smilehat.business.entity.Product;
 import com.smilehat.business.entity.Purchase;
 import com.smilehat.business.service.ProductService;
@@ -48,6 +51,14 @@ public class TradingCenterController extends HfiveBaseController {
 
 		return "hfive/trading/productList";
 	}
+	
+	@RequestMapping(value = "/product/detail/{id}", method = RequestMethod.GET)
+	public String productDetail(@PathVariable("id") java.lang.Long id, Model model) {
+		model.addAttribute("vm", productService.getObjectById(id));
+		model.addAttribute("action", BaseController.UPDATE);
+		return "hfive/trading/productDetail";
+	}
+	
 
 	@RequestMapping(value = "/purchase/center")
 	public String purchaseCenter(Model model, HttpServletRequest request) {
@@ -65,5 +76,12 @@ public class TradingCenterController extends HfiveBaseController {
 		model.addAttribute("page", page);
 
 		return "hfive/trading/purchaseList";
+	}
+	
+	@RequestMapping(value = "/purchase/detail/{id}", method = RequestMethod.GET)
+	public String purchaseDetail(@PathVariable("id") java.lang.Long id, Model model) {
+		model.addAttribute("vm", purchaseService.getObjectById(id));
+		model.addAttribute("action", BaseController.UPDATE);
+		return "hfive/trading/purchaseDetail";
 	}
 }

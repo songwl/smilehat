@@ -45,7 +45,11 @@
 					</dl>
 					<dl  class="nowrap">
 						<dt><label>规格:</label></dt>
-						<dd><input type="text" id="branchInfo" name="branchInfo" class="required" size="50" value="${vm.branchInfo}" />						</dd>
+						<dd>
+<%-- 							<input type="text" id="branchInfo" name="branchInfo" class="required" size="50" value="${vm.branchInfo}" />	 --%>
+							<select  id="branchInfo" name=branchInfo  class="required combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
+							</select>
+						</dd>
 					</dl>
 					
 					<dl class="nowrap">

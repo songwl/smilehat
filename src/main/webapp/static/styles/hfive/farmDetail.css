@@ -25,3 +25,7 @@ img.back {
 div.cur_title{
     width: 50%;
 }
+
+textarea.farmDesc {
+border-style: none;
+}

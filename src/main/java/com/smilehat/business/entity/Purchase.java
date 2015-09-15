@@ -33,6 +33,7 @@ public class Purchase extends IdEntity {
 	private java.lang.Integer sort;//排序字段
 	private java.lang.Boolean isDeleted = Boolean.FALSE; // 默认未删除
 	private java.lang.Integer visitCount; //访问次数
+	private java.lang.String branchInfo;//规格
 
 	private Category category;//品类
 	private User user;
@@ -45,6 +46,19 @@ public class Purchase extends IdEntity {
 		this.sort = sort;
 	}
 
+	/**
+	 * @return
+	 */
+	@Column(name = "branch_info")
+	public java.lang.String getBranchInfo() {
+		return this.branchInfo;
+	}
+
+	public void setBranchInfo(java.lang.String value) {
+		this.branchInfo = value;
+	}
+
+	
 	/**
 	 * @return
 	 */

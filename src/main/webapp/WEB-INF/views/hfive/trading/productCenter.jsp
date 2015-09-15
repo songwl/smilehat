@@ -99,8 +99,6 @@
 				</ul>
 			</div>
 		</div>
-		
-		
 	</div>
 	<div id="product_purchase_select">
        <div>
@@ -114,8 +112,6 @@
 	<div id="product_purchase_publish">
 		<img class="btn_pp" id="btn_pp" src="${ctx}/static/images/btn_pp_not.png"  alt="发布">
 	</div>
-	
-	
 	<script type="text/javascript">
 		$(function(){
 			getProdct();

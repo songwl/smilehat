@@ -34,45 +34,74 @@
         	<label  class="page-title-text">农场详情</label>
         </div>
 	</header>
-	<div class="pageContent">
-		<form id="productForm" action="${sctx}/customer/product/list/${vm.user.id}" method="post">
+<!-- 	<div class="pageContent"> -->
+<%-- 		<form id="productForm" action="${ctx}/farm/productlist/${vm.user.id}" method="post"> --%>
+<!-- 			<div class="farmContent" > -->
+<!-- 				<div class="farmImg"> -->
+<%-- 					<img src="${ctx}/${vm.user.photoAttach.downloadPath }"> --%>
+<!-- 				</div> -->
+<%-- 				<input type="hidden" name="user.id" value="${vm.user.id}"> --%>
+				
+<%-- 				<div>名称：${vm.user.name}</div> --%>
+	
+<%-- 				<div>地址：${vm.region.parent.parent.regionName} ${vm.region.parent.regionName} ${vm.region.regionName} ${vm.address}</div> --%>
+<!-- 				<div> -->
+<!-- 					签名： -->
+<%-- 					<textarea rows="" cols="" name="signature" style="width: 100%;"  readonly="true">${vm.signature}</textarea> --%>
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</form> -->
+<!-- 		<div id="product_list"> -->
+<!-- 			<ul class="list"> -->
+					
+<!-- 			</ul> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+	
+<!-- 	<script type="text/javascript"> -->
+<!-- // 		$(function(){ -->
+<!-- // 			getProdct(); -->
+			
+<!-- // 			function getProdct(){ -->
+<!-- // 				var $form = $("#productForm"); -->
+				
+<!-- // 				$.post($form.attr("action"), $form.serialize(), -->
+<!-- // 				   function(html){ -->
+<!-- // 						$("#product_list .list").append(html); -->
+<!-- // 				   }, "html"); -->
+<!-- // 			} -->
+			
+<!-- // 		}); -->
+		
+<!-- 	</script> -->
+
+		<div class="pageContent"> 
 			<div class="farmContent" >
+				<div>名称：${vm.user.name}</div>
 				<div class="farmImg">
 					<img src="${ctx}/${vm.user.photoAttach.downloadPath }">
 				</div>
 				<input type="hidden" name="user.id" value="${vm.user.id}">
 				
-				<div>名称：${vm.user.name}</div>
+				<div>认证标签：
+					<img class="product_cert"  src="${ctx}/static/images/location.png">
+					<img class="product_cert" src="${ctx}/static/images/location.png">
+					<img class="product_cert" src="${ctx}/static/images/location.png">
+				</div>
 	
 				<div>地址：${vm.region.parent.parent.regionName} ${vm.region.parent.regionName} ${vm.region.regionName} ${vm.address}</div>
 				<div>
-					签名：
-					<textarea rows="" cols="" name="signature" style="width: 480px;"  readonly="true">${vm.signature}</textarea>
+					描述：
+					<textarea rows="" cols="" class="farmDesc" name="description" style="width: 100%;" wrap="virtual"   readonly="true">${vm.description}</textarea>
+				</div>
+				<div>
+					联系方式：：
+					<a href="${ctx}/farm/productlist/${vm.user.id}" >点击获取联系方式</a>
+				</div>
+				<div>
+					<a >农场产品,跳转到交易服务后查询属于该农场的产品？？</a>
 				</div>
 			</div>
-		</form>
-		<div class="productList">
-			<ul class="farmproductlist">
-					
-			</ul>
 		</div>
-	</div>
-	
-	<script type="text/javascript">
-		$(function(){
-			getProdct();
-			
-			function getProdct(){
-				var $form = $("#productForm");
-				
-				$.post($form.attr("action"), $form.serialize(),
-				   function(html){
-						$("#productList .farmproductlist").append(html);
-				   }, "html");
-			}
-			
-		});
-		
-	</script>
 </body>
 </html>
