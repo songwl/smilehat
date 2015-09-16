@@ -21,8 +21,6 @@
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="${ctx}/static/bootstrap/3.3.5/js/bootstrap.js"></script>
-<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
-
 <title>微笑草帽</title>
 </head>
 <body>
@@ -39,7 +37,10 @@
 		<div class="pageContent"> 
 			<div class="farmContent" >
 				<div>名称：${vm.title}  </div>     
-				<div>采购量：${vm.quantity} ${vm.quantityUnit}</div>
+				<div>
+					采购量：${vm.quantity}
+					<span class="showDictLabel" dictType="QUANTITY_UNIT" dictCode="${vm.quantityUnit}"></span>
+				</div>
 				<div>规格：${vm.branchInfo}  </div> 
 				<input type="hidden" name="user.id" value="${vm.user.id}">
 				<div><a href="${ctx}/farm/detail/${vm.user.id}"> 商户名称：${vm.user.name} </a></div>     
@@ -51,4 +52,6 @@
 			</div>
 		</div>
 </body>
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/base/dict.js"></script>
 </html>
+

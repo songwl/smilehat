@@ -20,7 +20,8 @@
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="${ctx}/static/bootstrap/3.3.5/js/bootstrap.js"></script>
-<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
+
+
 
 <title>微笑草帽</title>
 </head>
@@ -38,9 +39,10 @@
 		<div class="pageContent"> 
 			<div class="farmContent" >
 				<div>名称：${vm.name}  </div>     
-				 <div>价格：${vm.price} {vm.priceUnit}</div>
+				<div>价格：${vm.price} 
+					<span id="showDictLabel" class="showDictLabel" dictType="PRICE_UNIT" dictCode="${vm.priceUnit}"></span> 
+				</div>
 				<div class="farmImg">
-				假的
 					<img src="${ctx}/${vm.user.photoAttach.downloadPath }">
 				</div>
 				<input type="hidden" name="user.id" value="${vm.user.id}">
@@ -64,4 +66,7 @@
 			</div>
 		</div>
 </body>
+
+<script type="text/javascript" src="${ctx}/static/js/base/dict.js"></script>
 </html>
+
