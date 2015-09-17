@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/customerCenter.css" type="text/css" />
 	
 	<%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
-	
+	<script src="${ctx}/static/js/hfive/customerCenter.js"></script>
 </head>
 <body>
 	<header>
@@ -24,48 +24,71 @@
         	<label  class="page-title-text">商户中心</label>
         </div>
 	</header>
-	<div id="main_div">
-		<div class="menu">  
-	   		 <ul>  
-                <li id="one1" class="tabtab" onclick="setTab('one',1)">充值</li>  
-                <li id="one2"  class="tabtab"  onclick="setTab('one',2)">作废售水</li>  
-                <li id="one3"  class="tabtab"  onclick="setTab('one',3)">退水</li>  
-            </ul>  
-		</div>
-		<div class="menudiv">  
-			<div id="con_one_1" style="display: none;">  
-				用户基本信息
-			</div>
-				<div id="con_one_2" style="display: none;">  
-				<ul class="list">
-					我的产品
-				</ul>
-			</div>
-			<div id="con_one_3" style="display: none;">  				
-				<ul class="list">
-					我的采购
-				</ul>
-			</div>
+	<div id="menu">
+	    <ul id="nav">
+	        <li><a href="#" class="selected">基本信息</a></li>
+	        <li><a href="#" class="">我的产品</a></li>
+	        <li><a href="#" class="">我的采购</a></li>
+	    </ul>
+	    <div id="menu_con">
+	        <div class="tag" style="display:block" id="customer-detail">
+	            	这里基本信息
+	         </div> 
+	        <div class="tag" style="display:none" id="customer-productList">
+	           	 这里我的产品   
+	         </div> 
+	        <div class="tag"  style="display:none" id="customer-purchaseList">
+	           	 这里是我的采购
+	        </div> 
 		</div>
 	</div>
-	<script type="text/javascript">
-	$(function(){
-		$("#tabtab").bind('click',function setTab(name, cursel) {
-		    for (var i = 1; i <= links_len; i++) {
-		        var menu = document.getElementById(name + i);
-		        var menudiv = document.getElementById("con_" + name+"_"+i);
-		        if (i == cursel) {
-		            menu.className = "off";
-		            menudiv.style.display = "block";
-		        }
-		        else {
-		            menu.className = "";
-		            menudiv.style.display = "none";
-		        }
-		        document.getElementById("hidfTagHistory").value = cursel;
+	<script  type="text/javascript">
+		var tabs=function(){
+		    function tag(name,elem){
+		        return (elem||document).getElementsByTagName(name);
 		    }
-		});
-	});
+		    //获得相应ID的元素
+		    function id(name){
+		        return document.getElementById(name);
+		    }
+		    function first(elem){
+		        elem=elem.firstChild;
+		        return elem&&elem.nodeType==1? elem:next(elem);
+		    }
+		    function next(elem){
+		        do{
+		            elem=elem.nextSibling;  
+		        }while(
+		            elem&&elem.nodeType!=1  
+		        )
+		        return elem;
+		    }
+		    return {
+		        set:function(elemId,tabId){
+		            var elem=tag("li",id(elemId));
+		            var tabs=tag("div",id(tabId));
+		            var listNum=elem.length;
+		            var tabNum=tabs.length;
+		            for(var i=0;i<listNum;i++){
+		                    elem[i].onclick=(function(i){
+		                        return function(){
+		                            for(var j=0;j<tabNum;j++){
+		                                if(i==j){
+		                                    tabs[j].style.display="block";
+		                                    elem[j].firstChild.className="selected";
+		                                }
+		                                else{
+		                                    tabs[j].style.display="none";
+		                                    elem[j].firstChild.className="";
+		                                }
+		                            }
+		                        }
+		                    })(i)
+		            }
+		        }
+		    }
+		}();
+		tabs.set("nav","menu_con");//执行
 	</script>
 </body>
 </html>

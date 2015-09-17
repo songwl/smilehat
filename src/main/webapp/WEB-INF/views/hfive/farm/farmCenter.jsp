@@ -25,7 +25,11 @@
 <title>微笑草帽</title>
 </head>
 <body>
-	<header>
+	<div class="background-img">
+		
+	</div>
+	<div class="main-content">
+		<header>
 		<div class="logo">
 			<a href="" class="head_title">
 				<label  class="page-title-text"> &lt;联盟农场</label>
@@ -35,7 +39,7 @@
 	          	<input type="text" class="form-control" placeholder="搜索">
         </div>
         <div class="userCenter">
-        	<a href="">
+        	<a href="${ctx}/customer/center">
         		<img class="user_info" src="${ctx}/static/images/green_user.png"  alt="商户中心">
         	</a>
         </div>
@@ -88,6 +92,8 @@
 				</ul>
 			</div>
 		</div>
+	</div>
+	
 	
 	<script type="text/javascript">
 		$(function(){
