@@ -6,17 +6,23 @@
 			<a href="${ctx}/farm/detail/${varitem.id}">
 				<div class="row1">
 					<div class="left">
-						<div class="name">
-							${varitem.user.name}
-						</div>
-						<div class="customeresc">${varitem.description}</div>
+						<img class="product_cert" src="${ctx}/static/images/location.png">
+						<span class="place_who">${varitem.region.regionName}</span>
+						
+<%-- 						<div class="customeresc">${varitem.description}</div> --%>
 					</div>
+					
+				</div>
+				<div class="row2">
 					<div class="right">
+						<div class="name">
+							<span style="position:relative;color:black">${varitem.user.name}</span>
+							
+						</div>
 <%-- 						<span class="unit">￥</span> ${varitem.price} <span class="unit">/${varitem.priceUnit}</span> --%>
-						<img class="todetail" src="${ctx}/static/images/right.png">
+						
 					</div>
 				</div>
-				<div class="row2"></div>
 				<div class="row3">
 					<div class="left">
 						<img class="product_cert"  src="${ctx}/static/images/location.png">
@@ -25,8 +31,7 @@
 <!-- 									<span class="lv"></span> -->
 					</div>
 					<div class="right">
-						<img class="product_cert" src="${ctx}/static/images/location.png">
-						<span class="place_who">${varitem.region.regionName}</span>
+						<img class="todetail" src="${ctx}/static/images/right.png">
 					</div>
 				</div>
 			</a>

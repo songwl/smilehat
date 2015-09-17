@@ -14,13 +14,16 @@ body, html {
 div {
 display: block;
 font-size: 14px;
+/* opacity: 0.7; */
+/* filter: alpha(opacity=70); */
 }
 
 div.background-img {
 	width: 100%;
-    height: 100%;
+	height:100%;
+    min-height: 700px;
     padding: 0px;
-    margin: 100px auto 0px auto;
+    margin: 0px auto 0px auto;
     border:1px solid white;
     border-radius: 5px;
     /**background-color:rgb(0,152,50);**/
@@ -29,28 +32,31 @@ div.background-img {
     filter:alpha(opacity=70);
 }
 
-div.main-content{
+div#main_div{
 	width: 100%;
     height: 100%;
     clear: both;
     overflow: hidden;
-    margin: -1000px auto 0px auto;
+    margin: 10px auto 0px auto;
 	background-color: #0C0B0C;
+	opacity: 0.7;
+	filter:alpha(opacity=70);
 }
 
-header {
+div.header {
     width: 100%;
     height: 60px;
     padding: 11px 2% 12px 2%;
-    background: #9DD05B;
+/*     background: #9DD05B; */
     overflow: hidden;
+    margin: -700px auto 0px auto;
 }
 
-header a{
+div.header a{
 	text-decoration: none
 }
 
-header div.logo {
+div.header div.logo {
 	width: 30%;
 }
 
@@ -58,13 +64,13 @@ div.search {
 width: 50%;
 }
 
-header div{
+div.header div{
 	display: inline;
 	float: left;
 }
 
 label.page-title-text {
-	color: white;
+	color: rgb(0, 182, 44);
 	text-align: left;
 	font-weight: bold;
 	font-size:18px;
@@ -138,10 +144,6 @@ width: 30%;
 height: 30%;
 }
 
-img#mian_line {
-padding-left: 20%;
-}
-
 input.search_purchase {
 height: 25px;
 width: 100%;
@@ -194,7 +196,7 @@ min-height: 600px;
 div#main_list_purchase {
 /* margin-right: 20%; */
 background:#F8F8F8;
-border-right: 2px #FF9C59 dotted;
+/* border: 2px green dotted; */
 min-height: 700px;
 }
 
@@ -205,7 +207,7 @@ height: 30px;
 
 div#product_list {
 	width: 100%;
-	padding:2% 0 2% 0;
+	padding: 2% 2% 2% 5%;
 }
 
 ul.list {
@@ -213,15 +215,18 @@ ul.list {
 }
 
 ul.list li{
-/* 	float: left; */
-	width: 100%;
-	padding: 5px 10px 16px 15%;
+	float: left;
+	width: 45%;
+	height: 160px;
+	padding: 5px 10px 16px 15px;
 	overflow: hidden;
 /* 	background: url('/smilehat/static/images/product_bg.png')no-repeat; */
 	position: relative;
 /* 	left: -7%; */
 	margin-bottom: 15px;
 	background-color: #FFFFFF;
+	border:2px solid green;
+	margin-right: 10px;
 }
 
 ul.list li a {
@@ -232,7 +237,7 @@ ul.list li a {
 
 .list li a .row1  {
 	overflow: hidden;
-	height: 40px;
+/* 	height: 40px; */
 }
 
 .list li a .row1 .left  {
@@ -276,18 +281,19 @@ color: #838488;
 
 .list li a .row2  {
 	width:100%;
-	height:1px;
+/* 	height:1px; */
 	background-color: #ffffff;
 	margin: 4px 0;
 }
 
 .list li a .row3  {
 overflow: hidden;
+height: 30px;
 }
 
 .list li a .row3 .left  {
 float: left;
-width: 30%;
+width: 70%;
 overflow: hidden;
 }
 

@@ -28,8 +28,7 @@
 	<div class="background-img">
 		
 	</div>
-	<div class="main-content">
-		<header>
+	<div class="header">
 		<div class="logo">
 			<a href="" class="head_title">
 				<label  class="page-title-text"> &lt;联盟农场</label>
@@ -43,7 +42,10 @@
         		<img class="user_info" src="${ctx}/static/images/green_user.png"  alt="商户中心">
         	</a>
         </div>
-	</header>
+	</div>
+	
+<!-- 	<div class="main-content"> -->
+		
 	<div id="main_div">
 		<div id="main_list_purchase">
 			<form id="productForm" action="${ctx}/farm/list" method="post">
@@ -91,7 +93,7 @@
 					
 				</ul>
 			</div>
-		</div>
+<!-- 		</div> -->
 	</div>
 	
 	
