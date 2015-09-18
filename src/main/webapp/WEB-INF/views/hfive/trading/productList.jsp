@@ -13,7 +13,7 @@
 					</div>
 					<div class="right"><span class="unit">￥</span> ${varitem.price} <span class="unit">/${varitem.priceUnit}</span></div>
 				</div>
-				<div class="row2"></div>
+<!-- 				<div class="row2"></div> -->
 				<div class="row3">
 					<div class="left">
 						<img class="product_cert"  src="${ctx}/static/images/location.png">

@@ -15,20 +15,44 @@ div {
 display: block;
 font-size: 14px;
 }
+div.background-img {
+	width: 100%;
+	height:100%;
+    min-height: 700px;
+    padding: 0px;
+    margin: 0px auto 0px auto;
+    border:1px solid white;
+    border-radius: 5px;
+    /**background-color:rgb(0,152,50);**/
+    background:url(/smilehat/static/images/tufarm.jpg) no-repeat center center scroll;
+    opacity: 0.7;
+    filter:alpha(opacity=70);
+    background-size: 100% 100%;
+}
+div#main_div {
+ 	width: 100%;
+	min-height:700px;
+	clear: both;
+    overflow: hidden;
+    margin: -700px auto 0px auto;
+	background-color: #1D1C1D;
+    opacity: 0.8;
+	filter:alpha(opacity=80);
+}
 
-header {
+div#header {
     width: 100%;
     height: 60px;
     padding: 11px 2% 12px 2%;
-    background: #FAA74B;
+/*     background: #FAA74B; */
     overflow: hidden;
 }
 
-header a{
+div#header a{
 	text-decoration: none
 }
 
-header div.logo {
+div#header div.logo {
 	width: 30%;
 }
 
@@ -43,7 +67,7 @@ div.search {
 width: 50%;
 }
 
-header div{
+div#header div{
 	display: inline;
 	float: left;
 }
@@ -66,7 +90,7 @@ input.search-txt {
 	height: 25px;
 	border-radius: 5px;
 }
-header #userCenter{
+div#header #userCenter{
 	float: right ;
     margin: 0 2% 0 0;
 }
@@ -172,9 +196,9 @@ padding: 10px 0px 20px 0px;
 }
 
 div#main_list {
-margin-left: 20%;
-background:#F8F8F8;
-border-left: 2px #FF9C59 dotted;
+/* margin-left: 20%; */
+/* background:#F8F8F8; */
+/* border-left: 2px #FF9C59 dotted; */
 min-height: 600px;
 }
 div#main_list_purchase {
@@ -197,14 +221,15 @@ ul.list {
 
 ul.list li{
 	float: left;
-	width: 107%;
-	padding: 5px 10px 16px 15%;
-	/* border-bottom: 1px #ccc solid; */
+	width: 90%;
+	margin: 5px 10px 16px 10px;
+	border:1px #099214 solid;
 	overflow: hidden;
-	background: url('/smilehat/static/images/product_bg.png')no-repeat;
+	padding: 10px;
+/* 	background: url('/smilehat/static/images/product_bg.png')no-repeat; */
 	position: relative;
-	left: -7%;
-	margin-bottom: 15px;
+/* 	left: -7%; */
+/* 	margin-bottom: 15px; */
 }
 
 ul.list_purchase li{
@@ -241,7 +266,7 @@ line-height: 24px;
 margin-right: 2%;
 font-weight: bold;
 font-size: 1.2em;
-color: #000000;;
+color: #FFFFFE;;
 }
 
 

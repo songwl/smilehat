@@ -15,10 +15,11 @@ img.back {
 }
 
 #menu{
-	width:360px; 
+	width:90%; 
 	overflow:hidden; 
-	margin:100px auto;
-	border:1px solid #BF9660;
+	margin:10px auto;
+	border:1px solid #4EAD6D;
+	min-height: 600px;
 }
 
 #menu #nav {
@@ -32,7 +33,7 @@ img.back {
 
 #menu #nav li {
 	float:left;
-	width:100px;
+	width: 33%;
 }
 
 #menu #nav li a {
@@ -56,6 +57,6 @@ img.back {
 }
 
 .selected{
-	background:#C5A069; 
+	background:#4EAD6D; 
 	color:#fff;
 }

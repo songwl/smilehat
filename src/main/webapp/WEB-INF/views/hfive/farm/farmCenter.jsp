@@ -28,7 +28,7 @@
 	<div class="background-img">
 		
 	</div>
-	<div class="header">
+	<div id="header">
 		<div class="logo">
 			<a href="" class="head_title">
 				<label  class="page-title-text"> &lt;联盟农场</label>
