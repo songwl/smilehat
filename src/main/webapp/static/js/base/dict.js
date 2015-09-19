@@ -5,8 +5,7 @@ function showDictLabel($body,type,code){
 		success : function(json) {
 			if (!json)return;
 			$body.html(json["label"]);
-		},
-		error : DWZ.ajaxError
+		}
 	});
 }
 

@@ -18,58 +18,74 @@ font-size: 14px;
 div.background-img {
 	width: 100%;
 	height:100%;
-    min-height: 700px;
+/*     min-height: 700px; */
+	position: fixed;
+	left: 0px;
+	top: 0px;
     padding: 0px;
     margin: 0px auto 0px auto;
-    border:1px solid white;
-    border-radius: 5px;
+/*     border:1px solid white; */
+/*     border-radius: 5px; */
     /**background-color:rgb(0,152,50);**/
     background:url(/smilehat/static/images/tufarm.jpg) no-repeat center center scroll;
     opacity: 0.7;
     filter:alpha(opacity=70);
     background-size: 100% 100%;
 }
+
+.background-zhezhao {
+	background-color: #1D1C1D;
+	opacity: 0.8;
+	filter:alpha(opacity=80);
+	position: fixed;
+	width: 100%;
+	height:100%;
+	left: 0px;
+	top: 0px;
+    padding: 0px;
+    margin: 0px auto 0px auto;
+}
+
 div#main_div {
  	width: 100%;
-	min-height:700px;
-	clear: both;
+/* 	min-height:700px; */
+	padding: 0px 10px 0px 10px;
     overflow: hidden;
-    margin: -700px auto 0px auto;
-	background-color: #1D1C1D;
-    opacity: 0.8;
-	filter:alpha(opacity=80);
+    position: relative;
 }
 
 div#header {
     width: 100%;
-    height: 60px;
+    height: 80px;
     padding: 11px 2% 12px 2%;
 /*     background: #FAA74B; */
     overflow: hidden;
 }
 
 div#header a{
-	text-decoration: none
+	text-decoration: none;
+	color: white;
 }
 
 div#header div.logo {
 	width: 30%;
+	padding-left: 5px;
+	float: left;
 }
-
+img#curlogo{
+	width: 70px;
+	height:60px
+}
 /* header .logo h1 { */
 /*     float: left; */
 /*     margin: 0 2% 0 0; */
 /* 	display: inline-block; */
 /* } */
 
-
-div.search {
-width: 50%;
-}
-
 div#header div{
 	display: inline;
-	float: left;
+	height: 100%;
+/* 	width: 50%; */
 }
 
 label.page-title-text {
@@ -79,6 +95,14 @@ label.page-title-text {
 	font-size:18px;
 	line-height: 1.5em;
 	padding: 0.15em 0;
+}
+
+div.search {
+float: right;
+padding-top: 10px;
+}
+img.search-img {
+width: 35px;
 }
 
 input.search-txt {
@@ -96,7 +120,7 @@ div#header #userCenter{
 }
 
 img.user_info {
-	height: 45px;
+	height: 35px;
 	padding-left: 10px;
 }
 
@@ -106,10 +130,14 @@ div#product_purchase_select {
 	position: fixed;
 	display: block;
 	width: 100%;
+	padding: 13px 0px 0px 30px;
+	background-color: #6EBD28;
+	height: 60px;
 }
 
 .userCenter {
-float: right;
+float: left;
+padding-top: 10px
 }
 
 .list
@@ -125,13 +153,13 @@ ul
 
 div#product_purchase_select div{
 	display: inline;
-	width:50%;
+	width:33%;
 	float: left;
 	
 }
 
 div#product_purchase_select div img{
-	width:100%
+	width: 35px;
 }
 
 div#product_purchase_publish {
@@ -182,24 +210,28 @@ padding: 10px 0px 20px 0px;
 }
 
 #purchase_search .btn-my-select{
-	border:1px solid orange;
+	border:1px solid #6EBD28;
 	color:#D3D4D6;
-	width:78%;
+	width:70%;
+	height: 40px;
 }
 
 #purchase_search .btn-my-select2{
-	width:22%;
+	width:30%;
+	height: 40px;
+	border-radius: 0px;
 }
 
 #purchase_search .btn-my-group{
 	width:100%;
+	height: 40px;
 }
 
 div#main_list {
 /* margin-left: 20%; */
 /* background:#F8F8F8; */
 /* border-left: 2px #FF9C59 dotted; */
-min-height: 600px;
+/* min-height: 600px; */
 }
 div#main_list_purchase {
 margin-right: 20%;
@@ -212,7 +244,7 @@ min-height: 600px;
 
 div#product_list {
 	width: 100%;
-	padding:2% 0 2% 0;
+	padding:2% 10px 2% 10px;
 }
 
 ul.list {
@@ -221,8 +253,8 @@ ul.list {
 
 ul.list li{
 	float: left;
-	width: 90%;
-	margin: 5px 10px 16px 10px;
+	width: 100%;
+/* 	margin: 5px 10px 16px 10px; */
 	border:1px #099214 solid;
 	overflow: hidden;
 	padding: 10px;
@@ -251,16 +283,13 @@ ul.list li a, ul.list_purchase li a{
 
 .list li a .row1 ,.list_purchase li a .row1 {
 	overflow: hidden;
-	height: 40px;
+	height: 30px;
 }
 
 .list li a .row1 .left,.list_purchase li a .row1 .left {
 float: left;
-width: 60%;
+width: 50%;
 overflow: hidden;
-}
-
-.list li a .row1 .left .name ,.list_purchase li a .row1 .left .name {
 height: 24px;
 line-height: 24px;
 margin-right: 2%;
@@ -269,21 +298,37 @@ font-size: 1.2em;
 color: #FFFFFE;;
 }
 
+/* .list li a .row1 .left .name ,.list_purchase li a .row1 .left .name { */
+/* height: 24px; */
+/* line-height: 24px; */
+/* margin-right: 2%; */
+/* font-weight: bold; */
+/* font-size: 1.2em; */
+/* color: #FFFFFE;; */
+/* } */
+
 
 .list li a .category,.list_purchase li a .category{
 height: 24px;
 line-height: 20px;
 font-size: 0.9em;
-color: #838488;
+color: #6EBD28;
 }
-
+span.place_who {
+	color: #6EBD28;
+}
 
 .list li a .row1 .right ,.list_purchase li a .row1 .right {
 float: right;
-height: 40px;
-line-height: 40px;
-font-size: 1.3em;
-color: #ff4d4d;
+height: 30px;
+/* line-height: 30px; */
+font-size: 0.3em;
+color: #6EBD28;
+width: 40%;
+}
+
+ .list li a .row1 .right span,.list_purchase li a .row1 .right span {
+font-size: 3px;
 }
 
 .list li a .row1 .right .unit,.list_purchase li a .row1 .right .unit{
@@ -327,11 +372,27 @@ overflow: hidden;
  .list li a .row3 .right , .list_purchase li a .row3 .right{
 float: right;
 height: 20px;
-line-height: 20px;
-font-size: 0.4em;
-color: #333;
+line-height: 40px;
+font-size: 1.2em;
+color: #ffffff;
 }
 
 img.product_cert {
 width: 15px;
+}
+
+img.drop-down-img {
+width: 25px;
+}
+
+button#dropdownMenu1 {
+/* background-color: #6EBD28; */
+border-color: #6EBD28;
+border-radius: 0px;
+height: 40px;
+}
+
+a.main-menu {
+color: #212121;
+font-size: 20px;
 }

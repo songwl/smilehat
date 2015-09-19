@@ -3,23 +3,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<meta content="black" name="apple-mobile-web-app-status-bar-style" />
-<!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="${ctx}/static/bootstrap/3.3.5/css/bootstrap.css">
+<%@ include file="/WEB-INF/inc/hfive/include.meta.jsp"%>
+<%@ include file="/WEB-INF/inc/hfive/include.css.jsp"%>
 
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/productDetail.css" type="text/css" />
 
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="${ctx}/static/js/jquery/1.11.3/jquery-1.11.3.min.js"></script>
-
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="${ctx}/static/bootstrap/3.3.5/js/bootstrap.js"></script>
+<%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
 
 
 
