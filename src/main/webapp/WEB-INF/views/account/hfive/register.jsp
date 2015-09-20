@@ -24,7 +24,7 @@
 	<form class="login-form m-login-form" action="${ctx}/register" method="post">
 		<div class="form-title clearfix">
 			<a class="btn-back" href="javascript:history.back();"></a>
-			<a href="${rc.contextPath}/user/loginPage.do">登录</a>
+			<a href="${ctx}/login">登录</a>
 		</div>
 		<!-- <div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
@@ -32,6 +32,8 @@
 				 用户名或密码错误！
 			</span>
 		</div> -->
+		
+		<input type="hidden" name="userType" value="${userType}" />
 		<div class="form-group">
 			<div class="input-icon">
 				<i class="fa fa-user"></i>
@@ -88,72 +90,81 @@
 
 </div>
  <script src="${ctx}/static/js/hfive/custom.js"></script>
- <script src="${ctx}/static/js/dwz/dwz.combox.js"></script>
- <script src="${ctx}/static/js/dwz/select.comboxSelectRemoteData.js"></script>
+ <script src="${ctx}/static/js/hfive/combox.js"></script>
 <script>
-	;(function($) {
-	    $(".btn-submit").on("click", function() {
-	    	var regex = /^0?(13|15|18|14|17)[0-9]{9}$/; //手机正则
-	    	var phone = $.trim($('input[name="loginName"]').val());
-	    	var name = $.trim($('input[name="name"]').val());
-	    	var password = $.trim($('input[name="plainPassword"]').val());
-	    	var repassword = $.trim($('input[name="repassword"]').val());
-	    	
-		    if(phone == "") {
-		    	C.localAlert({
-					type: '',
-					msg: '请输入手机号!'
-				});
-		    	return false;
-		    } else if(phone.match(regex) == null) {
-		    	C.localAlert({
-					type: '',
-					msg: '手机号格式错误!'
-				});
-				return false;
-		    } else if(name ==''){
-				C.localAlert({
-					type: '',
-					msg: '用户名称不可以为空!'
-				});
-				return false;
-			}else if (password == ''){
-				C.localAlert({
-					type: '',
-					msg: '密码不可以为空!'
-				});
-				return false;
-			}else if (password != repassword){
-				C.localAlert({
-					type: '',
-					msg: '确认密码不正确!'
-				});
-				return false;
-			}else{
-				$.ajax({
-			        type: "GET",
-			        url: "${ctx}/register/checkLoginName?loginName="+phone+"&random="+Math.random(),
-			        dataType: "json",
-			        success: function(rs) {
-			        	if (rs=="false") {
-					    	C.localAlert({
-								type: '',
-								msg: '手机号已注册!'
-							});
-			        	}
-			        	$(".login-form").submit();
-			        }
-			   	});
-			}
-	    	
-	    })
+	$(function(){
+		 $(".btn-submit").click(function() {
+		    	var regex = /^0?(13|15|18|14|17)[0-9]{9}$/; //手机正则
+		    	var phone = $.trim($('input[name="loginName"]').val());
+		    	var name = $.trim($('input[name="name"]').val());
+		    	var password = $.trim($('input[name="plainPassword"]').val());
+		    	var repassword = $.trim($('input[name="repassword"]').val());
+		    	var region = $.trim($('select[name="customer.regionId"]').val());
+		    	var address = $.trim($('input[name="address"]').val());
+		    	
+			    if(phone == "") {
+			    	C.localAlert({
+						type: '',
+						msg: '请输入手机号!'
+					});
+			    	return false;
+			    } else if(phone.match(regex) == null) {
+			    	C.localAlert({
+						type: '',
+						msg: '手机号格式错误!'
+					});
+					return false;
+			    } else if(name ==''){
+					C.localAlert({
+						type: '',
+						msg: '用户名称不可以为空!'
+					});
+					return false;
+				}else if (password == ''){
+					C.localAlert({
+						type: '',
+						msg: '密码不可以为空!'
+					});
+					return false;
+				}else if (password != repassword){
+					C.localAlert({
+						type: '',
+						msg: '确认密码不正确!'
+					});
+					return false;
+				}else if (region == ''){
+					C.localAlert({
+						type: '',
+						msg: '请选择地区!'
+					});
+					return false;
+				}else if (address == ''){
+					C.localAlert({
+						type: '',
+						msg: '请填写详细地址!'
+					});
+					return false;
+				}else{
+					$.ajax({
+				        type: "GET",
+				        url: "${ctx}/register/checkLoginName?loginName="+phone+"&random="+Math.random(),
+				        dataType: "json",
+				        success: function(rs) {
+				        	if (rs=="false") {
+						    	C.localAlert({
+									type: '',
+									msg: '手机号已注册!'
+								});
+				        	}
+				        	$(".login-form").submit();
+				        }
+				   	});
+				}
+		    	
+		    });
 
-	    //使用远程数据填充select控件，该代码需要保证在 使用select 之前调用
-		if ($.fn.comboxSelectRemoteData) $("select.combox").comboxSelectRemoteData();
-		 
-		if ($.fn.combox) $("select.combox").combox();
-		
-	})(window.Zepto);
+		    $("select.combox").comboxSelectRemoteData();
+	});
 
 </script>
 </body>

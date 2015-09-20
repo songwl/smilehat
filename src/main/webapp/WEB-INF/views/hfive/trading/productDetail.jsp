@@ -16,47 +16,70 @@
 <title>微笑草帽</title>
 </head>
 <body>
-	<header>
-		<div class="goback">
-			<a href="${ctx}/trading/product/center">
-        		<img class="back" src="${ctx}/static/images/logo.png"  alt="返回">
-        	</a>
-		</div>
-        <div class="cur_title">
-        	<label  class="page-title-text">产品详情</label>
+	<div class="background-img">
+		
+	</div>
+	<div class="background-zhezhao">
+		
+	</div>
+	<div id="main_div">
+		<div class="back">
+	        <a href="${ctx}/trading/product/center">
+	        	<img class="search-img" src="${ctx}/static/images/back2.png"  alt="返回">
+	        </a>
         </div>
-	</header>
 		<div class="pageContent"> 
 			<div class="farmContent" >
-				<div>名称：${vm.name}  </div>     
-				<div>价格：${vm.price} 
-					<span id="showDictLabel" class="showDictLabel" dictType="PRICE_UNIT" dictCode="${vm.priceUnit}"></span> 
+				<div class="d_item" id="d_main">
+					<h2>${vm.name} </h2>
+					<div class="d_main_left">
+						<div>${vm.category.categoryName}</div>
+						<div>${vm.user.name}</div>
+					</div>
+					<div class="d_main_right">
+						<span class="unit">￥</span> ${vm.price} 
+						<span id="showDictLabel" class="unit showDictLabel" dictType="PRICE_UNIT" dictCode="${vm.priceUnit}"></span>
+					</div>
 				</div>
-				<div class="farmImg">
-					<img src="${ctx}/${vm.user.photoAttach.downloadPath }">
+				<div class="d_item" id="d_unit">
+					<h5 class="d_item_title">规格 / 库存</h5>
+					<div class="d_item_content">
+						<div class="d_item_branch">${vm.branchInfo}</div>
+						<div class="d_item_quantity">${vm.quantity}&nbsp;<span id="showDictLabel" class="unit showDictLabel" dictType="QUANTITY_UNIT" dictCode="${vm.quantityUnit}"></span></div>
+					</div>
 				</div>
-				<input type="hidden" name="user.id" value="${vm.user.id}">
-				<div><a href="${ctx}/farm/detail/${vm.user.id}"> 商户名称：${vm.user.name} </a></div>    
-				<div>规格：${vm.branchInfo}  </div>  
-				<div>认证标签：
-					<img class="product_cert"  src="${ctx}/static/images/location.png">
-					<img class="product_cert" src="${ctx}/static/images/location.png">
-					<img class="product_cert" src="${ctx}/static/images/location.png">
+				<div class="d_item" id="d_region">
+					<h5 class="d_item_title">交付地址</h5>
+					<div class="d_item_content">${vm.regionDetail}</div>
 				</div>
-				<div>上市时间：${vm.startTime}-${vm.endTime}</div>
-<%-- 				<div>地址：${vm.region.parent.parent.regionName} ${vm.region.parent.regionName} ${vm.region.regionName} ${vm.address}</div> --%>
-				<div>
-					描述：
-					<textarea rows="" cols="" class="farmDesc" name="description" style="width: 100%;" wrap="virtual"   readonly="true">${vm.description}</textarea>
+				<div class="d_item" id="d_memo">
+					<h5 class="d_item_title">详细说明</h5>
+					<div class="d_item_content">${vm.description}</div>
 				</div>
-<!-- 				<div> -->
-<!-- 					联系方式：： -->
-<!-- 					<a >点击获取联系方式</a> -->
-<!-- 				</div> -->
+			
+				<div class="d_info">
+					<div class="d_info_item"><a href="javascript:void(0);"  <shiro:user>info="${vm.user.loginName}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >点击获取联系方式</a></div>
+				</div>
+					
 			</div>
 		</div>
+		
+		<%@ include file="/WEB-INF/inc/hfive/include.foot.jsp"%>
+	</div>
 </body>
 
 <script type="text/javascript" src="${ctx}/static/js/base/dict.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".d_info_item a").click(function(){
+		var info = $(this).attr("info");
+		if(info == 'nologin'){
+			$(this).text("请先登录或注册！");
+			$(this).attr("href","${ctx}/login");
+		}
+	});
+});
+	
+</script>
 </html>
 

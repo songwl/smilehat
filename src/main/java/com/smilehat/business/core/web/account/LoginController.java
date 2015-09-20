@@ -21,8 +21,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.octo.captcha.service.CaptchaServiceException;
 import com.octo.captcha.service.captchastore.CaptchaStore;
+import com.smilehat.business.core.entity.security.User;
 import com.smilehat.business.core.web.BaseController;
 import com.smilehat.constants.Constants;
+import com.smilehat.constants.Enums;
 import com.smilehat.util.CoreUtils;
 
 /**
@@ -75,7 +77,12 @@ public class LoginController extends BaseController {
 			model.addAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME, this.getMessage("LoginController.dologin.error"));
 			return V_PATH_LOGIN;
 		}
-		WebUtils.redirectToSavedRequest(request, response, "/index");
+		User user = this.getCurrentUser();
+		if(Enums.USER_TYPE.ADMIN.name().equalsIgnoreCase(user.getUserType())){
+			WebUtils.redirectToSavedRequest(request, response, "/sys/index");
+		}else{
+			WebUtils.redirectToSavedRequest(request, response, "/trading");
+		}
 		//return "redirect:/index";
 		return null;
 	}

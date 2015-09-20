@@ -27,7 +27,7 @@ div.background-img {
 /*     border:1px solid white; */
 /*     border-radius: 5px; */
     /**background-color:rgb(0,152,50);**/
-    background:url(/smilehat/static/images/tufarm.jpg) no-repeat center center scroll;
+    background:url(images/tufarm.jpg) no-repeat center center scroll;
     opacity: 0.7;
     filter:alpha(opacity=70);
     background-size: 100% 100%;
@@ -50,8 +50,9 @@ div#main_div {
  	width: 100%;
 /* 	min-height:700px; */
 	padding: 0px 10px 0px 10px;
-    overflow: hidden;
+    overflow: auto;
     position: relative;
+    margin-bottom: 70px;
 }
 
 div#header {
@@ -60,6 +61,7 @@ div#header {
     padding: 11px 2% 12px 2%;
 /*     background: #FAA74B; */
     overflow: hidden;
+    position: relative;
 }
 
 div#header a{
@@ -86,6 +88,7 @@ div#header div{
 	display: inline;
 	height: 100%;
 /* 	width: 50%; */
+	color: white;
 }
 
 label.page-title-text {
@@ -133,6 +136,32 @@ div#product_purchase_select {
 	padding: 13px 0px 0px 30px;
 	background-color: #6EBD28;
 	height: 60px;
+}
+
+div#publish_select {
+	background-color: #6EBD28;
+	width: 40%;
+	height: 65px;
+	position: fixed;
+	bottom: 80px;
+	left: 30%;
+	display: none;
+}
+
+div#publish_select .publish_select_item{
+	width: 50%;
+	height: 100%;
+	float: left;
+	padding: 4% 2% 2% 12%;
+}
+
+div#publish_select .publish_select_item:FIRST-CHILD{
+	border-right: 1px solid #000000;
+}
+
+div#publish_select .publish_select_item a{
+	color: #212121;
+	font-size: 20px;
 }
 
 .userCenter {
@@ -214,12 +243,16 @@ padding: 10px 0px 20px 0px;
 	color:#D3D4D6;
 	width:70%;
 	height: 40px;
+	background: none;
+	border-radius: 0px;
 }
 
 #purchase_search .btn-my-select2{
-	width:30%;
+	border:1px solid #6EBD28;
+	width:28%;
 	height: 40px;
 	border-radius: 0px;
+	background: none;
 }
 
 #purchase_search .btn-my-group{
@@ -258,7 +291,6 @@ ul.list li{
 	border:1px #099214 solid;
 	overflow: hidden;
 	padding: 10px;
-/* 	background: url('/smilehat/static/images/product_bg.png')no-repeat; */
 	position: relative;
 /* 	left: -7%; */
 /* 	margin-bottom: 15px; */
@@ -269,7 +301,7 @@ ul.list_purchase li{
 	width: 107%;
 	padding: 5px 15% 16px 10px;
 	overflow: hidden;
-	background: url('/smilehat/static/images/product_bg_right.png')no-repeat;
+	background: url('images/product_bg_right.png')no-repeat;
 	position: relative;
 	right: -7%;
 	margin-bottom: 15px;
@@ -325,13 +357,14 @@ height: 30px;
 font-size: 0.3em;
 color: #6EBD28;
 width: 40%;
+text-align: right;
 }
 
- .list li a .row1 .right span,.list_purchase li a .row1 .right span {
+ .list li a .row3 .right span,.list_purchase li a .row3 .right span {
 font-size: 3px;
 }
 
-.list li a .row1 .right .unit,.list_purchase li a .row1 .right .unit{
+.list li a .row3 .right .unit,.list_purchase li a .row3 .right .unit{
 height: 40px;
 line-height: 40px;
 font-size: 10px;
@@ -373,7 +406,7 @@ overflow: hidden;
 float: right;
 height: 20px;
 line-height: 40px;
-font-size: 1.2em;
+font-size: 1.6em;
 color: #ffffff;
 }
 

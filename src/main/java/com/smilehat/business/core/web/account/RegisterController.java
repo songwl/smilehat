@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,8 +33,14 @@ public class RegisterController extends BaseController {
 	private AccountService accountService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String registerForm() {
+	public String registerForm(Model model,@RequestParam String userType) {
+		model.addAttribute("userType", userType);
 		return "/account/hfive/register";
+	}
+	
+	@RequestMapping(value="guide", method = RequestMethod.GET)
+	public String registerGuide() {
+		return "/account/hfive/registerGuide";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

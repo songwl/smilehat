@@ -39,7 +39,7 @@ public class User extends IdEntity {
 	private String userType; //Enums.USER_TYPE 中定义
 	private Boolean isEnabled = Boolean.TRUE; //默认可用
 	private java.lang.Boolean isDeleted = Boolean.FALSE; // 默认未删除
-	private java.lang.Boolean isAudit = Boolean.FALSE;//是否审核通过
+	private java.lang.Boolean isAudit; //是否审核通过
 	private java.util.Date auditTime;//审核时间
 
 	

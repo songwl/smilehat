@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"    pageEncoding="utf-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="/WEB-INF/inc/include.inc.jsp"%>
 
 <!DOCTYPE html >
@@ -83,26 +83,8 @@
 					</ul>
 				</div>
 			</div>
-		<div id="product_purchase_select">
-	       <div>
-	       		<a class="main-menu" href="${ctx}/trading/product/center">
-	       			<img class="product_select" id="product_select" src="${ctx}/static/images/sell.png"  alt="供应">
-	       			供应
-	       		</a>
-	       </div>
-	       <div>
-	       		<a  class="main-menu" href="">
-	       			<img class="product_select" id="publish" src="${ctx}/static/images/publish.png"  alt="发布">
-	       			发布
-	       		</a>
-	       </div>
-	       <div>
-	       		<a class="main-menu" href="${ctx}/trading/purchase/center">
-	       			<img class="purchase_select" id="purchase_select" src="${ctx}/static/images/buy.png"  alt="采购">
-	       			采购
-	       		</a>
-	       </div>
-		</div>
+			
+			<%@ include file="/WEB-INF/inc/hfive/include.foot.jsp"%>
 	</div>
 	
 	<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>

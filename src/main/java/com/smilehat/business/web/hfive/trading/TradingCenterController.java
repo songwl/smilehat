@@ -34,7 +34,7 @@ public class TradingCenterController extends HfiveBaseController {
 	@Autowired
 	private PurchaseService purchaseService;
 
-	@RequestMapping(value = "/product/center")
+	@RequestMapping(value = {"","/product/center"})
 	public String productCenter(Model model, HttpServletRequest request) {
 		return "hfive/trading/productCenter";
 	}

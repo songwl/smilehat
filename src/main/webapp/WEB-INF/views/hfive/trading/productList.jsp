@@ -24,7 +24,7 @@
 					</div>
 					<div class="right">
 <%-- 						<img class="product_cert" src="${ctx}/static/images/location.png"> --%>
-						<span class="unit">￥</span> ${varitem.price} 
+						<!-- <span class="unit">￥</span> --> ${varitem.price} 
 						<span id="showDictLabel" class="showDictLabel" dictType="PRICE_UNIT" dictCode="${varitem.priceUnit}"></span>
 <%-- 						<span class="unit">/${varitem.priceUnit}</span> --%>
 					</div>

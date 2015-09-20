@@ -2,3 +2,91 @@ img.back {
 width: 30px;
 height: 30px;
 }
+
+.pageContent {
+color: white;
+padding: 0 15px;
+margin-top: 20px;
+}
+
+.back{
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+
+.pageContent .d_item{
+	border-bottom: 1px solid #6EBD28; 
+	overflow: auto;
+	padding: 5px 0 10px 0;
+}
+
+
+.pageContent .d_item#d_main div {
+	color:#6EBD28;
+	font-size: 0.5rem;
+}
+
+.pageContent .d_item#d_main .d_main_left{
+	width:60%;
+	float: left;
+}
+
+.pageContent .d_item#d_main .d_main_right{
+	width:40%;
+	float: left;
+	height: 20px;
+	line-height: 40px;
+	font-size: 1.5em;
+	color: #ffffff;
+	text-align: right;
+}
+
+.pageContent .d_item#d_main .d_main_right .unit{
+	font-size: 0.6em;
+}
+
+.pageContent .d_item .d_item_title{
+	color:#6EBD28;
+}
+
+.pageContent .d_item .d_item_content{
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.pageContent .d_item#d_unit .d_item_branch{
+	width:60%;
+	float: left;
+}
+
+.pageContent .d_item#d_unit .d_item_quantity{
+	width:40%;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	font-size: 1.5em;
+	color: #ffffff;
+	text-align: right;
+}
+
+.pageContent .d_item#d_unit .d_item_quantity .unit{
+	font-size: 0.6em;
+	color:#6EBD28;
+}
+
+.pageContent .d_info {
+	margin-top: 20px;
+}
+
+.pageContent .d_info .d_info_item{
+	height:50px;
+	width:100%;
+	border: 1px solid #6EBD28;
+	padding: 10px 25%;
+}
+
+.pageContent .d_info .d_info_item a{
+	color: #6EBD28;
+	font-size: 1.2em;
+}

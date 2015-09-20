@@ -27,7 +27,7 @@
 	<form class="login-form m-login-form" action="${ctx}/login" method="post" id="userLogin">
 		<div class="form-title clearfix">
 			<a class="btn-back" href="javascript:history.back();"></a>
-			<a href="${ctx}/register">注册</a>
+			<a href="${ctx}/register/guide">注册</a>
 		</div>
 		<!-- <div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
@@ -59,7 +59,7 @@
 		</div>
 		<!-- <input type="checkbox" name="rememberMe" id="rememberMe" value="true" /> -->
 		<div class="form-actions">
-			<button class="btn-submit pwd-submit" type="button" id="maidou_userName_login">验证登录</button>
+			<button class="btn-submit pwd-submit" type="button" id="">登 录</button>
 		</div>
 	</form>
 	<!-- end mobile login form -->
@@ -80,7 +80,7 @@
 
 		var regex = /^0?(13|15|18|14|17)[0-9]{9}$/; //手机正则
 
-	    $(".pwd-submit").on("tap", function() {
+	    $(".pwd-submit").click(function() {
 	    	var username = $.trim($('#user_name').val());
 		    var password = $.trim($('#user_password').val())
 		    if(username == "") {
@@ -102,7 +102,7 @@
 				});
 		    	return false;
 		    }
-		    $('#mobileLogin').submit();
+		    $('#userLogin').submit();
 
 		});
 

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.common.collect.Maps;
+import com.smilehat.business.core.entity.security.User;
 import com.smilehat.business.core.web.BaseController;
 import com.smilehat.business.entity.Customer;
 import com.smilehat.business.entity.Product;
@@ -43,11 +44,24 @@ public class CustomerCenterController extends HfiveBaseController {
 	
 	@RequestMapping(value = "/center")
 	public String farmCenter(Model model, HttpServletRequest request) {
+		if(this.getCurrentUser()!=null){
+			model.addAttribute("vm", this.getCurrentUser().getCustomer());
+		}
 		return "hfive/customer/customerCenter";
+	}
+	
+	@RequestMapping(value = "/centerProduct")
+	public String farmCenterProduct(Model model, HttpServletRequest request) {
+		return "hfive/customer/customerCenterProduct";
+	}
+	
+	@RequestMapping(value = "/centerPurchase")
+	public String farmCenterPurchase(Model model, HttpServletRequest request) {
+		return "hfive/customer/customerCenterPurchase";
 	}
 
 	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
-	public String updateForm(@PathVariable("id") java.lang.Long id, Model model) {
+	public String updateCustomerForm(@PathVariable("id") java.lang.Long id, Model model) {
 		model.addAttribute("vm", customerService.getObjectById(id));
 		model.addAttribute("action", BaseController.UPDATE);
 		return "hfive/customer/customerDetail";

@@ -10,6 +10,7 @@ html {height: 100%;}
 	.form-group .input-icon {position: relative; border-bottom: 1px solid rgba(255,255,255,.7);}
 	.form-group .input-icon i {position: absolute; display: block; width: 20px; height: 20px; margin: 6px 2px 4px 0; background-size: 150px 300px;}
 	.form-group .input-icon .form-control {display: block; width: 60%; height: 34px; font-size: 1.6rem; padding: 0 12px; margin-left: 16px; vertical-align: middle;background: none; border: none; outline: none; color: #fff;}
+	.form-group .input-icon select.form-control{color: #000;}
 	.form-group .input-icon ::-webkit-input-placeholder {color: rgba(255,255,255,.3); font-size: 14px;}
 	.form-group .input-icon ::-moz-input-placeholder {color: rgba(255,255,255,.3);}
 	.form-group .input-icon ::input-placeholder {color: rgba(255,255,255,.3);}

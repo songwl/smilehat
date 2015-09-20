@@ -15,9 +15,9 @@
 </head>
 <body>
 <div class="pageContent">
-	<form method="post" action="${sctx}/customer/${action}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+	<form method="post" action="${ctx}/trading/detail/1" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
 	<div class="pageFormContent" layoutH="56">
-        <dl>
+        <dl class="nowrap">
 			<dt>登录名：${vm.loginName}</dt>
 		</dl>
 		<dl class="nowrap">

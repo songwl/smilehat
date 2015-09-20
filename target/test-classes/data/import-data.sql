@@ -1,12 +1,19 @@
-insert into t_user (id, login_name, name, password, salt, roles, register_date) values(1,'admin','Admin','21232f297a57a5a743894a0e4a801fc3','7efbd59d9741d34f','admin','2012-06-04 01:00:00');
-insert into t_user (id, login_name, name, password, salt, roles, register_date) values(2,'user','Calvin','ee11cbb19052e40b07aac0ca060c23ee','6d65d24122c30500','user','2012-06-04 02:00:00');
+insert into t_user (id, login_name, name, password, salt, roles, register_date) values(1,'system','System','96e79218965eb72c92a549dd5a330112','7efbd59d9741d34f','admin','2015-09-20 01:00:00');
+insert into t_user (id, login_name, name, password, salt, roles, register_date) values(2,'admin','Admin','96e79218965eb72c92a549dd5a330112','7efbd59d9741d34f','admin','2015-09-20 01:00:00');
 
 
-insert into t_role (id,name) values (1,'sys_user');
-insert into t_role (id,name) values (2,'member_user');
+insert into t_role (id,name) values (1,'role_sys');
+insert into t_role (id,name) values (2,'role_admin');
+insert into t_role (id,name) values (3,'role_person');
+insert into t_role (id,name) values (4,'role_dealer');
+insert into t_role (id,name) values (5,'role_famer');
+
+insert into t_role (id,name) values (14,'role_dealer_lack');
+insert into t_role (id,name) values (15,'role_famer_lack');
 
 insert into t_user_role (user_id,role_id) values (1,1);
 insert into t_user_role (user_id,role_id) values (2,2);
+
 
 insert into T_RESOURCE (ID, POSITION, RESOURCE_TYPE, VAL)
 values (100000, 109900, 'url', '/sys/**');
