@@ -15,7 +15,7 @@ public class SysIndexController extends SysBaseController {
 	//视图地址映射
 	public static final String V_PATH_INDEX = PATH + Constants.SPT + "index";
 
-	@RequestMapping(value = "/index")
+	@RequestMapping(value = { "/index", "" })
 	public String home(Model model) {
 		return V_PATH_INDEX;
 	}

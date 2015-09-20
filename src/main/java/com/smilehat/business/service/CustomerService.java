@@ -20,6 +20,7 @@ import com.smilehat.business.entity.Customer;
 import com.smilehat.business.entity.Product;
 import com.smilehat.business.entity.Purchase;
 import com.smilehat.business.repository.CustomerDao;
+import com.smilehat.constants.Enums;
 import com.smilehat.modules.service.BaseService;
 import com.smilehat.util.CoreUtils;
 import com.smilehat.util.MD5Util;
@@ -71,7 +72,14 @@ public class CustomerService extends BaseService<Customer> {
 		if (photoAttachId != null) {
 			user.setPhotoAttach(attachService.findUniqueBy("id", photoAttachId));
 		}
-		Long[] roleIds = new Long[] { 1L };
+		Long[] roleIds = new Long[1];
+		if (Enums.USER_TYPE.PERSON.name().equalsIgnoreCase(user.getUserType())) {
+			roleIds[0] = 3L;
+		} else if (Enums.USER_TYPE.DEALER.name().equalsIgnoreCase(user.getUserType())) {
+			roleIds[0] = 14L;
+		} else if (Enums.USER_TYPE.FARMER.name().equalsIgnoreCase(user.getUserType())) {
+			roleIds[0] = 15L;
+		}
 		userService.save(user, roleIds);
 
 		if (regionId != null) {
@@ -86,10 +94,23 @@ public class CustomerService extends BaseService<Customer> {
 		if (photoAttachId != null) {
 			user.setPhotoAttach(attachService.findUniqueBy("id", photoAttachId));
 		}
-		if (photoAttachId != null) {
-			user.setPhotoAttach(attachService.findUniqueBy("id", photoAttachId));
+
+		User oldUser = userService.getObjectById(user.getId());
+		boolean changeUserType = !oldUser.getUserType().equalsIgnoreCase(user.getUserType());
+
+		if (changeUserType) {
+			Long[] roleIds = new Long[1];
+			if (Enums.USER_TYPE.PERSON.name().equalsIgnoreCase(user.getUserType())) {
+				roleIds[0] = 3L;
+			} else if (Enums.USER_TYPE.DEALER.name().equalsIgnoreCase(user.getUserType())) {
+				roleIds[0] = 14L; //未审核特约经销商
+			} else if (Enums.USER_TYPE.FARMER.name().equalsIgnoreCase(user.getUserType())) {
+				roleIds[0] = 15L; //未审核农场
+			}
+			userService.save(user, roleIds);
+		} else {
+			userService.save(user);
 		}
-		userService.save(user);
 
 		if (regionId != null) {
 			customer.setRegion(regionService.getObjectById(regionId));
@@ -141,12 +162,20 @@ public class CustomerService extends BaseService<Customer> {
 	}
 
 	/**
-	 * 商户审核
+	 * 商户审核通过
 	 * @param customer
 	 */
 	public void auditCustomer(Customer customer) {
-		Long[] roleIds = new Long[] { 7L };
-		userService.save(customer.getUser(), roleIds);
+		User user = customer.getUser();
+		Long[] roleIds = new Long[1];
+		if (Enums.USER_TYPE.PERSON.name().equalsIgnoreCase(user.getUserType())) {
+			roleIds[0] = 3L;
+		} else if (Enums.USER_TYPE.DEALER.name().equalsIgnoreCase(user.getUserType())) {
+			roleIds[0] = 4L;
+		} else if (Enums.USER_TYPE.FARMER.name().equalsIgnoreCase(user.getUserType())) {
+			roleIds[0] = 5L;
+		}
+		userService.save(user, roleIds);
 	}
 
 }

@@ -1,6 +1,5 @@
 package com.smilehat.business.core.service.security;
 
-import java.io.ByteArrayInputStream;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -10,14 +9,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import org.springside.modules.security.utils.Digests;
 import org.springside.modules.utils.DateProvider;
-import org.springside.modules.utils.Encodes;
 
 import com.smilehat.business.core.entity.security.User;
 import com.smilehat.business.core.repository.security.UserDao;
 import com.smilehat.business.core.service.security.ShiroDbRealm.ShiroUser;
- 
+import com.smilehat.business.entity.Customer;
+import com.smilehat.business.repository.CustomerDao;
+import com.smilehat.constants.Enums;
 import com.smilehat.modules.service.ServiceException;
 import com.smilehat.util.MD5Util;
 
@@ -38,7 +37,11 @@ public class AccountService {
 	private static Logger logger = LoggerFactory.getLogger(AccountService.class);
 
 	private UserDao userDao;
- 
+
+	private CustomerDao customerDao;
+
+	private UserService userService;
+
 	private DateProvider dateProvider = DateProvider.DEFAULT;
 
 	public List<User> getAllUser() {
@@ -55,9 +58,22 @@ public class AccountService {
 
 	@Transactional(readOnly = false)
 	public void registerUser(User user) {
-		entryptPassword(user); 
-		user.setCreateTime(dateProvider.getDate()); 
-		userDao.save(user);
+		entryptPassword(user);
+		user.setCreateTime(dateProvider.getDate());
+
+		Long[] roleIds = new Long[1];
+		if (Enums.USER_TYPE.PERSON.name().equalsIgnoreCase(user.getUserType())) {
+			roleIds[0] = 3L;
+		} else if (Enums.USER_TYPE.DEALER.name().equalsIgnoreCase(user.getUserType())) {
+			roleIds[0] = 14L;
+		} else if (Enums.USER_TYPE.FARMER.name().equalsIgnoreCase(user.getUserType())) {
+			roleIds[0] = 15L;
+		}
+		userService.save(user, roleIds);
+
+		Customer customer = user.getCustomer();
+		customer.setUser(user);
+		customerDao.save(customer);
 	}
 
 	@Transactional(readOnly = false)
@@ -75,7 +91,6 @@ public class AccountService {
 			throw new ServiceException("不能删除超级管理员用户");
 		}
 		userDao.delete(id);
- 
 
 	}
 
@@ -99,10 +114,10 @@ public class AccountService {
 	 */
 	private void entryptPassword(User user) {
 		//sha1加密
-//		byte[] salt = Digests.generateSalt(SALT_SIZE);
-//		user.setSalt(Encodes.encodeHex(salt));
-//		byte[] hashPassword = Digests.sha1(user.getPlainPassword().getBytes(), salt, HASH_INTERATIONS);
-		
+		//		byte[] salt = Digests.generateSalt(SALT_SIZE);
+		//		user.setSalt(Encodes.encodeHex(salt));
+		//		byte[] hashPassword = Digests.sha1(user.getPlainPassword().getBytes(), salt, HASH_INTERATIONS);
+
 		//md5加密 
 		user.setPassword(MD5Util.MD5(user.getPlainPassword()));
 	}
@@ -112,8 +127,18 @@ public class AccountService {
 		this.userDao = userDao;
 	}
 
-	 
 	public void setDateProvider(DateProvider dateProvider) {
 		this.dateProvider = dateProvider;
 	}
+
+	@Autowired
+	public void setCustomerDao(CustomerDao customerDao) {
+		this.customerDao = customerDao;
+	}
+
+	@Autowired
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
 }

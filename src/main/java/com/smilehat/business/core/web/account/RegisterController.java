@@ -33,7 +33,7 @@ public class RegisterController extends BaseController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String registerForm() {
-		return V_PATH_REGISTER;
+		return "/account/hfive/register";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.octo.captcha.service.CaptchaServiceException;
+import com.octo.captcha.service.captchastore.CaptchaStore;
 import com.smilehat.business.core.web.BaseController;
 import com.smilehat.constants.Constants;
 import com.smilehat.util.CoreUtils;
-import com.octo.captcha.service.CaptchaServiceException;
-import com.octo.captcha.service.captchastore.CaptchaStore;
 
 /**
  * LoginController负责打开登录页面(GET请求)和登录出错页面(POST请求)，
@@ -47,17 +47,22 @@ public class LoginController extends BaseController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String login(HttpServletRequest request) {
-		//ajax请求返回无授权json
-		if (CoreUtils.isAjax(request)) {
-			return V_PATH_AJAX_LOGIN;
+		String header = request.getHeader("user-agent");
+		if (header.indexOf("Mobile") == -1) {
+			//ajax请求返回无授权json
+			if (CoreUtils.isAjax(request)) {
+				return V_PATH_AJAX_LOGIN;
+			}
+			return V_PATH_LOGIN;
+		} else {
+			return "/account/hfive/login";
 		}
-		return V_PATH_LOGIN;
+
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String dologin(@RequestParam(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM) String username,
-			@RequestParam String password, @RequestParam(required = false, defaultValue = "false") boolean rememberMe,
-			Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public String dologin(@RequestParam(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM) String username, @RequestParam String password,
+			@RequestParam(required = false, defaultValue = "false") boolean rememberMe, Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String host = request.getRemoteHost();
 		AuthenticationToken token = new UsernamePasswordToken(username, password, rememberMe, host);
 		boolean flag = executeLogin(token);
@@ -67,8 +72,7 @@ public class LoginController extends BaseController {
 				return V_PATH_AJAX_LOGIN;
 			}
 			model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, username);
-			model.addAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME, this
-					.getMessage("LoginController.dologin.error"));
+			model.addAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME, this.getMessage("LoginController.dologin.error"));
 			return V_PATH_LOGIN;
 		}
 		WebUtils.redirectToSavedRequest(request, response, "/index");
@@ -82,8 +86,7 @@ public class LoginController extends BaseController {
 	}
 
 	@RequestMapping(value = "ajax", method = RequestMethod.POST)
-	public ModelAndView ajaxlogin(@RequestParam String username, @RequestParam String password,
-			@RequestParam(required = false, defaultValue = "false") boolean rememberMe, HttpServletRequest request,
+	public ModelAndView ajaxlogin(@RequestParam String username, @RequestParam String password, @RequestParam(required = false, defaultValue = "false") boolean rememberMe, HttpServletRequest request,
 			HttpServletResponse response) {
 		String host = request.getRemoteHost();
 		AuthenticationToken token = new UsernamePasswordToken(username, password, rememberMe, host);

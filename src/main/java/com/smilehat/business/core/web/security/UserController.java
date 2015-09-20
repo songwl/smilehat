@@ -111,7 +111,7 @@ public class UserController extends SysBaseController {
 
 	@RequestMapping(value = BaseController.UPDATE, method = RequestMethod.POST)
 	public ModelAndView update(@Valid @ModelAttribute("preloadModel") User user, @RequestParam(value = "photoAttachId", required = false) Long photoAttachId, @RequestParam("role.id") Long[] roleIds) {
-		user.setPassword(MD5Util.MD5(user.getPassword()));
+		/*user.setPassword(MD5Util.MD5(user.getPassword()));*/
 		user.setUpdateTime(CoreUtils.nowtime());
 		user.setPhotoAttach(attachService.findUniqueBy("id", photoAttachId));
 		userService.save(user, roleIds);

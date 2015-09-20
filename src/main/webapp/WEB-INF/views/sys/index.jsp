@@ -93,6 +93,7 @@
 							<span>Folder</span>网站管理
 						</h2>
 					</div>
+					<shiro:hasAnyRoles name="role_admin,role_sys">
 					<div class="accordionContent">
 						<ul class="tree treeFolder"> 
 							<li><a>发布管理</a>
@@ -117,7 +118,9 @@
 								</ul></li>
 						</ul>
 					</div> 
+					</shiro:hasAnyRoles>
 					
+					<shiro:hasAnyRoles name="role_admin,role_sys">
 					<div class="accordionHeader">
 						<h2>
 							<span>Folder</span>系统管理
@@ -125,13 +128,15 @@
 					</div>
 					<div class="accordionContent">
 						<ul class="tree treeFolder"> 
+							<shiro:hasRole name="role_sys">
 							<li><a>权限管理</a>
 								<ul>
-									<%-- <li><a href="${sctx}/user" target="navTab" rel="sys_user">用户管理</a></li> --%>
+									<li><a href="${sctx}/user" target="navTab" rel="sys_user">用户管理</a></li>
 									<li><a href="${sctx}/role" target="navTab" rel="sys_role">角色管理</a></li>
 									<li><a href="${sctx}/authority" target="navTab" rel="sys_authority">授权管理</a></li>
 									<li><a href="${sctx}/resource" target="navTab" rel="sys_resource">资源管理</a></li>
 								</ul></li>
+							</shiro:hasRole>
 							<li><a>基础设置</a>
 								<ul>
 									<li><a href="${sctx}/dict" target="navTab" rel="sys_dict">字典管理</a></li>
@@ -143,6 +148,7 @@
 								</ul></li> 
 						</ul>
 					</div> 
+					</shiro:hasAnyRoles>
 				</div>
 			</div>
 		</div>

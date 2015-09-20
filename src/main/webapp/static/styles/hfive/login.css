@@ -1,51 +1,329 @@
-body, html {
-background-color: #fff;
+
+/* 密码登录 */
+html {height: 100%;}
+.content {width: 100%; height: 100%; background: url(images/login-bg.jpg) no-repeat; background-size: cover;}
+.login-form {padding-left: 20px; padding-right: 20px;}
+.login-form .form-title {padding: 10px 0; margin-bottom: 50px;}
+	.form-title .btn-back,.hd-nav .btn-back {display: inline-block; width: 12px; height: 12px; border: 2px solid rgba(255,255,255,.7); border-left: none; border-top: none; margin-top: 2px; -webkit-transform: rotate(135deg); -moz-transform: rotate(135deg); transform: rotate(135deg); float: left;}
+	.form-title a:last-child {color: #fff; text-decoration: none; font-size: 1.6rem; font-family: '\9ED1\4F53'; float: right;}
+.login-form .form-group {margin-bottom: 15px; overflow: hidden-;}
+	.form-group .input-icon {position: relative; border-bottom: 1px solid rgba(255,255,255,.7);}
+	.form-group .input-icon i {position: absolute; display: block; width: 20px; height: 20px; margin: 6px 2px 4px 0; background-size: 150px 300px;}
+	.form-group .input-icon .form-control {display: block; width: 60%; height: 34px; font-size: 1.6rem; padding: 0 12px; margin-left: 16px; vertical-align: middle;background: none; border: none; outline: none; color: #fff;}
+	.form-group .input-icon ::-webkit-input-placeholder {color: rgba(255,255,255,.3); font-size: 14px;}
+	.form-group .input-icon ::-moz-input-placeholder {color: rgba(255,255,255,.3);}
+	.form-group .input-icon ::input-placeholder {color: rgba(255,255,255,.3);}
+	.form-group .input-icon .control-label {position: absolute; right: 0; top: 50%; margin-top: -8px;}
+	.form-group .input-icon .control-label a {color: #fff; text-decoration: none;}
+.login-form .form-actions {margin: 80px auto 0;}
+	.form-actions .btn-submit {display: inline-block; width: 100%; padding: 6px 0; text-decoration: none; font-size: 1.6rem; font-weight: normal; line-height: 2rem; text-align: center; white-space: nowrap; cursor: pointer; background-image: none; background-color: #7ec650; color: #fff; border: 1px solid transparent; border-radius: 2px; outline: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; -o-user-select: none; user-select: none;}
+	.form-actions .get-vcode {width: 100%; padding: 6px 0; font-size: 1.6rem; line-height: 2rem; text-align: center; cursor: pointer; background: #7ec650; color: #fff; border-radius: 2px;}
+	.form-actions .hide {display: none !important;}
+.login-type {width: 100%; text-align: center; bottom: 20px;}
+.login-type a {color: #fff; text-decoration: none; font-size: 1.6rem;}
+.login-type a:first-child {border-right: 1px solid #fff; padding-right: 5px; margin-right: 2px;}
+.login-type span {color: #fff; border-right: 1px solid #fff; margin-right: 5px;}
+.login-type .current {color: #7ec650;}
+.error-password {color: #DDA3A3; font-size: 1.2rem}
+
+/*密码错误弹出层*/
+.pwd-error {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	background: rgba(0,0,0,.6);
+	border-radius: 0 0 2px 2px;
+	display: none;
+}
+.pwd-error i {
+	display: inline-block;
+	width: 19px;
+	height: 20px;
+	background-position: -91px 0;
+	background-size: 150px 300px;
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-right: 5px;
 }
 
-.fill_text {
-overflow: hidden;
-padding: 30px 0;
+/* 手机登录 */
+.m-login-form .form-group .form-control-static {  display: block; font-size: 1.6rem; margin-left: 26px; margin-bottom: 4px; color: #fff; margin-top: 0; position: relative; top: 4px;}
+.m-login-form .form-group .control-label {border-left: 1px solid #fff;}
+	.form-group .control-label .btnSendCode {background: none; border: none; outline: none; color: #fff; margin-left: 5px;}
+	.form-group .control-label .disabled {background-color: rgba(0,0,0,0.2);border-radius:5px;}
+	.form-group .account-activate {color: #fff; margin-top: 10px;}
+	.form-group .account-activate a {color: rgba(255,255,255,.3); text-decoration: none;}
+	.form-group .account-activate li:first-child {float: left;}
+	.form-group .account-activate li:last-child {float: right;}
+
+/* 修改提示内容 */
+.m-update-tips{
+	margin:70px 20px 0;
+	color: #fff;
+	line-height: 30px;
+}
+.m-update-tips>p{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.m-update-tips>p:first-child{font-size: 1.5rem;}
+.m-update-tips>p:last-child{font-size: 1.3rem;}
+
+/* 手机号注册 */
+.agree-deal label {position: relative; display: inline-block;}
+.agree-deal span {color: #fff; font-size: 1.3rem;}
+.agree-deal .agree-box {-webkit-appearance: none; -moz-appearance: none; width: 18px; height: 18px; border-radius: 50%; position: relative; background: transparent; border: 1px solid #7a7f83; vertical-align: middle; margin-top: -1px;}
+.agree-deal .agree-box+i {position: absolute; top: 7px; left: 3px; border-left: 2px solid transparent; border-bottom: 2px solid transparent; width: 10px; height: 4px; display: inline-block; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); transform: rotate(-45deg);}
+.agree-deal .agree-box:checked {background: #7ec650; border-color: #7ec650;}
+.agree-deal .agree-box:checked+i {border-color: #fff;}
+.agree-deal .btn-agree {color: #fff;}
+.agree-mask {position: absolute; top: 0; left: 0; bottom: -3px; z-index: 9999; line-height: 1.5; background: rgba(0, 0, 0, 0.9); color: #fff; padding: 3%; overflow-y: auto; -webkit-overflow-scrolling: touch; width: 94%; display: none;}
+
+/* 我的账户 */
+.account-form .form-group .input-icon .form-control-static {display: block; font-size: 1.6rem; margin-left: 28px; margin-bottom: 4px; color: #fff;}
+.account-form .form-group .input-icon .form-control-static>a{
+	float: right;
+	color: #fff;
+	text-decoration: none;
+}
+.account-form .form-group .input-icon>label{
+	display: inline-block;
+	width: 25%;
+	font-size: 1.6rem;
+	color: #fff;
+}
+.account-form .form-group .input-icon>label+p{
+	display: inline-block!important;
+	margin-left: 0!important;
+}
+.account-form .form-group .input-icon .form-control-static.add-paper{
+	margin-left: 0;
+	color: rgba(255,255,255,.4);
+	font-size: 1.8rem;
+}
+.account-form .form-group .input-icon .fa-user {margin-top: 0;}
+.account-form .form-group .input-icon .fa-phone {margin-top: 0;}
+/* 修改手机号成功页面 */
+.cont-center{
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+}
+.hd-nav{
+	position: absolute;
+	top: 10px;
+	left: 20px;
+}
+.m-update-cont{
+	text-align: center;
+	width: 100%;
 }
 
-.fill_text .item {
-height: 30px;
-line-height: 30px;
-margin-bottom: 10px;
-overflow: hidden;
+.m-update-cont>p:first-child{
+	height:41px;
+	width: 41px;
+	display: inline-block;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAABRCAYAAABBuPE1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0RUY0OTM1MTM5QjkxMUU1ODE1NEM2ODJDODBDODdFNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo0RUY0OTM1MjM5QjkxMUU1ODE1NEM2ODJDODBDODdFNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjRFRjQ5MzRGMzlCOTExRTU4MTU0QzY4MkM4MEM4N0U3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjRFRjQ5MzUwMzlCOTExRTU4MTU0QzY4MkM4MEM4N0U3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+rl3aiQAACW5JREFUeNrsnXlsFUUc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) no-repeat center center;
+	background-size: cover;
+	margin: 0;
+}
+.m-update-cont>p:nth-child(2){
+	color: #fff;
+	font-size: 1.8rem;
+	margin-top: 30px;
+	margin-bottom: 0;
+}
+.m-update-cont>div{
+	margin-top: 48px;
+}
+.m-update-cont>div>a{
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	display: inline-block;
+	width: 37%;
+	color: #fff;
+	background: #7ec650;
+	border-radius: 2px;
+	text-decoration: none;
+	font-size: 1.5rem;
+}
+.m-update-cont>div>a:first-child{
+	margin-right: 10%;
+}
+/* 查看证件信息 提示 */
+.papers-notice{
+	margin: 40px 20px 0;
+	font-size: 1.3rem;
+	padding-left: 17px;
+	position: relative;
+	color: #fff;
+}
+.papers-notice::before{
+	position: absolute;
+	top: 2px;
+	left: 0;
+	content: '';
+	width: 15px;
+	height: 15px;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpENTlFMUM4QzM5QzMxMUU1OTRDREIyMkZEQ0Y0REFDMSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpENTlFMUM4RDM5QzMxMUU1OTRDREIyMkZEQ0Y0REFDMSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkQ1OUUxQzhBMzlDMzExRTU5NENEQjIyRkRDRjREQUMxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQ1OUUxQzhCMzlDMzExRTU5NENEQjIyRkRDRjREQUMxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+GUmMMQAAAqBJREFUeNq0l09IVFEUxt84854LJZ3CECqioIZWpaArJbAsDLfhbILWtTELlCBwF0RQ+Gcmol2bWuQiatEEUYsCC6tdWBBFEY5oJegixV7fse/C6znv/rHxwg/fvHvO+d7z3XPuuakwDD2L4YPjoBu0gb2gkXM/wUfwCjwGj8CKKWDKICzB+8EZ0ASWwEvwnoLKZj9oB3VgDoyD6xGb9UOEE8iDmfDvuA9OAF9j79PmHlilbz7JvtLNNChQcBJ0asSSaAEvGKPAmFrhNJ9Yxg3DG5rwGSNkzLROeJSG5/9DMM4FxhxLEu6jQbGKoooiY/epe2pVy8qcZlocBsualb6NabWDq/wtmJR1qvEJwDOmYW5ttfMJhrkSWwxP3g+WwvVjCuQsFtwqtdb+1QGYBRMGx1MUmQenwW4Gu83730CjIcYEtQL50UvHHo1DDfhEu+7YnHyuh5wbMgj30K5XfoyARUPqHKDDl4T5k5y/a5FiojWawYduZRnU1dd3YCvYkjBfx78/DCV6hVqtNayzHyw2Cgn6ucL9ZnCJ13cs4kj27BPhBvDd29jYBZ4yTS7z2uYFGjLexsdO5uYecAVcdHGWN17g93MdNyl6FQw6+GVFU1LhOS5+gS4H5+1ghpVO1shvB98noFbeeIqbuO/gLN80Bd44ivrUei3CJabDEYcAX8EQuOX4eY5Sq6RK5pxFyYySAVlQ77hL/VMyXTYJRQcr1QMH0UPxTcJjcS+zXQk2QThg7Fm1kVRqBAqb0AioHi6f1PqM0WCgiqIDptYn3uwVq9DsFW2bvWq1twdd29t4Q1+ONfQZQ4pFG/qyrqG3OcKcA2fZ5C1yP51mjfe4u+VYkerBPI8w13RHmJTjoe1Y5NCWjWxz6tBWIsumgH8EGABv+q2jc3qENwAAAABJRU5ErkJggg==) no-repeat;
+	background-size: cover;
+}
+/*
+	修改证件信息
+*/
+.m-update-papers{
+	width:88%;
+	box-sizing: border-box;
+}
+.m-update-papers .papers-notice{
+	margin-left: 0;
+	margin-right: 0;
+}
+.fm-update-papers>.fm-item{
+	height: 35px;
+	line-height: 35px;
+	margin-top: 20px;
+	border-bottom: 1px solid #fff;
+	font-size: 1.6rem;
+	color: #fff;
+}
+.fm-update-papers>.fm-item>label{
+	display: inline-block;
+	width: 25%;
+}
+.fm-update-papers>.fm-item>label+span{
+	color: #fff;
+	display: block;
+	float: right;
+	width: 74%;
+}
+.fm-update-papers>.fm-item>label+span::after{
+	content: '';
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border: 1px solid #fff;
+	border-left: none;
+	border-top: none;
+	margin-top: 10px;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	float: right;
+}
+.fm-update-papers>.fm-item>label+input{
+	border: none;
+	background: none;
+	outline:none;
+	display: block;
+	float: right;
+	width: 74%;
+	margin-top: 2px;
+	padding:6px 0;
+}
+.fm-update-papers>.fm-item-btn{
+	margin-top: 40px;
+}
+.fm-update-papers>.fm-item-btn>a{
+	display: block;
+	width: 100%;
+	height: 38px;
+	line-height: 38px;
+	color: #fff;
+	background: #7ec650;
+	text-align: center;
+	text-decoration: none;
+	font-size: 1.6rem;
+}
+/* 修改证件信息浮层 */
+.m-papers-mask{
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0,0,0,.6);
+	width: 100%;
+	display: none;
+}
+.m-papers-mask .mask-cont{
+	width: 88%;
+	background: #fff;
+	padding:40px 30px;
+	box-sizing: border-box;
+}
+.m-papers-mask .mask-cont>h4{
+	font-size: 1.5rem;
+	font-weight: normal;
+}
+.m-papers-mask .cont-box{
+	margin-top: 20px;
+}
+.m-papers-mask .cont-box>div{
+	overflow: hidden;
+	border-bottom: 1px solid #e8e8e8;
+}
+.m-papers-mask .cont-box>div:last-child{
+	border-bottom: none;
+}
+.m-papers-mask .cont-box>div>p{
+	display: inline-block;
+	font-size: 1.3rem;
+}
+.m-papers-mask .cont-box>div>p+label{
+	float: right;
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+}
+/* 修改密码 */
+.modifypwd-form .form-group .control-label {position: absolute; margin: 6px 2px 4px 0; color: #fff;}
+.modifypwd-form .form-group .input-icon .form-control {width: 70%; margin-left: 60px;}
+.modifypwd-form .form-group .password-desc {color: #fff; font-size: 1.2rem;}
+
+/* 找回密码 */
+.getPassword-form .getpwd-form-group .control-label {position: absolute; margin: 6px 2px 4px 0; color: #fff; border: none;}
+.getPassword-form .getpwd-form-group .input-icon .form-control {width: 70%; margin-left: 60px;}
+
+
+/* 通用图标 */
+.fa {background: url(images/member-sprites.png) no-repeat;}
+.fa-user {background-position: 0 0;}
+.fa-lock {background-position: -25px 0;}
+.fa-phone {background-position: -48px 0; width: 13px !important; height: 23px !important;}
+.fa-email {background-position: -67px 0; height: 16px !important;}
+.fa-paper{
+	  background-position: -115px 0px;  margin-top: 4px !important;
 }
 
-.fill_text .item label {
-float: left;
-width: 26%;
-padding-right: 2%;
-text-align: right;
-font-size: 0.9em;
-color: #333;
-}
+/* 通用定位相关 */
+.pr {position: relative;}
+.pa {position: absolute;}
 
-.fill_text .item .tex {
-float: left;
-width: 57%;
-height: 28px;
-line-height: 28px;
-border: 1px #ccc solid;
-margin-right: 2%;
+/*页面最小高度，可滚动*/
+.user-page {
+	background: url(images/login-bg.jpg) 50% 50% no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+	overflow: auto;
 }
-
-.fill_text .d_area {
-overflow: hidden;
-padding-left: 28%;
+.user-page .content {
+	background: none;
 }
-
-.fill_text .d_area .bigbtn {
-float: left;
-width: 30%;
-height: 26px;
-line-height: 26px;
-text-align: center;
-background: #fe8861;
-border: 1px #fe612b solid;
-font-size: 0.8em;
-color: #fff;
-margin: 0 5% 0 0;
+.user-page .wrap {
+	height: 100%;
+	min-height: 400px;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.m-login-form .form-group .control-label {
+	width: 100px;
+	border-left: none;
+}
+.m-login-form .form-group .control-label img {
+	width: 100%;
+	vertical-align: middle;
 }
