@@ -22,8 +22,8 @@
 </div>
 
  <div id="publish_select">
- 	<div class="publish_select_item"><a href="${ctx}/">我来供应</a></div>
- 	<div class="publish_select_item"><a href="${ctx}/">我要采购</a></div>
+ 	<div class="publish_select_item"><a href="${ctx}/trading/productPublish">我来供应</a></div>
+ 	<div class="publish_select_item"><a href="${ctx}/trading/purchasePublish">我要采购</a></div>
  </div>
  
  <script type="text/javascript">

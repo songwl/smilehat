@@ -84,4 +84,14 @@ public class TradingCenterController extends HfiveBaseController {
 		model.addAttribute("action", BaseController.UPDATE);
 		return "hfive/trading/purchaseDetail";
 	}
+	
+	@RequestMapping(value = {"","/productPublish"})
+	public String productPublish(Model model, HttpServletRequest request) {
+		return "hfive/trading/productPublish";
+	}
+	
+	@RequestMapping(value = {"","/purchasePublish"})
+	public String purchasePublish(Model model, HttpServletRequest request) {
+		return "hfive/trading/purchasePublish";
+	}
 }

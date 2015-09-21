@@ -9,7 +9,7 @@
 <%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/customerCenter.css" type="text/css" />
-<link rel="stylesheet" href="${ctx}/static/styles/hfive/productPublish.css" type="text/css" />
+
 <title>微笑草帽</title>
 </head>
 <body>
@@ -46,15 +46,15 @@
 				 <div class="form-group">
 					上市时间：
 					<div class="input-icon" style="height: 35px;">
-<%-- 						<input class="form-control" type="text" id="startTime" name="startTime" class="date" value="<fmt:formatDate pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" /> --%>
-<!-- 						<span style="float:left;">&nbsp;至&nbsp;</span> -->
-<%-- 						<input class="form-control" type="text" id="endTime" name="endTime" class="date" value="<fmt:formatDate pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" /> --%>
+						<input class="form-control" type="text" id="startTime" name="startTime" class="date" value="<fmt:formatDate pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" />
+						<span style="float:left;">&nbsp;至&nbsp;</span>
+						<input class="form-control" type="text" id="endTime" name="endTime" class="date" value="<fmt:formatDate pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" />
 					</div>
 				 </div>
 				 <div class="form-group">
 					规格：
 					<div class="input-icon" style="height: 35px;">
-						<select  id="branchInfo" name=branchInfo  class="form-control"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
+						<select  id="branchInfo" name=branchInfo  class="form-control combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
 						</select>
 					</div>
 				 </div>
@@ -110,7 +110,6 @@
 		
  <script src="${ctx}/static/js/hfive/custom.js"></script>
  <script src="${ctx}/static/js/hfive/combox.js"></script>
- <script type="text/javascript" src="${ctx}/static/js/base/dict.js"></script>
  <script>
 	$(function(){
 		    $("select.combox").comboxSelectRemoteData();
