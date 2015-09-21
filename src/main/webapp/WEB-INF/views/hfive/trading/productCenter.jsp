@@ -32,10 +32,9 @@
 				<img class="user_info" src="${ctx}/static/images/center.png"  alt="商户中心">
 				<a href="${ctx}/customer/center">
 	        		<span><shiro:principal property="name"></shiro:principal>
-	        				<shiro:guest>请登录！</shiro:guest>
+	        				<shiro:guest><a  href="${ctx}/login">请登录！</a></shiro:guest>
 	        		</span>
 	        	</a>
-	            
 	        </div>
 	        <div class="search">
 	        	<!-- <a href="###" class="i" id="search_home">&nbsp;</a> -->
@@ -108,12 +107,10 @@
 	<script type="text/javascript">
 		$(function(){
 			getItemList($("#productForm"),$("#product_list .list"));
-			
-			$("#btn_pp").bind('click',function(){
+// 			$("#btn_pp").bind('click',function(){
 				
-			});
+// 			});
 		});
-		
 	</script>
 </body>
 </html>

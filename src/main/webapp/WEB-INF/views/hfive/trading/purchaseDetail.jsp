@@ -3,55 +3,80 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<meta content="black" name="apple-mobile-web-app-status-bar-style" />
-<!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="${ctx}/static/bootstrap/3.3.5/css/bootstrap.css">
+<%@ include file="/WEB-INF/inc/hfive/include.meta.jsp"%>
+<%@ include file="/WEB-INF/inc/hfive/include.css.jsp"%>
 
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
+<link rel="stylesheet" href="${ctx}/static/styles/hfive/productDetail.css" type="text/css" />
 
-<link rel="stylesheet" href="${ctx}/static/styles/hfive/purchaseDetail.css" type="text/css" />
+<%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
 
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="${ctx}/static/js/jquery/1.11.3/jquery-1.11.3.min.js"></script>
-
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="${ctx}/static/bootstrap/3.3.5/js/bootstrap.js"></script>
 <title>微笑草帽</title>
 </head>
 <body>
-	<header>
-		<div class="goback">
-			<a href="${ctx}/trading/product/center">
-        		<img class="back" src="${ctx}/static/images/logo.png"  alt="返回">
-        	</a>
-		</div>
-        <div class="cur_title">
-        	<label  class="page-title-text">采购详细</label>
+<div class="background-img">
+		
+	</div>
+	<div class="background-zhezhao">
+		
+	</div>
+	<div id="main_div">
+		<div class="back">
+	        <a href="${ctx}/trading/product/center">
+	        	<img class="search-img" src="${ctx}/static/images/back2.png"  alt="返回">
+	        </a>
         </div>
-	</header>
 		<div class="pageContent"> 
 			<div class="farmContent" >
-				<div>名称：${vm.title}  </div>     
-				<div>
-					采购量：${vm.quantity}
-					<span class="showDictLabel" dictType="QUANTITY_UNIT" dictCode="${vm.quantityUnit}"></span>
+				<div class="d_item" id="d_main">
+					<h2>${vm.title} </h2>
+					<div class="d_main_left">
+						<div>${vm.category.categoryName}</div>
+						<div>${vm.user.name}</div>
+					</div>
+					<div class="d_main_right">
+						<span class="unit">￥</span> ${vm.price} 
+						<span id="showDictLabel" class="unit showDictLabel" dictType="PRICE_UNIT" dictCode="${vm.priceUnit}"></span>
+					</div>
 				</div>
-				<div>规格：${vm.branchInfo}  </div> 
-				<input type="hidden" name="user.id" value="${vm.user.id}">
-				<div><a href="${ctx}/farm/detail/${vm.user.id}"> 商户名称：${vm.user.name} </a></div>     
-				<div>地址：${vm.user.customer.region.parent.parent.regionName} ${vm.user.customer.region.parent.regionName} ${vm.user.customer.region.regionName} ${vm.user.customer.address}</div>
-				<div>
-					描述：
-					<textarea rows="" cols="" class="farmDesc" name="description" style="width: 100%;" wrap="virtual"   readonly="true">${vm.description}</textarea>
+				<div class="d_item" id="d_unit">
+					<h5 class="d_item_title">规格 / 采购量</h5>
+					<div class="d_item_content">
+						<div class="d_item_branch">${vm.branchInfo}</div>
+						<div class="d_item_quantity">${vm.quantity}&nbsp;<span id="showDictLabel" class="unit showDictLabel" dictType="QUANTITY_UNIT" dictCode="${vm.quantityUnit}"></span></div>
+					</div>
 				</div>
+				<div class="d_item" id="d_region">
+					<h5 class="d_item_title">交付地址</h5>
+					<div class="d_item_content">${vm.user.customer.region.parent.parent.regionName} ${vm.user.customer.region.parent.regionName} ${vm.user.customer.region.regionName} ${vm.user.customer.address}</div>
+				</div>
+				<div class="d_item" id="d_memo">
+					<h5 class="d_item_title">详细说明</h5>
+					<div class="d_item_content">${vm.description}</div>
+				</div>
+			
+				<div class="d_info">
+					<div class="d_info_item"><a href="javascript:void(0);"  <shiro:user>info="${vm.user.loginName}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >点击获取联系方式</a></div>
+				</div>
+					
 			</div>
 		</div>
+		
+		<%@ include file="/WEB-INF/inc/hfive/include.foot.jsp"%>
+	</div>
 </body>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/base/dict.js"></script>
+
+<script type="text/javascript" src="${ctx}/static/js/base/dict.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".d_info_item a").click(function(){
+		var info = $(this).attr("info");
+		if(info == 'nologin'){
+			$(this).text("请先登录或注册！");
+			$(this).attr("href","${ctx}/login");
+		}
+	});
+});
+	
 </html>
 
