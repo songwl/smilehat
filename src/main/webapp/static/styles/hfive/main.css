@@ -263,21 +263,6 @@ padding: 10px 0px 20px 0px;
 	height: 40px;
 }
 
-div#main_list {
-/* margin-left: 20%; */
-/* background:#F8F8F8; */
-/* border-left: 2px #FF9C59 dotted; */
-/* min-height: 600px; */
-}
-div#main_list_purchase {
-margin-right: 20%;
-background:#F8F8F8;
-border-right: 2px #FF9C59 dotted;
-min-height: 600px;
-}
-
- 
-
 div#product_list {
 	width: 100%;
 	padding:2% 10px 2% 10px;

@@ -67,31 +67,33 @@ public class CustomerCenterController extends HfiveBaseController {
 		return "hfive/customer/customerDetail";
 	}
 	
-	@RequestMapping(value = "/productlist/{userId}")
-	public String productList(Model model, @PathVariable Long userId) {
+	@RequestMapping(value = "/myProductlist")
+	public String productList(Model model, HttpServletRequest request) {
+		if(this.getCurrentUser()!=null){
+			Map<String, Object> searchParams = Maps.newHashMap();
+			searchParams.put("EQ_user.id", this.getCurrentUser().getId());
+			searchParams.put("EQ_isDeleted", Boolean.FALSE);
 
-		Map<String, Object> searchParams = Maps.newHashMap();
-		searchParams.put("EQ_user.id", userId);
-		searchParams.put("EQ_isDeleted", Boolean.FALSE);
+			PageRequest pageRequest = CoreUtils.buildPageRequest(1, 20, "visitCount,publishTime", "desc,desc");
+			Page<Product> page = productService.findPage(searchParams, pageRequest);
+			model.addAttribute("page", page);
 
-		PageRequest pageRequest = CoreUtils.buildPageRequest(1, 20, "visitCount,publishTime", "desc,desc");
-		Page<Product> page = productService.findPage(searchParams, pageRequest);
-		model.addAttribute("page", page);
-
+		}
+		
 		return "hfive/trading/productList";
 	}
 
-	@RequestMapping(value = "/purchaselist/{userId}")
-	public String purchaseList(Model model, @PathVariable Long userId) {
-
-		Map<String, Object> searchParams = Maps.newHashMap();
-		searchParams.put("EQ_user.id", userId);
-		searchParams.put("EQ_isDeleted", Boolean.FALSE);
-
-		PageRequest pageRequest = CoreUtils.buildPageRequest(1, 20, "visitCount,publishTime", "desc,desc");
-		Page<Purchase> page = purchaseService.findPage(searchParams, pageRequest);
-		model.addAttribute("page", page);
-
+	@RequestMapping(value = "/myPurchaselist")
+	public String purchaseList(Model model,  HttpServletRequest request) {
+		if(this.getCurrentUser()!=null){
+			Map<String, Object> searchParams = Maps.newHashMap();
+			searchParams.put("EQ_user.id", this.getCurrentUser().getId());
+			searchParams.put("EQ_isDeleted", Boolean.FALSE);
+	
+			PageRequest pageRequest = CoreUtils.buildPageRequest(1, 20, "visitCount,publishTime", "desc,desc");
+			Page<Purchase> page = purchaseService.findPage(searchParams, pageRequest);
+			model.addAttribute("page", page);
+		}
 		return "hfive/trading/purchaseList";
 	}
 }

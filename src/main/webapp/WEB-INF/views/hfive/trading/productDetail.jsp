@@ -76,6 +76,8 @@ $(function(){
 		if(info == 'nologin'){
 			$(this).text("请先登录或注册！");
 			$(this).attr("href","${ctx}/login");
+		}else{
+			$(this).text(info);
 		}
 	});
 });

@@ -29,7 +29,7 @@
 		
 		<div class="form-group">
 			<div class="input-icon">
-				<input class="" type="radio" name="userType" value="PERSON" autocomplete="off">个人--可查看供求信息中的联系方式和发布采购信息，但无法发布供应信息
+				<input class="" type="radio" name="userType" value="PERSON" autocomplete="off"  checked="checked" >个人--可查看供求信息中的联系方式和发布采购信息，但无法发布供应信息
 			</div>
 		</div>
 		<div class="form-group">

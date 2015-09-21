@@ -69,7 +69,7 @@
 						</div>
 						<div class="form-group">
 							<div class="input-icon" style="height: 35px;">
-								<input type="text" name="address" value="${vm.address}" class="form-control" style="width: 100%;" />
+								<input type="text" name="address" value="${vm.address}" class="form-control" style="width: 100%;" placeholder="请输入您的详细地址" autocomplete="off"/>
 							 </div>
 						 </div>
 						 <div class="form-group">

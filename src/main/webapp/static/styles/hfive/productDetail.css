@@ -89,4 +89,5 @@ margin-top: 20px;
 .pageContent .d_info .d_info_item a{
 	color: #6EBD28;
 	font-size: 1.2em;
+	text-decoration: none;
 }

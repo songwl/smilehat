@@ -1,171 +1,3 @@
-*
-{
-    margin:0;
-    padding:0;
-}
-
-body, html {
-	background-color: #FFFFFF;
-	font: normal 100% Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	font-family: 'Microsoft YaHei';
-}
-
-div {
-display: block;
-font-size: 14px;
-/* opacity: 0.7; */
-/* filter: alpha(opacity=70); */
-}
-
-div.background-img {
-	width: 100%;
-	height:100%;
-    min-height: 700px;
-    padding: 0px;
-    margin: 0px auto 0px auto;
-    border:1px solid white;
-    border-radius: 5px;
-    /**background-color:rgb(0,152,50);**/
-    background:url(/smilehat/static/images/tufarm.jpg) no-repeat center center scroll;
-    opacity: 0.7;
-    filter:alpha(opacity=70);
-}
-
-div#main_div{
-	width: 100%;
-    height: 100%;
-    clear: both;
-    overflow: hidden;
-    margin: 10px auto 0px auto;
-	background-color: #0C0B0C;
-	opacity: 0.7;
-	filter:alpha(opacity=70);
-}
-
-div#header {
-    width: 100%;
-    height: 60px;
-    padding: 11px 2% 12px 2%;
-/*     background: #9DD05B; */
-    overflow: hidden;
-    clear: both;
-    margin: -700px auto 0px auto;
-    background-color: #0C0B0C;
-    opacity: 0.7;
-    filter: alpha(opacity=70);
-}
-
-div#header a{
-	text-decoration: none
-}
-
-div#header div.logo {
-	width: 30%;
-}
-
-div.search {
-width: 50%;
-}
-
-div#header div{
-	display: inline;
-	float: left;
-}
-
-label.page-title-text {
-	color: rgb(0, 182, 44);
-	text-align: left;
-	font-weight: bold;
-	font-size:18px;
-	line-height: 1.5em;
-	padding: 0.15em 0;
-}
-
-input.search-txt {
-	position: relative;
-	float: left;
-	width: 100%;
-	margin-top: 6px;
-	overflow: hidden;
-	height: 25px;
-	border-radius: 5px;
-}
-div#header #userCenter{
-	float: right ;
-    margin: 0 2% 0 0;
-}
-
-img.user_info {
-	height: 45px;
-	padding-left: 10px;
-}
-
-div#product_purchase_select {
-	bottom: 0px;
-	float: left;
-	position: fixed;
-	display: block;
-	width: 100%;
-}
-
-.userCenter {
-float: right;
-}
-
-.list
-{
-    float:right;
-    padding-top:10px;
-}
-
-ul
-{
-    list-style-type:none;
-}
-
-div#product_purchase_select div{
-	display: inline;
-	width:50%;
-	float: left;
-	
-}
-
-div#product_purchase_select div img{
-	width:100%
-}
-
-div#product_purchase_publish {
-bottom: 10px;
-position: fixed;
-display: block;
-width: 100%;
-text-align: center;
-}
-
-img#btn_pp {
-width: 30%;
-height: 30%;
-}
-
-input.search_purchase {
-height: 25px;
-width: 100%;
-border: 1px #FF9C59 solid;
-border-radius: 5px
-}
-
-img.search_down {
-width: 25px;
-background: 0 0 no-repeat;
-}
-
-div#purchase_search {
-width: 100%;
-float: left;
-padding-left: 10px;
-padding-right: 10px;
-}
 
 #purchase_search > div {
 width: 49%;
@@ -173,154 +5,20 @@ float: left;
 padding: 10px 0px 20px 0px;
 }
 
-#purchase_search > div:FIRST-CHILD {
-	margin-right: 2%;	
-}
-
-#purchase_search .btn-my-select{
-	border:1px solid #9DD05B;
-	color:#D3D4D6;
-	width:78%;
-}
-
-#purchase_search .btn-my-select2{
-	width:22%;
-}
-
-#purchase_search .btn-my-group{
-	width:100%;
-}
-
-div#main_list {
-margin-left: 20%;
-background:#F8F8F8;
-border-left: 2px #FF9C59 dotted;
-min-height: 600px;
-}
-div#main_list_purchase {
-/* margin-right: 20%; */
-background:#F8F8F8;
-/* border: 2px green dotted; */
-min-height: 700px;
-}
-
 img.todetail {
-width: 30px;
-height: 30px;
-}
-
-div#product_list {
-	width: 100%;
-	padding: 2% 2% 2% 5%;
-}
-
-ul.list {
-	width: 100%;
+width: 15px;
+height: 20px;
 }
 
 ul.list li{
-	float: left;
 	width: 45%;
 	height: 160px;
-	padding: 5px 10px 16px 15px;
-	overflow: hidden;
-/* 	background: url('/smilehat/static/images/product_bg.png')no-repeat; */
-	position: relative;
-/* 	left: -7%; */
-	margin-bottom: 15px;
-	background-color: #FFFFFF;
-	border:2px solid green;
-	margin-right: 10px;
 }
 
 ul.list li a {
 	float: left;
 	width: 100%;
 	overflow: hidden;
-}
-
-.list li a .row1  {
-	overflow: hidden;
-/* 	height: 40px; */
-}
-
-.list li a .row1 .left  {
-float: left;
-width: 60%;
-overflow: hidden;
-}
-
-.list li a .row1 .left .name {
-height: 24px;
-line-height: 24px;
-margin-right: 2%;
-font-weight: bold;
-font-size: 1.2em;
-color: #000000;;
-}
-
-
-.list li a .category {
-height: 24px;
-line-height: 20px;
-font-size: 0.9em;
-color: #838488;
-}
-
-
-.list li a .row1 .right  {
-float: right;
-height: 40px;
-line-height: 40px;
-font-size: 1.3em;
-color: #ff4d4d;
-}
-
-.list li a .row1 .right .unit {
-height: 40px;
-line-height: 40px;
-font-size: 10px;
-color: #838488;
-}
-
-.list li a .row2  {
-	width:100%;
-/* 	height:1px; */
-	background-color: #ffffff;
-	margin: 4px 0;
-}
-
-.list li a .row3  {
-overflow: hidden;
-height: 30px;
-}
-
-.list li a .row3 .left  {
-float: left;
-width: 70%;
-overflow: hidden;
-}
-
-.list li a .row3 .right .place_who   {
-/* float: left; */
-height: 20px;
-line-height: 20px;
-font-size: 0.9em;
-color: #838488;
-}
-
-.list li a .row3 .left .lv{
-float: left;
-height: 20px;
-overflow: hidden;
-}
-
- .list li a .row3 .right {
-float: right;
-height: 20px;
-line-height: 20px;
-font-size: 0.4em;
-color: #333;
 }
 
 img.product_cert {
@@ -330,4 +28,47 @@ width: 15px;
 button#dropdownMenu1 {
 background: #9DD05B;
 border-color: #9DD05B;
+}
+
+.list li a .frow1{
+float: left;
+width: 100%;
+overflow: hidden;
+height: 24px;
+line-height: 24px;
+margin-right: 2%;
+font-size: 0.9em;
+color: #9DD05B;
+}
+
+.list li a .frow2{
+float: left;
+width: 100%;
+overflow: hidden;
+margin-right: 2%;
+font-weight: bold;
+font-size: 1.4em;
+color: #fff;
+}
+
+.list li a .frow3{
+float: left;
+width: 100%;
+overflow: hidden;
+margin-right: 2%;
+margin: 30px 10px 5px 0px;
+}
+
+.list li a .frow3 .left{
+float: left;
+width: 80%;
+overflow: hidden;
+margin-right: 2%;
+}
+
+.list li a .frow3 .right{
+float: right ;
+width: 15%;
+overflow: hidden;
+margin-right: 2%;
 }

@@ -26,7 +26,7 @@ img.back {
 #menu #nav {
 	display:block;
 	width:100%;
-	padding:0;
+	padding-top:10px;
 	margin:0;
 	list-style:none;
 	float: left;

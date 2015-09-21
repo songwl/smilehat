@@ -3,29 +3,100 @@ body, html {
     font: normal 100% Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-family: 'Microsoft YaHei';
+    height: 100%;
 }
 
-header {
+div#header-img {
     width: 100%;
-    height: 60px;
-    padding: 11px 2% 12px 2%;
-    background: #9DD05B;
+    height: 27%;
     overflow: hidden;
+    background:url(images/farmDBg.png) no-repeat center center scroll;
 }
 
-header div.goback {
-    width: 30%;
+.pageContent {
+background-color: #292626;
+height: 100%;
+color: white;
+padding: 20px 20px 40px 20px;
 }
 
-img.back {
-    width: 30px;
-    height: 30px;
+
+.div-back {
+background-color: #6EBD28;
+bottom: 0px;
+left: 0px;
+position: fixed;
+display: block;
+width: 100%;
+padding: 13px 45% 0px 45%;
+background-color: #6EBD28;
+height: 60px;
 }
 
-div.cur_title{
-    width: 50%;
+img.img-back {
+width: 35px;
 }
 
-textarea.farmDesc {
-border-style: none;
+.row1 {
+width: 100%;
+height: 90px;
+}
+
+.row1 .left {
+float: left;
+width: 60%;
+font-size: 30px;
+}
+
+.row1 .right {
+float: right;
+padding-top: 30px;
+}
+
+.row1 .right .up{
+padding: 0px 0px 5px 30px;
+font-size: 10px;
+color: #6EBD28;
+}
+
+img.product_cert {
+width: 22px;
+}
+
+.row2 {
+width: 100%;
+color: #6EBD28;
+padding-top: 10px;
+}
+
+.row3 {
+padding: 10px 0px;
+}
+
+.rowline {
+border-bottom: 1px solid #6EBD28;
+height: 1px;
+}
+
+.d_info {
+margin: 20px 0px;
+padding-bottom: 20px;
+}
+
+.d_info .d_info_item ,.d_info .d_info_item2 {
+height: 50px;
+width: 100%;
+border: 1px solid #6EBD28;
+padding: 10px 24%;
+margin-bottom: 10px;
+}
+
+.d_info .d_info_item a ,.d_info .d_info_item2 a {
+color: #6EBD28;
+font-size: 1.2em;
+text-decoration: none;
+}
+
+.row4 {
+padding: 10px 0px;
 }

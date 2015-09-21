@@ -22,29 +22,39 @@
 		
 	</div>
 	<div id="main_div">
-	<div id="header">
-		<div class="logo">
-			<img id="curlogo" alt="" src="${ctx}/static/images/logo.png">
+		<div id="header">
+			<div class="logo">
+				<img id="curlogo" alt="" src="${ctx}/static/images/logo.png">
+			</div>
+			<div class="userCenter">
+	            	商户中心
+	        </div>
+	        <div class="search">
+		        <a href="${ctx}/trading/product/center">
+		        	<img class="search-img" src="${ctx}/static/images/back2.png"  alt="返回">
+		        </a>
+	        </div>
 		</div>
-		<div class="userCenter">
-            	商户中心
-        </div>
-        <div class="search">
-	        <a href="${ctx}/trading/product/center">
-	        	<img class="search-img" src="${ctx}/static/images/back2.png"  alt="返回">
-	        </a>
-        </div>
+		<form id="productForm" action="${ctx}/trading/product/list" method="post">
+			<div id="menu">
+			    <ul id="nav">
+			        <li><a href="${ctx}/customer/center">基本信息</a></li>
+			        <li><a href="${ctx}/customer/centerProduct"  class="selected">我的产品</a></li>
+			        <li><a href="${ctx}/customer/centerPurchase" class="">我的采购</a></li>
+			    </ul>
+			    <div id="product_list">
+					<ul class="list">
+						
+					</ul>
+				</div>
+			</div>
+		</form>
 	</div>
-	<div id="menu">
-	    <ul id="nav">
-	        <li><a href="${ctx}/customer/center">基本信息</a></li>
-	        <li><a href="${ctx}/customer/centerProduct"  class="selected">我的产品</a></li>
-	        <li><a href="${ctx}/customer/centerPurchase" class="">我的采购</a></li>
-	    </ul>
-	    <div id="menu_con">
-	    	
-		</div>
-	</div>
-	</div>
+	<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function(){
+			getItemList($("#productForm"),$("#product_list .list"));
+		});
+	</script>
 </body>
 </html>
