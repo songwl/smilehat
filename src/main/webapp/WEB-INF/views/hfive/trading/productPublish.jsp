@@ -21,26 +21,33 @@
 		<div id="header">
 			产品发布
 		</div>
+		<div class="back">
+	       	<a href="javascript :;" onClick="javascript :history.back(-1);">
+	        	<img class="search-img" src="/smilehat/static/images/back2.png" alt="返回">
+	        </a>
+        </div>
 		<div id="menu">
-		    <form class="login-form m-login-form" action="${ctx}/register" method="post">
+		    <form class="login-form m-login-form" action="${ctx}/" method="post">
 		        <div class="form-group">
-					产品名称：
+		        	产品名称：
 					<div class="input-icon" style="height: 35px;">
-						<input name="user.name" class="form-control" type="text" size="30" style="width: 100%;" validate="{required:true}" />
+						<input name="name" class="form-control" type="text" size="30" style="width: 100%;" validate="{required:true}" />
 					</div>
 				 </div>
 				<div class="form-group">
 					产品标题：
 					<div class="input-icon" style="height: 35px;">
-						<input name="user.name" class="form-control" type="text"  style="width: 100%;" validate="{required:true}"/>
+						<input name="title" class="form-control" type="text"  style="width: 100%;" validate="{required:true}"/>
 					</div>
 				 </div>
 				 <div class="form-group">
 					品类名称：
 					<div class="input-icon" style="height: 35px;">
 						<input type="hidden" name="categoryId" id="categoryTree.id" value="${vm.category.id}" /> 
-						<input  class="form-control" name="categoryName" id="categoryTree.name" value="${vm.category.categoryName}" type="text" readonly="readonly" /> 
-						<a class="btnLook" href="${sctx}/category/select" lookupGroup="categoryTree">查找带回</a>
+						<div class="oneline">
+							<input  class="form-control" name="categoryName" id="categoryTree.name" value="${vm.category.categoryName}" type="text" readonly="readonly" /> 
+							<a class="btnLook" href="${sctx}/category/select" lookupGroup="categoryTree">查找带回</a>
+						</div>
 					</div>
 				 </div>
 				 <div class="form-group">
@@ -52,9 +59,12 @@
 					</div>
 				 </div>
 				 <div class="form-group">
-					规格：
+					
 					<div class="input-icon" style="height: 35px;">
-						<select  id="branchInfo" name=branchInfo  class="form-control"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
+						<div class="input-name">
+							规格：
+						</div>
+						<select  id="branchInfo" name=branchInfo  class="form-control combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
 						</select>
 					</div>
 				 </div>
@@ -96,18 +106,18 @@
 				 </div>
 				 <div class="form-group">
 				 	产品描述:
-					<div class="input-icon" style="height: 35px;">
+					<div class="input-icon" style="height: 80px;">
 						<textarea rows="" cols="" id="description" name="description" style="width: 100%;">${vm.description}</textarea>
 					 </div>
 				 </div>
 				
 				<div class="form-actions">
-					<a class="btn-submit">保存</a>
+					<a class="btn-submit">发布</a>
 				</div>
 			</form>
 		</div> 
 	</div>
-		
+		<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
  <script src="${ctx}/static/js/hfive/custom.js"></script>
  <script src="${ctx}/static/js/hfive/combox.js"></script>
  <script type="text/javascript" src="${ctx}/static/js/base/dict.js"></script>

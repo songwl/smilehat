@@ -1,5 +1,5 @@
 
-/* 密码登录 */
+/* 瀵嗙爜鐧诲綍 */
 html {height: 100%;}
 .content {width: 100%; height: 100%; background: url(images/login-bg.jpg) no-repeat; background-size: cover;}
 .login-form {padding-left: 20px; padding-right: 20px;}
@@ -9,7 +9,7 @@ html {height: 100%;}
 .login-form .form-group {margin-bottom: 15px; overflow: hidden-;}
 	.form-group .input-icon {position: relative; border-bottom: 1px solid rgba(255,255,255,.7);}
 	.form-group .input-icon i {position: absolute; display: block; width: 20px; height: 20px; margin: 6px 2px 4px 0; background-size: 150px 300px;}
-	.form-group .input-icon .form-control {display: block; width: 60%; height: 34px; font-size: 1.6rem; padding: 0 12px; margin-left: 16px; vertical-align: middle;background: none; border: none; outline: none; color: #fff;}
+	.form-group .input-icon .form-control {display: block; width: 60%; height: 34px; font-size: 1.6rem; padding: 0 10px; margin-left: 16px; vertical-align: middle;background: none; border: none; outline: none; color: #fff;}
 	.form-group .input-icon select.form-control{color: #000;}
 	.form-group .input-icon ::-webkit-input-placeholder {color: rgba(255,255,255,.3); font-size: 14px;}
 	.form-group .input-icon ::-moz-input-placeholder {color: rgba(255,255,255,.3);}
@@ -27,7 +27,7 @@ html {height: 100%;}
 .login-type .current {color: #7ec650;}
 .error-password {color: #DDA3A3; font-size: 1.2rem}
 
-/*密码错误弹出层*/
+/*瀵嗙爜閿欒寮瑰嚭灞�/
 .pwd-error {
 	width: 100%;
 	height: 40px;
@@ -49,7 +49,7 @@ html {height: 100%;}
 	margin-right: 5px;
 }
 
-/* 手机登录 */
+/* 鎵嬫満鐧诲綍 */
 .m-login-form .form-group .form-control-static {  display: block; font-size: 1.6rem; margin-left: 26px; margin-bottom: 4px; color: #fff; margin-top: 0; position: relative; top: 4px;}
 .m-login-form .form-group .control-label {border-left: 1px solid #fff;}
 	.form-group .control-label .btnSendCode {background: none; border: none; outline: none; color: #fff; margin-left: 5px;}
@@ -59,7 +59,7 @@ html {height: 100%;}
 	.form-group .account-activate li:first-child {float: left;}
 	.form-group .account-activate li:last-child {float: right;}
 
-/* 修改提示内容 */
+/* 淇敼鎻愮ず鍐呭 */
 .m-update-tips{
 	margin:70px 20px 0;
 	color: #fff;
@@ -72,7 +72,7 @@ html {height: 100%;}
 .m-update-tips>p:first-child{font-size: 1.5rem;}
 .m-update-tips>p:last-child{font-size: 1.3rem;}
 
-/* 手机号注册 */
+/* 鎵嬫満鍙锋敞鍐�*/
 .agree-deal label {position: relative; display: inline-block;}
 .agree-deal span {color: #fff; font-size: 1.3rem;}
 .agree-deal .agree-box {-webkit-appearance: none; -moz-appearance: none; width: 18px; height: 18px; border-radius: 50%; position: relative; background: transparent; border: 1px solid #7a7f83; vertical-align: middle; margin-top: -1px;}
@@ -82,7 +82,7 @@ html {height: 100%;}
 .agree-deal .btn-agree {color: #fff;}
 .agree-mask {position: absolute; top: 0; left: 0; bottom: -3px; z-index: 9999; line-height: 1.5; background: rgba(0, 0, 0, 0.9); color: #fff; padding: 3%; overflow-y: auto; -webkit-overflow-scrolling: touch; width: 94%; display: none;}
 
-/* 我的账户 */
+/* 鎴戠殑璐︽埛 */
 .account-form .form-group .input-icon .form-control-static {display: block; font-size: 1.6rem; margin-left: 28px; margin-bottom: 4px; color: #fff;}
 .account-form .form-group .input-icon .form-control-static>a{
 	float: right;
@@ -106,7 +106,7 @@ html {height: 100%;}
 }
 .account-form .form-group .input-icon .fa-user {margin-top: 0;}
 .account-form .form-group .input-icon .fa-phone {margin-top: 0;}
-/* 修改手机号成功页面 */
+/* 淇敼鎵嬫満鍙锋垚鍔熼〉闈�*/
 .cont-center{
 	display: -webkit-box;
 	-webkit-box-orient: horizontal;
@@ -155,7 +155,7 @@ html {height: 100%;}
 .m-update-cont>div>a:first-child{
 	margin-right: 10%;
 }
-/* 查看证件信息 提示 */
+/* 鏌ョ湅璇佷欢淇℃伅 鎻愮ず */
 .papers-notice{
 	margin: 40px 20px 0;
 	font-size: 1.3rem;
@@ -174,7 +174,7 @@ html {height: 100%;}
 	background-size: cover;
 }
 /*
-	修改证件信息
+	淇敼璇佷欢淇℃伅
 */
 .m-update-papers{
 	width:88%;
@@ -239,7 +239,7 @@ html {height: 100%;}
 	text-decoration: none;
 	font-size: 1.6rem;
 }
-/* 修改证件信息浮层 */
+/* 淇敼璇佷欢淇℃伅娴眰 */
 .m-papers-mask{
 	position: fixed;
 	top: 0;
@@ -280,17 +280,17 @@ html {height: 100%;}
 	height: 50px;
 	line-height: 50px;
 }
-/* 修改密码 */
+/* 淇敼瀵嗙爜 */
 .modifypwd-form .form-group .control-label {position: absolute; margin: 6px 2px 4px 0; color: #fff;}
 .modifypwd-form .form-group .input-icon .form-control {width: 70%; margin-left: 60px;}
 .modifypwd-form .form-group .password-desc {color: #fff; font-size: 1.2rem;}
 
-/* 找回密码 */
+/* 鎵惧洖瀵嗙爜 */
 .getPassword-form .getpwd-form-group .control-label {position: absolute; margin: 6px 2px 4px 0; color: #fff; border: none;}
 .getPassword-form .getpwd-form-group .input-icon .form-control {width: 70%; margin-left: 60px;}
 
 
-/* 通用图标 */
+/* 閫氱敤鍥炬爣 */
 .fa {background: url(images/member-sprites.png) no-repeat;}
 .fa-user {background-position: 0 0;}
 .fa-lock {background-position: -25px 0;}
@@ -300,11 +300,11 @@ html {height: 100%;}
 	  background-position: -115px 0px;  margin-top: 4px !important;
 }
 
-/* 通用定位相关 */
+/* 閫氱敤瀹氫綅鐩稿叧 */
 .pr {position: relative;}
 .pa {position: absolute;}
 
-/*页面最小高度，可滚动*/
+/*椤甸潰鏈�皬楂樺害锛屽彲婊氬姩*/
 .user-page {
 	background: url(images/login-bg.jpg) 50% 50% no-repeat;
   -webkit-background-size: cover;

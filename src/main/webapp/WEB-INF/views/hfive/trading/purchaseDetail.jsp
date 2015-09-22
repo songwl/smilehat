@@ -63,22 +63,23 @@
 		</div>
 		
 		<%@ include file="/WEB-INF/inc/hfive/include.foot.jsp"%>
+		<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
 	</div>
 </body>
 
 <script type="text/javascript" src="${ctx}/static/js/base/dict.js"></script>
 <script type="text/javascript">
-$(function(){
-	$(".d_info_item a").click(function(){
-		var info = $(this).attr("info");
-		if(info == 'nologin'){
-			$(this).text("请先登录或注册！");
-			$(this).attr("href","${ctx}/login");
-		}else{
-			$(this).text(info);
-		}
+	$(function(){
+		$(".d_info_item a").click(function(){
+			var info = $(this).attr("info");
+			if(info == 'nologin'){
+				$(this).text("请先登录或注册！");
+				$(this).attr("href","${ctx}/login");
+			}else{
+				$(this).text(info);
+			}
+		});
 	});
-});
-	
+</script>
 </html>
 

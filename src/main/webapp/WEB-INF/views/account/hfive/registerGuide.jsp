@@ -7,6 +7,7 @@
 	<%@ include file="/WEB-INF/inc/hfive/include.meta.jsp"%>
 	<title>手机号注册</title>
 	
+	<link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css">
 	<<link rel="stylesheet" href="${ctx}/static/styles/hfive/normalize.css">
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/custom.css">
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/login.css">
@@ -52,6 +53,7 @@
 
 </div>
  
+<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
  <script type="text/javascript">
  	$(".btn-submit").click(function(){
  		$(".login-form").submit();

@@ -51,7 +51,7 @@ div.background-img {
 div#main_div {
  	width: 100%;
 /* 	min-height:700px; */
-	padding: 0px 10px 0px 10px;
+/* 	padding: 0px 10px 0px 10px; */
     overflow: auto;
     position: relative;
     margin-bottom: 70px;
@@ -69,6 +69,8 @@ div#header {
 div#header a{
 	text-decoration: none;
 	color: white;
+/* 	float: right; */
+    width: 65%;
 }
 
 div#header div.logo {
@@ -127,10 +129,12 @@ div#header #userCenter{
 img.user_info {
 	height: 35px;
 	padding-left: 10px;
+	float: left;
+    width: 46px;
 }
 
 div#product_purchase_select {
-	bottom: 0px;
+	bottom: 20px;
 	float: left;
 	position: fixed;
 	display: block;
@@ -145,7 +149,7 @@ div#publish_select {
 	width: 40%;
 	height: 65px;
 	position: fixed;
-	bottom: 80px;
+	bottom: 90px;
 	left: 30%;
 	display: none;
 }
@@ -416,4 +420,15 @@ height: 40px;
 a.main-menu {
 color: #212121;
 font-size: 20px;
+text-decoration: initial;
+}
+
+.system-name {
+    background-color: black;
+    color: WHITE;
+    bottom: 0px;
+    position: fixed;
+    display: block;
+    width: 100%;
+    padding: 2px 0px 0px 30%;
 }

@@ -28,7 +28,7 @@
 			<div class="userCenter">
 				<img class="user_info" src="${ctx}/static/images/center.png"  alt="商户中心">
 				<a href="${ctx}/customer/center">
-	        		<span><shiro:principal property="name"></shiro:principal>
+					<span><shiro:principal property="name"></shiro:principal>
 	        				<shiro:guest><a  href="${ctx}/login">请登录！</a></shiro:guest>
 	        		</span>
 	        	</a>
@@ -87,6 +87,7 @@
 			</div>
 		</div>
 			<%@ include file="/WEB-INF/inc/hfive/include.foot.jsp"%>
+			<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
 	</div>
 	<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
 	<script type="text/javascript">

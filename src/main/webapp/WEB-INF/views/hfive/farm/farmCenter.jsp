@@ -1,19 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"    pageEncoding="utf-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="/WEB-INF/inc/include.inc.jsp"%>
 <!DOCTYPE html >
 <html>
 <head>
-<%@ include file="/WEB-INF/inc/hfive/include.meta.jsp"%>
-	<title>微笑草帽</title>
-	
+	<%@ include file="/WEB-INF/inc/hfive/include.meta.jsp"%>
 	<%@ include file="/WEB-INF/inc/hfive/include.css.jsp"%>
-	<link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
-	
 	<%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
+	
+	<link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/unionfarm.css" type="text/css" />
 
-
-<title>微笑草帽</title>
+	<title>微笑草帽</title>
 </head>
 <body>
 	<div class="background-img">
@@ -85,6 +82,7 @@
 			</div>
 		</div>
 	</div>
+	<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
 	
 	<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
 	<script type="text/javascript">

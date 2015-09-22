@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"    pageEncoding="utf-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="/WEB-INF/inc/include.inc.jsp"%>
 
 <!DOCTYPE html >
@@ -30,8 +30,8 @@
 				商户中心
 	        </div>
 	        <div class="search">
-		        <a href="${ctx}/trading/product/center">
-		        	<img class="search-img" src="${ctx}/static/images/back2.png"  alt="搜索">
+				<a href="javascript :;" onClick="javascript :history.back(-1);">
+		        	<img class="search-img" src="${ctx}/static/images/back2.png"  alt="返回">
 		        </a>
 	        </div>
 		</div>
@@ -99,6 +99,8 @@
 		</div> 
 	</div>
 		
+<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
+
  <script src="${ctx}/static/js/hfive/custom.js"></script>
  <script src="${ctx}/static/js/hfive/combox.js"></script>
  <script>

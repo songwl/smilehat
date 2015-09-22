@@ -13,7 +13,7 @@
 					</dl>
 					<dl>
 						<dt><label>品类代码:</label></dt>
-						<dd><input type="text" id="categoryCode" name="categoryCode" class="required" size="30" value="${vm.categoryCode}" validate="{required:true}"/>						</dd>
+						<dd><input type="text" id="categoryCode" name="categoryCode"  size="30" value="${vm.categoryCode}" />						</dd>
 					</dl>
 					<dl>
 						<dt><label>上级品类:</label></dt>
@@ -25,7 +25,7 @@
 					</dl>
 					<dl>
 						<dt><label>排序值:</label></dt>
-						<dd><input type="text" id="sort" name="sort" class="required" size="30" value="${vm.sort}" validate="{required:true}"/>						</dd>
+						<dd><input type="text" id="sort" name="sort" size="30" value="${vm.sort}"/>						</dd>
 					</dl>
 		</div>
 		<div class="formBar">

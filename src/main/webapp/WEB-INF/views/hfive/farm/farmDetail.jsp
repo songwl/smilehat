@@ -5,9 +5,10 @@
 <head>
 <%@ include file="/WEB-INF/inc/hfive/include.meta.jsp"%>
 <%@ include file="/WEB-INF/inc/hfive/include.css.jsp"%>
-
-<link rel="stylesheet" href="${ctx}/static/styles/hfive/farmDetail.css" type="text/css" />
 <%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
+
+<link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
+<link rel="stylesheet" href="${ctx}/static/styles/hfive/farmDetail.css" type="text/css" />
 
 <title>微笑草帽</title>
 </head>
@@ -62,6 +63,8 @@
    			<img class="img-back" id="" src="${ctx}/static/images/back1.png"  alt="返回">
    		</a>
 	</div>
+	</div>
+	<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
 	<script type="text/javascript">
 	$(function(){
 		$(".d_info_item a").click(function(){

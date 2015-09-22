@@ -33,12 +33,13 @@ body {
 .login-form .login-img{
     content:"";
     position:absolute;
-    top:-55px;
+    top:-35px;
     left:150px;
     width:106px;
     height:106px;
-    border:1px solid rgb(216,216,219);
-    background:#fff url("images/profilepicture.jpg") no-repeat 2px 2px;
+/*     border:1px solid rgb(216,216,219); */
+    background:url("images/logo.png") no-repeat center center scroll;
+    background-size: 100%;
 }
 .not-registered {
    text-align: center;

@@ -65,6 +65,7 @@
 		</div>
 		
 		<%@ include file="/WEB-INF/inc/hfive/include.foot.jsp"%>
+		<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
 	</div>
 </body>
 

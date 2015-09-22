@@ -3,3 +3,43 @@ div#header {
 	font-size: 30px;
 	padding: 21px 29%;
 }
+
+.back {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+img.search-img {
+    width: 35px;
+}
+
+.input-name {
+    float: left;
+}
+
+input#price ,input#quantity{
+    float: left;
+}
+
+select#priceUnit ,select#quantityUnit{
+    float: right;
+    width: 80px;
+}
+
+select#branchInfo {
+    height: 100%;
+    width: 80px;
+}
+
+.input-icon {
+    padding-bottom: 13px;
+}
+
+a.btnLook {
+    width: 60px;
+    float: right;
+}
+
+.form-group .input-icon .form-control {
+    float: left;
+}

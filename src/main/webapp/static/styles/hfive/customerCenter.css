@@ -30,6 +30,7 @@ img.back {
 	margin:0;
 	list-style:none;
 	float: left;
+	height: 55px;
 }
 
 #menu #nav li {
@@ -49,7 +50,8 @@ img.back {
 #menu_con{
 	width:100%; 
 	height: 100%;
-	border-top:none
+	border-top:none;
+	padding-top: 25px;
 }
 
 .tag{ 

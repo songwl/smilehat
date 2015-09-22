@@ -6,7 +6,7 @@
 <head>
 	<%@ include file="/WEB-INF/inc/hfive/include.meta.jsp"%>
 	<title>手机号注册</title>
-	
+	<link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css">
 	<<link rel="stylesheet" href="${ctx}/static/styles/hfive/normalize.css">
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/custom.css">
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/login.css">
@@ -89,6 +89,8 @@
 <!-- 页面主体 E -->
 
 </div>
+
+<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
  <script src="${ctx}/static/js/hfive/custom.js"></script>
  <script src="${ctx}/static/js/hfive/combox.js"></script>
 <script>

@@ -10,9 +10,18 @@ width: 15px;
 height: 20px;
 }
 
+div#product_list {
+    padding: 5px;
+}
+
+ul.list {
+    padding: 0px;
+}
+
 ul.list li{
 	width: 45%;
 	height: 160px;
+	margin: 5px 5px;
 }
 
 ul.list li a {

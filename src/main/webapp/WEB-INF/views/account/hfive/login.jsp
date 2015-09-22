@@ -10,7 +10,7 @@
 	<%@ include file="/WEB-INF/inc/hfive/include.meta.jsp"%>
 	<title>登录</title>
 	<link rel="shortcut icon" href="${ctx}/static/images/favicon.ico" />
-
+	<link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css">
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/normalize.css">
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/custom.css">
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/login.css">
@@ -74,6 +74,7 @@
 <!-- 页面主体 E -->
 
 </div>
+<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
 <script src="${ctx}/static/js/hfive/custom.js"></script>
 <script>
 	$(function() {
