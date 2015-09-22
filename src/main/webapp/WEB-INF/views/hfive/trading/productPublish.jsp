@@ -7,6 +7,8 @@
 <%@ include file="/WEB-INF/inc/hfive/include.css.jsp"%>
 
 <%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
+
+<link rel="stylesheet" href="${ctx}/static/styles/hfive/custom.css">
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/customerCenter.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/productPublish.css" type="text/css" />
@@ -27,7 +29,7 @@
 	        </a>
         </div>
 		<div id="menu">
-		    <form class="login-form m-login-form" action="${ctx}/" method="post">
+		    <form class="login-form m-login-form" action="${ctx}/product/publish/save" method="post" id="productPublishForm">
 		        <div class="form-group">
 		        	产品名称：
 					<div class="input-icon" style="height: 35px;">
@@ -43,11 +45,18 @@
 				 <div class="form-group">
 					品类名称：
 					<div class="input-icon" style="height: 35px;">
-						<input type="hidden" name="categoryId" id="categoryTree.id" value="${vm.category.id}" /> 
-						<div class="oneline">
-							<input  class="form-control" name="categoryName" id="categoryTree.name" value="${vm.category.categoryName}" type="text" readonly="readonly" /> 
-							<a class="btnLook" href="${sctx}/category/select" lookupGroup="categoryTree">查找带回</a>
-						</div>
+						<select class="form-control" name="categoryId" value="${vm.category.id}">
+							<option value="">------------请选择------------</option>
+						  	<c:forEach items="${categorylist}" var="category">
+						  		<optgroup label="${category.categoryName}">
+							  		<c:if test="${not empty category.children}">
+							  			<c:forEach items="${category.children}" var="child">
+							  				<option value="${child.id}">${child.categoryName}</option>
+							  			</c:forEach>
+							  		</c:if>
+						  		</optgroup>
+						  	</c:forEach>
+						</select>
 					</div>
 				 </div>
 				 <div class="form-group">
@@ -124,6 +133,26 @@
  <script>
 	$(function(){
 		    $("select.combox").comboxSelectRemoteData();
+		    
+		    $(".btn-submit").click(function(){
+		    	var $form = $("#productPublishForm");
+		    	$.post($form.attr("action"), $form.serialize(),
+    			   function(json){
+		    		if(json){
+		    			C.localAlert({
+							type: '',
+							msg: json.message
+						});
+		    			location.href='${ctx}/trading/product/center';
+		    		}else{
+		    			C.localAlert({
+							type: '',
+							msg: '系统繁忙！'
+						});
+		    		}
+		    		
+    			   }, "json");
+		    });
 	});
 
 </script>

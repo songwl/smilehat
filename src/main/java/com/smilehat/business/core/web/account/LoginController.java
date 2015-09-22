@@ -49,8 +49,7 @@ public class LoginController extends BaseController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String login(HttpServletRequest request) {
-		String header = request.getHeader("user-agent");
-		if (header.indexOf("Mobile") == -1) {
+		if (!isMobileLogin(request)) {
 			//ajax请求返回无授权json
 			if (CoreUtils.isAjax(request)) {
 				return V_PATH_AJAX_LOGIN;
@@ -69,18 +68,22 @@ public class LoginController extends BaseController {
 		AuthenticationToken token = new UsernamePasswordToken(username, password, rememberMe, host);
 		boolean flag = executeLogin(token);
 		if (!flag) {
-			//ajax请求返回无授权json
-			if (CoreUtils.isAjax(request)) {
-				return V_PATH_AJAX_LOGIN;
-			}
 			model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, username);
 			model.addAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME, this.getMessage("LoginController.dologin.error"));
-			return V_PATH_LOGIN;
+			if (!isMobileLogin(request)) {
+				//ajax请求返回无授权json
+				if (CoreUtils.isAjax(request)) {
+					return V_PATH_AJAX_LOGIN;
+				}
+				return V_PATH_LOGIN;
+			} else {
+				return "/account/hfive/login";
+			}
 		}
 		User user = this.getCurrentUser();
-		if(Enums.USER_TYPE.ADMIN.name().equalsIgnoreCase(user.getUserType())){
+		if (Enums.USER_TYPE.ADMIN.name().equalsIgnoreCase(user.getUserType())) {
 			WebUtils.redirectToSavedRequest(request, response, "/sys/index");
-		}else{
+		} else {
 			WebUtils.redirectToSavedRequest(request, response, "/trading");
 		}
 		//return "redirect:/index";
@@ -135,6 +138,14 @@ public class LoginController extends BaseController {
 			//登陆失败
 			return false;
 		}
+	}
+
+	private boolean isMobileLogin(HttpServletRequest request) {
+		String header = request.getHeader("user-agent");
+		if (header.indexOf("Mobile") != -1 || header.indexOf("Android") != -1 || header.indexOf("iPhone") != -1 || header.indexOf("iPad") != -1) {
+			return true;
+		}
+		return false;
 	}
 
 }

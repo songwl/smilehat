@@ -8,6 +8,7 @@
 	<title>微笑草帽</title>
 	
 	<%@ include file="/WEB-INF/inc/hfive/include.css.jsp"%>
+	<link rel="stylesheet" href="${ctx}/static/styles/hfive/custom.css">
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/customerCenter.css" type="text/css" />
 	
@@ -41,7 +42,9 @@
 		        <li><a href="${ctx}/customer/centerProduct" class="">我的产品</a></li>
 		        <li><a href="${ctx}/customer/centerPurchase" class="">我的采购</a></li>
 		    </ul>
-		    <form class="login-form m-login-form" action="${ctx}/register" method="post">
+		    <form class="login-form m-login-form" action="${ctx}/customer/updateCustomer" method="post" id="customerForm">
+		    	<input type="hidden" name="id" value="${vm.id}" />
+		    	
 			    <div id="menu_con">
 				        <div class="form-group">
 							登录名：${vm.user.loginName}
@@ -62,7 +65,7 @@
 										<c:if test="${not empty vm.region.parent.parent.id}">dataUrl="${ctx}/sys/region/selectJson?pid=${vm.region.parent.parent.id}"</c:if> style="width: 27%;float: left;">
 									<option value="">----市----</option> 
 								</select>
-								<select class="form-control combox" name="customer.regionId" selectedValue="${vm.region.id}" id="w_combox_area" <c:if test="${not empty vm.region.parent.id}">dataUrl="${ctx}/sys/region/selectJson?pid=${vm.region.parent.id}"</c:if> style="width: 27%;float: left;">
+								<select class="form-control combox" name="regionId" selectedValue="${vm.region.id}" id="w_combox_area" <c:if test="${not empty vm.region.parent.id}">dataUrl="${ctx}/sys/region/selectJson?pid=${vm.region.parent.id}"</c:if> style="width: 27%;float: left;">
 									<option value="">----区----</option> 
 								</select>
 							</div>
@@ -106,6 +109,26 @@
  <script>
 	$(function(){
 		    $("select.combox").comboxSelectRemoteData();
+		    
+		    $(".btn-submit").click(function(){
+		    	var $form = $("#customerForm");
+		    	$.post($form.attr("action"), $form.serialize(),
+    			   function(json){
+		    		if(json){
+		    			C.localAlert({
+							type: '',
+							msg: json.message
+						});
+		    		}else{
+		    			C.localAlert({
+							type: '',
+							msg: '系统繁忙！'
+						});
+		    		}
+		    		
+    			   }, "json");
+		    });
+		    
 	});
 
 </script>
