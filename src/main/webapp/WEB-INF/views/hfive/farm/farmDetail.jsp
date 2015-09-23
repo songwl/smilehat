@@ -44,7 +44,7 @@
 			</div>
 			<div class="rowline"></div>
 			<div class="row4">
-				<a >农场产品</a>
+				<a href="${ctx}/trading/product/center?search_EQ_user.id=${vm.user.id}">农场产品</a>
 			</div>
 			<div class="rowline"></div>
 			<div class="d_info">

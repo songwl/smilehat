@@ -39,7 +39,7 @@
 	        </div>
 		</div>
 			<div id="main_list">
-				<form id="productForm" action="${ctx}/trading/purchase/list" method="post">
+				<form id="productForm" action="${ctx}/trading/purchase/list" method="post" class="pageForm">
 					<input type="hidden" name="pageNum" value="1" />
 					<input type="hidden" name="numPerPage" value="10" />
 					<div id="purchase_search">

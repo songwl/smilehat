@@ -21,6 +21,7 @@ import com.smilehat.business.service.CustomerService;
 import com.smilehat.business.service.ProductService;
 import com.smilehat.business.web.hfive.HfiveBaseController;
 import com.smilehat.constants.Constants;
+import com.smilehat.constants.Enums;
 import com.smilehat.util.CoreUtils;
 
 @Controller
@@ -32,10 +33,10 @@ public class UnionFarmController extends HfiveBaseController {
 
 	@Autowired
 	private CustomerService customerService;
-	
+
 	@Autowired
 	private ProductService productService;
-	
+
 	@RequestMapping(value = "/center")
 	public String farmCenter(Model model, HttpServletRequest request) {
 		return "hfive/farm/farmCenter";
@@ -47,20 +48,21 @@ public class UnionFarmController extends HfiveBaseController {
 		PageRequest pageRequest = this.getPageRequest("user.createTime", "asc");
 		Map<String, Object> searchParams = this.getSearchRequest();
 		searchParams.put("EQ_isDeleted", false);
+		searchParams.put("EQ_user.isDeleted", false);
+		searchParams.put("EQ_user.userType", Enums.USER_TYPE.FARMER.name());
 
 		Page<Customer> page = customerService.findPage(searchParams, pageRequest);
 		model.addAttribute("page", page);
 
 		return "hfive/farm/farmList";
 	}
-	
+
 	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
 	public String updateForm(@PathVariable("id") java.lang.Long id, Model model) {
 		model.addAttribute("vm", customerService.getObjectById(id));
 		model.addAttribute("action", BaseController.UPDATE);
 		return "hfive/farm/farmDetail";
 	}
-
 
 	@RequestMapping(value = "/productlist/{userId}")
 	public String productList(Model model, @PathVariable Long userId) {

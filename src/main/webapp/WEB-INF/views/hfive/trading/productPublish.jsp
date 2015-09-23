@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="/WEB-INF/inc/include.inc.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE html >
 <html>
 <head>
 <%@ include file="/WEB-INF/inc/hfive/include.meta.jsp"%>
@@ -8,13 +9,14 @@
 
 <%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
 
+<link href="${ctx}/static/js/mtime/css/common.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/custom.css">
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/customerCenter.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/productPublish.css" type="text/css" />
-<link rel="stylesheet" href="${ctx}/static/styles/hfive/mobiscroll.custom-2.16.1.min.css">
 
-
+<script type="text/javascript" src="${ctx}/static/js/mtime/date.js" ></script>
+<script type="text/javascript" src="${ctx}/static/js/mtime/iscroll.js" ></script>
 
 <title>微笑草帽</title>
 </head>
@@ -24,12 +26,13 @@
 	<div class="background-zhezhao">
 	</div>
 	<div id="main_div">
-		<div id="help">
-			<a href="${ctx}/trading/help">
-	        	<img class="help-img" src="/smilehat/static/images/help.png" alt="帮助">
-	        </a>
-		</div>
+		
 		<div id="header">
+			<div id="help">
+				<a href="${ctx}/trading/help">
+		        	<img class="help-img" src="/smilehat/static/images/help.png" alt="帮助">
+		        </a>
+			</div>
 			产品发布
 		</div>
 		<div class="back">
@@ -71,12 +74,11 @@
 				 <div class="form-group">
 					上市时间：
 					<div class="input-icon" style="height: 35px;">
-<!-- 						<input type="datetime" class="form-date"/> -->
-						<input type="file" accept="image/*" />
-<%-- 						<input class="form-control" type="text" id="startTime" name="startTime" class="date" value="<fmt:formatDate pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" /> --%>
-<!-- 						<span style="float:left;">&nbsp;至&nbsp;</span> -->
-<%-- 						<input class="form-control" type="text" id="endTime" name="endTime" class="date" value="<fmt:formatDate pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" /> --%>
+						<input class="form-control mtime" type="text" id="startTime" name="startTime" class="date" value="" readonly="true" style="width: 40%;" />
+						<span style="float:left;line-height: 35px;">&nbsp;至&nbsp;</span>
+						<input class="form-control mtime" type="text" id="endTime" name="endTime" class="date" value="" readonly="true" style="width: 40%;" />
 					</div>
+					<div id="datePlugin"></div>
 				 </div>
 				 <div class="form-group">
 					
@@ -145,6 +147,12 @@
  <script>
 	$(function(){
 		    $("select.combox").comboxSelectRemoteData();
+		    
+		    /* $('#startTime').date();
+			$('#endTime').date({theme:"datetime"}); */
+			$('.mtime').each(function(){
+				$(this).date();
+			});
 		    
 		    $(".btn-submit").click(function(){
 		    	var $form = $("#productPublishForm");
