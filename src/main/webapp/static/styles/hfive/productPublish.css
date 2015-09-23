@@ -52,3 +52,13 @@ input.form-date {
     background: none;
     border: none;
 }
+
+img.help-img {
+height: 35px;
+}
+
+div#help {
+position: absolute;
+top: 20px;
+left: 5px;
+}

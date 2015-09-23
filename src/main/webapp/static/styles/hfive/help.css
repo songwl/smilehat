@@ -1,0 +1,53 @@
+.background-img {
+background-color: #6CB629;
+position: fixed;
+width: 100%;
+height: 100%;
+}
+
+.back {
+bottom: 20px;
+position: fixed;
+display: block;
+width: 100%;
+padding: 0px 0px 0px 44%;
+}
+
+img.search-img {
+width: 40px;
+}
+
+.main-div {
+	position: fixed;
+	padding-top: 30%;
+	color: WHITE;
+	width: 100%;
+}
+
+.img-div {
+	width: 100%;
+	display: block;
+	padding: 0px 0px 20px 38%;
+}
+
+img.helpimg {
+width: 80px;
+}
+
+.mian-content {
+width: 100%;
+padding: 5px 0px 5px 29%;
+font-size: 18px;
+}
+
+.time-div {
+	width: 100%;
+	padding: 5px 0px 5px 33%;
+	font-size: 10px;
+}
+
+.phone-div {
+	width: 100%;
+	padding: 20px 0px 5px 17%;
+	font-size: 30px;
+}

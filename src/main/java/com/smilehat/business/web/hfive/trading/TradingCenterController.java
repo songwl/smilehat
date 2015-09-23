@@ -142,4 +142,9 @@ public class TradingCenterController extends HfiveBaseController {
 		}
 		
 	}
+	
+	@RequestMapping(value = "/help" )
+	public String helpCenter(Model model, HttpServletRequest request) {
+		return "hfive/trading/help";
+	}
 }

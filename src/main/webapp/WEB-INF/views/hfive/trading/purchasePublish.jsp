@@ -20,6 +20,11 @@
 	<div class="background-zhezhao">
 	</div>
 	<div id="main_div">
+		<div id="help">
+			<a href="${ctx}/trading/help">
+	        	<img class="help-img" src="/smilehat/static/images/help.png" alt="帮助">
+	        </a>
+		</div>
 		<div id="header">
 			采购发布
 		</div>
