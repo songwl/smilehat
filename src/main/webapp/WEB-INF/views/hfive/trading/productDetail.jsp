@@ -24,7 +24,7 @@
 	</div>
 	<div id="main_div">
 		<div class="back">
-	        <a href="${ctx}/trading/product/center">
+	        <a href="javascript :;" onClick="javascript :history.back(-1);">
 	        	<img class="search-img" src="${ctx}/static/images/back2.png"  alt="返回">
 	        </a>
         </div>
@@ -44,13 +44,15 @@
 				<div class="d_item" id="d_unit">
 					<h5 class="d_item_title">规格 / 库存</h5>
 					<div class="d_item_content">
-						<div class="d_item_branch">${vm.branchInfo}</div>
+						<div class="d_item_branch">
+							<span id="showDictLabel" class="unit showDictLabel" dictType="BRANCH_INFO" dictCode="${vm.branchInfo}"></span>
+						</div>
 						<div class="d_item_quantity">${vm.quantity}&nbsp;<span id="showDictLabel" class="unit showDictLabel" dictType="QUANTITY_UNIT" dictCode="${vm.quantityUnit}"></span></div>
 					</div>
 				</div>
 				<div class="d_item" id="d_region">
 					<h5 class="d_item_title">交付地址</h5>
-					<div class="d_item_content">${vm.regionDetail}</div>
+					<div class="d_item_content">${vm.region.parent.parent.regionName} ${vm.region.parent.regionName} ${vm.region.regionName} ${vm.regionDetail}</div>
 				</div>
 				<div class="d_item" id="d_memo">
 					<h5 class="d_item_title">详细说明</h5>

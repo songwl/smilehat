@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -105,12 +106,18 @@ public class TradingCenterController extends HfiveBaseController {
 	}
 
 	@RequestMapping(value = "/product/publish/save")
-	public ModelAndView productPublish(@Valid Product product, @RequestParam(required = false) Long regionId, @RequestParam(value = "categoryId", required = false) Long categoryId) {
+	public ModelAndView productPublish(@Valid  @ModelAttribute("preloadModel") Product product, @RequestParam(value="customer.regionId",required = false) Long regionId, @RequestParam(value = "categoryId", required = false) Long categoryId) {
 		product.setCreateTime(CoreUtils.nowtime());
 		product.setUpdateTime(CoreUtils.nowtime());
 		product.setPublishTime(CoreUtils.nowtime());
-		productService.saveProduct(product, regionId, this.getCurrentUser().getId(), categoryId);
-		return this.ajaxDoneSuccess("创建成功");
+		
+		if(this.getCurrentUser()!=null){
+			productService.saveProduct(product, regionId, this.getCurrentUser().getId(), categoryId);
+			return this.ajaxDoneSuccess("创建成功");
+		}else{
+			return this.ajaxDoneError("请登录！");
+		}
+		
 	}
 
 	@RequestMapping(value = "/purchase/publish/new")
@@ -127,7 +134,12 @@ public class TradingCenterController extends HfiveBaseController {
 		purchase.setCreateTime(CoreUtils.nowtime());
 		purchase.setUpdateTime(CoreUtils.nowtime());
 		purchase.setPublishTime(CoreUtils.nowtime());
-		purchaseService.savePurchase(purchase, this.getCurrentUser().getId(), categoryId);
-		return this.ajaxDoneSuccess("创建成功");
+		if(this.getCurrentUser()!=null){
+			purchaseService.savePurchase(purchase, this.getCurrentUser().getId(), categoryId);
+			return this.ajaxDoneSuccess("创建成功");
+		}else{
+			return this.ajaxDoneError("请登录！");
+		}
+		
 	}
 }

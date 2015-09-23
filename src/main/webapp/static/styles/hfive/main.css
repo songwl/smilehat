@@ -55,6 +55,8 @@ div#main_div {
     overflow: auto;
     position: relative;
     margin-bottom: 70px;
+    height: 100%;
+/*     bottom: 40px; */
 }
 
 div#header {
@@ -285,7 +287,7 @@ ul.list li{
 	padding: 10px;
 	position: relative;
 /* 	left: -7%; */
-/* 	margin-bottom: 15px; */
+	margin-bottom: 15px;
 }
 
 ul.list_purchase li{
@@ -376,7 +378,7 @@ overflow: hidden;
 
 .list li a .row3 .left,.list_purchase li a .row3 .left {
 float: left;
-width: 30%;
+width: 50%;
 overflow: hidden;
 }
 

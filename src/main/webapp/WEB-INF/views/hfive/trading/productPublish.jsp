@@ -12,6 +12,10 @@
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/customerCenter.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/productPublish.css" type="text/css" />
+<link rel="stylesheet" href="${ctx}/static/styles/hfive/mobiscroll.custom-2.16.1.min.css">
+
+
+
 <title>微笑草帽</title>
 </head>
 <body>
@@ -29,7 +33,7 @@
 	        </a>
         </div>
 		<div id="menu">
-		    <form class="login-form m-login-form" action="${ctx}/product/publish/save" method="post" id="productPublishForm">
+		    <form class="login-form m-login-form" action="${ctx}/trading/product/publish/save" method="post" id="productPublishForm">
 		        <div class="form-group">
 		        	产品名称：
 					<div class="input-icon" style="height: 35px;">
@@ -62,6 +66,8 @@
 				 <div class="form-group">
 					上市时间：
 					<div class="input-icon" style="height: 35px;">
+<!-- 						<input type="datetime" class="form-date"/> -->
+						<input type="file" accept="image/*" />
 <%-- 						<input class="form-control" type="text" id="startTime" name="startTime" class="date" value="<fmt:formatDate pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" /> --%>
 <!-- 						<span style="float:left;">&nbsp;至&nbsp;</span> -->
 <%-- 						<input class="form-control" type="text" id="endTime" name="endTime" class="date" value="<fmt:formatDate pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" /> --%>
@@ -127,6 +133,7 @@
 		</div> 
 	</div>
 		<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
+		
  <script src="${ctx}/static/js/hfive/custom.js"></script>
  <script src="${ctx}/static/js/hfive/combox.js"></script>
  <script type="text/javascript" src="${ctx}/static/js/base/dict.js"></script>
@@ -143,7 +150,11 @@
 							type: '',
 							msg: json.message
 						});
-		    			location.href='${ctx}/trading/product/center';
+		    			if(json.message=='创建成功'){
+			    			location.href='${ctx}/trading/product/center';
+		    			}else{
+		    				location.href='${ctx}/login';
+		    			}
 		    		}else{
 		    			C.localAlert({
 							type: '',

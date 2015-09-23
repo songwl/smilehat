@@ -29,7 +29,7 @@
 	        </a>
         </div>
 		<div id="menu">
-		    <form class="login-form m-login-form" action="${ctx}/purchase/publish/save" method="post"  id="purchasePublishForm">
+		    <form class="login-form m-login-form" action="${ctx}/trading/purchase/publish/save" method="post"  id="purchasePublishForm">
 <!-- 		        <div class="form-group"> -->
 <!-- 		        	产品名称： -->
 <!-- 					<div class="input-icon" style="height: 35px;"> -->
@@ -135,7 +135,12 @@
 							type: '',
 							msg: json.message
 						});
-		    			location.href='${ctx}/trading/purchase/center';
+		    			
+		    			if(json.message=='创建成功'){
+		    				location.href='${ctx}/trading/purchase/center';
+		    			}else{
+		    				location.href='${ctx}/login';
+		    			}
 		    		}else{
 		    			C.localAlert({
 							type: '',

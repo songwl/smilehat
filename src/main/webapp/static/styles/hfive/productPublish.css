@@ -47,3 +47,8 @@ a.btnLook {
 .form-group select optgroup{
 	  color: #000;
 }
+
+input.form-date {
+    background: none;
+    border: none;
+}

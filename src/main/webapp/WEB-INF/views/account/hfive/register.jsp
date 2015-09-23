@@ -83,7 +83,11 @@
 				<input class="form-control" type="text" name="address" placeholder="请输入您的详细地址" autocomplete="off">
 			</div>
 		</div>
-		
+		<div >
+			<a class="uploadButton">
+				<input id="uploadInput" type="file" accept="image/*"  style="display:block;height:40px;width:45px;opacity:0;"></input>
+			</a>
+		</div>
 		<div class="form-actions">
 			<a class="btn-submit">手机号注册</a>
 		</div>
@@ -98,6 +102,43 @@
  <script src="${ctx}/static/js/hfive/combox.js"></script>
 <script>
 	$(function(){
+		$("#uploadInput").listen("change", fOnChange(){
+			var	oFile = this.files[0],		
+				sName, 		
+				sFileType = oFile.type;
+				nSize = 0,
+				nModTime;
+			if(!sFileType){
+				sFileType = "image/" + sName.split(".").pop().toLowerCase();
+			}
+			// 读取文件大小、修改时间等信息
+			var oUploadInfo = {
+				name : oFile.name || oFile.fileName,
+				size : oFile.size || oFile.fileSize,
+				modTime : oFile.lastModifiedDate.valueOf(),
+				blob : oFile,		
+				img : rFilter.test(sFileType)
+			};
+				
+			// 具体上传逻辑，视具体服务器端接口而定
+		});
+		
+		var oImg = document.createElement("img");
+		// 加载图片
+		oListEl.append(oImg);
+		// 使用FileReader读取
+		var oReader = new FileReader();
+		oReader.onload = function(e){	
+			var sBase64 = e.target.result;	
+			// 部分Android下base64字符串格式不完整
+			if(window.gIsAndroid && sBase64.indexOf("data:image/") != 0){
+				var sMime = sName.split(".").pop().toLowerCase();
+				sBase64 = sBase64.replace("base64,", "image/" + sMime + ";base64,");
+			}	
+			oImg.src = sBase64;	sBase64 = null;
+		}
+		oReader.readAsDataURL(oFile);
+		
 		 $(".btn-submit").click(function() {
 		    	var regex = /^0?(13|15|18|14|17)[0-9]{9}$/; //手机正则
 		    	var phone = $.trim($('input[name="loginName"]').val());

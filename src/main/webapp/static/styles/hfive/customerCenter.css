@@ -21,6 +21,7 @@ img.back {
 	color: white;
 /* 	border:1px solid #4EAD6D; */
 /* 	min-height: 600px; */
+	margin-bottom: 50px;
 }
 
 #menu #nav {
@@ -52,6 +53,7 @@ img.back {
 	height: 100%;
 	border-top:none;
 	padding-top: 25px;
+	margin-bottom: 50px;
 }
 
 .tag{ 
