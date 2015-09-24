@@ -44,6 +44,10 @@ a.btnLook {
     float: left;
 }
 
+.form-group .input-icon select.form-control{
+	color: #6EBD28;
+}
+
 .form-group select optgroup{
 	  color: #000;
 }
