@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="/WEB-INF/inc/include.inc.jsp"%>
 <div class="pageContent">
-	<form method="post" action="${sctx}/login/ajax" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+	<form method="post" action="${ctx}/login/ajax" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
 		<tag:callback></tag:callback>
 		<div class="pageFormContent" layoutH="56">
 			<dl>

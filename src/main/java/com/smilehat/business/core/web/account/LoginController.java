@@ -82,7 +82,8 @@ public class LoginController extends BaseController {
 		}
 		User user = this.getCurrentUser();
 		if (Enums.USER_TYPE.ADMIN.name().equalsIgnoreCase(user.getUserType())) {
-			WebUtils.redirectToSavedRequest(request, response, "/sys/index");
+			return "redirect:/sys/index";
+			//WebUtils.redirectToSavedRequest(request, response, "/sys/index");
 		} else {
 			WebUtils.redirectToSavedRequest(request, response, "/trading");
 		}
@@ -110,10 +111,14 @@ public class LoginController extends BaseController {
 
 	@RequestMapping(value = "unauthorized", method = RequestMethod.GET)
 	public String unauthorized(HttpServletRequest request) {
-		if (CoreUtils.isAjax(request)) {
-			return V_PATH_AJAX_LOGIN;
+		if (!isMobileLogin(request)) {
+			if (CoreUtils.isAjax(request)) {
+				return V_PATH_AJAX_LOGIN;
+			}
+			return V_PATH_LOGIN;
+		} else {
+			return "/account/hfive/unauthorized";
 		}
-		return V_PATH_LOGIN;
 
 	}
 
