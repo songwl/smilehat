@@ -26,7 +26,7 @@
 			AM 9:00-PM 6:00		
 		</div>
 		<div class="phone-div">
-			021 6234 8888
+			021&nbsp;6234&nbsp;8888
 		</div>
 	</div>
 	<div class="back">

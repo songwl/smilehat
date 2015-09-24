@@ -35,7 +35,7 @@
 		        </a>
 	        </div>
 		</div>
-		<form id="productForm" action="${ctx}/trading/product/list" method="post">
+		<form id="productForm" action="${ctx}/customer/myProductlist" method="post">
 			<div id="menu">
 			    <ul id="nav">
 			        <li><a href="${ctx}/customer/center">基本信息</a></li>

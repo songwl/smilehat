@@ -45,13 +45,13 @@
 		        <div class="form-group">
 		        	产品名称：
 					<div class="input-icon" style="height: 35px;">
-						<input name="name" class="form-control" type="text" size="30" style="width: 100%;" validate="{required:true}" />
+						<input name="name" class="form-control" type="text" size="30" style="width: 100%;" />
 					</div>
 				 </div>
 				<div class="form-group">
 					产品标题：
 					<div class="input-icon" style="height: 35px;">
-						<input name="title" class="form-control" type="text"  style="width: 100%;" validate="{required:true}"/>
+						<input name="title" class="form-control" type="text"  style="width: 100%;" />
 					</div>
 				 </div>
 				 <div class="form-group">
@@ -93,7 +93,7 @@
 				 <div class="form-group">
 					价格：
 					<div class="input-icon" style="height: 35px;">
-						<input type="text" id="price" name="price" class="form-control" size="18"  validate="{required:true}"/>		
+						<input type="text" id="price" name="price" placeholder="请输入数字" class="form-control" size="18" onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');" />		
 						<select  id="priceUnit" name="priceUnit"  class="form-control combox"  dataUrl="${sctx}/dict/selectDictByType?dictType=PRICE_UNIT">
 						</select>	
 					</div>
@@ -101,7 +101,7 @@
 				 <div class="form-group">
 					供应量：
 					<div class="input-icon" style="height: 35px;">
-						<input type="text" id="quantity" name="quantity" class="form-control" size="18"  />	
+						<input type="text" id="quantity" name="quantity" placeholder="请输入数字" class="form-control" size="18" onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');" />	
 						<select id="quantityUnit" name="quantityUnit"  class="form-control combox" dataUrl="${sctx}/dict/selectDictByType?dictType=QUANTITY_UNIT">
 						</select>	
 					</div>

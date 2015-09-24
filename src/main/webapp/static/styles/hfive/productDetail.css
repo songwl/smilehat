@@ -24,7 +24,7 @@ margin-top: 20px;
 
 .pageContent .d_item#d_main div {
 	color:#6EBD28;
-	font-size: 0.5rem;
+/* 	font-size: 0.5rem; */
 }
 
 .pageContent .d_item#d_main .d_main_left{
@@ -34,7 +34,7 @@ margin-top: 20px;
 
 .pageContent .d_item#d_main .d_main_right{
 	width:40%;
-	float: left;
+	float: right;
 	height: 20px;
 	line-height: 40px;
 	font-size: 1.5em;
@@ -62,7 +62,7 @@ margin-top: 20px;
 
 .pageContent .d_item#d_unit .d_item_quantity{
 	width:40%;
-	float: left;
+	float: right;
 	height: 20px;
 	line-height: 20px;
 	font-size: 1.5em;

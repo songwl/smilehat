@@ -178,19 +178,21 @@
 						msg: '确认密码不正确!'
 					});
 					return false;
-				}else if (region == ''){
-					C.localAlert({
-						type: '',
-						msg: '请选择地区!'
-					});
-					return false;
-				}else if (address == ''){
-					C.localAlert({
-						type: '',
-						msg: '请填写详细地址!'
-					});
-					return false;
-				}else{
+				}
+// 				else if (region == ''){
+// 					C.localAlert({
+// 						type: '',
+// 						msg: '请选择地区!'
+// 					});
+// 					return false;
+// 				}else if (address == ''){
+// 					C.localAlert({
+// 						type: '',
+// 						msg: '请填写详细地址!'
+// 					});
+// 					return false;
+// 				}
+				else{
 					$.ajax({
 				        type: "GET",
 				        url: "${ctx}/register/checkLoginName?loginName="+phone+"&random="+Math.random(),
