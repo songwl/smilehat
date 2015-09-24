@@ -31,7 +31,7 @@
 				商户中心
 	        </div>
 	        <div class="search">
-				<a href="javascript :;" onClick="javascript :history.back(-1);">
+				<a href="javascript:history.back(-1);">
 		        	<img class="search-img" src="${ctx}/static/images/back2.png"  alt="返回">
 		        </a>
 	        </div>

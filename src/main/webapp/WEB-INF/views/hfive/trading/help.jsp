@@ -30,9 +30,9 @@
 		</div>
 	</div>
 	<div class="back">
-     	<a href="javascript :;" onClick="javascript :history.back(-1);">
-      	<img class="search-img" src="/smilehat/static/images/back1.png" alt="返回">
-      </a>
+     	<a href="javascript:history.back(-1);">
+      		<img class="search-img" src="/smilehat/static/images/back1.png" alt="返回">
+     	</a>
     </div>
 		
 </body>
