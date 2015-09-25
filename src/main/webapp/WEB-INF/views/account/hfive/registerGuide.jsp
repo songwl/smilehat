@@ -30,10 +30,9 @@
 			<a class="btn-back" href="javascript:history.back();"></a>
 			<a href="${ctx}/login">登录</a>
 		</div>
-		
 		<div class="form-group">
 			<div class="input-icon">
-				<input class="" type="radio" name="userType" value="PERSON" autocomplete="off"  checked="checked" >个人--可查看供求信息中的联系方式和发布采购信息，但无法发布供应信息
+				<input class="" type="radio" name="userType" value="FARMER" autocomplete="off" checked="checked">农场--可查看供求信息中的联系方式，通过人工审核后能发布采购和供应信息
 			</div>
 		</div>
 		<div class="form-group">
@@ -43,10 +42,9 @@
 		</div>
 		<div class="form-group">
 			<div class="input-icon">
-				<input class="" type="radio" name="userType" value="FARMER" autocomplete="off">农场--可查看供求信息中的联系方式，通过人工审核后能发布采购和供应信息
+				<input class="" type="radio" name="userType" value="PERSON" autocomplete="off"   >个人--可查看供求信息中的联系方式和发布采购信息，但无法发布供应信息
 			</div>
 		</div>
-		
 		<div class="form-actions">
 			<a class="btn-submit" onclick="">下一步</a>
 		</div>
