@@ -13,9 +13,9 @@
 				</div>
 				<div class="frow3">
 					<div class="left">
-						<img class="product_cert"  src="${ctx}/static/images/location.png">
-						<img class="product_cert" src="${ctx}/static/images/location.png">
-						<img class="product_cert" src="${ctx}/static/images/location.png">
+<%-- 						<img class="product_cert"  src="${ctx}/static/images/location.png"> --%>
+<%-- 						<img class="product_cert" src="${ctx}/static/images/location.png"> --%>
+<%-- 						<img class="product_cert" src="${ctx}/static/images/location.png"> --%>
 					</div>
 					<div class="right">
 						<img class="todetail" src="${ctx}/static/images/in.png">

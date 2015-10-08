@@ -42,6 +42,11 @@
 			        <li><a href="${ctx}/customer/centerProduct" class="">我的产品</a></li>
 			        <li><a href="${ctx}/customer/centerPurchase" class="selected">我的采购</a></li>
 			    </ul>
+			    <div id="publish-myPP">
+			    	<a href="${ctx}/trading/purchase/publish/new" id="a-pp">
+			    		发布采购
+			    	</a>
+			    </div>
 			    <div id="product_list">
 					<ul class="list">
 						
@@ -52,7 +57,11 @@
 	</div>
 	
 	<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
-
+	<div id="help-bottom">
+		<a href="${ctx}/trading/help">
+       		<img class="help-img" src="/smilehat/static/images/help.png" alt="帮助">
+       	</a>
+	</div>
 	<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(function(){

@@ -83,11 +83,12 @@
 				<input class="form-control" type="text" name="customer.address" placeholder="请输入您的详细地址" autocomplete="off">
 			</div>
 		</div>
-<!-- 		<div > -->
-<!-- 			<a class="uploadButton"> -->
-<!-- 				<input id="uploadInput" type="file" accept="image/*"  style="display:block;height:40px;width:45px;opacity:0;"></input> -->
-<!-- 			</a> -->
-<!-- 		</div> -->
+		<div class="form-group">
+			<tag:multipleFileUpload uploadifyFileId="userAttach" hiddenName="userAttachs" attachs="${vm.attachs}"></tag:multipleFileUpload>
+			<!-- <a class="uploadButton">
+				<input id="uploadInput" type="file" accept="image/*"  style="display:block;height:40px;width:45px;opacity:0;"></input>
+			</a> -->
+		</div>
 		<div class="form-actions">
 			<a class="btn-submit">手机号注册</a>
 		</div>

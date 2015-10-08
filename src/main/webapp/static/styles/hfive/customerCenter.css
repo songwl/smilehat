@@ -134,3 +134,30 @@ textarea {
     -o-user-select: none;
     user-select: none;
 }
+
+div#publish-myPP {
+  width: 100%;
+  border: 1px #099214 solid;
+  overflow: hidden;
+  padding: 10px;
+  position: relative;
+}
+
+a#a-pp {
+  color: white;
+  font-size: 20px;
+  padding-left: 33%;
+}
+
+div#help-bottom {
+  bottom: 0px;
+  position: fixed;
+  display: block;
+  width: 100%;
+}
+
+div#help-bottom a img{
+  height:30px;
+  float: right;
+  padding-right: 5px;
+}

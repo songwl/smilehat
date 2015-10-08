@@ -1,11 +1,14 @@
 package com.smilehat.business.web.sys.product;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,10 +22,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.smilehat.business.core.web.BaseController;
+import com.smilehat.business.entity.CertLabel;
 import com.smilehat.business.entity.Product;
+import com.smilehat.business.service.CertLabelService;
 import com.smilehat.business.service.CustomerService;
 import com.smilehat.business.service.ProductService;
 import com.smilehat.constants.Constants;
+import com.smilehat.constants.Enums;
 import com.smilehat.util.CoreUtils;
 
 /**
@@ -38,6 +44,9 @@ public class SysProductController extends BaseController {
 	private ProductService productService;
 	@Autowired
 	private CustomerService customerService;
+
+	@Autowired
+	private CertLabelService certLabelService;
 
 	public static final String PATH = "sys/product";
 	public static final String PATH_LIST = PATH + Constants.SPT + "list";
@@ -69,16 +78,27 @@ public class SysProductController extends BaseController {
 	public String createForm(Model model) {
 		model.addAttribute("vm", new Product());
 		model.addAttribute("action", BaseController.CREATE);
+
+		model.addAttribute("certLabelList", getAllProductCertLabelList());
 		return PATH_EDIT;
 	}
 
 	@RequestMapping(value = BaseController.CREATE, method = RequestMethod.POST)
 	public ModelAndView create(@Valid Product product, @RequestParam(required = false) Long regionId, @RequestParam(value = "userId", required = false) Long userId,
-			@RequestParam(value = "categoryId", required = false) Long categoryId) {
+			@RequestParam(value = "categoryId", required = false) Long categoryId, @RequestParam(value = "certLabels", required = false) String certLabels) {
+		List<CertLabel> certLabelList = new ArrayList<>();
+		if (!StringUtils.isEmpty(certLabels)) {
+			String[] arr = certLabels.split(",");
+			for (String str : arr) {
+				Long id = Long.valueOf(str);
+				certLabelList.add(certLabelService.getObjectById(id));
+			}
+		}
+
 		product.setCreateTime(CoreUtils.nowtime());
 		product.setUpdateTime(CoreUtils.nowtime());
 		product.setPublishTime(CoreUtils.nowtime());
-		productService.saveProduct(product, regionId, userId, categoryId);
+		productService.saveProduct(product, regionId, userId, categoryId, certLabelList);
 		return this.ajaxDoneSuccess("创建成功");
 	}
 
@@ -86,6 +106,8 @@ public class SysProductController extends BaseController {
 	public String updateForm(@PathVariable("id") java.lang.Long id, Model model) {
 		model.addAttribute("vm", productService.getObjectById(id));
 		model.addAttribute("action", BaseController.UPDATE);
+
+		model.addAttribute("certLabelList", getAllProductCertLabelList());
 		return PATH_EDIT;
 	}
 
@@ -97,9 +119,17 @@ public class SysProductController extends BaseController {
 
 	@RequestMapping(value = BaseController.UPDATE, method = RequestMethod.POST)
 	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Product product, @RequestParam(required = false) Long regionId, @RequestParam(value = "userId", required = false) Long userId,
-			@RequestParam(value = "categoryId", required = false) Long categoryId) {
+			@RequestParam(value = "categoryId", required = false) Long categoryId, @RequestParam(value = "certLabels", required = false) String certLabels) {
+		List<CertLabel> certLabelList = new ArrayList<>();
+		if (!StringUtils.isEmpty(certLabels)) {
+			String[] arr = certLabels.split(",");
+			for (String str : arr) {
+				Long id = Long.valueOf(str);
+				certLabelList.add(certLabelService.getObjectById(id));
+			}
+		}
 		product.setUpdateTime(CoreUtils.nowtime());
-		productService.saveProduct(product, regionId, userId, categoryId);
+		productService.saveProduct(product, regionId, userId, categoryId, certLabelList);
 		return this.ajaxDoneSuccess("修改成功");
 	}
 
@@ -134,4 +164,9 @@ public class SysProductController extends BaseController {
 		return null;
 	}
 
+	private List<CertLabel> getAllProductCertLabelList() {
+		Map<String, Object> params = new HashMap<>();
+		params.put("EQ_certType", Enums.CERT_TYPE.PRODUCT.name());
+		return certLabelService.findList(params);
+	}
 }

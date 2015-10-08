@@ -36,44 +36,45 @@
 	        	<img class="search-img" src="${ctx}/static/images/search.png"  alt="搜索">
 	        </div>
 		</div>
+		<div id="purchase_search">
+			<div class="_search">
+				<div class="btn-group btn-my-group">
+				  <button type="button" class="btn btn-default btn-my-select">地区选择</button>
+				  <button type="button" class="btn btn-warning btn-my-select2 dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1"  aria-haspopup="true" aria-expanded="false">
+					<img class="drop-down-img"  alt="" src="${ctx}/static/images/down.png">
+				    <span class="sr-only">Toggle Dropdown</span>
+				  </button>
+				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				    <li><a href="#">Action</a></li>
+				    <li><a href="#">Another action</a></li>
+				    <li><a href="#">Something else here</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="#">Separated link</a></li>
+				  </ul>
+				</div>
+	        </div>
+	        <div class="category_search" style="display:none">
+	        	<div class="btn-group btn-my-group">
+				  <button type="button" class="btn btn-default btn-my-select">品类选择</button>
+				  <button type="button" class="btn btn-warning btn-my-select2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    <img class="drop-down-img"  alt="" src="${ctx}/static/images/down.png">
+				    <span class="sr-only">Toggle Dropdown</span>
+				  </button>
+				  <ul class="dropdown-menu dropdown-menu-right">
+				    <li><a href="#">Action</a></li>
+				    <li><a href="#">Another action</a></li>
+				    <li><a href="#">Something else here</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="#">Separated link</a></li>
+				  </ul>
+				</div>
+	        </div>
+		</div>
 		<div id="main_list_purchase">
 			<form id="productForm" action="${ctx}/farm/list" method="post">
 				<input type="hidden" name="pageNum" value="1" />
 				<input type="hidden" name="numPerPage" value="10" />
-				<div id="purchase_search">
-					<div class="_search">
-						<div class="btn-group btn-my-group">
-						  <button type="button" class="btn btn-default btn-my-select">地区选择</button>
-						  <button type="button" class="btn btn-warning btn-my-select2 dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1"  aria-haspopup="true" aria-expanded="false">
-							<img class="drop-down-img"  alt="" src="${ctx}/static/images/down.png">
-						    <span class="sr-only">Toggle Dropdown</span>
-						  </button>
-						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-						    <li><a href="#">Action</a></li>
-						    <li><a href="#">Another action</a></li>
-						    <li><a href="#">Something else here</a></li>
-						    <li role="separator" class="divider"></li>
-						    <li><a href="#">Separated link</a></li>
-						  </ul>
-						</div>
-			        </div>
-			        <div class="category_search" style="display:none">
-			        	<div class="btn-group btn-my-group">
-						  <button type="button" class="btn btn-default btn-my-select">品类选择</button>
-						  <button type="button" class="btn btn-warning btn-my-select2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						    <img class="drop-down-img"  alt="" src="${ctx}/static/images/down.png">
-						    <span class="sr-only">Toggle Dropdown</span>
-						  </button>
-						  <ul class="dropdown-menu dropdown-menu-right">
-						    <li><a href="#">Action</a></li>
-						    <li><a href="#">Another action</a></li>
-						    <li><a href="#">Something else here</a></li>
-						    <li role="separator" class="divider"></li>
-						    <li><a href="#">Separated link</a></li>
-						  </ul>
-						</div>
-			        </div>
-				</div>
+				
 			</form>
 			<div id="product_list">
 				<ul class="list">

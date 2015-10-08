@@ -36,8 +36,8 @@
 			<li><a class="edit" title="编辑" href="${ctx}/sys/region/update/{sid}?navTabId=sys_region" target="dialog" rel="region_update"
 				warn="请选择一个记录"><span>编辑</span></a></li>
 			<li><a title="确实要删除这些记录吗?" target="selectedTodo" rel="ids" href="${ctx}/sys/region/delete" class="delete"><span>删除</span></a></li>
-			<li class="line">line</li>
-			<li><a class="icon" href="${ctx}/sys/region/export" target="dwzExport" targetType="navTab" title="确实要导出这些记录吗?"><span>导出</span></a></li>
+<!-- 			<li class="line">line</li> -->
+<%-- 			<li><a class="icon" href="${ctx}/sys/region/export" target="dwzExport" targetType="navTab" title="确实要导出这些记录吗?"><span>导出</span></a></li> --%>
 		</ul>
 	</div>
 	<table class="table" width="100%" layoutH="163">

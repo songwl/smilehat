@@ -102,12 +102,12 @@
 								<input type="text" name="address" value="${vm.address}" class="required" style="width: 480px;" />
 							</dd>
 						</dl>
-						<dl class="nowrap">
-							<dt>签名：</dt>
-							<dd>
-								<input type="text" name="signature" value="${vm.signature}" style="width: 480px;" />
-							</dd>
-						</dl>
+<!-- 						<dl class="nowrap"> -->
+<!-- 							<dt>签名：</dt> -->
+<!-- 							<dd> -->
+<%-- 								<input type="text" name="signature" value="${vm.signature}" style="width: 480px;" /> --%>
+<!-- 							</dd> -->
+<!-- 						</dl> -->
 						<dl class="nowrap">
 							<dt>详细说明：</dt>
 							<dd>

@@ -59,6 +59,7 @@ input.form-date {
 
 img.help-img {
 height: 35px;
+float: left;
 }
 
 div#help {

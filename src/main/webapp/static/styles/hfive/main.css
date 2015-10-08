@@ -57,6 +57,7 @@ div#main_div {
     margin-bottom: 70px;
     height: 100%;
 /*     bottom: 40px; */
+	top: 80px;
 }
 
 div#header {
@@ -65,7 +66,8 @@ div#header {
     padding: 11px 2% 12px 2%;
 /*     background: #FAA74B; */
     overflow: hidden;
-    position: relative;
+/*     position: relative; */
+	position: fixed;
 }
 
 div#header a{
@@ -73,6 +75,10 @@ div#header a{
 	color: white;
 /* 	float: right; */
     width: 65%;
+}
+
+div#main_list {
+  margin-top: 50px;
 }
 
 div#header div.logo {
@@ -95,6 +101,7 @@ div#header div{
 	height: 100%;
 /* 	width: 50%; */
 	color: white;
+	text-align: center;
 }
 
 label.page-title-text {
@@ -235,6 +242,11 @@ width: 100%;
 float: left;
 padding-left: 10px;
 padding-right: 10px;
+  position: fixed;
+    top: 80px;
+    height: 50px;
+  /* overflow: hidden; */
+  z-index: 99;
 }
 
 #purchase_search > div {
@@ -270,8 +282,12 @@ padding: 10px 0px 20px 0px;
 }
 
 div#product_list {
-	width: 100%;
-	padding:2% 10px 2% 10px;
+  width: 100%;
+  padding: 0px 10px 2% 10px;
+  overflow: auto;
+  position: fixed;
+  top: 135px;
+  bottom: 85px;
 }
 
 ul.list {
@@ -432,5 +448,51 @@ text-decoration: initial;
     position: fixed;
     display: block;
     width: 100%;
-    padding: 2px 0px 0px 30%;
+/*     padding: 2px 0px 0px 30%; */
+	text-align: center;
+}
+
+
+.ul-my-tree{
+  display:none;
+  position: absolute;
+  top: 100%;
+  /* left: 0; */
+  z-index: 1000;
+  float: left;
+  min-width: 80px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  max-height: 300px;
+  overflow: scroll visible;	
+}
+
+.ul-my-tree >li >ul {
+	left: 100%;
+	top: 0;
+}
+
+.ul-my-tree li {
+	text-align: center;
+}
+
+.ul-my-tree-right{
+  right: 0;
+  left: auto;
+}
+
+.ul-my-tree-right >li >ul {
+	right: 100%;
+	left: auto;
 }

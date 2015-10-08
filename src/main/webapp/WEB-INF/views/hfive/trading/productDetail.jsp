@@ -37,7 +37,7 @@
 						<div>${vm.user.name}</div>
 					</div>
 					<div class="d_main_right">
-						<span class="unit">￥</span> ${vm.price} 
+						<span class="unit">￥</span> <c:if test="${empty vm.price}">面议 </c:if>${vm.price} 
 						<span id="showDictLabel" class="unit showDictLabel" dictType="PRICE_UNIT" dictCode="${vm.priceUnit}"></span>
 					</div>
 				</div>
@@ -56,11 +56,15 @@
 				</div>
 				<div class="d_item" id="d_memo">
 					<h5 class="d_item_title">详细说明</h5>
-					<div class="d_item_content">${vm.description}</div>
+					<div class="d_item_content"><tag:htmlparse content="${vm.description}" /> </div>
 				</div>
 			
 				<div class="d_info">
-					<div class="d_info_item"><a href="javascript:void(0);"  <shiro:user>info="${vm.user.loginName}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >点击获取联系方式</a></div>
+					<div class="d_info_item">
+						<a href="javascript:void(0);"  <shiro:user>info="${vm.user.loginName}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >
+						点击获取联系方式
+						</a>
+					</div>
 				</div>
 					
 			</div>

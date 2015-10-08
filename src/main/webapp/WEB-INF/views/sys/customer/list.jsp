@@ -64,7 +64,8 @@
 					<td>${item.user.name}</td>
 					<td><s:message code="user.usertype.${item.user.userType}"></s:message></td>
 					<td><fmt:formatDate value="${item.user.registerDate}" pattern="yyyy-MM-dd HH:mm" /></td>
-					<td><a title="删除 ${item.user.name}" target="ajaxTodo" href="${sctx}/customer/delete/${item.id}" class="btnDel">删除</a>
+					<td>
+<%-- 						<a title="删除 ${item.user.name}" target="ajaxTodo" href="${sctx}/customer/delete/${item.id}" class="btnDel">删除</a> --%>
 						<a title="重置密码" rel="sys_user_reset" target="dialog" href="${sctx}/user/reset/${item.user.id}" class="btnEdit">重置密码</a>
 					</td>
 				</tr>

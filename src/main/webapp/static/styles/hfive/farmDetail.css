@@ -87,8 +87,9 @@ padding-bottom: 20px;
 height: 50px;
 width: 100%;
 border: 1px solid #6EBD28;
-padding: 10px 24%;
+padding-top: 10px;
 margin-bottom: 10px;
+text-align: center;
 }
 
 .d_info .d_info_item a ,.d_info .d_info_item2 a {

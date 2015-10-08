@@ -51,7 +51,7 @@
 				<th width="40" align="center">序号</th>
 				<th width="30"><input type="checkbox" group="ids" class="checkboxCtrl"></th>    
 				<th <tag:orderField name="name"/>>产品名称</th>   
-				<th <tag:orderField name="title"/>>产品标题</th>   
+<!-- 				<th <tag:orderField name="title"/>>产品标题</th>    -->
 				<th <tag:orderField name="publishTime"/>>发布时间</th>   
 				<th >上市时间</th>	
 				<th <tag:orderField name="price"/>>价格(单位)</th>   
@@ -69,8 +69,8 @@
 					<td><input name="ids" value="${varitem.id }" type="checkbox"></td>    
 					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="编辑" rel="product_update"> ${varitem.name} </a> 
 					</td>   
-					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="编辑" rel="product_update"> ${varitem.title} </a> 
-					</td>   
+<%-- 					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="编辑" rel="product_update"> ${varitem.title} </a>  --%>
+<!-- 					</td>    -->
 					<td> <fmt:formatDate value='${varitem.publishTime}' pattern='yyyy-MM-dd'/> 
 					</td>   
 					<td> <fmt:formatDate value='${varitem.startTime}' pattern='yyyy-MM-dd'/>- 

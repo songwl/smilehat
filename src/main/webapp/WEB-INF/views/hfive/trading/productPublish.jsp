@@ -48,12 +48,12 @@
 						<input name="name" class="form-control" type="text" size="30" style="width: 100%;" />
 					</div>
 				 </div>
-				<div class="form-group">
-					产品标题：
-					<div class="input-icon" style="height: 35px;">
-						<input name="title" class="form-control" type="text"  style="width: 100%;" />
-					</div>
-				 </div>
+<!-- 				<div class="form-group"> -->
+<!-- 					产品标题： -->
+<!-- 					<div class="input-icon" style="height: 35px;"> -->
+<!-- 						<input name="title" class="form-control" type="text"  style="width: 100%;" /> -->
+<!-- 					</div> -->
+<!-- 				 </div> -->
 				 <div class="form-group">
 					品类名称：
 					<div class="input-icon" style="height: 35px;">
@@ -72,7 +72,7 @@
 					</div>
 				 </div>
 				 <div class="form-group">
-					上市时间：
+					供应期：
 					<div class="input-icon" style="height: 35px;">
 						<input class="form-control mtime" type="text" id="startTime" name="startTime" class="date" value="" readonly="true" style="width: 40%;" />
 						<span style="float:left;line-height: 35px;">&nbsp;至&nbsp;</span>

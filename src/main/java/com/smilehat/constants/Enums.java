@@ -15,4 +15,9 @@ public abstract class Enums {
 			return this.cnName;
 		}
 	}
+
+	public static enum CERT_TYPE {
+		PRODUCT, //产品标签
+		CUSTOMER//商户标签
+	}
 }

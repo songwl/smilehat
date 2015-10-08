@@ -12,17 +12,17 @@
 						<dd>
 							<input value="${vm.user.id}" name="userId" id="user.id" type="hidden" /> 
 							<input value="${vm.user.name}" name="userName" id="user.name" readonly="readonly" type="text" />
-							<a class="btnLook" rel="customer_select"  title="选择商户" href="${ctx}/sys/customer/select" lookupGroup="user">查找带回</a>
+							<a class="btnLook" rel="customer_select"  title="选择商户" href="${ctx}/sys/customer/select?single=true" lookupGroup="user">查找带回</a>
 						</dd>
 					</dl>
 					<dl class="nowrap">
 						<dt><label>产品名称:</label></dt>
 						<dd><input type="text" id="name" name="name" class="required" size="30" value="${vm.name}" validate="{required:true}"/>						</dd>
 					</dl>
-					<dl class="nowrap">
-						<dt><label>产品标题:</label></dt>
-						<dd><input type="text" id="title" name="title" class="required" size="30" value="${vm.title}" validate="{required:true}"/>						</dd>
-					</dl>
+<!-- 					<dl class="nowrap"> -->
+<!-- 						<dt><label>产品标题:</label></dt> -->
+<%-- 						<dd><input type="text" id="title" name="title" class="required" size="30" value="${vm.title}" validate="{required:true}"/>						</dd> --%>
+<!-- 					</dl> -->
 					
 					<dl class="nowrap">
 						<dt><label>品类名称:</label></dt>
@@ -69,7 +69,7 @@
 						</dd>
 					</dl>
 					<dl class="nowrap">
-					<dt>区域：</dt>
+					<dt>产地：</dt>
 						<dd>
 							<select class="required combox" selectedValue="${vm.region.parent.parent.id}" ref="w_combox_city" dataUrl="${sctx}/region/selectJson" refUrl="${sctx}/region/selectJson?pid={value}">
 								<option value="">----省----</option> 
@@ -85,7 +85,7 @@
 					</dl>
 					<dl class="nowrap">
 						<dt><label>详细地址:</label></dt>
-						<dd><input type="text" id="regionDetail" name="regionDetail" class="required" size="30" value="${vm.regionDetail}" validate="{required:true}" style="width: 480px;"/>						</dd>
+						<dd><input type="text" id="regionDetail" name="regionDetail" class="" size="30" value="${vm.regionDetail}" validate="{required:true}" style="width: 480px;"/>						</dd>
 					</dl>
 					<dl class="nowrap">
 						<dt><label>产品描述:</label></dt>
@@ -93,6 +93,22 @@
 							<textarea rows="" cols="" id="description" name="description" style="width: 480px;">${vm.description}</textarea>
 						</dd>
 					</dl>
+					<dl class="nowrap">
+						<dt><label>产品标签:</label></dt>
+						<dd>
+							<c:if test="${empty vm}">
+								<c:forEach items="${certLabelList}" var="certItem">
+									<input type="checkbox" value="${certItem.id}" name="certLabels" />${certItem.certName}  
+								</c:forEach>
+							</c:if>
+							<c:if test="${not empty vm}">
+								<c:forEach items="${certLabelList}" var="certItem">
+									<input type="checkbox" value="${certItem.id}" name="certLabels" <c:if test="${not empty vm.certLabelMap[certItem.id]}">checked="checked"</c:if> />${certItem.certName}  
+								</c:forEach>
+							</c:if>
+						</dd>
+					</dl>
+					
 		</div>
 		<div class="formBar">
 			<ul> 

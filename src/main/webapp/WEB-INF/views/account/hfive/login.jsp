@@ -42,13 +42,13 @@
 			<div class="input-icon">
 				<i class="fa fa-user"></i>
 				<!-- <span class="country-num">+86</span> -->
-				<input class="form-control" type="text" id="user_name" name="username" placeholder="请输入您的手机号" autocomplete="off">
+				<input class="form-control" type="text" id="user_name" name="username" value="${param.username}" placeholder="请输入您的手机号" autocomplete="off">
 			</div>
 		</div>
 		<div class="form-group pr">
 			<div class="input-icon">
 				<i class="fa fa-lock"></i>
-				<input class="form-control" id="user_password" type="password" name="password" placeholder="请输入您的密码" autocomplete="off">
+				<input class="form-control" id="user_password" type="password" name="password" value="${param.password}" placeholder="请输入您的密码" autocomplete="off">
 				<%-- <label class="control-label"><a href="${rc.contextPath}/user/findPasswordPage.do">忘记密码?</a></label> --%>
 			</div>
 			<%
@@ -59,6 +59,10 @@
 			<%
 			} 
 			%>
+		</div>
+		<div class="form-group pr">
+			<input type="checkbox" name="rememberMe" id="rememberMe" value="true" checked="checked" />
+			<label  for="rememberMe" class="info">记住我</label>
 		</div>
 		<!-- <input type="checkbox" name="rememberMe" id="rememberMe" value="true" /> -->
 		<div class="form-actions">

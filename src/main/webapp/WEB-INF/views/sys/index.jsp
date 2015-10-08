@@ -95,7 +95,13 @@
 					</div>
 					<shiro:hasAnyRoles name="role_admin,role_sys">
 					<div class="accordionContent">
-						<ul class="tree treeFolder"> 
+						<ul class="tree treeFolder">
+							<li><a>商户管理</a>
+								<ul>
+									<li><a href="${sctx}/customer" target="navTab" rel="app_customer">商户管理</a></li>
+									<li><a href="${sctx}/customerAudit" target="navTab" rel="app_customer_audit">待审核商户</a></li>
+								</ul>
+							</li> 
 							<li><a>发布管理</a>
 								<ul>
 									<li><a href="${sctx}/product" target="navTab" rel="app_product">产品管理</a></li>
@@ -111,11 +117,7 @@
 									<li><a href="${sctx}/category" target="navTab" rel="app_category">品类管理</a></li>
 									<li><a href="${sctx}/region" target="navTab" rel="app_region">区域信息</a></li>
 								</ul></li>
-							<li><a>商户管理</a>
-								<ul>
-									<li><a href="${sctx}/customer" target="navTab" rel="app_customer">商户管理</a></li>
-									<li><a href="${sctx}/customerAudit" target="navTab" rel="app_customer_audit">待审核商户</a></li>
-								</ul></li>
+							
 						</ul>
 					</div> 
 					</shiro:hasAnyRoles>

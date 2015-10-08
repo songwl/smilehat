@@ -1,11 +1,19 @@
 package com.smilehat.business.entity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
@@ -43,6 +51,11 @@ public class Product extends IdEntity {
 	private Region region;//区域
 	private Category category;//品类
 	private User user;
+
+	private List<CertLabel> certLabelList = new ArrayList<>();
+
+	@Transient
+	private Map<Long, CertLabel> certLabelMap;
 
 	/**
 	 * @return
@@ -278,6 +291,27 @@ public class Product extends IdEntity {
 
 	public void setVisitCount(java.lang.Integer visitCount) {
 		this.visitCount = visitCount;
+	}
+
+	@ManyToMany
+	@JoinTable(name = Constants.TABLE_PREFIX + "product_cert_label", joinColumns = { @JoinColumn(name = "product_id") }, inverseJoinColumns = { @JoinColumn(name = "cert_label_id") })
+	public List<CertLabel> getCertLabelList() {
+		return certLabelList;
+	}
+
+	public void setCertLabelList(List<CertLabel> certLabelList) {
+		this.certLabelList = certLabelList;
+	}
+
+	@Transient
+	public Map<Long, CertLabel> getCertLabelMap() {
+		if (certLabelMap == null) {
+			certLabelMap = new HashMap<>();
+			for (CertLabel certLabel : certLabelList) {
+				certLabelMap.put(certLabel.getId(), certLabel);
+			}
+		}
+		return certLabelMap;
 	}
 
 	@Override

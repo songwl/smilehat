@@ -55,7 +55,8 @@
 					<td>${item.user.name}</td>
 					<td><s:message code="user.usertype.${item.user.userType}"></s:message></td>
 					<td><fmt:formatDate value="${item.user.registerDate}" pattern="yyyy-MM-dd HH:mm" /></td>
-					<td><a title="删除 ${item.user.name}" target="ajaxTodo" href="${sctx}/customer/delete/${item.id}" class="btnDel">删除</a>
+					<td>
+<%-- 						<a title="删除 ${item.user.name}" target="ajaxTodo" href="${sctx}/customer/delete/${item.id}" class="btnDel">删除</a> --%>
 						<a title="审核" rel="sys_user_reset" target="dialog" href="${sctx}/customerAudit/view/${item.id}?navTabId=app_customer_audit" class="btnEdit">审核</a>
 					</td>
 				</tr>

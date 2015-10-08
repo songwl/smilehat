@@ -18,14 +18,13 @@
 					<div class="left">
 						<div class="category">品类：${varitem.category.categoryName}</div>
 						<span class="place_who">${varitem.user.name}</span>
-<%-- 						<img class="product_cert"  src="${ctx}/static/images/location.png"> --%>
-<%-- 						<img class="product_cert" src="${ctx}/static/images/location.png"> --%>
-<%-- 						<img class="product_cert" src="${ctx}/static/images/location.png"> --%>
+						<c:forEach items="${varitem.certLabelList}" var="cert">
+							<img class="product_cert"  src="${ctx}/${cert.photoAttach.downloadPath}" />
+						</c:forEach>
 <!-- 									<span class="lv"></span> -->
 					</div>
 					<div class="right">
-<%-- 						<img class="product_cert" src="${ctx}/static/images/location.png"> --%>
-						<!-- <span class="unit">￥</span> --> ${varitem.price} 
+						<!-- <span class="unit">￥</span> --> <c:if test="${empty varitem.price}">面议 </c:if>${varitem.price} 
 						<span id="showDictLabel" class="showDictLabel" dictType="PRICE_UNIT" dictCode="${varitem.priceUnit}"></span>
 <%-- 						<span class="unit">/${varitem.priceUnit}</span> --%>
 					</div>

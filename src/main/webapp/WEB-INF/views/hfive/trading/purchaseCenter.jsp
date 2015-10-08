@@ -38,57 +38,59 @@
 	        	<img class="search-img" src="${ctx}/static/images/search.png"  alt="搜索">
 	        </div>
 		</div>
-			<div id="main_list">
-				<form id="productForm" action="${ctx}/trading/purchase/list" method="post" class="pageForm">
-					<input type="hidden" name="pageNum" value="1" />
-					<input type="hidden" name="numPerPage" value="10" />
-					<div id="purchase_search">
-						<div class="_search">
-							<!-- Split button -->
-							<div class="btn-group btn-my-group">
-							  <button type="button" class="btn btn-default btn-my-select">地区选择</button>
-							  <button type="button" class="btn btn-warning btn-my-select2 dropdown-toggle" data-toggle="dropdown" id="dropdownMenu1"  aria-haspopup="true" aria-expanded="false">
-								<img class="drop-down-img"  alt="" src="${ctx}/static/images/down.png">
-							    <span class="sr-only">Toggle Dropdown</span>
-							  </button>
-							  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							    <li><a href="#">Action</a></li>
-							    <li><a href="#">Another action</a></li>
-							    <li><a href="#">Something else here</a></li>
-							    <li role="separator" class="divider"></li>
-							    <li><a href="#">Separated link</a></li>
-							  </ul>
-							</div>
-				        </div>
-				        <div class="category_search">
-				        	<div class="btn-group btn-my-group">
-							  <button type="button" class="btn btn-default btn-my-select">品类选择</button>
-							  <button type="button" class="btn btn-warning btn-my-select2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							    <img class="drop-down-img"  alt="" src="${ctx}/static/images/down.png">
-							    <span class="sr-only">Toggle Dropdown</span>
-							  </button>
-							  <ul class="dropdown-menu dropdown-menu-right">
-							    <li><a href="#">Action</a></li>
-							    <li><a href="#">Another action</a></li>
-							    <li><a href="#">Something else here</a></li>
-							    <li role="separator" class="divider"></li>
-							    <li><a href="#">Separated link</a></li>
-							  </ul>
-							</div>
-				        </div>
-					</div>
-				</form>
-				
-				<div id="product_list">
-					<ul class="list">
-						
-					</ul>
+		<div id="purchase_search">
+			<div class="region_search">
+				<!-- Split button -->
+				<div class="btn-group btn-my-group">
+				  <button type="button" class="btn btn-default btn-my-select" id="regionName">地区选择</button>
+				  <button type="button" class="btn btn-warning btn-my-select2 dropdown-toggle">
+					<img class="drop-down-img"  alt="" src="${ctx}/static/images/down.png">
+				    <span class="sr-only">地区选择</span>
+				  </button>
 				</div>
+	        </div>
+	        <div class="category_search">
+	        	<div class="btn-group btn-my-group">
+	        	  
+				  <button type="button" class="btn btn-default btn-my-select" id="categoryName">品类选择</button>
+				  <button type="button" class="btn btn-warning btn-my-select2 dropdown-toggle">
+				    <img class="drop-down-img"  alt="" src="${ctx}/static/images/down.png">
+				    <span class="sr-only">Toggle Dropdown</span>
+				  </button>
+				  
+				  <ul class="ul-my-tree ul-my-tree-right">
+				  	<c:forEach items="${categoryList}" var="item">
+				  		<li onclick="categoryEvent(this,'${item.id}')" id="${item.id}" name="${item.categoryName}">${item.categoryName}
+					  		<c:if test="${not empty item.children}">
+					  		<ul class="ul-my-tree">
+						  		<c:forEach items="${item.children}" var="citem">
+						  			<li onclick="categoryEvent(this,'${citem.id}')" id="${citem.id}" name="${citem.categoryName}">${citem.categoryName}</li>
+						  		</c:forEach>
+					  		</ul>
+					  		</c:if>
+				  		</li>
+				  	</c:forEach>
+				  </ul>
+				</div>
+	        </div>
+		</div>
+		<div id="main_list">
+			<form id="productForm" action="${ctx}/trading/purchase/list" method="post" class="pageForm">
+				<input type="hidden" name="pageNum" value="1" />
+				<input type="hidden" name="numPerPage" value="10" />
+				
+			</form>
+			
+			<div id="product_list">
+				<ul class="list">
+					
+				</ul>
 			</div>
-			
-			<%@ include file="/WEB-INF/inc/hfive/include.foot.jsp"%>
-			
-			<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
+		</div>
+		
+		<%@ include file="/WEB-INF/inc/hfive/include.foot.jsp"%>
+		
+		<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
 	</div>
 	
 	<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
@@ -96,6 +98,13 @@
 		$(function(){
 			getItemList($("#productForm"),$("#product_list .list"));
 			
+			$(".btn-my-select2").click(function(){
+				$(this).next().toggle();
+			});
+
+			$(".region_search .btn-my-group").each(function(i,item){
+				regionEvent(item,1);
+			});
 		});
 		
 	</script>

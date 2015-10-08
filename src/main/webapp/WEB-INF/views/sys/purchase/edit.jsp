@@ -12,7 +12,7 @@
 				<dd>
 					<input value="${vm.user.id}" name="userId" id="user.id" type="hidden" /> 
 					<input value="${vm.user.name}" name="userName" id="user.name" readonly="readonly" type="text" />
-					<a class="btnLook" rel="customer_select" title="选择商户" href="${sctx}/customer/select" lookupGroup="user">查找带回</a>						
+					<a class="btnLook" rel="customer_select" title="选择商户" href="${sctx}/customer/select?single=true" lookupGroup="user">查找带回</a>						
 				</dd>
 			</dl>
 			<dl class="nowrap">

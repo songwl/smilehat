@@ -28,9 +28,9 @@
 						认证标签
 					</div>
 					<div class="down" >
-						<img class="product_cert"  src="${ctx}/static/images/location.png">
-						<img class="product_cert" src="${ctx}/static/images/location.png">
-						<img class="product_cert" src="${ctx}/static/images/location.png">
+<%-- 						<img class="product_cert"  src="${ctx}/static/images/location.png"> --%>
+<%-- 						<img class="product_cert" src="${ctx}/static/images/location.png"> --%>
+<%-- 						<img class="product_cert" src="${ctx}/static/images/location.png"> --%>
 					</div>
 				</div>
 			</div>
@@ -40,7 +40,7 @@
 				${vm.region.parent.parent.regionName} ${vm.region.parent.regionName} ${vm.region.regionName} ${vm.address}
 			</div>
 			<div class="row3">
-				${vm.description}
+				<tag:htmlparse content="${vm.description}" />
 			</div>
 			<div class="rowline"></div>
 			<div class="row4">
@@ -48,12 +48,15 @@
 			</div>
 			<div class="rowline"></div>
 			<div class="d_info">
+					
 				<div class="d_info_item">
 					<a href="javascript:void(0);"  <shiro:user>info="${vm.user.loginName}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >点击获取联系方式</a>
 				</div>
-				<div class="d_info_item2">
-					<a href="javascript:void(0);"  <shiro:user>info="${vm.website}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >查看官方网站</a>
-				</div>
+				<c:if test="${not empty vm.website}">
+					<div class="d_info_item2">
+						<a href="javascript:void(0);"  <shiro:user>info="${vm.website}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >查看官方网站</a>
+					</div>
+				</c:if>
 			<div>
 				
 			</div>

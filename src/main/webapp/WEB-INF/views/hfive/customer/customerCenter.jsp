@@ -81,12 +81,12 @@
 								<input type="text" name="website" class="form-control" value="${vm.website}" style="width: 100%;" />
 							</div>
 						 </div>
-						<div class="form-group">
-							签名：
-							<div class="input-icon" style="height: 35px;">
-								<input type="text" name="signature" value="${vm.signature}" class="form-control"  style="width: 100%;" />
-							</div>
-						 </div>
+<!-- 						<div class="form-group"> -->
+<!-- 							签名： -->
+<!-- 							<div class="input-icon" style="height: 35px;"> -->
+<%-- 								<input type="text" name="signature" value="${vm.signature}" class="form-control"  style="width: 100%;" /> --%>
+<!-- 							</div> -->
+<!-- 						 </div> -->
 						<div class="form-group">
 							详细说明：
 							<div class="input-icon" style="height: 55px;">

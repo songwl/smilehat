@@ -48,6 +48,7 @@ public class TradingCenterController extends HfiveBaseController {
 
 	@RequestMapping(value = { "", "/product/center" })
 	public String productCenter(Model model, HttpServletRequest request) {
+		model.addAttribute("categoryList", productService.findCategoryListByProduct());
 		return "hfive/trading/productCenter";
 	}
 
@@ -73,6 +74,7 @@ public class TradingCenterController extends HfiveBaseController {
 
 	@RequestMapping(value = "/purchase/center")
 	public String purchaseCenter(Model model, HttpServletRequest request) {
+		model.addAttribute("categoryList", productService.findCategoryListByProduct());
 		return "hfive/trading/purchaseCenter";
 	}
 
@@ -106,18 +108,19 @@ public class TradingCenterController extends HfiveBaseController {
 	}
 
 	@RequestMapping(value = "/product/publish/save")
-	public ModelAndView productPublish(@Valid  @ModelAttribute("preloadModel") Product product, @RequestParam(value="customer.regionId",required = false) Long regionId, @RequestParam(value = "categoryId", required = false) Long categoryId) {
+	public ModelAndView productPublish(@Valid @ModelAttribute("preloadModel") Product product, @RequestParam(value = "customer.regionId", required = false) Long regionId,
+			@RequestParam(value = "categoryId", required = false) Long categoryId) {
 		product.setCreateTime(CoreUtils.nowtime());
 		product.setUpdateTime(CoreUtils.nowtime());
 		product.setPublishTime(CoreUtils.nowtime());
-		
-		if(this.getCurrentUser()!=null){
-			productService.saveProduct(product, regionId, this.getCurrentUser().getId(), categoryId);
+
+		if (this.getCurrentUser() != null) {
+			productService.saveProduct(product, regionId, this.getCurrentUser().getId(), categoryId, null);
 			return this.ajaxDoneSuccess("创建成功");
-		}else{
+		} else {
 			return this.ajaxDoneError("请登录！");
 		}
-		
+
 	}
 
 	@RequestMapping(value = "/purchase/publish/new")
@@ -134,16 +137,16 @@ public class TradingCenterController extends HfiveBaseController {
 		purchase.setCreateTime(CoreUtils.nowtime());
 		purchase.setUpdateTime(CoreUtils.nowtime());
 		purchase.setPublishTime(CoreUtils.nowtime());
-		if(this.getCurrentUser()!=null){
+		if (this.getCurrentUser() != null) {
 			purchaseService.savePurchase(purchase, this.getCurrentUser().getId(), categoryId);
 			return this.ajaxDoneSuccess("创建成功");
-		}else{
+		} else {
 			return this.ajaxDoneError("请登录！");
 		}
-		
+
 	}
-	
-	@RequestMapping(value = "/help" )
+
+	@RequestMapping(value = "/help")
 	public String helpCenter(Model model, HttpServletRequest request) {
 		return "hfive/trading/help";
 	}
