@@ -49,7 +49,7 @@
 				<th <tag:orderField name="category.categoryName"/>>品类名称</th>   
 				<th <tag:orderField name="title"/>>标题</th>   
 				<th <tag:orderField name="quantity"/>>采购量(单位)</th>   
-				<th <tag:orderField name="price"/>>采购价格(单位)</th>   
+<!-- 				<th <tag:orderField name="price"/>>采购价格(单位)</th>    -->
 				<th <tag:orderField name="publishTime"/>>发布时间</th>  
 				<th width="200">操作</th>
 			</tr>
@@ -65,12 +65,12 @@
 					</td>   
 					<td> <a href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" rel="purchase_update" target="dialog" title="编辑"> ${varitem.title} </a> 
 					</td>   
-					<td>  ${varitem.quantity} 
-						<span class="showDictLabel" dictType="PRICE_UNIT" dictCode="${varitem.priceUnit}"></span>
-					</td>   
-					<td> ${varitem.price} 
+					<td> ${varitem.quantity} 
 						<span class="showDictLabel" dictType="QUANTITY_UNIT" dictCode="${varitem.quantityUnit}"></span>
-					</td>   
+					</td>  
+<%-- 					<td>  ${varitem.price}  --%>
+<%-- 						<span class="showDictLabel" dictType="PRICE_UNIT" dictCode="${varitem.priceUnit}"></span> --%>
+<!-- 					</td>    --> 
 					<td> <fmt:formatDate value='${ varitem.publishTime}' pattern='yyyy-MM-dd'/> 
 					</td>  
 					<td><a title="编辑" target="dialog" rel="purchase_update" href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" class="btnEdit">编辑</a> <a title="删除"

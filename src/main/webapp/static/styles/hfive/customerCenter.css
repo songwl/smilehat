@@ -161,3 +161,9 @@ div#help-bottom a img{
   float: right;
   padding-right: 5px;
 }
+
+div#product_list {
+	padding: 0px 30px 2% 0px;
+    top: 200px;
+    bottom: 40px;
+}

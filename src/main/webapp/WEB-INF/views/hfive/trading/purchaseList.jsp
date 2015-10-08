@@ -19,9 +19,9 @@
 					<div class="left">
 						<div class="category">品类：${varitem.category.categoryName}</div>
 						<span class="place_who">${varitem.user.name}</span>
-						<c:forEach items="${varitem.certLabelList}" var="cert">
-							<img class="product_cert"  src="${ctx}/${cert.photoAttach.downloadPath}" />
-						</c:forEach>
+<%-- 						<c:forEach items="${varitem.certLabelList}" var="cert"> --%>
+<%-- 							<img class="product_cert"  src="${ctx}/${cert.photoAttach.downloadPath}" /> --%>
+<%-- 						</c:forEach> --%>
 <!-- 									<span class="lv"></span> -->
 					</div>
 					<div class="right">

@@ -496,3 +496,18 @@ text-decoration: initial;
 	right: 100%;
 	left: auto;
 }
+
+div#text_search {
+    top: 20px;
+    position: fixed;
+    width: 100%;
+    padding-left: 30%;
+    padding-right: 45px;
+    display: none;
+}
+
+div#text_search input.form-control {
+    height: 38px;
+    border-radius: 0px;
+    width: 100%;
+}

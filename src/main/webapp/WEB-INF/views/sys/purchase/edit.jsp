@@ -45,14 +45,14 @@
 					</select>
 				</dd>
 			</dl>
-			<dl class="nowrap">
-				<dt><label>价格:</label></dt>
-				<dd>
-					<input type="text" id="price" name="price" class="required" size="18" value="${vm.price}" validate="{required:true}"/>		
-					<select  id="priceUnit" name="priceUnit"  class="required combox"  selectedValue="${vm.priceUnit}"   dataUrl="${sctx}/dict/selectDictByType?dictType=PRICE_UNIT">
-					</select>						
-				</dd>
-			</dl>
+<!-- 			<dl class="nowrap"> -->
+<!-- 				<dt><label>价格:</label></dt> -->
+<!-- 				<dd> -->
+<%-- 					<input type="text" id="price" name="price" class="required" size="18" value="${vm.price}" validate="{required:true}"/>		 --%>
+<%-- 					<select  id="priceUnit" name="priceUnit"  class="required combox"  selectedValue="${vm.priceUnit}"   dataUrl="${sctx}/dict/selectDictByType?dictType=PRICE_UNIT"> --%>
+<!-- 					</select>						 -->
+<!-- 				</dd> -->
+<!-- 			</dl> -->
 			<dl class="nowrap">
 				<dt><label>产品描述:</label></dt>
 				<dd>

@@ -33,11 +33,14 @@
 	        		</span>
 	        	</a>
 	        </div>
-	        <div class="search">
+	        <div class="search" id="div_search">
 	        	<!-- <a href="###" class="i" id="search_home">&nbsp;</a> -->
 	        	<img class="search-img" src="${ctx}/static/images/search.png"  alt="搜索">
 <!-- 		          	<input type="text" class="search-txt" placeholder="搜索" >  -->
 	        </div>
+		</div>
+		<div id="text_search">
+			<input class="form-control" type="text" size="30"  placeholder="请输入产品名称"/>
 		</div>
 		<div id="purchase_search">
 			<div class="region_search">
@@ -56,7 +59,7 @@
 				  <button type="button" class="btn btn-default btn-my-select" id="categoryName">品类选择</button>
 				  <button type="button" class="btn btn-warning btn-my-select2 dropdown-toggle">
 				    <img class="drop-down-img"  alt="" src="${ctx}/static/images/down.png">
-				    <span class="sr-only">Toggle Dropdown</span>
+				    <span class="sr-only">品类选择</span>
 				  </button>
 				  
 				  <ul class="ul-my-tree ul-my-tree-right">
@@ -107,6 +110,10 @@
 
 			$(".region_search .btn-my-group").each(function(i,item){
 				regionEvent(item,1);
+			});
+			
+			$("#div_search").click(function(){
+				$("#text_search").toggle();
 			});
 			
 		});

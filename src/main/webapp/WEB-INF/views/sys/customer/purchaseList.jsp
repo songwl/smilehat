@@ -14,7 +14,7 @@
 				<th <tag:orderField name="category.categoryName"/>>品类名称</th>   
 				<th <tag:orderField name="title"/>>标题</th>   
 				<th <tag:orderField name="quantity"/>>采购量(单位)</th>   
-				<th <tag:orderField name="price"/>>采购价格(单位)</th>   
+<!-- 				<th <tag:orderField name="price"/>>采购价格(单位)</th>    -->
 				<th <tag:orderField name="publishTime"/>>发布时间</th>  
 				<th width="200">操作</th>
 			</tr>
@@ -32,8 +32,8 @@
 					</td>   
 					<td>  ${varitem.quantity} ( ${varitem.quantityUnit})
 					</td>   
-					<td> ${varitem.price} (${varitem.priceUnit} )
-					</td>   
+<%-- 					<td> ${varitem.price} (${varitem.priceUnit} ) --%>
+<!-- 					</td>    -->
 					<td> <fmt:formatDate value='${ varitem.publishTime}' pattern='yyyy-MM-dd'/> 
 					</td>  
 					<td><a title="编辑" target="dialog" ref="purchase_update" href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" class="btnEdit">编辑</a> 

@@ -55,7 +55,7 @@
 				  <button type="button" class="btn btn-default btn-my-select" id="categoryName">品类选择</button>
 				  <button type="button" class="btn btn-warning btn-my-select2 dropdown-toggle">
 				    <img class="drop-down-img"  alt="" src="${ctx}/static/images/down.png">
-				    <span class="sr-only">Toggle Dropdown</span>
+				    <span class="sr-only">品类选择</span>
 				  </button>
 				  
 				  <ul class="ul-my-tree ul-my-tree-right">
