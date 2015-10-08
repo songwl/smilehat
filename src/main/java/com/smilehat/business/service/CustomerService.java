@@ -1,5 +1,6 @@
 package com.smilehat.business.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.smilehat.business.core.entity.security.User;
+import com.smilehat.business.core.entity.sys.upload.Attach;
 import com.smilehat.business.core.service.security.UserService;
 import com.smilehat.business.core.service.sys.upload.AttachService;
 import com.smilehat.business.entity.Customer;
@@ -63,7 +65,7 @@ public class CustomerService extends BaseService<Customer> {
 	@Autowired
 	private RegionService regionService;
 
-	public void createCustomer(Customer customer, Long photoAttachId, Long regionId) {
+	public void createCustomer(Customer customer, Long photoAttachId, Long[] attachIds, Long regionId) {
 		User user = customer.getUser();
 		user.setPassword(MD5Util.MD5(user.getPlainPassword()));
 		user.setCreateTime(CoreUtils.nowtime());
@@ -71,6 +73,19 @@ public class CustomerService extends BaseService<Customer> {
 		user.setRegisterDate(CoreUtils.nowtime());
 		if (photoAttachId != null) {
 			user.setPhotoAttach(attachService.findUniqueBy("id", photoAttachId));
+		}
+
+		if (attachIds != null && attachIds.length > 0) {
+			List<Attach> attachs = new ArrayList<Attach>();
+			for (Long attachId : attachIds) {
+				if (attachId != null) {
+					attachs.add(attachService.findUniqueBy("id", attachId));
+				}
+			}
+
+			if (!attachs.isEmpty()) {
+				user.setAttachs(attachs);
+			}
 		}
 		Long[] roleIds = new Long[1];
 		if (Enums.USER_TYPE.PERSON.name().equalsIgnoreCase(user.getUserType())) {
@@ -88,11 +103,23 @@ public class CustomerService extends BaseService<Customer> {
 		this.save(customer);
 	}
 
-	public void saveCustomer(Customer customer, Long photoAttachId, Long regionId) {
+	public void saveCustomer(Customer customer, Long photoAttachId, Long[] attachIds, Long regionId) {
 		User user = customer.getUser();
 		user.setUpdateTime(CoreUtils.nowtime());
 		if (photoAttachId != null) {
 			user.setPhotoAttach(attachService.findUniqueBy("id", photoAttachId));
+		}
+		if (attachIds != null && attachIds.length > 0) {
+			List<Attach> attachs = new ArrayList<Attach>();
+			for (Long attachId : attachIds) {
+				if (attachId != null) {
+					attachs.add(attachService.findUniqueBy("id", attachId));
+				}
+			}
+
+			if (!attachs.isEmpty()) {
+				user.setAttachs(attachs);
+			}
 		}
 
 		User oldUser = userService.getObjectById(user.getId());

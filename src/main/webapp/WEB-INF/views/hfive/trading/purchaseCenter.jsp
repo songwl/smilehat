@@ -25,7 +25,7 @@
 			<div class="logo">
 				<img id="curlogo" alt="" src="${ctx}/static/images/logo.png">
 			</div>
-			<div class="userCenter">
+			<div class="userCenter"  id="div_search">
 				<img class="user_info" src="${ctx}/static/images/center.png"  alt="商户中心">
 	            <a href="${ctx}/customer/center">
 	        		<span><shiro:principal property="name"></shiro:principal>
@@ -104,6 +104,10 @@
 
 			$(".region_search .btn-my-group").each(function(i,item){
 				regionEvent(item,1);
+			});
+			
+			$("#div_search").click(function(){
+				$("#text_search").toggle();
 			});
 		});
 		

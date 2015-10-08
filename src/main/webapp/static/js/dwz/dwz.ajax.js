@@ -331,7 +331,7 @@ function uploadifyPreviewComplete(file, data, response){
 		//${uploadifyFileId}_hiddenId
 		//${uploadifyFileId}_picId
 		$('#'+this.settings.id+'_hiddenId').val(json.id);
-		$('#'+this.settings.id+'_picId').attr('src', json.downloadUrl);
+		$('#'+this.settings.id+'_picId').attr('src', DWZ.sysPara["ctx"] + "/" + json.downloadUrl);
 	}
 }
 
@@ -368,6 +368,40 @@ function uploadifyPreviewCompleteDelete(hiddenId,picId,defaultPicPath){
      $('#'+hiddenId).val('');
      //给一个错误的图片,加载默认图片
 	 $('#'+picId).attr('src', defaultPicPath);
+}
+
+/**
+ * 上传多个文件后显示名称和链接
+ */
+function uploadifyMultipleFileSuccess(file, data, response){
+	var json = DWZ.jsonEval(data); 
+	if (json.statusCode == DWZ.statusCode.ok) {
+		var $fiewViewObj = $('#'+this.settings.id+'_fileId');
+		var uploadSuccessShow = $fiewViewObj.attr("uploadSuccessShow");
+		var hiddenName = $fiewViewObj.attr("hiddenName");
+		var $ulObj = $("ul",$fiewViewObj);
+		if($ulObj.length == 0){
+			$ulObj = $("<ul></ul>");
+			$fiewViewObj.append($ulObj);
+		}
+		var html = '<li><input type="hidden" name="' + hiddenName + '" value="' + json.id + '"/><a  target="_blank" href="'+DWZ.sysPara["att_ctx"]+ '/'+json.downloadUrl+'">';
+		if(uploadSuccessShow && uploadSuccessShow == "path"){
+			html += DWZ.sysPara["att_ctx"] + '/' + json.downloadUrl;
+		}else{
+			html += json.name;
+		}
+		html += '</a>[<a style="color:red;cursor: pointer;" title="删除" onclick="javascript:uploadifyMultipleFileDelete(this);">X</a>]';
+		$ulObj.append(html);
+	}
+}
+
+/**
+ * 删除已上传的单个文件
+ * @param hiddenId
+ * @param fileId
+ */
+function uploadifyMultipleFileDelete(obj){
+    $(obj).parent().remove();
 }
 
 

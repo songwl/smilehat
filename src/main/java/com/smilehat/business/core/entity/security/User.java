@@ -9,7 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -42,7 +41,6 @@ public class User extends IdEntity {
 	private java.lang.Boolean isAudit; //是否审核通过
 	private java.util.Date auditTime;//审核时间
 
-	
 	private Attach photoAttach;
 
 	private Customer customer;
@@ -113,7 +111,8 @@ public class User extends IdEntity {
 		this.createTime = createTime;
 	}
 
-	@OneToMany(mappedBy = "user")
+	@ManyToMany
+	@JoinTable(name = Constants.TABLE_PREFIX + "user_attach", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "attach_id") })
 	public List<Attach> getAttachs() {
 		return attachs;
 	}

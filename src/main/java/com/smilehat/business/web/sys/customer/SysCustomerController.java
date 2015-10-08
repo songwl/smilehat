@@ -83,8 +83,9 @@ public class SysCustomerController extends BaseController {
 	}
 
 	@RequestMapping(value = BaseController.CREATE, method = RequestMethod.POST)
-	public ModelAndView create(@Valid Customer customer, @RequestParam(value = "photoAttachId", required = false) Long photoAttachId, @RequestParam(required = false) Long regionId) {
-		customerService.createCustomer(customer, photoAttachId, regionId);
+	public ModelAndView create(@Valid Customer customer, @RequestParam(value = "photoAttachId", required = false) Long photoAttachId, @RequestParam(required = false) Long regionId,
+			@RequestParam(value = "attachIds") Long[] attachIds) {
+		customerService.createCustomer(customer, photoAttachId, attachIds, regionId);
 		return this.ajaxDoneSuccess("创建成功");
 	}
 
@@ -103,8 +104,8 @@ public class SysCustomerController extends BaseController {
 
 	@RequestMapping(value = BaseController.UPDATE, method = RequestMethod.POST)
 	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Customer customer, @RequestParam(value = "photoAttachId", required = false) Long photoAttachId,
-			@RequestParam(required = false) Long regionId) {
-		customerService.saveCustomer(customer, photoAttachId, regionId);
+			@RequestParam(required = false) Long regionId, @RequestParam(value = "attachIds") Long[] attachIds) {
+		customerService.saveCustomer(customer, photoAttachId, attachIds, regionId);
 		return this.ajaxDoneSuccess("修改成功");
 	}
 

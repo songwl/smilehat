@@ -499,10 +499,9 @@ text-decoration: initial;
 
 div#text_search {
     top: 20px;
+    right: 45px;
     position: fixed;
-    width: 100%;
-    padding-left: 30%;
-    padding-right: 45px;
+    width: 60%;
     display: none;
 }
 

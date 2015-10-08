@@ -120,6 +120,12 @@
 								<input type="text" name="website" value="${vm.website}" style="width: 480px;" />
 							</dd>
 						</dl>
+						<dl class="nowrap">
+							<dt>图片：</dt>
+							<dd>
+								<tag:multipleFileUpload uploadifyFileId="sys_user_attachs_uploadifyFileId" hiddenName="attachIds" attachs="${vm.user.attachs}"></tag:multipleFileUpload>
+							</dd>
+						</dl>
 					</div>
 					
 					<div class="formBar">

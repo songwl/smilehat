@@ -7,32 +7,36 @@
 <%@ attribute name="fileTypeExts" type="java.lang.String" %> 
 <%@ attribute name="remarkText" type="java.lang.String" %>
 <%@ attribute name="onUploadSuccess" type="java.lang.String" %> 
+<%@ attribute name="uploadSuccessShow" type="java.lang.String" description="上传后显示附件名还是路径 path为路径"%>
 
 <c:set var="v_fileTypeExts" value="*.*"></c:set>
 <c:if test="${not empty fileTypeExts}">
  <c:set var="v_fileTypeExts" value="${fileTypeExts}"></c:set>
 </c:if>
 <div class="fileUpload">
-	<input type="hidden" id="${uploadifyFileId}_hiddenId" name="${hiddenName}" value="<tag:fetchElementPropertyToString propertyName="id" list="${attachs}"/>">
-	<div class="fileView" id="${uploadifyFileId}_fileId">
-	     <c:forEach items="${attachs}" var="item">
-	     	<c:if test="${empty onUploadSuccess}">
-	     		<a  target="_blank" href="${ctx}/${item.downloadPath}">${item.name}</a>
-	     	</c:if>
-	     	<c:if test="${onUploadSuccess == 'uploadifyMultipleFileComplete1'}" >
-	     		<a  target="_blank" href="${ctx}/${item.downloadPath}" >${ctx}/${item.downloadPath}</a><br/>
-	     	</c:if>
-	    </c:forEach> 
+	<div class="fileView" id="${uploadifyFileId}_fileId" uploadSuccessShow="${uploadSuccessShow }" hiddenName="${hiddenName }">
+		<ul>
+         <c:forEach items="${attachs}" var="item">
+            <li>
+            <input type="hidden" name="${hiddenName}" value="${item.id}"/>
+            <a  target="_blank" href="${ctx}/${item.downloadPath}">
+            <c:if test="${empty uploadSuccessShow || uploadSuccessShow != 'path'}">${item.name}</c:if>
+            <c:if test="${uploadSuccessShow == 'path'}" >${ctx}/${item.downloadPath}</c:if>
+            </a>
+            [<a style="color:red;cursor: pointer;" title="删除" onclick="javascript:uploadifyMultipleFileDelete(this);">X</a>]
+            </li>
+        </c:forEach>
+        </ul> 
 	</div>
 	<div class="b_bar">
 		<div class="b_upload">
-			<tag:uploadify name="${uploadifyFileId}_name" onUploadSuccess='${(empty onUploadSuccess) ?"uploadifyMultipleFileComplete" : onUploadSuccess}' id="${uploadifyFileId}" queueID="${uploadifyFileId}_queueID"
+			<tag:uploadify name="${uploadifyFileId}_name" onUploadSuccess='${(empty onUploadSuccess) ?"uploadifyMultipleFileSuccess" : onUploadSuccess}' id="${uploadifyFileId}" queueID="${uploadifyFileId}_queueID"
 				fileSizeLimit="30MB" fileTypeExts="${v_fileTypeExts}" multi="true"></tag:uploadify>
 		</div>
 		<div class="b_del">
 			<div class="button">
 				<div class="buttonContent">
-					<button type="button" onclick="javascript:uploadifyMultipleFileCompleteDelete('${uploadifyFileId}_hiddenId','${uploadifyFileId}_fileId')" >删除所有</button>
+					<button type="button" onclick="javascript:uploadifyMultipleFileDelete('${uploadifyFileId}_hiddenId','${uploadifyFileId}_fileId')" >删除所有</button>
 				</div>
 			</div>
 		</div>
