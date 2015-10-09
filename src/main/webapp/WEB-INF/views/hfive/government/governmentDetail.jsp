@@ -31,10 +31,57 @@
 		<div class="pageContent"> 
 			<img class="goverment_img" alt="" src="${ctx}/static/images/gover.jpg">
 			</img>
-			<div>
-				<div>
+			<div class="gover_info">
+				<div class="gover_name">
 					政府名称
 				</div>
+				<div class="gover_introduction">
+					简介
+				</div>
+			</div>
+			<div class="gover_catalog">
+				<ul class="list">
+					<li>
+						<a href="${ctx}/government/catalogdetail/0">
+							<div class="grow1">
+								<img class="goverCatalog_img" alt="" src="${ctx}/static/images/gover.jpg">
+							</div>
+							<div class="grow2">
+								子栏目名称
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="${ctx}/government/catalogdetail/0">
+							<div class="grow1">
+								<img class="goverCatalog_img" alt="" src="${ctx}/static/images/gover.jpg">
+							</div>
+							<div class="grow2">
+									子栏目名称
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="${ctx}/government/catalogdetail/0">
+							<div class="grow1">
+								<img class="goverCatalog_img" alt="" src="${ctx}/static/images/gover.jpg">
+							</div>
+							<div class="grow2">
+								子栏目名称
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="${ctx}/government/catalogdetail/0">
+							<div class="grow1">
+								<img class="goverCatalog_img" alt="" src="${ctx}/static/images/gover.jpg">
+							</div>
+							<div class="grow2">
+									子栏目名称
+							</div>
+						</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 		

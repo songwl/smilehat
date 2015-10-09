@@ -500,8 +500,8 @@ text-decoration: initial;
 div#text_search {
     top: 20px;
     right: 45px;
+    left: 30%;
     position: fixed;
-    width: 60%;
     display: none;
 }
 

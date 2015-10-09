@@ -7,11 +7,13 @@
 		<div class="searchBar">
 			<ul class="searchContent">
 				   
-				<li><label>政府名称:</label> 
-					<input type="text" value="${param.search_LIKE_name}" name="search_LIKE_name" /> </li>   
-				<li><label>政府简介:</label> 
-					<input type="text" value="${param.search_LIKE_introduction}" name="search_LIKE_introduction" /> </li>      
-				<li><label>地区:</label> 
+<!-- 				<li><label>政府名称:</label>  -->
+<%-- 					<input type="text" value="${param.search_LIKE_name}" name="search_LIKE_name" /> </li>    --%>
+				<li><label>创建时间：</label>
+					<input type="text" class="date" size="9" value="${param.search_GTE_createTime}" dateFmt="yyyy-MM-dd" name="search_GTE_createTime" readonly="true" />
+					- <input type="text" class="date" size="9" value="${param.search_LTE_createTime}" dateFmt="yyyy-MM-dd" name="search_LTE_createTime" readonly="true" />
+				</li>    
+				<li><label>区域选择:</label> 
 					<input type="text" value="${param.search_LIKE_region.regionName}" name="search_LIKE_region.regionName" /> </li>   
 <!-- 				<li><label>REGION_DETAIL:</label>  -->
 <%-- 					<input type="text" value="${param.search_LIKE_regionDetail}" name="search_LIKE_regionDetail" /> </li>       --%>
@@ -50,14 +52,14 @@
 				<th width="40" align="center">序号</th>
 				<th width="30"><input type="checkbox" group="ids" class="checkboxCtrl"></th>    
 				<th <tag:orderField name="name"/>>政府名称</th>   
-				<th <tag:orderField name="introduction"/>>政府简介</th>   
-				<th <tag:orderField name="description"/>>政府详细信息</th>   
-				<th <tag:orderField name="website"/>>官方网址</th>   
-				<th <tag:orderField name="region。regionName"/>>地区名称</th>   
-				<th <tag:orderField name="regionDetail"/>>详细地址</th>   
-				<th <tag:orderField name="contact"/>>联系方式</th>   
-<!-- 				<th <tag:orderField name="attachId"/>>attach_id</th>    -->
-				<th <tag:orderField name="createTime"/>>创建时间</th>  
+<!-- 				<th <tag:orderField name="introduction"/>>政府简介</th>    -->
+<!-- 				<th <tag:orderField name="description"/>>政府详细信息</th>    -->
+<!-- 				<th <tag:orderField name="website"/>>官方网址</th>    -->
+<!-- 				<th <tag:orderField name="region。regionName"/>>地区名称</th>    -->
+<!-- 				<th <tag:orderField name="regionDetail"/>>详细地址</th>    -->
+<!-- 				<th <tag:orderField name="contact"/>>联系方式</th>    -->
+<!-- <!-- 				<th <tag:orderField name="attachId"/>>attach_id</th>    --> -->
+<!-- 				<th <tag:orderField name="createTime"/>>创建时间</th>   -->
 				<th width="200">操作</th>
 			</tr>
 		</thead>
@@ -68,29 +70,29 @@
 					<td><input name="ids" value="${varitem.id }" type="checkbox"></td>    
 					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.name} </a> 
 					</td>   
-					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.introduction} </a> 
-					</td>   
-					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.description} </a> 
-					</td>   
-					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.website} </a> 
-					</td>   
-					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.region.regionName} </a> 
-					</td>   
-					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.regionDetail} </a> 
-					</td>   
-					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.contact} </a> 
-					</td>   
-<%-- 					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.attachId} </a>  --%>
+<%-- 					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.introduction} </a>  --%>
 <!-- 					</td>    -->
-					<td> <fmt:formatDate value='${ varitem.createTime}' pattern='yyyy-MM-dd'/> 
-					</td>  
+<%-- 					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.description} </a>  --%>
+<!-- 					</td>    -->
+<%-- 					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.website} </a>  --%>
+<!-- 					</td>    -->
+<%-- 					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.region.regionName} </a>  --%>
+<!-- 					</td>    -->
+<%-- 					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.regionDetail} </a>  --%>
+<!-- 					</td>    -->
+<%-- 					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.contact} </a>  --%>
+<!-- 					</td>    -->
+<%-- <%-- 					<td> <a href="${ctx}/sys/government/view/${varitem.id}" target="dialog" title="查看"> ${varitem.attachId} </a>  --%> --%>
+<!-- <!-- 					</td>    --> -->
+<%-- 					<td> <fmt:formatDate value='${ varitem.createTime}' pattern='yyyy-MM-dd'/>  --%>
+<!-- 					</td>   -->
 					<td><a title="编辑" target="dialog" ref="government_update" href="${ctx}/sys/government/update/${varitem.id}" class="btnEdit">编辑</a> <a title="删除"
 						target="ajaxTodo" href="${ctx}/sys/government/delete/${varitem.id}" class="btnDel">删除</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	<div class="panelBar">
-		<tag:pagination page="${page}" numPerPageOnchange="navTabPageBreak({numPerPage:this.value})"></tag:pagination>
-	</div>
+<!-- 	<div class="panelBar"> -->
+<%-- 		<tag:pagination page="${page}" numPerPageOnchange="navTabPageBreak({numPerPage:this.value})"></tag:pagination> --%>
+<!-- 	</div> -->
 </div>

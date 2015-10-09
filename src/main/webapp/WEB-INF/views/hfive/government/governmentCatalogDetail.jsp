@@ -7,6 +7,7 @@
 <%@ include file="/WEB-INF/inc/hfive/include.css.jsp"%>
 
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
+<link rel="stylesheet" href="${ctx}/static/styles/hfive/unionfarm.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/govermentCenter.css" type="text/css" />
 
 <%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
@@ -29,44 +30,24 @@
 	        </a>
         </div>
 		<div class="pageContent"> 
-			<div class="farmContent" >
-				<div class="d_item" id="d_main">
-					<h2>${vm.name} </h2>
-					<div class="d_main_left">
-						<div>${vm.category.categoryName}</div>
-						<div>${vm.user.name}</div>
-					</div>
-					<div class="d_main_right">
-						<span class="unit">￥</span> <c:if test="${empty vm.price}">面议 </c:if>${vm.price} 
-						<span id="showDictLabel" class="unit showDictLabel" dictType="PRICE_UNIT" dictCode="${vm.priceUnit}"></span>
-					</div>
+			<img class="goverment_img" alt="" src="${ctx}/static/images/gover.jpg">
+			</img>
+			<div class="gover_info">
+				<div class="gover_name">
+					子栏目名称
 				</div>
-				<div class="d_item" id="d_unit">
-					<h5 class="d_item_title">规格 / 库存</h5>
-					<div class="d_item_content">
-						<div class="d_item_branch">
-							<span id="showDictLabel" class="unit showDictLabel" dictType="BRANCH_INFO" dictCode="${vm.branchInfo}"></span>
-						</div>
-						<div class="d_item_quantity">${vm.quantity}&nbsp;<span id="showDictLabel" class="unit showDictLabel" dictType="QUANTITY_UNIT" dictCode="${vm.quantityUnit}"></span></div>
-					</div>
+				<div class="gover_introduction">
+					简介描述
 				</div>
-				<div class="d_item" id="d_region">
-					<h5 class="d_item_title">交付地址</h5>
-					<div class="d_item_content">${vm.region.parent.parent.regionName} ${vm.region.parent.regionName} ${vm.region.regionName} ${vm.regionDetail}</div>
-				</div>
-				<div class="d_item" id="d_memo">
-					<h5 class="d_item_title">详细说明</h5>
-					<div class="d_item_content"><tag:htmlparse content="${vm.description}" /> </div>
-				</div>
-			
-				<div class="d_info">
-					<div class="d_info_item">
-						<a href="javascript:void(0);"  <shiro:user>info="${vm.user.loginName}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >
-						点击获取联系方式
-						</a>
-					</div>
-				</div>
-					
+			</div>
+			<form id="productForm" action="${ctx}/farm/list" method="post">
+				<input type="hidden" name="pageNum" value="1" />
+				<input type="hidden" name="numPerPage" value="10" />
+				
+			</form>
+			<div id="gover_catalog">
+				<ul class="list">
+				</ul>
 			</div>
 		</div>
 		
@@ -75,17 +56,11 @@
 	</div>
 </body>
 
-<script type="text/javascript" src="${ctx}/static/js/base/dict.js"></script>
+<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function(){
-	$(".d_info_item a").click(function(){
-		var info = $(this).attr("info");
-		if(info == 'nologin'){
-			$(this).text("请先登录或注册！");
-			$(this).attr("href","${ctx}/login");
-		}else{
-			$(this).text(info);
-		}
+	$(function(){
+		getItemList($("#productForm"),$("#gover_catalog .list"));
 	});
 });
 	

@@ -7,36 +7,47 @@
 		<tag:token tokenName=".government.create"></tag:token>
 		<tag:callback></tag:callback>
 		<div class="pageFormContent" layoutH="56">
-					<dl>
+					<dl class="nowrap">
 						<dt><label>政府名称:</label></dt>
 						<dd><input type="text" id="name" name="name" class="required" size="30" value="${vm.name}" validate="{required:true}"/>						</dd>
 					</dl>
-					<dl>
+					<dl class="nowrap">
 						<dt><label>政府简介:</label></dt>
 						<dd><input type="text" id="introduction" name="introduction" class="required" size="30" value="${vm.introduction}" validate="{required:true}"/>						</dd>
 					</dl>
-					<dl>
+					<dl class="nowrap">
 						<dt><label>详细信息:</label></dt>
 						<dd><input type="text" id="description" name="description" class="required" size="30" value="${vm.description}" validate="{required:true}"/>						</dd>
 					</dl>
-					<dl>
+					<dl class="nowrap">
 						<dt><label>官方网址:</label></dt>
 						<dd><input type="text" id="website" name="website" class="required" size="30" value="${vm.website}" validate="{required:true}"/>						</dd>
 					</dl>
-					<dl>
+					<dl class="nowrap">
 						<dt><label>区域:</label></dt>
-						<dd><input type="text" id="region" name="region.regionName" class="required" size="30" value="${vm.region.regionName}" validate="{required:true}"/>						</dd>
+						<dd>
+							<select class="required combox" selectedValue="${vm.region.parent.parent.id}" ref="w_combox_city" dataUrl="${sctx}/region/selectJson" refUrl="${sctx}/region/selectJson?pid={value}">
+								<option value="">----省----</option> 
+							</select>
+							<select class="required combox" selectedValue="${vm.region.parent.id}" id="w_combox_city" ref="w_combox_area" refUrl="${sctx}/region/selectJson?pid={value}" 
+									<c:if test="${not empty vm.region.parent.parent.id}">dataUrl="${sctx}/region/selectJson?pid=${vm.region.parent.parent.id}"</c:if>>
+								<option value="">----市----</option> 
+							</select>
+							<select class="required combox" name="regionId" selectedValue="${vm.region.id}" id="w_combox_area" <c:if test="${not empty vm.region.parent.id}">dataUrl="${sctx}/region/selectJson?pid=${vm.region.parent.id}"</c:if>>
+								<option value="">----区----</option> 
+							</select>
+						</dd>
 					</dl>
-					<dl>
+					<dl class="nowrap">
 						<dt><label>详细地址:</label></dt>
 						<dd><input type="text" id="regionDetail" name="regionDetail" class="required" size="30" value="${vm.regionDetail}" validate="{required:true}"/>						</dd>
 					</dl>
-					<dl>
+					<dl class="nowrap">
 						<dt><label>联系方式:</label></dt>
 						<dd><input type="text" id="contact" name="contact" class="required" size="30" value="${vm.contact}" validate="{required:true}"/>						</dd>
 					</dl>
-					<dl>
-						<dt><label>缩略图:</label></dt>
+					<dl class="nowrap">
+						<dt><label>图:</label></dt>
 						<dd><input type="text" id="attachId" name="attachId" class="required" size="30" value="${vm.attachId}" validate="{required:true}"/>						</dd>
 					</dl>
 <!-- 					<dl> -->

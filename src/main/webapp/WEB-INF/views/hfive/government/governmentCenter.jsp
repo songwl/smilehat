@@ -39,7 +39,7 @@
 	        </div>
 		</div>
 		<div id="text_search">
-			<input class="form-control" type="text" size="30"  placeholder="请输入政府名称"/>
+			<input class="form-control" type="text" size="30"  placeholder="请输入政府名称和简介关键字"/>
 		</div>
 		<div id="main_list">
 			<form id="productForm" action="" method="post" class="pageForm">
