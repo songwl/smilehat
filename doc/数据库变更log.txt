@@ -57,6 +57,7 @@ INSERT INTO `t_dict` VALUES ('37', 'BRANCH_INFO', '±ê¸ö', 'biaoge', null, null);
 alter table t_purchase add branch_info varchar(255);
 
 
+--2015/10/11
 CREATE TABLE t_government_attach(
 `government_id`  bigint(20) NULL DEFAULT NULL ,
 `attach_id`  bigint(20) NULL DEFAULT NULL 
@@ -84,3 +85,5 @@ ENGINE=InnoDB
 DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
 ROW_FORMAT=COMPACT
 ;
+
+insert t_role(id,name) values(13,'role_person_lack');
