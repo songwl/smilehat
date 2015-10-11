@@ -38,6 +38,11 @@
 	        	<img class="search-img" src="${ctx}/static/images/search.png"  alt="搜索">
 	        </div>
 		</div>
+		<div id="text_search">
+			<form action="${ctx}/trading/purchase/center" method="post">
+				<input class="form-control" type="text" name="search_LIKE_title" placeholder="请输入采购标题"/>
+			</form>
+		</div>
 		<div id="purchase_search">
 			<div class="region_search">
 				<!-- Split button -->
@@ -78,7 +83,9 @@
 			<form id="productForm" action="${ctx}/trading/purchase/list" method="post" class="pageForm">
 				<input type="hidden" name="pageNum" value="1" />
 				<input type="hidden" name="numPerPage" value="10" />
-				
+				<input type="hidden" name="search_EQ_region.id" value="${param.search_EQ_region.id}" id="regionId" />
+				<input type="hidden" name="search_EQ_category.id" value="${param.search_EQ_category.id}" id="categoryId" />
+				<input type="hidden" name="search_LIKE_title" value="${param.search_LIKE_title}" />
 			</form>
 			
 			<div id="product_list">

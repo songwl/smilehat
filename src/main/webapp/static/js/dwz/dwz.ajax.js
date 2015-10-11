@@ -384,7 +384,7 @@ function uploadifyMultipleFileSuccess(file, data, response){
 			$ulObj = $("<ul></ul>");
 			$fiewViewObj.append($ulObj);
 		}
-		var html = '<li><input type="hidden" name="' + hiddenName + '" value="' + json.id + '"/><a  target="_blank" href="'+DWZ.sysPara["att_ctx"]+ '/'+json.downloadUrl+'">';
+		var html = '<li><input type="hidden" name="' + hiddenName + '" value="' + json.id + '"/><a  target="_blank" href="'+DWZ.sysPara["ctx"]+ '/'+json.downloadUrl+'">';
 		if(uploadSuccessShow && uploadSuccessShow == "path"){
 			html += DWZ.sysPara["att_ctx"] + '/' + json.downloadUrl;
 		}else{

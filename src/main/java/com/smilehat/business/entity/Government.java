@@ -1,13 +1,20 @@
 package com.smilehat.business.entity;
 
-import javax.persistence.*; 
+import java.util.List;
 
-import com.smilehat.constants.Constants;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.util.*;
-
+import com.smilehat.business.core.entity.sys.upload.Attach;
+import com.smilehat.constants.Constants;
 import com.smilehat.modules.entity.IdEntity;
 
  
@@ -34,7 +41,11 @@ public class Government extends IdEntity {
      private  java.lang.Integer sort;//排序字段
 	 
      private Region region;//区域
+     
+     private List<Attach> attachList;
 
+     private List<GovernmentCatalog> catalogList;
+     
      /**
  	 * @return
  	 */
@@ -161,7 +172,25 @@ public class Government extends IdEntity {
 		this.createTime = value;
 	}
 	
-	
+	@ManyToMany
+	@JoinTable(name = Constants.TABLE_PREFIX + "government_attach", joinColumns = { @JoinColumn(name = "government_id") }, inverseJoinColumns = { @JoinColumn(name = "attach_id") })
+	public List<Attach> getAttachList() {
+		return attachList;
+	}
+
+	public void setAttachList(List<Attach> attachList) {
+		this.attachList = attachList;
+	}
+
+	@OneToMany(mappedBy="government")
+	public List<GovernmentCatalog> getCatalogList() {
+		return catalogList;
+	}
+
+	public void setCatalogList(List<GovernmentCatalog> catalogList) {
+		this.catalogList = catalogList;
+	}
+
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);

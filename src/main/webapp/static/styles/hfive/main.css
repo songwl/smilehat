@@ -475,7 +475,6 @@ text-decoration: initial;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
   max-height: 300px;
-  overflow: scroll visible;	
 }
 
 .ul-my-tree >li >ul {

@@ -83,3 +83,14 @@ img.goverCatalog_img {
     text-align: center;
     padding-top: 5px;
 }
+
+ul.list_gover li {
+float: left;
+width: 100%;
+height:120px;
+border: 1px #099214 solid;
+overflow: hidden;
+position: relative;
+margin-bottom: 10px;
+padding: 5px;
+}

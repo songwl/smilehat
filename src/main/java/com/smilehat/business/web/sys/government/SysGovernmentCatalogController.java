@@ -1,7 +1,11 @@
 package com.smilehat.business.web.sys.government;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,14 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.smilehat.business.core.web.BaseController;
 import com.smilehat.business.entity.GovernmentCatalog;
 import com.smilehat.business.service.GovernmentCatalogService;
-import com.smilehat.business.core.web.BaseController;
+import com.smilehat.business.service.GovernmentService;
 import com.smilehat.constants.Constants;
-import com.smilehat.util.CoreUtils;
-
-import java.util.*;
-import com.smilehat.modules.entity.IdEntity;
 
  
 /**
@@ -34,6 +36,10 @@ public class SysGovernmentCatalogController extends BaseController {
 	 
 	@Autowired
 	private GovernmentCatalogService governmentCatalogService;
+	
+	@Autowired
+	private GovernmentService governmentService;
+	
 	public static final String PATH = "sys/governmentcatalog";
 	public static final String PATH_LIST = PATH +Constants.SPT+ "list";
 	public static final String PATH_EDIT = PATH + Constants.SPT+"edit";
@@ -63,21 +69,33 @@ public class SysGovernmentCatalogController extends BaseController {
 	
 	
 
-	@RequestMapping(value = BaseController.NEW, method = RequestMethod.GET)
-	public String createForm(Model model) {
+	@RequestMapping(value = BaseController.NEW+"/{governmentId}", method = RequestMethod.GET)
+	public String createForm(Model model,@PathVariable("governmentId") java.lang.Long governmentId) {
+		model.addAttribute("governmentId", governmentId);
 		model.addAttribute("vm", new GovernmentCatalog());
 		model.addAttribute("action", BaseController.CREATE);
 		return PATH_EDIT;
 	}
 
 	@RequestMapping(value =  BaseController.CREATE, method = RequestMethod.POST)
-	public ModelAndView create(@Valid GovernmentCatalog governmentCatalog) {
-		governmentCatalogService.save(governmentCatalog);		 
+	public ModelAndView create(@Valid GovernmentCatalog governmentCatalog,@RequestParam Long governmentId,@RequestParam(required=false) Long[] attachIds
+			,@RequestParam(required=false) String farmIds) {
+		governmentCatalog.setGovernment(governmentService.getObjectById(governmentId));
+		Long[] farms = null;
+		if(farmIds!=null){
+			String[] ids = farmIds.split(",");
+			farms = new Long[ids.length];
+			for (int i=0;i<ids.length;i++) {
+				farms[i]=Long.valueOf(ids[i]);
+			}
+		}
+		governmentCatalogService.saveGovernmentCatalog(governmentCatalog,attachIds,farms);		 
 		return this.ajaxDoneSuccess("创建成功");
 	}
 
-	@RequestMapping(value =  BaseController.UPDATE+"/{id}", method = RequestMethod.GET)
-	public String updateForm(@PathVariable("id") java.lang.Long id, Model model) {
+	@RequestMapping(value =  BaseController.UPDATE+"/{governmentId}/{id}", method = RequestMethod.GET)
+	public String updateForm(@PathVariable("governmentId") java.lang.Long governmentId,@PathVariable("id") java.lang.Long id, Model model) {
+		model.addAttribute("governmentId", governmentId);
 		model.addAttribute("vm", governmentCatalogService.getObjectById(id));
 		model.addAttribute("action", BaseController.UPDATE);
 		return PATH_EDIT;
@@ -91,8 +109,18 @@ public class SysGovernmentCatalogController extends BaseController {
 	}
 
 	@RequestMapping(value = BaseController.UPDATE, method = RequestMethod.POST)
-	public ModelAndView update(@Valid @ModelAttribute("preloadModel") GovernmentCatalog governmentCatalog) {
-		governmentCatalogService.save(governmentCatalog);		
+	public ModelAndView update(@Valid @ModelAttribute("preloadModel") GovernmentCatalog governmentCatalog,@RequestParam Long governmentId,@RequestParam(required=false) Long[] attachIds
+			,@RequestParam(required=false) String farmIds) {
+		governmentCatalog.setGovernment(governmentService.getObjectById(governmentId));
+		Long[] farms = null;
+		if(farmIds!=null){
+			String[] ids = farmIds.split(",");
+			farms = new Long[ids.length];
+			for (int i=0;i<ids.length;i++) {
+				farms[i]=Long.valueOf(ids[i]);
+			}
+		}
+		governmentCatalogService.saveGovernmentCatalog(governmentCatalog,attachIds,farms);		
 		return this.ajaxDoneSuccess("修改成功");
 	}
 

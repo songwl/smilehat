@@ -55,3 +55,32 @@ INSERT INTO `t_dict` VALUES ('37', 'BRANCH_INFO', '标个', 'biaoge', null, null);
 
 //供应表增加规格信息，规格信息为选择字典项
 alter table t_purchase add branch_info varchar(255);
+
+
+CREATE TABLE t_government_attach(
+`government_id`  bigint(20) NULL DEFAULT NULL ,
+`attach_id`  bigint(20) NULL DEFAULT NULL 
+)
+ENGINE=InnoDB
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+ROW_FORMAT=COMPACT
+;
+
+
+CREATE TABLE t_government_catalog_attach(
+`catalog_id`  bigint(20) NULL DEFAULT NULL ,
+`attach_id`  bigint(20) NULL DEFAULT NULL 
+)
+ENGINE=InnoDB
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+ROW_FORMAT=COMPACT
+;
+
+CREATE TABLE t_user_attach(
+`user_id`  bigint(20) NULL DEFAULT NULL ,
+`attach_id`  bigint(20) NULL DEFAULT NULL 
+)
+ENGINE=InnoDB
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+ROW_FORMAT=COMPACT
+;

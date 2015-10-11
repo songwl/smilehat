@@ -52,7 +52,7 @@
 			</form>
 			
 			<div id="product_list">
-				<ul class="list">
+				<ul class="list_gover">
 					<li>
 						<a href="${ctx}/government/detail/0">
 							<div class="left">

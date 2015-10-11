@@ -89,7 +89,7 @@ public class CustomerService extends BaseService<Customer> {
 		}
 		Long[] roleIds = new Long[1];
 		if (Enums.USER_TYPE.PERSON.name().equalsIgnoreCase(user.getUserType())) {
-			roleIds[0] = 3L;
+			roleIds[0] = 13L;
 		} else if (Enums.USER_TYPE.DEALER.name().equalsIgnoreCase(user.getUserType())) {
 			roleIds[0] = 14L;
 		} else if (Enums.USER_TYPE.FARMER.name().equalsIgnoreCase(user.getUserType())) {
@@ -128,7 +128,7 @@ public class CustomerService extends BaseService<Customer> {
 		if (changeUserType) {
 			Long[] roleIds = new Long[1];
 			if (Enums.USER_TYPE.PERSON.name().equalsIgnoreCase(user.getUserType())) {
-				roleIds[0] = 3L;
+				roleIds[0] = 13L;
 			} else if (Enums.USER_TYPE.DEALER.name().equalsIgnoreCase(user.getUserType())) {
 				roleIds[0] = 14L; //未审核特约经销商
 			} else if (Enums.USER_TYPE.FARMER.name().equalsIgnoreCase(user.getUserType())) {

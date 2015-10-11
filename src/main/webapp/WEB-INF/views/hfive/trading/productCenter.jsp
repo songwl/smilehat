@@ -40,7 +40,9 @@
 	        </div>
 		</div>
 		<div id="text_search">
-			<input class="form-control" type="text" size="30"  placeholder="请输入产品名称"/>
+			<form action="${ctx}/trading/product/center" method="post">
+				<input class="form-control" type="text" name="search_LIKE_name" placeholder="请输入产品名称"/>
+			</form>
 		</div>
 		<div id="purchase_search">
 			<div class="region_search">
@@ -85,6 +87,7 @@
 				<input type="hidden" name="search_EQ_user.id" value="${param.search_EQ_user.id}" />
 				<input type="hidden" name="search_EQ_region.id" value="${param.search_EQ_region.id}" id="regionId" />
 				<input type="hidden" name="search_EQ_category.id" value="${param.search_EQ_category.id}" id="categoryId" />
+				<input type="hidden" name="search_LIKE_name" value="${param.search_LIKE_name}" />
 			</form>
 			
 			<div id="product_list">

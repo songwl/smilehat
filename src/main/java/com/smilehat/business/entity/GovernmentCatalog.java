@@ -1,13 +1,20 @@
 package com.smilehat.business.entity;
 
-import javax.persistence.*; 
+import java.util.List;
 
-import com.smilehat.constants.Constants;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.util.*;
-
+import com.smilehat.business.core.entity.security.User;
+import com.smilehat.business.core.entity.sys.upload.Attach;
+import com.smilehat.constants.Constants;
 import com.smilehat.modules.entity.IdEntity;
 
  
@@ -31,6 +38,10 @@ public class GovernmentCatalog extends IdEntity {
 	 
      private Government government;//父级政府
 	
+     private List<Attach> attachList;
+     
+     private List<User> farmList;
+     
      /**
  	 * @return
  	 */
@@ -107,10 +118,30 @@ public class GovernmentCatalog extends IdEntity {
 		this.createTime = value;
 	}
 	
+	@ManyToMany
+	@JoinTable(name = Constants.TABLE_PREFIX + "government_catalog_attach", joinColumns = { @JoinColumn(name = "catalog_id") }, inverseJoinColumns = { @JoinColumn(name = "attach_id") })
+	public List<Attach> getAttachList() {
+		return attachList;
+	}
+
+	public void setAttachList(List<Attach> attachList) {
+		this.attachList = attachList;
+	}
 	
+	@ManyToMany
+	@JoinTable(name = Constants.TABLE_PREFIX + "government_catalog_user", joinColumns = { @JoinColumn(name = "catalog_id") }, inverseJoinColumns = { @JoinColumn(name = "user_id") })
+	public List<User> getFarmList() {
+		return farmList;
+	}
+
+	public void setFarmList(List<User> farmList) {
+		this.farmList = farmList;
+	}
+
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
 	}
+
 }
 
