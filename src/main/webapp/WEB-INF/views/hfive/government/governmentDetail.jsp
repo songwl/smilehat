@@ -33,54 +33,19 @@
 			</img>
 			<div class="gover_info">
 				<div class="gover_name">
-					政府名称
+					${vm.name}
 				</div>
 				<div class="gover_introduction">
-					简介
+					${vm.introduction}
 				</div>
 			</div>
+			<form id="productForm" action="${ctx}/government/cataloglist/${vm.id}" method="post" class="pageForm">
+				<input type="hidden" name="pageNum" value="1" />
+				<input type="hidden" name="numPerPage" value="10" />
+			</form>
 			<div class="gover_catalog">
 				<ul class="list">
-					<li>
-						<a href="${ctx}/government/catalogdetail/0">
-							<div class="grow1">
-								<img class="goverCatalog_img" alt="" src="${ctx}/static/images/gover.jpg">
-							</div>
-							<div class="grow2">
-								子栏目名称
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="${ctx}/government/catalogdetail/0">
-							<div class="grow1">
-								<img class="goverCatalog_img" alt="" src="${ctx}/static/images/gover.jpg">
-							</div>
-							<div class="grow2">
-									子栏目名称
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="${ctx}/government/catalogdetail/0">
-							<div class="grow1">
-								<img class="goverCatalog_img" alt="" src="${ctx}/static/images/gover.jpg">
-							</div>
-							<div class="grow2">
-								子栏目名称
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="${ctx}/government/catalogdetail/0">
-							<div class="grow1">
-								<img class="goverCatalog_img" alt="" src="${ctx}/static/images/gover.jpg">
-							</div>
-							<div class="grow2">
-									子栏目名称
-							</div>
-						</a>
-					</li>
+					
 				</ul>
 			</div>
 		</div>
@@ -90,8 +55,12 @@
 </body>
 
 <script type="text/javascript" src="${ctx}/static/js/base/dict.js"></script>
+<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
 <script type="text/javascript">
-	
-</script>
+		$(function(){
+			getItemList($("#productForm"),$("#gover_catalog .list"));
+
+		});
+	</script>
 </html>
 

@@ -42,7 +42,7 @@
 			<input class="form-control" type="text" size="30"  placeholder="请输入政府名称和简介关键字"/>
 		</div>
 		<div id="main_list">
-			<form id="productForm" action="" method="post" class="pageForm">
+			<form id="productForm" action="${ctx}/government/list" method="post" class="pageForm">
 				<input type="hidden" name="pageNum" value="1" />
 				<input type="hidden" name="numPerPage" value="10" />
 <%-- 				<input type="hidden" name="search_EQ_user.id" value="${param.search_EQ_user.id}" /> --%>
@@ -53,33 +53,17 @@
 			
 			<div id="product_list">
 				<ul class="list_gover">
-					<li>
-						<a href="${ctx}/government/detail/0">
-							<div class="left">
-								<img class="gover-img"  alt="" src="${ctx}/static/images/gover.jpg">
-							</div>
-							<div class="right">
-								<div class="r_row1">
-									政府名称
-								</div>
-								<div class="r_row2">
-									XX省XX市XX县 XX路XX号
-								</div>
-								<div class="r_row3">
-									农场数量（20个）
-								</div>
-							</div>
-						</a>
-					</li>
+					
 				</ul>
 			</div>
 		</div>
 <%-- 			<%@ include file="/WEB-INF/inc/hfive/include.foot.jsp"%> --%>
 			<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
 	</div>
+	<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(function(){
-			getItemList($("#productForm"),$("#product_list .list"));
+			getItemList($("#productForm"),$("#product_list .list_gover"));
 
 		});
 		
