@@ -12,6 +12,7 @@ height: 20px;
 
 div#product_list {
     padding: 5px;
+    bottom: 30px;
 }
 
 ul.list {
