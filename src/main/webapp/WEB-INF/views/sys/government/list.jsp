@@ -49,7 +49,7 @@
 				<th width="30"><input type="checkbox" group="ids" class="checkboxCtrl"></th>    
 				<th <tag:orderField name="name"/>>政府名称</th>   
 				<th <tag:orderField name="website"/>>官方网址</th>
-				<th <tag:orderField name="region。regionName"/>>地区名称</th>   
+				<th>地区名称</th>   
 				<th <tag:orderField name="regionDetail"/>>详细地址</th>   
 				<th <tag:orderField name="contact"/>>联系方式</th>   
 				<th <tag:orderField name="createTime"/>>创建时间</th>  
@@ -65,7 +65,7 @@
 					</td>   
 					<td>  ${varitem.website} 
 					</td>   
-					<td> ${varitem.region.regionName} 
+					<td>${varitem.region.parent.parent.regionName} ${varitem.region.parent.regionName}  ${varitem.region.regionName} 
 					</td>   
 					<td>  ${varitem.regionDetail}
 					</td>   

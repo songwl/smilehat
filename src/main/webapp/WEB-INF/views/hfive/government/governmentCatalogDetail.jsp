@@ -34,13 +34,13 @@
 			</img>
 			<div class="gover_info">
 				<div class="gover_name">
-					子栏目名称
+					${vm.catalogName}
 				</div>
 				<div class="gover_introduction">
-					简介描述
+					${vm.description}
 				</div>
 			</div>
-			<form id="productForm" action="${ctx}/farm/list" method="post">
+			<form id="productForm" action="${ctx}/government/catalog/farmList/${vm.id}" method="post">
 				<input type="hidden" name="pageNum" value="1" />
 				<input type="hidden" name="numPerPage" value="10" />
 				
@@ -56,6 +56,7 @@
 	</div>
 </body>
 
+<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
 <script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function(){

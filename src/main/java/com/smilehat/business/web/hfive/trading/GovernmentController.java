@@ -1,6 +1,7 @@
 package com.smilehat.business.web.hfive.trading;
 
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -89,17 +90,18 @@ public class GovernmentController extends HfiveBaseController {
 		return "hfive/government/governmentCatalogDetail";
 	}
 	
-	@RequestMapping(value = "/catalog/farmList")
-	public String governmentCatalogFarmList(@PathVariable("governmentCatalogId") java.lang.Long governmentCatalogId,Model model, HttpServletRequest request) {
+	@RequestMapping(value = "/catalog/farmList/{id}")
+	public String governmentCatalogFarmList(@PathVariable("id") java.lang.Long governmentCatalogId,Model model, HttpServletRequest request) {
 
-		PageRequest pageRequest = this.getPageRequest("", "");
-		Map<String, Object> searchParams = this.getSearchRequest();
-		searchParams.put("EQ_isDeleted", false);
+//		PageRequest pageRequest = this.getPageRequest("", "");
+//		Map<String, Object> searchParams = this.getSearchRequest();
+//		searchParams.put("EQ_isDeleted", false);
 		//???怎么获取该政府子栏目下的农场列表？？
-		
-		Page<GovernmentCatalog> page=governmentCatalogService.findPage(searchParams, pageRequest); 
-		model.addAttribute("page", page);
+		GovernmentCatalog gc=governmentCatalogService.getObjectById(governmentCatalogId);
+		List<User> farmlist=gc.getFarmList();
+//		Page<GovernmentCatalog> page=governmentCatalogService.findPage(searchParams, pageRequest); 
+		model.addAttribute("page", farmlist);
 
-		return "hfive/farm/farmList";
+		return "hfive/government/farmList";
 	}
 }

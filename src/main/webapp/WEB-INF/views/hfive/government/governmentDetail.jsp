@@ -43,7 +43,7 @@
 				<input type="hidden" name="pageNum" value="1" />
 				<input type="hidden" name="numPerPage" value="10" />
 			</form>
-			<div class="gover_catalog">
+			<div id="gover_catalog">
 				<ul class="list">
 					
 				</ul>

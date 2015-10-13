@@ -62,7 +62,7 @@
 			</div>
 	</div>
 	<div class="div-back">
-		<a  class="a-back"  href="${ctx}/farm/center">
+		<a  class="a-back"  href="javascript:history.back(-1);">
    			<img class="img-back" id="" src="${ctx}/static/images/back1.png"  alt="返回">
    		</a>
 	</div>
