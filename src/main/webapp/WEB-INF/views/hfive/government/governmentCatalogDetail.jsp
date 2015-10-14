@@ -30,7 +30,7 @@
 	        </a>
         </div>
 		<div class="pageContent"> 
-			<img class="goverment_img" alt="" src="${ctx}/static/images/gover.jpg">
+			<img class="goverment_img" alt="" src="${ctx}/${vm.attachList[0].downloadPath}" onerror="javascript:this.src='${ctx}/static/images/gover.jpg'">
 			</img>
 			<div class="gover_info">
 				<div class="gover_name">

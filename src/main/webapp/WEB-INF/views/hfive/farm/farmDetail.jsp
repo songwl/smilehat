@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div id="header-img">
-		
+		<img class="farm-img"  alt="" src="${ctx}/${vm.user.attachs[0].downloadPath}" onerror="javascript:this.src='${ctx}/static/images/farmDBg.png'" >
 	</div>
 	<div class="pageContent"> 
 		<input type="hidden" name="user.id" value="${vm.user.id}">

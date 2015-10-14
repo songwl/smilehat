@@ -6,7 +6,7 @@
 		<li>
 			<a href="${ctx}/government/catalogdetail/${varitem.id}">
 				<div class="grow1">
-					<img class="goverCatalog_img" alt="" src="${ctx}/static/images/gover.jpg">
+					<img class="goverCatalog_img" alt="" src="${ctx}/${varitem.attachList[0].downloadPath}" onerror="javascript:this.src='${ctx}/static/images/gover.jpg'">
 				</div>
 				<div class="grow2">
 					${varitem.catalogName}
