@@ -50,7 +50,7 @@
 				<tr target="sid" rel="${item.id}">
 					<td><input name="ids" value="${item.id}" type="checkbox"></td>
 					<td>${item.type}</td>
-					<td>${item.name}</td>
+					<td><a href="${ctx}/sys/dict/update/${item.id}?navTabId=sys_dict" target="dialog" title="编辑" rel="dict_edit">${item.name}</a> </td>
 					<td>${item.code}</td>
 					<td>${item.description}</td>
 					<td>${item.sort}</td>

@@ -20,11 +20,11 @@
 			</p>
 			<p>
 				<label>描述：</label>
-				<input name="description" class="required" type="text" size="30" value="${vm.description}"  validate="{rangelength:[1,255]}"/>
+				<input name="description" type="text" size="30" value="${vm.description}"  validate="{rangelength:[1,255]}"/>
 			</p> 
 			<p>
 				<label>排序：</label>
-				<input name="sort" type="text" size="30" value="${vm.sort}"  validate="{required:true,digits:true}"/>
+				<input name="sort" type="text" size="30" value="${vm.sort}"  />
 			</p> 
 		</div>
 		<div class="formBar">
