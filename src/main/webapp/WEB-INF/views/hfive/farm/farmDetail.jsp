@@ -9,12 +9,38 @@
 
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/farmDetail.css" type="text/css" />
+<link rel="stylesheet" href="${ctx}/static/js/swiper/swiper.min.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/static/js/swiper/swiper.min.js"></script>
 
 <title>微笑草帽</title>
 </head>
 <body>
 	<div id="header-img">
-		<img class="farm-img"  alt="" src="${ctx}/${vm.user.attachs[0].downloadPath}" onerror="javascript:this.src='${ctx}/static/images/farmDBg.png'" >
+		<!-- 焦点图 S -->
+		<div class="swiper-container swiper-top">
+			<div class="swiper-wrapper">
+				<c:if test="${not empty vm.user.attachs}">
+					<c:forEach items="${vm.user.attachs}" var="image">
+						<div class="swiper-slide">
+							<a href="javascript:;">
+								<img class="farm-img"  alt="" src="${ctx}/${image.downloadPath}" onerror="javascript:this.src='${ctx}/static/images/farmDBg.png'" >
+							</a>
+						</div>
+					</c:forEach>
+				</c:if>
+				
+				<c:if test="${empty vm.user.attachs}">
+					<div class="swiper-slide">
+						<a href="javascript:;">
+							<img class="farm-img" alt="" src="${ctx}/static/images/farmDBg.png" />
+						</a>
+					</div>
+				</c:if>
+			</div>
+			<div class="swiper-pagination swiper-pagination-top"></div>
+		</div>
+		<!-- 焦点图 E -->
+		
 	</div>
 	<div class="pageContent"> 
 		<input type="hidden" name="user.id" value="${vm.user.id}">
@@ -87,6 +113,23 @@
 			}else{
 				$(this).text(info);
 			}
+		});
+		
+		var topSliderSwiper = new Swiper('.swiper-top', {
+				pagination: '.swiper-pagination-top',
+				autoplay: 3000,
+				autoplayDisableOnInteraction: false,
+				loop: true,
+				effect: 'fade',
+				observe: true,
+				observeParents: true,
+				paginationClickable: false,
+				runCallbacksOnInit: true,
+				paginationBulletRender: function (index, className) {
+						return '<span class="' + className + '"></span>';
+				},
+				onSlideChangeEnd: function(swiper) {
+				}
 		});
 	});
 	</script >

@@ -12,7 +12,8 @@
 
 <%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
 
-
+<link rel="stylesheet" href="${ctx}/static/js/swiper/swiper.min.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/static/js/swiper/swiper.min.js"></script>
 
 <title>微笑草帽</title>
 </head>
@@ -30,8 +31,31 @@
 	        </a>
         </div>
 		<div class="pageContent"> 
-			<img class="goverment_img" alt="" src="${ctx}/${vm.attachList[0].downloadPath}" onerror="javascript:this.src='${ctx}/static/images/gover.jpg'">
-			</img>
+			<!-- 焦点图 S -->
+			<div class="swiper-container swiper-top">
+				<div class="swiper-wrapper">
+					<c:if test="${not empty vm.attachList}">
+						<c:forEach items="${vm.attachList}" var="image">
+							<div class="swiper-slide">
+								<a href="javascript:;">
+									<img class="goverment_img"  alt="" src="${ctx}/${image.downloadPath}" onerror="javascript:this.src='${ctx}/static/images/gover.jpg'" >
+								</a>
+							</div>
+						</c:forEach>
+					</c:if>
+					
+					<c:if test="${empty vm.attachList}">
+						<div class="swiper-slide">
+							<a href="javascript:;">
+								<img class="goverment_img" alt="" src="${ctx}/static/images/gover.jpg" />
+							</a>
+						</div>
+					</c:if>
+				</div>
+				<div class="swiper-pagination swiper-pagination-top"></div>
+			</div>
+			<!-- 焦点图 E -->
+			
 			<div class="gover_info">
 				<div class="gover_name">
 					${vm.catalogName}
@@ -62,6 +86,23 @@
 $(function(){
 	$(function(){
 		getItemList($("#productForm"),$("#gover_catalog .list"));
+		
+		var topSliderSwiper = new Swiper('.swiper-top', {
+				pagination: '.swiper-pagination-top',
+				autoplay: 3000,
+				autoplayDisableOnInteraction: false,
+				loop: true,
+				effect: 'fade',
+				observe: true,
+				observeParents: true,
+				paginationClickable: false,
+				runCallbacksOnInit: true,
+				paginationBulletRender: function (index, className) {
+						return '<span class="' + className + '"></span>';
+				},
+				onSlideChangeEnd: function(swiper) {
+				}
+		});
 	});
 });
 	
