@@ -16,7 +16,7 @@
 						${varitem.region.parent.parent.regionName} ${varitem.region.parent.regionName} ${varitem.region.regionName}  ${varitem.regionDetail} 
 					</div>
 					<div class="r_row3">
-						农场数量（20个）
+<!-- 						农场数量（20个） -->
 					</div>
 				</div>
 			</a>

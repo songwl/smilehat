@@ -46,7 +46,7 @@
 					<dl  class="nowrap">
 						<dt><label>规格:</label></dt>
 						<dd>
-<%-- 							<input type="text" id="branchInfo" name="branchInfo" class="required" size="50" value="${vm.branchInfo}" />	 --%>
+							<input type="text" id="branch" name="branch" style="width: 140px;" size="18" value="${vm.branch}" />	
 							<select  id="branchInfo" name=branchInfo  class="required combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
 							</select>
 						</dd>
@@ -55,7 +55,8 @@
 					<dl class="nowrap">
 						<dt><label>价格:</label></dt>
 						<dd>
-							<input type="text" id="price" name="price" class="required" size="18" value="${vm.price}" validate="{required:true}"/>		
+							<input type="text" id="price" name="price" class="required" size="18" style="width: 80px;" value="${vm.price}" validate="{required:true}"/>		
+							<input type="text" id="price2" name="price2" class="required" size="18" style="width: 80px;" value="${vm.price2}" validate="{required:true}"/>	
 							<select  id="priceUnit" name="priceUnit"  class="required combox"  selectedValue="${vm.priceUnit}"   dataUrl="${sctx}/dict/selectDictByType?dictType=PRICE_UNIT">
 							</select>				
 						</dd>

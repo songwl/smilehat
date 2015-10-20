@@ -40,7 +40,7 @@
 								</dl>
 								<dl class="nowrap">
 									<dt><label>官方网址:</label></dt>
-									<dd><input type="text" id="website" name="website" class="required" size="30" value="${vm.website}" validate="{required:true}"/>						</dd>
+									<dd><input type="text" id="website" name="website" size="30" value="${vm.website}" />						</dd>
 								</dl>
 								<dl class="nowrap">
 									<dt><label>区域:</label></dt>

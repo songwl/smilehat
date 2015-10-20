@@ -55,7 +55,6 @@ public class GovernmentController extends HfiveBaseController {
 
 		PageRequest pageRequest = this.getPageRequest("createTime", "desc");
 		Map<String, Object> searchParams = this.getSearchRequest();
-//		searchParams.put("EQ_isDeleted", false);
 
 		Page<Government> page = governmentService.findPage(searchParams, pageRequest);
 		model.addAttribute("page", page);

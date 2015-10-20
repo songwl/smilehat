@@ -2,6 +2,11 @@ div#header {
 	color:#6EBD28;
 	font-size: 30px;
 	padding: 21px 29%;
+	width: 100%;
+    height: 80px;
+/*     PADDING: 11PX 2% 12PX 2%; */
+    position: fixed;
+    top: 0px;
 }
 
 .back {
@@ -19,6 +24,9 @@ img.search-img {
 
 input#price ,input#quantity{
     float: left;
+}
+input#price {
+    width: 27%;
 }
 
 select#priceUnit ,select#quantityUnit{

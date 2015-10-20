@@ -49,7 +49,7 @@
 				</div>
 				<div class="d_item" id="d_region">
 					<h5 class="d_item_title">交付地址</h5>
-					<div class="d_item_content">${vm.user.customer.region.parent.parent.regionName} ${vm.user.customer.region.parent.regionName} ${vm.user.customer.region.regionName} ${vm.user.customer.address}</div>
+					<div class="d_item_content">${vm.user.customer.region.parent.parent.regionName} ${vm.user.customer.region.parent.regionName} ${vm.user.customer.region.regionName}</div>
 				</div>
 				<div class="d_item" id="d_memo">
 					<h5 class="d_item_title">详细说明</h5>

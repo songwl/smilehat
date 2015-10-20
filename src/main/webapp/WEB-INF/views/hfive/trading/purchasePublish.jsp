@@ -27,12 +27,13 @@
 		        </a>
 			</div>
 			采购发布
-		</div>
-		<div class="back">
+			<div class="back">
 	        <a href="javascript:history.back(-1);">
 	        	<img class="search-img" src="/smilehat/static/images/back2.png" alt="返回">
 	        </a>
         </div>
+		</div>
+		
 		<div id="menu">
 		    <form class="login-form m-login-form" action="${ctx}/trading/purchase/publish/save" method="post"  id="purchasePublishForm">
 <!-- 		        <div class="form-group"> -->

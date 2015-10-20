@@ -63,7 +63,7 @@
 			<div class="rowline">
 			</div>
 			<div class="row2">
-				${vm.region.parent.parent.regionName} ${vm.region.parent.regionName} ${vm.region.regionName} ${vm.address}
+				${vm.region.parent.parent.regionName} ${vm.region.parent.regionName} ${vm.region.regionName} 
 			</div>
 			<div class="row3">
 				<tag:htmlparse content="${vm.description}" />

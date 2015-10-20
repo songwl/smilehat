@@ -38,9 +38,11 @@ public class Product extends IdEntity {
 	private java.util.Date publishTime;//发布时间
 	private java.util.Date startTime;//上市开始时间
 	private java.util.Date endTime;//上市结束时间
-	private java.lang.String branchInfo;//规格
+	private java.lang.String branch;//规格
+	private java.lang.String branchInfo;//规格单位
 	private java.lang.String priceUnit;//价格单位
 	private java.lang.Double price;//价格
+	private java.lang.Double price2;//价格
 	private java.lang.Double quantity;//供应量
 	private java.lang.String quantityUnit;//供应量单位
 	private java.lang.String regionDetail;//详细地址
@@ -189,7 +191,17 @@ public class Product extends IdEntity {
 	public void setEndTime(java.util.Date value) {
 		this.endTime = value;
 	}
+	/**
+	 * @return
+	 */
+	@Column(name = "branch")
+	public java.lang.String getBranch() {
+		return this.branch;
+	}
 
+	public void setBranch(java.lang.String value) {
+		this.branch = value;
+	}
 	/**
 	 * @return
 	 */
@@ -224,6 +236,17 @@ public class Product extends IdEntity {
 
 	public void setPrice(java.lang.Double value) {
 		this.price = value;
+	}
+	/**
+	 * @return
+	 */
+	@Column(name = "price2")
+	public java.lang.Double getPrice2() {
+		return this.price2;
+	}
+
+	public void setPrice2(java.lang.Double value) {
+		this.price2 = value;
 	}
 
 	/**

@@ -87,3 +87,19 @@ ROW_FORMAT=COMPACT
 ;
 
 insert t_role(id,name) values(13,'role_person_lack');
+
+--2015/10/20
+UPDATE t_dict td
+set td.`name`='每箱'
+where td.`code`='biaoxiang';
+
+UPDATE t_dict td
+set td.`name`='每袋'
+where td.`code`='biaodai';
+
+UPDATE t_dict td
+set td.`name`='每个'
+where td.`code`='biaoge';
+
+alter table t_product add branch varchar(255);
+alter table t_product add price2 varchar(255);

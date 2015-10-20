@@ -16,12 +16,13 @@ img.back {
 
 #menu{
 	width:90%; 
-	overflow:hidden; 
+/* 	overflow:hidden;  */
 	margin:10px auto;
 	color: white;
 /* 	border:1px solid #4EAD6D; */
 /* 	min-height: 600px; */
 	margin-bottom: 50px;
+	margin-top: 80px;
 }
 
 #menu #nav {
@@ -78,7 +79,7 @@ font-size: 2em;
 
 .form-group {
     margin-bottom: 15px;
-    overflow: hidden-;
+    overflow: hidden;
 }
 
 .form-group .input-icon {

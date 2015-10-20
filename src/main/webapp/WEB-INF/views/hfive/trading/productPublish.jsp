@@ -34,12 +34,13 @@
 		        </a>
 			</div>
 			产品发布
-		</div>
-		<div class="back">
+			<div class="back">
 	       	<a href="javascript:history.back(-1);">
 	        	<img class="search-img" src="/smilehat/static/images/back2.png" alt="返回">
 	        </a>
         </div>
+		</div>
+		
 		<div id="menu">
 		    <form class="login-form m-login-form" action="${ctx}/trading/product/publish/save" method="post" id="productPublishForm">
 		        <div class="form-group">
@@ -86,6 +87,7 @@
 						<div class="input-name">
 							规格：
 						</div>
+						<input type="text" id="branch" name="branch" class="form-control" size="18"/>
 						<select  id="branchInfo" name=branchInfo  class="form-control combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
 						</select>
 					</div>
@@ -93,7 +95,9 @@
 				 <div class="form-group">
 					价格：
 					<div class="input-icon" style="height: 35px;">
-						<input type="text" id="price" name="price" placeholder="请输入数字" class="form-control" size="18" onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');" />		
+						<input type="text" id="price" name="price" placeholder="数字" class="form-control more-price"  size="18" onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');" />		
+						-
+						<input type="text" id="price2" name="price2" placeholder="数字" class="form-control more-price" size="18" onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');" />		
 						<select  id="priceUnit" name="priceUnit"  class="form-control combox"  dataUrl="${sctx}/dict/selectDictByType?dictType=PRICE_UNIT">
 						</select>	
 					</div>
@@ -107,7 +111,7 @@
 					</div>
 				 </div>
 				<div class="form-group">
-					交易地址：
+					产地：
 					<div class="input-icon" style="height: 35px;">
 						<select class="form-control combox" selectedValue="${vm.region.parent.parent.id}" ref="w_combox_city" dataUrl="${ctx}/sys/region/selectJson" refUrl="${ctx}/sys/region/selectJson?pid={value}" style="width: 27%;float: left;">
 							<option value="">----省----</option> 

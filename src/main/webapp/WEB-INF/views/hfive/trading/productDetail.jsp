@@ -37,7 +37,11 @@
 						<div>${vm.user.name}</div>
 					</div>
 					<div class="d_main_right">
-						<span class="unit">￥</span> <c:if test="${empty vm.price}">面议 </c:if>${vm.price} 
+						<span class="unit">￥</span> 
+						<c:if test="${ vm.price==0 && vm.price2==0}">面议 </c:if>
+						<c:if test="${ vm.price==0 && vm.price2!=0}">${vm.price2}  </c:if>
+						<c:if test="${ vm.price!=0 && vm.price2==0}">${vm.price}  </c:if>
+						<c:if test="${ vm.price!=0 && vm.price2!=0}">${vm.price}- ${vm.price2} </c:if>
 						<span id="showDictLabel" class="unit showDictLabel" dictType="PRICE_UNIT" dictCode="${vm.priceUnit}"></span>
 					</div>
 				</div>
@@ -45,14 +49,15 @@
 					<h5 class="d_item_title">规格 / 库存</h5>
 					<div class="d_item_content">
 						<div class="d_item_branch">
+							${vm.branch}
 							<span id="showDictLabel" class="unit showDictLabel" dictType="BRANCH_INFO" dictCode="${vm.branchInfo}"></span>
 						</div>
 						<div class="d_item_quantity">${vm.quantity}&nbsp;<span id="showDictLabel" class="unit showDictLabel" dictType="QUANTITY_UNIT" dictCode="${vm.quantityUnit}"></span></div>
 					</div>
 				</div>
 				<div class="d_item" id="d_region">
-					<h5 class="d_item_title">交付地址</h5>
-					<div class="d_item_content">${vm.region.parent.parent.regionName} ${vm.region.parent.regionName} ${vm.region.regionName} ${vm.regionDetail}</div>
+					<h5 class="d_item_title">产地</h5>
+					<div class="d_item_content">${vm.region.parent.parent.regionName} ${vm.region.parent.regionName} ${vm.region.regionName} </div>
 				</div>
 				<div class="d_item" id="d_memo">
 					<h5 class="d_item_title">详细说明</h5>

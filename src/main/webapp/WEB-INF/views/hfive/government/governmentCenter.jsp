@@ -39,12 +39,13 @@
 	        </div>
 		</div>
 		<div id="text_search">
-			<input class="form-control" type="text" size="30"  placeholder="请输入政府名称和简介关键字"/>
+			<input class="form-control" type="text" size="30"  placeholder="请输入政府名称"/>
 		</div>
 		<div id="main_list">
 			<form id="productForm" action="${ctx}/government/list" method="post" class="pageForm">
 				<input type="hidden" name="pageNum" value="1" />
 				<input type="hidden" name="numPerPage" value="10" />
+				<input type="hidden" name="search_LIKE_name" value="${param.search_LIKE_name}" />
 <%-- 				<input type="hidden" name="search_EQ_user.id" value="${param.search_EQ_user.id}" /> --%>
 <%-- 				<input type="hidden" name="search_EQ_region.id" value="${param.search_EQ_region.id}" id="regionId" /> --%>
 <%-- 				<input type="hidden" name="search_EQ_category.id" value="${param.search_EQ_category.id}" id="categoryId" /> --%>
