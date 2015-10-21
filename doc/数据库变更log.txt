@@ -102,4 +102,11 @@ set td.`name`='Ã¿¸ö'
 where td.`code`='biaoge';
 
 alter table t_product add branch varchar(255);
-alter table t_product add price2 varchar(255);
+alter table t_product add price2 double;
+
+--2015/10/21
+alter table t_user add phone varchar(255);
+
+alter table t_purchase add region_id bigint(20);
+alter table t_purchase add region_detail varchar(255);
+alter table t_purchase add branch varchar(255);

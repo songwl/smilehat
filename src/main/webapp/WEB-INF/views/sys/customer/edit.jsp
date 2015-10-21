@@ -52,7 +52,13 @@
 								</dd>
 							</dl>
 						</c:if>	
-						
+						<dl class="nowrap">
+							<dt>联系电话：</dt>
+							<dd>
+								<input name="user.phone" alt="请输入联系电话"  type="text" size="30" value="${vm.user.phone}"/>
+							</dd>
+						</dl>
+						<br/>
 						<%-- <dl class="nowrap">
 							<dt>使用状态：</dt>
 							<dd>
@@ -99,7 +105,7 @@
 						<dl class="nowrap">
 							<dt>地址详细：</dt>
 							<dd>
-								<input type="text" name="address" value="${vm.address}" class="required" style="width: 480px;" />
+								<input type="text" name="address" value="${vm.address}"   style="width: 480px;" />
 							</dd>
 						</dl>
 <!-- 						<dl class="nowrap"> -->

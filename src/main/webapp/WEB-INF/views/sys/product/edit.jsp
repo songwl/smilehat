@@ -86,7 +86,7 @@
 					</dl>
 					<dl class="nowrap">
 						<dt><label>详细地址:</label></dt>
-						<dd><input type="text" id="regionDetail" name="regionDetail" class="" size="30" value="${vm.regionDetail}" validate="{required:true}" style="width: 480px;"/>						</dd>
+						<dd><input type="text" id="regionDetail" name="regionDetail" class="" size="30" value="${vm.regionDetail}" style="width: 480px;"/>						</dd>
 					</dl>
 					<dl class="nowrap">
 						<dt><label>产品描述:</label></dt>

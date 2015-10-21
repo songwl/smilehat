@@ -32,7 +32,7 @@
 			<dl  class="nowrap">
 				<dt><label>规格:</label></dt>
 				<dd>
-<%-- 							<input type="text" id="branchInfo" name="branchInfo" class="required" size="50" value="${vm.branchInfo}" />	 --%>
+					<input type="text" id="branch" name="branch" style="width: 140px;" size="18" value="${vm.branch}" />	
 					<select  id="branchInfo" name=branchInfo  class="required combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
 					</select>
 				</dd>
@@ -53,6 +53,27 @@
 <!-- 					</select>						 -->
 <!-- 				</dd> -->
 <!-- 			</dl> -->
+			<dl class="nowrap">
+				<dt>产地要求：</dt>
+				<dd>
+					<select class=" combox" selectedValue="${vm.region.parent.parent.id}" ref="w_combox_city" dataUrl="${sctx}/region/selectJson" refUrl="${sctx}/region/selectJson?pid={value}">
+						<option value="">----省----</option> 
+					</select>
+					<select class=" combox" selectedValue="${vm.region.parent.id}" id="w_combox_city" ref="w_combox_area" refUrl="${sctx}/region/selectJson?pid={value}" 
+							<c:if test="${not empty vm.region.parent.parent.id}">dataUrl="${sctx}/region/selectJson?pid=${vm.region.parent.parent.id}"</c:if>>
+						<option value="">----市----</option> 
+					</select>
+					<select class=" combox" name="regionId" selectedValue="${vm.region.id}" id="w_combox_area" <c:if test="${not empty vm.region.parent.id}">dataUrl="${sctx}/region/selectJson?pid=${vm.region.parent.id}"</c:if>>
+						<option value="">----区----</option> 
+					</select>
+				</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt><label>详细地址:</label></dt>
+				<dd>
+					<input type="text" id="regionDetail" name="regionDetail" class="" size="30" value="${vm.regionDetail}"  style="width: 480px;"/>						
+				</dd>
+			</dl>
 			<dl class="nowrap">
 				<dt><label>产品描述:</label></dt>
 				<dd>

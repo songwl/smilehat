@@ -40,6 +40,7 @@ public class User extends IdEntity {
 	private java.lang.Boolean isDeleted = Boolean.FALSE; // 默认未删除
 	private java.lang.Boolean isAudit; //是否审核通过
 	private java.util.Date auditTime;//审核时间
+	private String phone;//联系电话
 
 	private Attach photoAttach;
 
@@ -161,6 +162,14 @@ public class User extends IdEntity {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public java.lang.Boolean getIsDeleted() {

@@ -63,15 +63,15 @@
 					<h5 class="d_item_title">详细说明</h5>
 					<div class="d_item_content"><tag:htmlparse content="${vm.description}" /> </div>
 				</div>
-			
-				<div class="d_info">
-					<div class="d_info_item">
-						<a href="javascript:void(0);"  <shiro:user>info="${vm.user.loginName}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >
-						点击获取联系方式
-						</a>
+				<c:if test="${!empty vm.user.phone}">
+					<div class="d_info">
+						<div class="d_info_item">
+							<a href="javascript:void(0);"  <shiro:user>info="${vm.user.phone}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >
+							点击获取联系方式
+							</a>
+						</div>
 					</div>
-				</div>
-					
+				</c:if>	
 			</div>
 		</div>
 		

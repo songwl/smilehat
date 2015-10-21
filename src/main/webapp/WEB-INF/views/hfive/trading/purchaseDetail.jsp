@@ -43,7 +43,10 @@
 				<div class="d_item" id="d_unit">
 					<h5 class="d_item_title">规格 / 采购量</h5>
 					<div class="d_item_content">
-						<div class="d_item_branch"><span id="showDictLabel" class="unit showDictLabel" dictType="BRANCH_INFO" dictCode="${vm.branchInfo}"></span></div>
+						<div class="d_item_branch">
+							${vm.branch}
+							<span id="showDictLabel" class="unit showDictLabel" dictType="BRANCH_INFO" dictCode="${vm.branchInfo}"></span>
+						</div>
 						<div class="d_item_quantity">${vm.quantity}&nbsp;<span id="showDictLabel" class="unit showDictLabel" dictType="QUANTITY_UNIT" dictCode="${vm.quantityUnit}"></span></div>
 					</div>
 				</div>
@@ -51,19 +54,23 @@
 					<h5 class="d_item_title">交付地址</h5>
 					<div class="d_item_content">${vm.user.customer.region.parent.parent.regionName} ${vm.user.customer.region.parent.regionName} ${vm.user.customer.region.regionName}</div>
 				</div>
+				<div class="d_item" id="d_region">
+					<h5 class="d_item_title">产地要求</h5>
+					<div class="d_item_content">${vm.region.parent.parent.regionName} ${vm.region.parent.regionName} ${vm.region.regionName}</div>
+				</div>
 				<div class="d_item" id="d_memo">
 					<h5 class="d_item_title">详细说明</h5>
 					<div class="d_item_content"><tag:htmlparse content="${vm.description}" /></div>
 				</div>
-			
-				<div class="d_info">
-					<div class="d_info_item">
-						<a href="javascript:void(0);"  <shiro:user>info="${vm.user.loginName}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >
-							点击获取联系方式
-						</a>
+				<c:if test="${!empty vm.user.phone}">
+					<div class="d_info">
+						<div class="d_info_item">
+							<a href="javascript:void(0);"  <shiro:user>info="${vm.user.phone}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >
+								点击获取联系方式
+							</a>
+						</div>
 					</div>
-				</div>
-					
+				</c:if>
 			</div>
 		</div>
 		

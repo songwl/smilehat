@@ -32,6 +32,9 @@ public class PurchaseService extends BaseService<Purchase> {
 	@Autowired
 	private CategoryService categoryService;
 
+	@Autowired
+	private RegionService regionService;
+
 	@Override
 	public PagingAndSortingRepository<Purchase, Long> getPagingAndSortingRepositoryDao() {
 		return this.purchaseDao;
@@ -42,13 +45,16 @@ public class PurchaseService extends BaseService<Purchase> {
 		return this.purchaseDao;
 	}
 
-	public void savePurchase(Purchase purchase, Long userId, Long categoryId) {
+	public void savePurchase(Purchase purchase, Long userId, Long categoryId,Long regionId) {
 		if (userId != null) {
 			purchase.setUser(userService.getObjectById(userId));
 		}
 
 		if (categoryId != null) {
 			purchase.setCategory(categoryService.getObjectById(categoryId));
+		}
+		if (regionId != null) {
+			purchase.setRegion(regionService.getObjectById(regionId));
 		}
 		this.save(purchase);
 

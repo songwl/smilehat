@@ -43,6 +43,8 @@
 		
 		<div id="menu">
 		    <form class="login-form m-login-form" action="${ctx}/trading/product/publish/save" method="post" id="productPublishForm">
+		    </form>
+		    <div class="main-form">
 		        <div class="form-group">
 		        	产品名称：
 					<div class="input-icon" style="height: 35px;">
@@ -82,12 +84,9 @@
 					<div id="datePlugin"></div>
 				 </div>
 				 <div class="form-group">
-					
+					规格：
 					<div class="input-icon" style="height: 35px;">
-						<div class="input-name">
-							规格：
-						</div>
-						<input type="text" id="branch" name="branch" class="form-control" size="18"/>
+						<input type="text" id="branch" name="branch" placeholder="规格" class="form-control"  size="18" style="width: 40%;"/>
 						<select  id="branchInfo" name=branchInfo  class="form-control combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
 						</select>
 					</div>
@@ -95,10 +94,10 @@
 				 <div class="form-group">
 					价格：
 					<div class="input-icon" style="height: 35px;">
-						<input type="text" id="price" name="price" placeholder="数字" class="form-control more-price"  size="18" onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');" />		
-						-
-						<input type="text" id="price2" name="price2" placeholder="数字" class="form-control more-price" size="18" onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');" />		
-						<select  id="priceUnit" name="priceUnit"  class="form-control combox"  dataUrl="${sctx}/dict/selectDictByType?dictType=PRICE_UNIT">
+						<input type="text" id="price" name="price" placeholder="数字" class="form-control more-price"  style="width: 25%;" size="18" onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');" />		
+						<span style="float:left;line-height: 35px;">&nbsp;至&nbsp;</span>
+						<input type="text" id="price2" name="price2" placeholder="数字" class="form-control more-price" style="width: 25%;" size="18" onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');" />		
+						<select  id="priceUnit" name="priceUnit"  class="form-control combox" style="width: 30%;" dataUrl="${sctx}/dict/selectDictByType?dictType=PRICE_UNIT">
 						</select>	
 					</div>
 				 </div>
@@ -140,7 +139,8 @@
 				<div class="form-actions">
 					<a class="btn-submit">发布</a>
 				</div>
-			</form>
+				</div>
+			
 		</div> 
 	</div>
 		<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>

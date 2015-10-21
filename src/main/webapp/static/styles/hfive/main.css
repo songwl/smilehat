@@ -365,7 +365,7 @@ span.place_who {
 float: right;
 height: 30px;
 /* line-height: 30px; */
-font-size: 0.3em;
+font-size: 0.8em;
 color: #6EBD28;
 width: 40%;
 text-align: right;
@@ -417,7 +417,7 @@ overflow: hidden;
 float: right;
 height: 20px;
 line-height: 40px;
-font-size: 1.6em;
+font-size: 1em;
 color: #ffffff;
 }
 

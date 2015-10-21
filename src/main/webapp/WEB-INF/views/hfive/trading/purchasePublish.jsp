@@ -36,12 +36,7 @@
 		
 		<div id="menu">
 		    <form class="login-form m-login-form" action="${ctx}/trading/purchase/publish/save" method="post"  id="purchasePublishForm">
-<!-- 		        <div class="form-group"> -->
-<!-- 		        	产品名称： -->
-<!-- 					<div class="input-icon" style="height: 35px;"> -->
-<!-- 						<input name="user.name" class="form-control" type="text" size="30" style="width: 100%;" validate="{required:true}" /> -->
-<!-- 					</div> -->
-<!-- 				 </div> -->
+		    <div class="main-form">
 				<div class="form-group">
 					采购标题：
 					<div class="input-icon" style="height: 35px;">
@@ -66,11 +61,9 @@
 					</div>
 				 </div>
 				 <div class="form-group">
-					
+					规格：
 					<div class="input-icon" style="height: 35px;">
-						<div class="input-name">
-							规格：
-						</div>
+						<input type="text" id="branch" name="branch" placeholder="规格" class="form-control"  size="18" style="width: 40%;"/>
 						<select  id="branchInfo" name=branchInfo  class="form-control combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
 						</select>
 					</div>
@@ -91,26 +84,26 @@
 						</select>	
 					</div>
 				 </div>
-<!-- 				<div class="form-group"> -->
-<!-- 					交易地址： -->
-<!-- 					<div class="input-icon" style="height: 35px;"> -->
-<%-- 						<select class="form-control combox" selectedValue="${vm.region.parent.parent.id}" ref="w_combox_city" dataUrl="${ctx}/sys/region/selectJson" refUrl="${ctx}/sys/region/selectJson?pid={value}" style="width: 27%;float: left;"> --%>
-<!-- 							<option value="">----省----</option>  -->
-<!-- 						</select> -->
-<%-- 						<select class="form-control combox" selectedValue="${vm.region.parent.id}" id="w_combox_city" ref="w_combox_area" refUrl="${ctx}/sys/region/selectJson?pid={value}"  --%>
-<%-- 								<c:if test="${not empty vm.region.parent.parent.id}">dataUrl="${ctx}/sys/region/selectJson?pid=${vm.region.parent.parent.id}"</c:if> style="width: 27%;float: left;"> --%>
-<!-- 							<option value="">----市----</option>  -->
-<!-- 						</select> -->
-<%-- 						<select class="form-control combox" name="customer.regionId" selectedValue="${vm.region.id}" id="w_combox_area" <c:if test="${not empty vm.region.parent.id}">dataUrl="${ctx}/sys/region/selectJson?pid=${vm.region.parent.id}"</c:if> style="width: 27%;float: left;"> --%>
-<!-- 							<option value="">----区----</option>  -->
-<!-- 						</select> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 				<div class="form-group"> -->
-<!-- 					<div class="input-icon" style="height: 35px;"> -->
-<%-- 						<input type="text" name="address" value="${vm.address}" class="form-control" style="width: 100%;" placeholder="请输入您的详细地址" autocomplete="off"/> --%>
-<!-- 					 </div> -->
-<!-- 				 </div> -->
+				<div class="form-group">
+					产地：
+					<div class="input-icon" style="height: 35px;">
+						<select class="form-control combox" selectedValue="${vm.region.parent.parent.id}" ref="w_combox_city" dataUrl="${ctx}/sys/region/selectJson" refUrl="${ctx}/sys/region/selectJson?pid={value}" style="width: 27%;float: left;">
+							<option value="">----省----</option> 
+						</select>
+						<select class="form-control combox" selectedValue="${vm.region.parent.id}" id="w_combox_city" ref="w_combox_area" refUrl="${ctx}/sys/region/selectJson?pid={value}" 
+								<c:if test="${not empty vm.region.parent.parent.id}">dataUrl="${ctx}/sys/region/selectJson?pid=${vm.region.parent.parent.id}"</c:if> style="width: 27%;float: left;">
+							<option value="">----市----</option> 
+						</select>
+						<select class="form-control combox" name="regionId" selectedValue="${vm.region.id}" id="w_combox_area" <c:if test="${not empty vm.region.parent.id}">dataUrl="${ctx}/sys/region/selectJson?pid=${vm.region.parent.id}"</c:if> style="width: 27%;float: left;">
+							<option value="">----区----</option> 
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-icon" style="height: 35px;">
+						<input type="text" name="address" value="${vm.regionDetail}" class="form-control" style="width: 100%;" placeholder="请输入产地要求" autocomplete="off"/>
+					 </div>
+				 </div>
 				 <div class="form-group">
 				 	产品描述:
 					<div class="input-icon" style="height: 80px;">
@@ -120,6 +113,7 @@
 				
 				<div class="form-actions">
 					<a class="btn-submit">发布</a>
+				</div>
 				</div>
 			</form>
 		</div> 

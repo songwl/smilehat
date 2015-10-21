@@ -2,6 +2,7 @@ package com.smilehat.business.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -33,8 +34,11 @@ public class Purchase extends IdEntity {
 	private java.lang.Integer sort;//排序字段
 	private java.lang.Boolean isDeleted = Boolean.FALSE; // 默认未删除
 	private java.lang.Integer visitCount; //访问次数
-	private java.lang.String branchInfo;//规格
+	private java.lang.String branch;//规格
+	private java.lang.String branchInfo;//规格单位
+	private java.lang.String regionDetail;//详细地址
 
+	private Region region;//区域,产地要求
 	private Category category;//品类
 	private User user;
 
@@ -49,6 +53,18 @@ public class Purchase extends IdEntity {
 	/**
 	 * @return
 	 */
+	@Column(name = "branch")
+	public java.lang.String getBranch() {
+		return this.branch;
+	}
+
+	public void setBranch(java.lang.String value) {
+		this.branch = value;
+	}
+	
+	/**
+	 * @return
+	 */
 	@Column(name = "branch_info")
 	public java.lang.String getBranchInfo() {
 		return this.branchInfo;
@@ -58,6 +74,17 @@ public class Purchase extends IdEntity {
 		this.branchInfo = value;
 	}
 
+	/**
+	 * @return
+	 */
+	@Column(name = "region_detail")
+	public java.lang.String getRegionDetail() {
+		return this.regionDetail;
+	}
+
+	public void setRegionDetail(java.lang.String value) {
+		this.regionDetail = value;
+	}
 	
 	/**
 	 * @return
@@ -211,6 +238,19 @@ public class Purchase extends IdEntity {
 		this.visitCount = visitCount;
 	}
 
+	/**
+	 * @return
+	 */
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "region_id")
+	public Region getRegion() {
+		return region;
+	}
+
+	public void setRegion(Region region) {
+		this.region = region;
+	}
+	
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);

@@ -133,12 +133,12 @@ public class TradingCenterController extends HfiveBaseController {
 	}
 
 	@RequestMapping(value = "/purchase/publish/save")
-	public ModelAndView purchasePublish(@Valid Purchase purchase, @RequestParam(value = "categoryId", required = false) Long categoryId) {
+	public ModelAndView purchasePublish(@Valid Purchase purchase, @RequestParam(value = "categoryId", required = false) Long categoryId, @RequestParam(value = "regionId", required = false) Long regionId) {
 		purchase.setCreateTime(CoreUtils.nowtime());
 		purchase.setUpdateTime(CoreUtils.nowtime());
 		purchase.setPublishTime(CoreUtils.nowtime());
 		if (this.getCurrentUser() != null) {
-			purchaseService.savePurchase(purchase, this.getCurrentUser().getId(), categoryId);
+			purchaseService.savePurchase(purchase, this.getCurrentUser().getId(), categoryId, regionId);
 			return this.ajaxDoneSuccess("创建成功");
 		} else {
 			return this.ajaxDoneError("请登录！");

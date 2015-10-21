@@ -69,11 +69,11 @@ public class SysPurchaseController extends BaseController {
 	}
 
 	@RequestMapping(value = BaseController.CREATE, method = RequestMethod.POST)
-	public ModelAndView create(@Valid Purchase purchase, @RequestParam(value = "userId", required = false) Long userId, @RequestParam(value = "categoryId", required = false) Long categoryId) {
+	public ModelAndView create(@Valid Purchase purchase, @RequestParam(required = false) Long regionId, @RequestParam(value = "userId", required = false) Long userId, @RequestParam(value = "categoryId", required = false) Long categoryId) {
 		purchase.setCreateTime(CoreUtils.nowtime());
 		purchase.setUpdateTime(CoreUtils.nowtime());
 		purchase.setPublishTime(CoreUtils.nowtime());
-		purchaseService.savePurchase(purchase, userId, categoryId);
+		purchaseService.savePurchase(purchase, userId, categoryId,regionId);
 		return this.ajaxDoneSuccess("创建成功");
 	}
 
@@ -91,10 +91,10 @@ public class SysPurchaseController extends BaseController {
 	}
 
 	@RequestMapping(value = BaseController.UPDATE, method = RequestMethod.POST)
-	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Purchase purchase, @RequestParam(value = "userId", required = false) Long userId,
+	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Purchase purchase, @RequestParam(required = false) Long regionId, @RequestParam(value = "userId", required = false) Long userId,
 			@RequestParam(value = "categoryId", required = false) Long categoryId) {
 		purchase.setUpdateTime(CoreUtils.nowtime());
-		purchaseService.savePurchase(purchase, userId, categoryId);
+		purchaseService.savePurchase(purchase, userId, categoryId,regionId);
 		return this.ajaxDoneSuccess("修改成功");
 	}
 

@@ -1,9 +1,8 @@
 
-/* 瀵嗙爜鐧诲綍 */
 html {height: 100%;}
 .content {width: 100%; height: 100%; background: url(images/login-bg.jpg) no-repeat; background-size: cover;}
 .login-form {padding-left: 20px; padding-right: 20px;}
-.login-form .form-title {padding: 0px 0; margin-bottom: 70px;}
+.login-form .form-title {padding: 10px 0; margin-bottom: 70px;}
 	.form-title .btn-back,.hd-nav .btn-back {display: inline-block; width: 12px; height: 12px; border: 2px solid rgba(255,255,255,.7); border-left: none; border-top: none; margin-top: 2px; -webkit-transform: rotate(135deg); -moz-transform: rotate(135deg); transform: rotate(135deg); float: left;}
 	.form-title a:last-child {color: #fff; text-decoration: none; font-size: 1.6rem; font-family: '\9ED1\4F53'; float: right;}
 .login-form .form-group {margin-bottom: 15px; overflow: hidden-;}
@@ -30,7 +29,6 @@ html {height: 100%;}
 .login-type .current {color: #7ec650;}
 .error-password {color: #DDA3A3; font-size: 1.2rem}
 
-/*瀵嗙爜閿欒寮瑰嚭灞�/
 .pwd-error {
 	width: 100%;
 	height: 40px;
@@ -52,7 +50,6 @@ html {height: 100%;}
 	margin-right: 5px;
 }
 
-/* 鎵嬫満鐧诲綍 */
 .m-login-form .form-group .form-control-static {  display: block; font-size: 1.6rem; margin-left: 26px; margin-bottom: 4px; color: #fff; margin-top: 0; position: relative; top: 4px;}
 .m-login-form .form-group .control-label {border-left: 1px solid #fff;}
 	.form-group .control-label .btnSendCode {background: none; border: none; outline: none; color: #fff; margin-left: 5px;}

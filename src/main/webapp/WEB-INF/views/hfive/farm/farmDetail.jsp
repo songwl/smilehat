@@ -70,14 +70,15 @@
 			</div>
 			<div class="rowline"></div>
 			<div class="row4">
-				<a href="${ctx}/trading/product/center?search_EQ_user.id=${vm.user.id}">农场产品</a>
+				<a href="${ctx}/trading/product/center?search_EQ_user.id=${vm.user.id}" class="farmProductList">农场产品</a>
 			</div>
 			<div class="rowline"></div>
 			<div class="d_info">
-					
-				<div class="d_info_item">
-					<a href="javascript:void(0);"  <shiro:user>info="${vm.user.loginName}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >点击获取联系方式</a>
-				</div>
+				<c:if test="${!empty vm.user.phone}">
+					<div class="d_info_item">
+						<a href="javascript:void(0);"  <shiro:user>info="${vm.user.phone}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >点击获取联系方式</a>
+					</div>
+				</c:if>
 				<c:if test="${not empty vm.website}">
 					<div class="d_info_item2">
 						<a href="javascript:void(0);"  <shiro:user>info="${vm.website}"</shiro:user> <shiro:guest>info="nologin"</shiro:guest> >查看官方网站</a>

@@ -75,3 +75,12 @@ position: absolute;
 top: 20px;
 left: 5px;
 }
+
+.main-form {
+    padding: 0px 30px 2% 0px;
+    width: 100%;
+    position: fixed;
+    top: 80px;
+    bottom: 40px;
+    overflow: auto
+}

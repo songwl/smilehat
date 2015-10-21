@@ -45,9 +45,10 @@
 			<tr>
 				<th width="40" align="center">序号</th>
 				<th width="30"><input type="checkbox" group="ids" class="checkboxCtrl"></th>    
+				<th <tag:orderField name="title"/>>标题</th>   
 				<th <tag:orderField name="user.name"/>>商户名称</th>   
 				<th <tag:orderField name="category.categoryName"/>>品类名称</th>   
-				<th <tag:orderField name="title"/>>标题</th>   
+				
 				<th <tag:orderField name="quantity"/>>采购量(单位)</th>   
 <!-- 				<th <tag:orderField name="price"/>>采购价格(单位)</th>    -->
 				<th <tag:orderField name="publishTime"/>>发布时间</th>  
@@ -59,11 +60,11 @@
 				<tr target="sid" rel="${varitem.id}">
 					<td align="center">${varindex.count}</td>
 					<td><input name="ids" value="${varitem.id }" type="checkbox"></td>    
+					<td> <a href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" rel="purchase_update" target="dialog" title="编辑"> ${varitem.title} </a> 
+					</td>   
 					<td> ${varitem.user.name} 
 					</td>   
 					<td> ${varitem.category.categoryName} 
-					</td>   
-					<td> <a href="${ctx}/sys/purchase/update/${varitem.id}?navTabId=app_purchase" rel="purchase_update" target="dialog" title="编辑"> ${varitem.title} </a> 
 					</td>   
 					<td> ${varitem.quantity} 
 						<span class="showDictLabel" dictType="QUANTITY_UNIT" dictCode="${varitem.quantityUnit}"></span>
