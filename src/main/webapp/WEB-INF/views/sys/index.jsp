@@ -234,7 +234,7 @@
 		</div>
 	</div>
 	<div id="footer">
-		Copyright &copy; 2013 <a href="#" target="dialog">版权所有</a>
+		Copyright &copy; 2015 <a href="#" target="dialog">版权所有</a>
 	</div>
 </body>
 </html>
