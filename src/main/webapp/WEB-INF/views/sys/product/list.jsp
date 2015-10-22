@@ -17,8 +17,7 @@
 				</li> 
 				<li>
 					<label>发布时间:</label>  
-					<input type="text" class="date" size="9"
-					value="${param.search_GTE_publishTime}" dateFmt="yyyy-MM-dd" name="search_GTE_publishTime" readonly="true" />- 
+					<input type="text" class="date" size="9" value="${param.search_GTE_publishTime}" dateFmt="yyyy-MM-dd" name="search_GTE_publishTime" readonly="true" />- 
 					<input type="text"	class="date" size="9" value="${param.search_LTE_publishTime}" dateFmt="yyyy-MM-dd" name="search_LTE_publishTime" readonly="true" /> 
 				</li>      
 			</ul>

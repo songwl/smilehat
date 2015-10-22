@@ -27,7 +27,7 @@
 	<div class="panelBar">
 		<ul class="toolBar">
 			<li><a class="add" href="${sctx}/dict/new?navTabId=sys_dict" target="dialog" rel="dict_new" title="添加数据字典"><span>添加</span></a></li>
-			<li><a class="edit" href="${sctx}/dict/update/{sid}?navTabId=sys_dict" target="dialog" warn="请选择一条记录" rel="dict_edit" title="编辑数据字典"><span>修改</span></a></li>
+			<li><a class="edit" href="${sctx}/dict/update/{sid}?navTabId=sys_dict" target="dialog" warn="请选择一条记录" rel="dict_edit" title="编辑数据字典"><span>编辑</span></a></li>
 			<li><a title="确实要删除这些记录吗?" target="selectedTodo" rel="ids" href="${sctx}/dict/delete" class="delete"><span>批量删除</span></a></li>
 <!-- 			<li class="line">line</li> -->
 <!-- 			<li><a class="icon" href="demo/common/dwz-team.xls" target="dwzExport" targetType="navTab" title="确实要导出这些记录吗?"><span>导出EXCEL</span></a></li> -->

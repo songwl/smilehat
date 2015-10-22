@@ -19,7 +19,7 @@
 						<dt><label>上级品类:</label></dt>
 						<dd>
 							<input type="hidden" class="changeValidate" name="categoryTree.id" value="${vm.parent.id}" <c:if test="${not empty id}">validate="{remoteAsync:'${sctx}/category/checkparent?id=${vm.id}',messages:{remoteAsync:'上级栏目部不能是当前栏目的子栏目'}}"</c:if>/> 
-							<input name="categoryTree.name" value="${vm.parent.name}" type="text" readonly="readonly" /> 
+							<input name="categoryTree.name" value="${vm.parent.categoryName}" type="text" readonly="readonly" /> 
 							<a class="btnLook" href="${sctx}/category/select" lookupGroup="categoryTree">查找带回</a>
 						</dd>					
 					</dl>

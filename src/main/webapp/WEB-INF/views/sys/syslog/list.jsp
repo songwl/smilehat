@@ -7,9 +7,8 @@
 		<ul class="searchContent">
 			<li>
 				<label>时间段：</label>
-				<input type="text" size="12" name="search_GT_createTime" class="date" value="${param.search_GT_createTime}"/>
-				至
-				<input type="text" size="12" name="search_LT_createTime" class="date" value="${param.search_LT_createTime}"/>
+				<input type="text" class="date" size="9" value="${param.search_GTE_createTime}"  name="search_GTE_createTime" readonly="true" />- 
+				<input type="text"	class="date" size="9" value="${param.search_LTE_createTime}"  name="search_LTE_createTime" readonly="true" />
 			</li>
 			<li>
 				<label>用户名：</label>

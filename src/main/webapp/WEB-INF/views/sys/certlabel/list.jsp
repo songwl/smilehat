@@ -54,9 +54,12 @@
 				<tr target="sid" rel="${varitem.id}">
 					<td align="center">${varindex.count}</td>
 					<td><input name="ids" value="${varitem.id }" type="checkbox"></td>    
-					<td> <a href="${ctx}/sys/certlabel/edit/${varitem.id}?navTabId=app_certlabel" target="dialog" title="编辑"> ${varitem.certName} </a> 
+					<td> <a href="${ctx}/sys/certlabel/update/${varitem.id}?navTabId=app_certlabel" target="dialog" title="编辑"> ${varitem.certName} </a> 
 					</td>   
-					<td> ${varitem.isAllowCheck} </td>   
+					<td>
+						 <c:if test="${ varitem.isAllowCheck==false}">否 </c:if>
+						 <c:if test="${ varitem.isAllowCheck!=false}">是 </c:if>
+					 </td>   
 					<td>
 						<s:message code="certlabel.type.${varitem.certType}" />
 						<s:message code="user.usertype.${varitem.certType2}" />
