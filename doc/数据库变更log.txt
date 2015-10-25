@@ -110,3 +110,14 @@ alter table t_user add phone varchar(255);
 alter table t_purchase add region_id bigint(20);
 alter table t_purchase add region_detail varchar(255);
 alter table t_purchase add branch varchar(255);
+
+
+--2015/10/25
+CREATE TABLE t_user_identity_attach(
+`user_id`  bigint(20) NULL DEFAULT NULL ,
+`attach_id`  bigint(20) NULL DEFAULT NULL 
+)
+ENGINE=InnoDB
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+ROW_FORMAT=COMPACT
+;
