@@ -18,8 +18,9 @@
 <%@ attribute name="multi" type="java.lang.Boolean"%>
 <%@ attribute name="onUploadSuccess" type="java.lang.String"%>
 <%@ attribute name="onUploadComplete" type="java.lang.String"%>
+<%@ attribute name="accept" type="java.lang.String"%>
 
-<input <c:if test="${not empty id}">id="${id}"</c:if> type="file" name="${name}"
+<input <c:if test="${not empty id}">id="${id}"</c:if> type="file" name="${name}" <c:if test="${not empty accept}">accept="${accept}"</c:if>
 	uploaderOption="{
 			swf:'${ctx}/static/js/uploadify/scripts/uploadify.swf',
 			uploader:'${ctx}/upload/attach/up;jsessionid=<%=SecurityUtils.getSubject().getSession().getId()%>',

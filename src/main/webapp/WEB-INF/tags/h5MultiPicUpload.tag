@@ -23,7 +23,7 @@
 
 <div class="h5-upload-row h5PicUpload">
 	<tag:uploadify multi="true" name="${uploadifyFileId}_name" id="${uploadifyFileId}" queueID="${uploadifyFileId}_queueID"
-				fileSizeLimit="2MB" fileTypeExts="*.gif;*.jpge;*.jpg;*.png"></tag:uploadify>
+			accept="image/*;capture=camera"	fileSizeLimit="2MB" fileTypeExts="*.gif;*.jpge;*.jpg;*.png"></tag:uploadify>
 </div>
 
 <div class="h5-upload-row" id="${uploadifyFileId}_fileId" hiddenName="${hiddenName}">

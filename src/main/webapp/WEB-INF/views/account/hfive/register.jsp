@@ -87,14 +87,14 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label style="color:#fff;width:20%;display: block;float: left;">认证图片：</label>
-			<div style="float: left;width:80%; ">
+			<label style="color:#fff;width:25%;display: block;float: left;">认证图片：</label>
+			<div style="float: left;width:75%; ">
 				<tag:h5MultiPicUpload width="100" height="80" uploadifyFileId="identityAttach" hiddenName="identityAttachIds"  attachs="${vm.identityAttachs}"></tag:h5MultiPicUpload>
 			</div>
 		</div>
 		<div class="form-group">
-			<label style="color:#fff;width:20%;display: block;float: left;">商户图片：</label>
-			<div style="float: left;width:80%;">
+			<label style="color:#fff;width:25%;display: block;float: left;">商户图片：</label>
+			<div style="float: left;width:75%;">
 				<%-- <tag:multipleFileUpload uploadifyFileId="userAttach" hiddenName="userAttachs" attachs="${vm.attachs}"></tag:multipleFileUpload> --%>
 				<tag:h5MultiPicUpload width="100" height="80" uploadifyFileId="userAttach" hiddenName="userAttachIds"  attachs="${vm.attachs}"></tag:h5MultiPicUpload>
 				<!-- <a class="uploadButton">
