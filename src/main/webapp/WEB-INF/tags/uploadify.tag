@@ -22,7 +22,7 @@
 <input <c:if test="${not empty id}">id="${id}"</c:if> type="file" name="${name}"
 	uploaderOption="{
 			swf:'${ctx}/static/js/uploadify/scripts/uploadify.swf',
-			uploader:'${ctx}/sys/upload/attach/up;jsessionid=<%=SecurityUtils.getSubject().getSession().getId()%>',
+			uploader:'${ctx}/upload/attach/up;jsessionid=<%=SecurityUtils.getSubject().getSession().getId()%>',
 			formData:{jsessionid:'<%=SecurityUtils.getSubject().getSession().getId()%>'},
 		<c:if test="${not empty queueID}">
 			queueID:'${queueID}',</c:if>

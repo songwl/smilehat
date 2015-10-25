@@ -34,7 +34,7 @@
 					<h2>${vm.name} </h2>
 					<div class="d_main_left">
 						<div>${vm.category.categoryName}</div>
-						<div>${vm.user.name}</div>
+						<a href="${ctx}/farm/detail/${vm.user.customer.id}"><div>${vm.user.name}</div></a>
 					</div>
 					<div class="d_main_right">
 						<span class="unit">￥</span> 

@@ -13,6 +13,9 @@
 				</div>
 				<div class="frow3">
 					<div class="left">
+					<c:forEach items="${varitem.user.labels}" var="label">
+						<img class="product_cert"  src="${ctx}/${label.photoAttach.downloadPath}" />
+					</c:forEach>
 <%-- 						<img class="product_cert"  src="${ctx}/static/images/location.png"> --%>
 <%-- 						<img class="product_cert" src="${ctx}/static/images/location.png"> --%>
 <%-- 						<img class="product_cert" src="${ctx}/static/images/location.png"> --%>

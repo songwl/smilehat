@@ -6,7 +6,7 @@
 		<div class="searchBar">
 			<ul class="searchContent">
 				<%-- <li><label>姓名：</label> <input type="text" name="search_RLIKE_name_OR_loginName" value="${param.search_RLIKE_name_OR_loginName}" /></li> --%>
-				<li><label>登录名：</label> <input type="text" name="search_LIKE_loginName" value="${param.search_LIKE_loginName}" /></li>
+				<li><label>登录名：</label> <input type="text" name="search_LIKE_user.loginName" value="${param['search_LIKE_user.loginName']}" /></li>
 				<li><label>商户类型：</label>
 					<select name="search_EQ_user.userType" class="combox">
 						<option value="">不限</option>

@@ -1,20 +1,3 @@
-
-//获取列表数据
-function getItemList($form,$div,callback){
-	$.post($form.attr("action"), $form.serialize(),
-	   function(html){
-			$div.append(html);
-			if(callback){
-				callback();
-			}
-	   }, "html");
-}
-
-//发布信息
-function publish(){
-	
-}
-
 var $form = $("form.pageForm");
 var $body = $(".list");
 var nload = false;
@@ -33,6 +16,49 @@ $(window).scroll(function() {
 		});
 	}
 });
+
+/*window.addEventListener('scroll', scrollPage, false);
+function scrollPage() {
+	alert(1);
+    if(nload || $("#pageEnd").length==1) return false;
+    window.webkitRequestAnimationFrame(scrollPageAction)
+    || window.webkitAnimationFrame(scrollPageAction)
+    || window.mozRequestAnimationFrame(scrollPageAction)
+    || window.requestAnimationFrame(scrollPageAction);
+}
+function scrollPageAction() {
+    var $win = $(window),
+        curScrollTop = $win.scrollTop(),
+        winH = $win.height(),
+        docH = $(document).height();
+    if(docH - curScrollTop < winH + 50) {
+    	nload = true;
+		var pageNum = $form.find("input[name='pageNum']").val();
+		pageNum = parseInt(pageNum)+1;
+		$form.find("input[name='pageNum']").val(pageNum);
+		getItemList($form,$body,function(){
+			nload = false;
+		});
+    }
+}*/
+
+//获取列表数据
+function getItemList($form,$div,callback){
+	$.post($form.attr("action"), $form.serialize(),
+	   function(html){
+			$div.append(html);
+			if(callback){
+				callback();
+			}
+	   }, "html");
+}
+
+//发布信息
+function publish(){
+	
+}
+
+
 
 //地区选择事件
 function regionEvent(item,pid){

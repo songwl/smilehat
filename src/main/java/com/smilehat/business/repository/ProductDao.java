@@ -17,4 +17,8 @@ public interface ProductDao extends BaseDao<Product> {
 
 	@Query("select distinct p.category from Product p")
 	List<Category> findDistinctCategory();
+
+	@Query("select distinct p.category from Product p where p.user.id=?")
+	List<Category> findDistinctUserCategory(Long userId);
+
 }

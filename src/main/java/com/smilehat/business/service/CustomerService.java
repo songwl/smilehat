@@ -65,14 +65,23 @@ public class CustomerService extends BaseService<Customer> {
 	@Autowired
 	private RegionService regionService;
 
-	public void createCustomer(Customer customer, Long photoAttachId, Long[] attachIds, Long regionId) {
+	public void createCustomer(Customer customer, Long[] identityAttachIds, Long[] attachIds, Long regionId) {
 		User user = customer.getUser();
 		user.setPassword(MD5Util.MD5(user.getPlainPassword()));
 		user.setCreateTime(CoreUtils.nowtime());
 		user.setUpdateTime(CoreUtils.nowtime());
 		user.setRegisterDate(CoreUtils.nowtime());
-		if (photoAttachId != null) {
-			user.setPhotoAttach(attachService.findUniqueBy("id", photoAttachId));
+		if (identityAttachIds != null && identityAttachIds.length > 0) {
+			List<Attach> attachs = new ArrayList<Attach>();
+			for (Long attachId : identityAttachIds) {
+				if (attachId != null) {
+					attachs.add(attachService.findUniqueBy("id", attachId));
+				}
+			}
+
+			if (!attachs.isEmpty()) {
+				user.setIdentityAttachs(attachs);
+			}
 		}
 
 		if (attachIds != null && attachIds.length > 0) {
@@ -103,11 +112,20 @@ public class CustomerService extends BaseService<Customer> {
 		this.save(customer);
 	}
 
-	public void saveCustomer(Customer customer, Long photoAttachId, Long[] attachIds, Long regionId) {
+	public void saveCustomer(Customer customer, Long[] identityAttachIds, Long[] attachIds, Long regionId) {
 		User user = customer.getUser();
 		user.setUpdateTime(CoreUtils.nowtime());
-		if (photoAttachId != null) {
-			user.setPhotoAttach(attachService.findUniqueBy("id", photoAttachId));
+		if (identityAttachIds != null && identityAttachIds.length > 0) {
+			List<Attach> attachs = new ArrayList<Attach>();
+			for (Long attachId : identityAttachIds) {
+				if (attachId != null) {
+					attachs.add(attachService.findUniqueBy("id", attachId));
+				}
+			}
+
+			if (!attachs.isEmpty()) {
+				user.setIdentityAttachs(attachs);
+			}
 		}
 		if (attachIds != null && attachIds.length > 0) {
 			List<Attach> attachs = new ArrayList<Attach>();

@@ -4,6 +4,7 @@
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="${ctx}/static/bootstrap/3.3.5/js/bootstrap.js"></script>
 
+<script src="${ctx}/static/js/uploadify/scripts/jquery.uploadify.js" type="text/javascript"></script>
 
 <!-- vsc -->
 <script type="text/javascript">

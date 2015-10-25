@@ -6,10 +6,13 @@
 <head>
 	<%@ include file="/WEB-INF/inc/hfive/include.meta.jsp"%>
 	<title>手机号注册</title>
+	
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css">
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/normalize.css">
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/custom.css">
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/login.css">
+	<link href="${ctx}/static/js/uploadify/css/uploadify.css" rel="stylesheet" type="text/css" media="screen" />
+	<link rel="stylesheet" href="${ctx}/static/styles/hfive/h5upload.css" type="text/css" />
 	
 	<%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
 </head>
@@ -84,10 +87,20 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<tag:multipleFileUpload uploadifyFileId="userAttach" hiddenName="userAttachs" attachs="${vm.attachs}"></tag:multipleFileUpload>
-			<!-- <a class="uploadButton">
-				<input id="uploadInput" type="file" accept="image/*"  style="display:block;height:40px;width:45px;opacity:0;"></input>
-			</a> -->
+			<label style="color:#fff;width:20%;display: block;float: left;">认证图片：</label>
+			<div style="float: left;width:80%; ">
+				<tag:h5MultiPicUpload width="100" height="80" uploadifyFileId="identityAttach" hiddenName="identityAttachIds"  attachs="${vm.identityAttachs}"></tag:h5MultiPicUpload>
+			</div>
+		</div>
+		<div class="form-group">
+			<label style="color:#fff;width:20%;display: block;float: left;">商户图片：</label>
+			<div style="float: left;width:80%;">
+				<%-- <tag:multipleFileUpload uploadifyFileId="userAttach" hiddenName="userAttachs" attachs="${vm.attachs}"></tag:multipleFileUpload> --%>
+				<tag:h5MultiPicUpload width="100" height="80" uploadifyFileId="userAttach" hiddenName="userAttachIds"  attachs="${vm.attachs}"></tag:h5MultiPicUpload>
+				<!-- <a class="uploadButton">
+					<input id="uploadInput" type="file" accept="image/*"  style="display:block;height:40px;width:45px;opacity:0;"></input>
+				</a> -->
+			</div>
 		</div>
 		<div class="form-actions">
 			<a class="btn-submit">手机号注册</a>
@@ -101,44 +114,9 @@
 <%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
  <script src="${ctx}/static/js/hfive/custom.js"></script>
  <script src="${ctx}/static/js/hfive/combox.js"></script>
+ <script src="${ctx}/static/js/hfive/h5uploader.js"></script>
 <script>
 	$(function(){
-// 		$("#uploadInput").listen("change", fOnChange(){
-// 			var	oFile = this.files[0],		
-// 				sName, 		
-// 				sFileType = oFile.type;
-// 				nSize = 0,
-// 				nModTime;
-// 			if(!sFileType){
-// 				sFileType = "image/" + sName.split(".").pop().toLowerCase();
-// 			}
-// 			// 读取文件大小、修改时间等信息
-// 			var oUploadInfo = {
-// 				name : oFile.name || oFile.fileName,
-// 				size : oFile.size || oFile.fileSize,
-// 				modTime : oFile.lastModifiedDate.valueOf(),
-// 				blob : oFile,		
-// 				img : rFilter.test(sFileType)
-// 			};
-				
-// 			// 具体上传逻辑，视具体服务器端接口而定
-// 		});
-		
-// 		var oImg = document.createElement("img");
-// 		// 加载图片
-// 		oListEl.append(oImg);
-// 		// 使用FileReader读取
-// 		var oReader = new FileReader();
-// 		oReader.onload = function(e){	
-// 			var sBase64 = e.target.result;	
-// 			// 部分Android下base64字符串格式不完整
-// 			if(window.gIsAndroid && sBase64.indexOf("data:image/") != 0){
-// 				var sMime = sName.split(".").pop().toLowerCase();
-// 				sBase64 = sBase64.replace("base64,", "image/" + sMime + ";base64,");
-// 			}	
-// 			oImg.src = sBase64;	sBase64 = null;
-// 		}
-// 		oReader.readAsDataURL(oFile);
 		
 		 $(".btn-submit").click(function() {
 		    	var regex = /^0?(13|15|18|14|17)[0-9]{9}$/; //手机正则
@@ -213,7 +191,10 @@
 		    });
 
 		    $("select.combox").comboxSelectRemoteData();
+		  
 	});
+	
+	
 
 </script>
 </body>

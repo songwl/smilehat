@@ -86,7 +86,7 @@ create table t_system_log (
      id bigint not null auto_increment,
      log_type  varchar(255),
      subtype  varchar(255),
-     create_time date,
+     create_time datetime,
      user_id bigint ,
      user_ip  varchar(255) ,
      log_content  varchar(512) ,
@@ -113,7 +113,7 @@ CREATE TABLE t_attach (
  */
 CREATE TABLE t_login_log (
 	 id bigint not null auto_increment,
-	 create_time date,
+	 create_time datetime,
 	 user_id bigint,
 	 user_ip  varchar(255),
 	 log_content  varchar(512),

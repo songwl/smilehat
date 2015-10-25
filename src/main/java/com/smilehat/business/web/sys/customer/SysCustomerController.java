@@ -1,11 +1,14 @@
 package com.smilehat.business.web.sys.customer;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,13 +23,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.common.collect.Maps;
 import com.smilehat.business.core.web.BaseController;
+import com.smilehat.business.entity.CertLabel;
 import com.smilehat.business.entity.Customer;
 import com.smilehat.business.entity.Product;
 import com.smilehat.business.entity.Purchase;
+import com.smilehat.business.service.CertLabelService;
 import com.smilehat.business.service.CustomerService;
 import com.smilehat.business.service.ProductService;
 import com.smilehat.business.service.PurchaseService;
 import com.smilehat.constants.Constants;
+import com.smilehat.constants.Enums;
 import com.smilehat.util.CoreUtils;
 
 /**
@@ -46,6 +52,9 @@ public class SysCustomerController extends BaseController {
 
 	@Autowired
 	private PurchaseService purchaseService;
+
+	@Autowired
+	private CertLabelService certLabelService;
 
 	public static final String PATH = "sys/customer";
 	public static final String PATH_LIST = PATH + Constants.SPT + "list";
@@ -83,16 +92,19 @@ public class SysCustomerController extends BaseController {
 	}
 
 	@RequestMapping(value = BaseController.CREATE, method = RequestMethod.POST)
-	public ModelAndView create(@Valid Customer customer, @RequestParam(value = "photoAttachId", required = false) Long photoAttachId, @RequestParam(required = false) Long regionId,
+	public ModelAndView create(@Valid Customer customer, @RequestParam(value = "identityAttachIds", required = false) Long[] identityAttachIds, @RequestParam(required = false) Long regionId,
 			@RequestParam(value = "attachIds", required = false) Long[] attachIds) {
-		customerService.createCustomer(customer, photoAttachId, attachIds, regionId);
+		customerService.createCustomer(customer, identityAttachIds, attachIds, regionId);
 		return this.ajaxDoneSuccess("创建成功");
 	}
 
 	@RequestMapping(value = BaseController.UPDATE + "/{id}", method = RequestMethod.GET)
 	public String updateForm(@PathVariable("id") java.lang.Long id, Model model) {
-		model.addAttribute("vm", customerService.getObjectById(id));
+		Customer vm = customerService.getObjectById(id);
+		model.addAttribute("vm", vm);
 		model.addAttribute("action", BaseController.UPDATE);
+
+		model.addAttribute("certLabelList", getUserCertLabelList(vm.getUser().getUserType()));
 		return PATH_EDIT;
 	}
 
@@ -103,9 +115,20 @@ public class SysCustomerController extends BaseController {
 	}
 
 	@RequestMapping(value = BaseController.UPDATE, method = RequestMethod.POST)
-	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Customer customer, @RequestParam(value = "photoAttachId", required = false) Long photoAttachId,
-			@RequestParam(required = false) Long regionId, @RequestParam(value = "attachIds", required = false) Long[] attachIds) {
-		customerService.saveCustomer(customer, photoAttachId, attachIds, regionId);
+	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Customer customer, @RequestParam(value = "identityAttachIds", required = false) Long[] identityAttachIds,
+			@RequestParam(required = false) Long regionId, @RequestParam(value = "attachIds", required = false) Long[] attachIds,
+			@RequestParam(value = "certLabels", required = false) String certLabels) {
+		List<CertLabel> certLabelList = new ArrayList<>();
+		if (!StringUtils.isEmpty(certLabels)) {
+			String[] arr = certLabels.split(",");
+			for (String str : arr) {
+				Long id = Long.valueOf(str);
+				certLabelList.add(certLabelService.getObjectById(id));
+			}
+			customer.getUser().setLabels(certLabelList);
+		}
+
+		customerService.saveCustomer(customer, identityAttachIds, attachIds, regionId);
 		return this.ajaxDoneSuccess("修改成功");
 	}
 
@@ -185,6 +208,13 @@ public class SysCustomerController extends BaseController {
 		model.addAttribute("page", page);
 
 		return PATH_SELECT;
+	}
+
+	private List<CertLabel> getUserCertLabelList(String userType) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("EQ_certType", Enums.CERT_TYPE.CUSTOMER.name());
+		params.put("EQ_certType2", userType);
+		return certLabelService.findList(params);
 	}
 
 }

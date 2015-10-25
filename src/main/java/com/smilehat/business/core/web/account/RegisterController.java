@@ -1,5 +1,9 @@
 package com.smilehat.business.core.web.account;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.smilehat.business.core.entity.security.User;
+import com.smilehat.business.core.entity.sys.upload.Attach;
 import com.smilehat.business.core.service.security.AccountService;
+import com.smilehat.business.core.service.sys.upload.AttachService;
 import com.smilehat.business.core.web.BaseController;
 import com.smilehat.constants.Constants;
 
@@ -32,20 +38,39 @@ public class RegisterController extends BaseController {
 	@Autowired
 	private AccountService accountService;
 
+	@Autowired
+	private AttachService attachService;
+
 	@RequestMapping(method = RequestMethod.GET)
-	public String registerForm(Model model,@RequestParam String userType) {
+	public String registerForm(Model model, @RequestParam String userType) {
 		model.addAttribute("userType", userType);
 		return "/account/hfive/register";
 	}
-	
-	@RequestMapping(value="guide", method = RequestMethod.GET)
+
+	@RequestMapping(value = "guide", method = RequestMethod.GET)
 	public String registerGuide() {
 		return "/account/hfive/registerGuide";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String register(@Valid User user, RedirectAttributes redirectAttributes) {
+	public String register(@Valid User user, @RequestParam(required = false) Long[] identityAttachIds, @RequestParam(required = false) Long[] userAttachIds, RedirectAttributes redirectAttributes) {
+		if (identityAttachIds != null) {
+			List<Attach> list = new ArrayList<Attach>();
+			for (Long attachId : identityAttachIds) {
+				list.add(attachService.getObjectById(attachId));
+			}
+			user.setIdentityAttachs(list);
+		}
+		if (userAttachIds != null) {
+			List<Attach> list = new ArrayList<Attach>();
+			for (Long attachId : userAttachIds) {
+				list.add(attachService.getObjectById(attachId));
+			}
+			user.setAttachs(list);
+		}
+		user.setRegisterDate(new Date());
 		accountService.registerUser(user);
+
 		redirectAttributes.addFlashAttribute("username", user.getLoginName());
 		return "redirect:/login";
 	}

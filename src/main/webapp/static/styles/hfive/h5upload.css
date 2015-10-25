@@ -1,0 +1,49 @@
+.btn-upload{
+	background-image: linear-gradient(to bottom, #5cb85c 0px, #419641 100%);
+    background-repeat: repeat-x;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    color: #fff;
+     -moz-user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.h5-upload-row{
+	margin-left: -15px;
+    margin-right: -15px;
+     content: " ";
+    display: table;
+    width: 100%;
+}
+
+.h5-upload-row .h5-upload-item{
+	width: 25%;
+	float: left;
+	min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+}
+
+.h5-upload-row .h5-upload-item .h5-upload-thum{
+	 background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: block;
+    line-height: 1.42857;
+    margin-bottom: 20px;
+    padding: 4px;
+    transition: border 0.2s ease-in-out 0s;
+}

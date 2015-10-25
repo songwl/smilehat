@@ -1,7 +1,9 @@
 package com.smilehat.business.core.entity.security;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,6 +21,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Lists;
 import com.smilehat.business.core.entity.sys.upload.Attach;
+import com.smilehat.business.entity.CertLabel;
 import com.smilehat.business.entity.Customer;
 import com.smilehat.constants.Constants;
 import com.smilehat.modules.entity.IdEntity;
@@ -46,8 +49,11 @@ public class User extends IdEntity {
 
 	private Customer customer;
 
-	private List<Attach> attachs = Lists.newArrayList();
+	private List<Attach> identityAttachs = Lists.newArrayList(); //认证图片
+	private List<Attach> attachs = Lists.newArrayList(); //商户图片
 	private List<Role> roleList = Lists.newArrayList();
+
+	private List<CertLabel> labels = Lists.newArrayList();
 
 	@NotBlank
 	public String getLoginName() {
@@ -163,7 +169,7 @@ public class User extends IdEntity {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	public String getPhone() {
 		return phone;
 	}
@@ -211,6 +217,40 @@ public class User extends IdEntity {
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	@ManyToMany
+	@JoinTable(name = Constants.TABLE_PREFIX + "user_identity_attach", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "attach_id") })
+	public List<Attach> getIdentityAttachs() {
+		return identityAttachs;
+	}
+
+	public void setIdentityAttachs(List<Attach> identityAttachs) {
+		this.identityAttachs = identityAttachs;
+	}
+
+	@ManyToMany
+	@JoinTable(name = Constants.TABLE_PREFIX + "user_cert_label", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "cert_label_id") })
+	public List<CertLabel> getLabels() {
+		return labels;
+	}
+
+	public void setLabels(List<CertLabel> labels) {
+		this.labels = labels;
+	}
+
+	@Transient
+	private Map<Long, CertLabel> certLabelMap;
+
+	@Transient
+	public Map<Long, CertLabel> getCertLabelMap() {
+		if (certLabelMap == null) {
+			certLabelMap = new HashMap<>();
+			for (CertLabel certLabel : labels) {
+				certLabelMap.put(certLabel.getId(), certLabel);
+			}
+		}
+		return certLabelMap;
 	}
 
 	@Override

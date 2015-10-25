@@ -20,4 +20,8 @@ public class HfiveIndexController extends HfiveBaseController {
 		return "hfive/index";
 	}
 
+	@RequestMapping(value = "/demo")
+	public String demo(Model model) {
+		return "hfive/demo";
+	}
 }

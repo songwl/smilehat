@@ -70,8 +70,6 @@ public class ProductService extends BaseService<Product> {
 		}
 
 		if (!CollectionUtils.isEmpty(certLabelList)) {
-			certLabelDao.deleteInBatch(product.getCertLabelList());
-
 			product.setCertLabelList(certLabelList);
 		}
 		this.save(product);
@@ -101,5 +99,10 @@ public class ProductService extends BaseService<Product> {
 		}
 
 		return parents;
+	}
+
+	public List<Category> findCategoryListByProductUser(Long userId) {
+		List<Category> list = productDao.findDistinctUserCategory(userId);
+		return list;
 	}
 }

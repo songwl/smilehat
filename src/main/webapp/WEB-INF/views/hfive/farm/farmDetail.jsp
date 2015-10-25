@@ -54,6 +54,9 @@
 						认证标签
 					</div>
 					<div class="down" >
+						<c:forEach items="${vm.user.labels}" var="label">
+							<img class="product_cert"  src="${ctx}/${label.photoAttach.downloadPath}" />
+						</c:forEach>
 <%-- 						<img class="product_cert"  src="${ctx}/static/images/location.png"> --%>
 <%-- 						<img class="product_cert" src="${ctx}/static/images/location.png"> --%>
 <%-- 						<img class="product_cert" src="${ctx}/static/images/location.png"> --%>
@@ -71,6 +74,18 @@
 			<div class="rowline"></div>
 			<div class="row4">
 				<a href="${ctx}/trading/product/center?search_EQ_user.id=${vm.user.id}" class="farmProductList">农场产品</a>
+				<div>
+					<c:if test="${empty userCategorys}">
+						暂无
+					</c:if>
+					<c:if test="${not empty userCategorys}">
+					<ul>
+						<c:forEach items="${userCategorys}" var="c">
+							<li><a href="${ctx}/trading/product/center?search_EQ_user.id=${vm.user.id}&search_EQ_category.id=${c.id}">${c.categoryName}</a></li>
+						</c:forEach>
+					</ul>
+					</c:if>
+				</div>
 			</div>
 			<div class="rowline"></div>
 			<div class="d_info">

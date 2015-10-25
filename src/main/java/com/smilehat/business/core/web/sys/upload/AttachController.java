@@ -38,11 +38,10 @@ public class AttachController extends SysBaseController {
 
 	private static final String[] NO_SAFE_SUFFIX = { "exe", "jsp", "bat" };
 	//控制层 URL地址映射
-	public static final String PATH = PATH_BASE + "/upload/attach";
+	public static final String PATH = "upload/attach";
 
 	@RequestMapping(value = "up", method = RequestMethod.POST)
-	public ModelAndView create(@RequestParam("vfile") MultipartFile file, HttpServletRequest request)
-			throws IOException {
+	public ModelAndView create(@RequestParam("vfile") MultipartFile file, HttpServletRequest request) throws IOException {
 		ModelAndView mav = new ModelAndView(PATH_BASE + "/upload/uploadDone");
 		if (!file.isEmpty()) {
 			Attach entity = new Attach();
@@ -65,8 +64,7 @@ public class AttachController extends SysBaseController {
 			entity.setUser(this.getCurrentUser());
 
 			logger.info("上传文件开始：" + file.getOriginalFilename());
-			attachService.saveAttach(entity, file.getInputStream(), CoreUtils.getStoragePath(request, entity
-					.getDownloadPath()));
+			attachService.saveAttach(entity, file.getInputStream(), CoreUtils.getStoragePath(request, entity.getDownloadPath()));
 			logger.info("上传文件结束：" + file.getOriginalFilename());
 			mav.addObject("statusCode", 200);
 			mav.addObject("message", "文件上传成功");
@@ -104,9 +102,8 @@ public class AttachController extends SysBaseController {
 	private String getStoragePath() {
 		StringBuilder sb = new StringBuilder();
 		Calendar cal = Calendar.getInstance();
-		sb.append(Constants.SPT).append(cal.get(Calendar.YEAR)).append('_').append(cal.get((Calendar.MONTH)) / 3 + 1)
-				.append(Constants.SPT).append(cal.get(Calendar.MONTH) + 1).append('_').append(
-						cal.get(Calendar.DAY_OF_MONTH)).append(Constants.SPT);
+		sb.append(Constants.SPT).append(cal.get(Calendar.YEAR)).append('_').append(cal.get((Calendar.MONTH)) / 3 + 1).append(Constants.SPT).append(cal.get(Calendar.MONTH) + 1).append('_')
+				.append(cal.get(Calendar.DAY_OF_MONTH)).append(Constants.SPT);
 		return sb.toString();
 	}
 

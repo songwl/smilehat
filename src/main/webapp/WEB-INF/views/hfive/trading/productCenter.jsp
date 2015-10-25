@@ -84,9 +84,9 @@
 			<form id="productForm" action="${ctx}/trading/product/list" method="post" class="pageForm">
 				<input type="hidden" name="pageNum" value="1" />
 				<input type="hidden" name="numPerPage" value="10" />
-				<input type="hidden" name="search_EQ_user.id" value="${param.search_EQ_user.id}" />
-				<input type="hidden" name="search_EQ_region.id" value="${param.search_EQ_region.id}" id="regionId" />
-				<input type="hidden" name="search_EQ_category.id" value="${param.search_EQ_category.id}" id="categoryId" />
+				<input type="hidden" name="search_EQ_user.id" value="${param['search_EQ_user.id']}" />
+				<input type="hidden" name="search_EQ_region.id" value="${param['search_EQ_region.id']}" id="regionId" />
+				<input type="hidden" name="search_EQ_category.id" value="${param['search_EQ_category.id']}" id="categoryId" />
 				<input type="hidden" name="search_LIKE_name" value="${param.search_LIKE_name}" />
 			</form>
 			

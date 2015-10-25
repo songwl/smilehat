@@ -67,23 +67,15 @@
 									style="display: none"></span>
 							</dd>
 						</dl>	 --%>		
-						<dl class="nowrap">
-							<dt>头像：</dt>
-							<dd>
-								<tag:picUpload uploadifyFileId="sys_user_photo_uploadifyFileId" hiddenName="photoAttachId" width="180" height="180"
-									defaultPicPath="${ctx}/static/styles/base/images/user_default.jpg" hiddenValue="${vm.user.photoAttach.id }" picPath="${ctx}/${vm.user.photoAttach.downloadPath }"></tag:picUpload>
-			
-							</dd>
-						</dl>
 						<dl class="nowrap"><hr/></dl>
 						<!-- 商户信息 -->
 						<dl class="nowrap">
 							<dt>商户类型：</dt>
 							<dd>
 								<select name="user.userType" class="required">
-									<option value="PERSON">个人</option>
-									<option value="DEALER">特约经销商</option> 
-									<option value="FARMER">农场</option>  
+									<option value="PERSON" <c:if test="${vm.user.userType=='PERSON'}">selected</c:if>>个人</option>
+									<option value="DEALER" <c:if test="${vm.user.userType=='DEALER'}">selected</c:if>>特约经销商</option> 
+									<option value="FARMER" <c:if test="${vm.user.userType=='FARMER'}">selected</c:if>>农场</option>  
 								</select>
 							</dd>
 						</dl> 
@@ -127,11 +119,27 @@
 							</dd>
 						</dl>
 						<dl class="nowrap">
-							<dt>图片：</dt>
+							<dt>认证图片：</dt>
+							<dd>
+								<tag:multipleFileUpload uploadifyFileId="sys_identity_attachs_uploadifyFileId" hiddenName="identityAttachIds" attachs="${vm.user.identityAttachs}"></tag:multipleFileUpload>
+							</dd>
+						</dl>
+						<dl class="nowrap">
+							<dt>商户图片：</dt>
 							<dd>
 								<tag:multipleFileUpload uploadifyFileId="sys_user_attachs_uploadifyFileId" hiddenName="attachIds" attachs="${vm.user.attachs}"></tag:multipleFileUpload>
 							</dd>
 						</dl>
+						<c:if test="${not empty vm.id}">
+						<dl class="nowrap">
+							<dt><label>商户标签:</label></dt>
+							<dd>
+								<c:forEach items="${certLabelList}" var="certItem">
+									<input type="checkbox" value="${certItem.id}" name="certLabels" <c:if test="${not empty vm.user.certLabelMap[certItem.id]}">checked="checked"</c:if> />${certItem.certName}  
+								</c:forEach>
+							</dd>
+						</dl>
+						</c:if>
 					</div>
 					
 					<div class="formBar">

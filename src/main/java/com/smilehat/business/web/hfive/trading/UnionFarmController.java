@@ -59,8 +59,11 @@ public class UnionFarmController extends HfiveBaseController {
 
 	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
 	public String updateForm(@PathVariable("id") java.lang.Long id, Model model) {
-		model.addAttribute("vm", customerService.getObjectById(id));
+		Customer vm = customerService.getObjectById(id);
+		model.addAttribute("vm", vm);
 		model.addAttribute("action", BaseController.UPDATE);
+
+		model.addAttribute("userCategorys", productService.findCategoryListByProductUser(vm.getUser().getId()));
 		return "hfive/farm/farmDetail";
 	}
 
