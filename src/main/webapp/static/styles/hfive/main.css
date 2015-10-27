@@ -372,7 +372,7 @@ text-align: right;
 }
 
  .list li a .row3 .right span,.list_purchase li a .row3 .right span {
-font-size: 3px;
+font-size: 0.8em;
 }
 
 .list li a .row3 .right .unit,.list_purchase li a .row3 .right .unit{

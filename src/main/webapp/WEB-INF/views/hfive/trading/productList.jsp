@@ -25,10 +25,10 @@
 					</div>
 					<div class="right">
 						<span class="unit">￥</span> 
-						<c:if test="${ varitem.price==0 && varitem.price2==0}">面议 </c:if>
-						<c:if test="${ varitem.price==0 && varitem.price2!=0}">${varitem.price2}  </c:if>
-						<c:if test="${ varitem.price!=0 && varitem.price2==0}">${varitem.price}  </c:if>
-						<c:if test="${ varitem.price!=0 && varitem.price2!=0}">${varitem.price}- ${varitem.price2} </c:if>
+						<c:if test="${ varitem.price==0.0 && varitem.price2==0.0}">面议 </c:if>
+						<c:if test="${ varitem.price==0.0 && varitem.price2!=0.0}">${varitem.price2}  </c:if>
+						<c:if test="${ varitem.price!=0.0 && varitem.price2==0.0}">${varitem.price}  </c:if>
+						<c:if test="${ varitem.price!=0.0 && varitem.price2!=0.0}">${varitem.price}- ${varitem.price2} </c:if>
 						<span id="showDictLabel" class="showDictLabel" dictType="PRICE_UNIT" dictCode="${varitem.priceUnit}"></span>
 <%-- 						<span class="unit">/${varitem.priceUnit}</span> --%>
 					</div>

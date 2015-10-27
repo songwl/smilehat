@@ -121,3 +121,14 @@ ENGINE=InnoDB
 DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
 ROW_FORMAT=COMPACT
 ;
+
+--2015/10/27
+alter table t_product add trademark varchar(255);
+alter table t_product add packing varchar(255);
+alter table t_product add depot varchar(255);
+alter table t_product add expiratin_date varchar(255);
+
+alter table t_product add start_time2 datetime ;
+alter table t_product add end_time2 datetime ;
+
+alter table t_product modify column quantity varchar(255); 

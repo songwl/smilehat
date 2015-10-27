@@ -23,7 +23,12 @@
 <!-- 						<dt><label>产品标题:</label></dt> -->
 <%-- 						<dd><input type="text" id="title" name="title" class="required" size="30" value="${vm.title}" validate="{required:true}"/>						</dd> --%>
 <!-- 					</dl> -->
-					
+					<dl class="nowrap">
+						<dt><label>品牌:</label></dt>
+						<dd>
+							<input type="text" id="trademark" name="trademark" style="width: 140px;" size="18" value="${vm.trademark}"  />	
+						</dd>
+					</dl>
 					<dl class="nowrap">
 						<dt><label>品类名称:</label></dt>
 						<dd>
@@ -34,40 +39,31 @@
 							</dd>	
 						</dd>
 					</dl>
-					<dl  class="nowrap" >
-						<dt><label>上市时间:</label></dt>
-						<dd>
-							<input type="text" id="startTime" name="startTime" class="date" value="<fmt:formatDate value='${vm.startTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" />
-							<span style="float:left;">&nbsp;至&nbsp;</span>
-							<input type="text" id="endTime" name="endTime" class="date" value="<fmt:formatDate value='${vm.endTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" />
-							
-						</dd>
-					</dl>
 					<dl  class="nowrap">
 						<dt><label>规格:</label></dt>
 						<dd>
 							<input type="text" id="branch" name="branch" style="width: 140px;" size="18" value="${vm.branch}" />	
-							<select  id="branchInfo" name=branchInfo  class="combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
-								<option value=""></option>
-							</select>
-						</dd>
-					</dl>
-					
-					<dl class="nowrap">
-						<dt><label>价格:</label></dt>
-						<dd>
-							<input type="text" id="price" name="price" class="required" size="18" style="width: 80px;" value="${vm.price}" validate="{required:true}"/>		
-							<input type="text" id="price2" name="price2" class="required" size="18" style="width: 80px;" value="${vm.price2}" validate="{required:true}"/>	
-							<select  id="priceUnit" name="priceUnit"  class="required combox"  selectedValue="${vm.priceUnit}"   dataUrl="${sctx}/dict/selectDictByType?dictType=PRICE_UNIT">
-							</select>				
+<%-- 							<select  id="branchInfo" name=branchInfo  class="combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO"> --%>
+<!-- 								<option value=""></option> -->
+<!-- 							</select> -->
 						</dd>
 					</dl>
 					<dl class="nowrap">
-						<dt><label>供应量:</label></dt>
+						<dt><label>包装方式:</label></dt>
 						<dd>
-							<input type="text" id="quantity" name="quantity" class="required" size="18" value="${vm.quantity}"  />	
-							<select id="quantityUnit" name="quantityUnit"  class="required combox"  selectedValue="${vm.quantityUnit}" dataUrl="${sctx}/dict/selectDictByType?dictType=QUANTITY_UNIT">
-							</select>
+							<input type="text" id="packing" name="packing" style="width: 140px;" size="18" value="${vm.packing}"  />	
+						</dd>
+					</dl>
+					<dl class="nowrap">
+						<dt><label>贮藏方式:</label></dt>
+						<dd>
+							<input type="text" id="depot" name="depot" style="width: 140px;" size="18" value="${vm.depot}"  />	
+						</dd>
+					</dl>
+					<dl class="nowrap">
+						<dt><label>保质期:</label></dt>
+						<dd>
+							<input type="text" id="expiratinDate" name="expiratinDate" style="width: 140px;" size="18" value="${vm.expiratinDate}" />(天)	
 						</dd>
 					</dl>
 					<dl class="nowrap">
@@ -90,7 +86,43 @@
 						<dd><input type="text" id="regionDetail" name="regionDetail" class="" size="30" value="${vm.regionDetail}" style="width: 480px;"/>						</dd>
 					</dl>
 					<dl class="nowrap">
-						<dt><label>产品描述:</label></dt>
+						<dt><label>价格:</label></dt>
+						<dd>
+							<input type="text" id="price" name="price" class="required" size="18" style="width: 80px;" value="${vm.price}" validate="{required:true}"/>		
+							<input type="text" id="price2" name="price2" class="required" size="18" style="width: 80px;" value="${vm.price2}" validate="{required:true}"/>	
+							<select  id="priceUnit" name="priceUnit"  class="required combox"  selectedValue="${vm.priceUnit}"   dataUrl="${sctx}/dict/selectDictByType?dictType=PRICE_UNIT">
+							</select>				
+						</dd>
+					</dl>
+					<dl class="nowrap">
+						<dt><label>供应量:</label></dt>
+						<dd>
+							<input type="text" id="quantity" name="quantity" style="width: 140px;" size="18" value="${vm.quantity}"  />	
+<%-- 							<select id="quantityUnit" name="quantityUnit"  class="required combox"  selectedValue="${vm.quantityUnit}" dataUrl="${sctx}/dict/selectDictByType?dictType=QUANTITY_UNIT"> --%>
+<!-- 							</select> -->
+						</dd>
+					</dl>
+					
+					<dl  class="nowrap" >
+						<dt><label>供应期1:</label></dt>
+						<dd>
+							<input type="text" id="startTime" name="startTime" class="date" value="<fmt:formatDate value='${vm.startTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" />
+							<span style="float:left;">&nbsp;至&nbsp;</span>
+							<input type="text" id="endTime" name="endTime" class="date" value="<fmt:formatDate value='${vm.endTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" />
+							
+						</dd>
+					</dl>
+					<dl  class="nowrap" >
+						<dt><label>供应期2:</label></dt>
+						<dd>
+							<input type="text" id="startTime2" name="startTime2" class="date" value="<fmt:formatDate value='${vm.startTime2}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" />
+							<span style="float:left;">&nbsp;至&nbsp;</span>
+							<input type="text" id="endTime2" name="endTime2" class="date" value="<fmt:formatDate value='${vm.endTime2}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" />
+							
+						</dd>
+					</dl>
+					<dl class="nowrap">
+						<dt><label>产品特色:</label></dt>
 						<dd>
 							<textarea rows="" cols="" id="description" name="description" style="width: 480px;">${vm.description}</textarea>
 						</dd>

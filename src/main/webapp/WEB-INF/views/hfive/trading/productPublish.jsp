@@ -43,12 +43,18 @@
 		
 		<div id="menu">
 		    <form class="login-form m-login-form" action="${ctx}/trading/product/publish/save" method="post" id="productPublishForm">
-		    </form>
+		   
 		    <div class="main-form">
 		        <div class="form-group">
 		        	产品名称：
 					<div class="input-icon" style="height: 35px;">
 						<input name="name" class="form-control" type="text" size="30" style="width: 100%;" />
+					</div>
+				 </div>
+				 <div class="form-group">
+		        	品牌：
+					<div class="input-icon" style="height: 35px;">
+						<input name="trademark" class="form-control" type="text" size="30" style="width: 100%;" />
 					</div>
 				 </div>
 <!-- 				<div class="form-group"> -->
@@ -75,41 +81,32 @@
 					</div>
 				 </div>
 				 <div class="form-group">
-					供应期：
-					<div class="input-icon" style="height: 35px;">
-						<input class="form-control mtime" type="text" id="startTime" name="startTime" class="date" value="" readonly="true" style="width: 40%;" />
-						<span style="float:left;line-height: 35px;">&nbsp;至&nbsp;</span>
-						<input class="form-control mtime" type="text" id="endTime" name="endTime" class="date" value="" readonly="true" style="width: 40%;" />
-					</div>
-					<div id="datePlugin"></div>
-				 </div>
-				 <div class="form-group">
 					规格：
 					<div class="input-icon" style="height: 35px;">
-						<input type="text" id="branch" name="branch" placeholder="规格" class="form-control"  size="18" style="width: 40%;"/>
-						<select  id="branchInfo" name=branchInfo  class="form-control combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
-						</select>
+						<input type="text" id="branch" name="branch" placeholder="规格" class="form-control"  size="30" style="width: 100%;"/>
+<%-- 						<select  id="branchInfo" name=branchInfo  class="form-control combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO"> --%>
+<!-- 						</select> -->
 					</div>
 				 </div>
 				 <div class="form-group">
-					价格：
+		        	包装方式：
 					<div class="input-icon" style="height: 35px;">
-						<input type="text" id="price" name="price" placeholder="数字" class="form-control more-price"  style="width: 25%;" size="18" onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');" />		
-						<span style="float:left;line-height: 35px;">&nbsp;至&nbsp;</span>
-						<input type="text" id="price2" name="price2" placeholder="数字" class="form-control more-price" style="width: 25%;" size="18" onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');" />		
-						<select  id="priceUnit" name="priceUnit"  class="form-control combox" style="width: 30%;" dataUrl="${sctx}/dict/selectDictByType?dictType=PRICE_UNIT">
-						</select>	
+						<input type="text"  name="packing" class="form-control" type="text" size="30" style="width: 100%;" />
 					</div>
 				 </div>
 				 <div class="form-group">
-					供应量：
+		        	贮藏方式：
 					<div class="input-icon" style="height: 35px;">
-						<input type="text" id="quantity" name="quantity" placeholder="请输入数字" class="form-control" size="18" onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');" />	
-						<select id="quantityUnit" name="quantityUnit"  class="form-control combox" dataUrl="${sctx}/dict/selectDictByType?dictType=QUANTITY_UNIT">
-						</select>	
+						<input name="depot" class="form-control" type="text" size="30" style="width: 100%;" />
 					</div>
 				 </div>
-				<div class="form-group">
+				 <div class="form-group">
+		        	保质期：
+					<div class="input-icon" style="height: 35px;">
+						<input name="expiratinDate" class="form-control" type="text" size="30" style="width: 85%;" />(天)
+					</div>
+				 </div>
+				 <div class="form-group">
 					产地：
 					<div class="input-icon" style="height: 35px;">
 						<select class="form-control combox" selectedValue="${vm.region.parent.parent.id}" ref="w_combox_city" dataUrl="${ctx}/sys/region/selectJson" refUrl="${ctx}/sys/region/selectJson?pid={value}" style="width: 27%;float: left;">
@@ -129,8 +126,48 @@
 						<input type="text" name="address" value="${vm.address}" class="form-control" style="width: 100%;" placeholder="请输入您的详细地址" autocomplete="off"/>
 					 </div>
 				 </div>
+				  <div class="form-group">
+					价格：
+					<div class="input-icon" style="height: 35px;">
+						<input type="text" id="price" name="price" placeholder="数字" class="form-control more-price"  style="width: 25%;" size="18" onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');" />		
+						<span style="float:left;line-height: 35px;">&nbsp;至&nbsp;</span>
+						<input type="text" id="price2" name="price2" placeholder="数字"   class="form-control more-price" style="width: 25%;" size="18" onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');" />		
+						<select  id="priceUnit" name="priceUnit"  class="form-control combox" style="width: 30%;" dataUrl="${sctx}/dict/selectDictByType?dictType=PRICE_UNIT">
+						</select>	
+					</div>
+				 </div>
 				 <div class="form-group">
-				 	产品描述:
+					供应量：
+					<div class="input-icon" style="height: 35px;">
+						<input type="text" id="quantity" name="quantity"  class="form-control" size="30"  style="width: 100%;" />	
+<!-- 						onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');"  -->
+<%-- 						<select id="quantityUnit" name="quantityUnit"  class="form-control combox" dataUrl="${sctx}/dict/selectDictByType?dictType=QUANTITY_UNIT"> --%>
+<!-- 						</select>	 -->
+					</div>
+				 </div>
+				
+				 <div class="form-group">
+					供应期1：
+					<div class="input-icon" style="height: 35px;">
+						<input class="form-control mtime" type="text" id="startTime" name="startTime" class="date" value="" readonly="true" style="width: 40%;" />
+						<span style="float:left;line-height: 35px;">&nbsp;至&nbsp;</span>
+						<input class="form-control mtime" type="text" id="endTime" name="endTime" class="date" value="" readonly="true" style="width: 40%;" />
+					</div>
+					<div id="datePlugin"></div>
+				 </div>
+				 
+				 <div class="form-group">
+					供应期2：
+					<div class="input-icon" style="height: 35px;">
+						<input class="form-control mtime" type="text" id="startTime2" name="startTime2" class="date" value="" readonly="true" style="width: 40%;" />
+						<span style="float:left;line-height: 35px;">&nbsp;至&nbsp;</span>
+						<input class="form-control mtime" type="text" id="endTime2" name="endTime2" class="date" value="" readonly="true" style="width: 40%;" />
+					</div>
+					<div id="datePlugin"></div>
+				 </div>
+				 
+				 <div class="form-group">
+				 	产品特色:
 					<div class="input-icon" style="height: 80px;">
 						<textarea rows="" cols="" id="description" name="description" style="width: 100%;">${vm.description}</textarea>
 					 </div>
@@ -140,7 +177,7 @@
 					<a class="btn-submit">发布</a>
 				</div>
 				</div>
-			
+			 </form>
 		</div> 
 	</div>
 		<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>

@@ -25,7 +25,9 @@
 	<div id="main_div">
 		<div id="header">
 			<div class="logo">
-				<img id="curlogo" alt="" src="${ctx}/static/images/logo.png">
+				<a href="${ctx}/introduce">
+					<img id="curlogo" alt="" src="${ctx}/static/images/logo.png">
+				</a>
 			</div>
 			<div class="userCenter">
 				商户中心

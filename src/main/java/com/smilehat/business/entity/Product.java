@@ -32,7 +32,7 @@ public class Product extends IdEntity {
 
 	private java.lang.String name;//产品名称
 	private java.lang.String title;//标题
-	private java.lang.String description;//描述
+	private java.lang.String description;//产品特色
 	private java.util.Date createTime;//创建时间
 	private java.util.Date updateTime;//更新时间
 	private java.util.Date publishTime;//发布时间
@@ -43,13 +43,22 @@ public class Product extends IdEntity {
 	private java.lang.String priceUnit;//价格单位
 	private java.lang.Double price;//价格
 	private java.lang.Double price2;//价格
-	private java.lang.Double quantity;//供应量
+	private java.lang.String quantity;//供应量
 	private java.lang.String quantityUnit;//供应量单位
 	private java.lang.String regionDetail;//详细地址
 	private java.lang.Integer sort;//排序字段
 	private java.lang.Boolean isDeleted = Boolean.FALSE; // 默认未删除
 	private java.lang.Integer visitCount; //访问次数
 
+	private java.lang.String trademark;//品牌
+	private java.lang.String packing;//包装方式
+	private java.lang.String depot;//贮藏方式
+	private java.lang.String expiratinDate;//保质期
+	
+	private java.util.Date startTime2;//上市开始时间2
+	private java.util.Date endTime2;//上市结束时间2
+	
+	
 	private Region region;//区域
 	private Category category;//品类
 	private User user;
@@ -59,6 +68,54 @@ public class Product extends IdEntity {
 	@Transient
 	private Map<Long, CertLabel> certLabelMap;
 
+	/**
+	 * @return
+	 */
+	@Column(name = "trademark")
+	public java.lang.String getTrademark() {
+		return this.trademark;
+	}
+
+	public void setTrademark(java.lang.String value) {
+		this.trademark = value;
+	}
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "packing")
+	public java.lang.String getPacking() {
+		return this.packing;
+	}
+
+	public void setPacking(java.lang.String value) {
+		this.packing = value;
+	}
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "depot")
+	public java.lang.String getDepot() {
+		return this.depot;
+	}
+
+	public void setDepot(java.lang.String value) {
+		this.depot = value;
+	}
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "expiratin_date")
+	public java.lang.String getExpiratinDate() {
+		return this.expiratinDate;
+	}
+
+	public void setExpiratinDate(java.lang.String value) {
+		this.expiratinDate = value;
+	}
+	
 	/**
 	 * @return
 	 */
@@ -191,6 +248,31 @@ public class Product extends IdEntity {
 	public void setEndTime(java.util.Date value) {
 		this.endTime = value;
 	}
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "start_time2")
+	public java.util.Date getStartTime2() {
+		return this.startTime2;
+	}
+
+	public void setStartTime2(java.util.Date value) {
+		this.startTime2 = value;
+	}
+
+	/**
+	 * @return
+	 */
+	@Column(name = "end_time2")
+	public java.util.Date getEndTime2() {
+		return this.endTime2;
+	}
+
+	public void setEndTime2(java.util.Date value) {
+		this.endTime2 = value;
+	}
+	
 	/**
 	 * @return
 	 */
@@ -253,11 +335,11 @@ public class Product extends IdEntity {
 	 * @return
 	 */
 	@Column(name = "quantity")
-	public java.lang.Double getQuantity() {
+	public java.lang.String getQuantity() {
 		return this.quantity;
 	}
 
-	public void setQuantity(java.lang.Double value) {
+	public void setQuantity(java.lang.String value) {
 		this.quantity = value;
 	}
 

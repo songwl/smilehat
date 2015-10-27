@@ -54,7 +54,7 @@
 				<th <tag:orderField name="publishTime"/>>发布时间</th>   
 				<th >上市时间</th>	
 				<th <tag:orderField name="price"/>>价格(单位)</th>   
-				<th <tag:orderField name="quantity"/>>供应量(单位)</th>   
+				<th <tag:orderField name="quantity"/>>供应量</th>   
 				<th <tag:orderField name="region.regionName"/>>区域名称</th>   
 				<th <tag:orderField name="user.name"/>>所属商户</th>   
 				<th <tag:orderField name="category.categoryName"/>>品类名称</th>  
@@ -79,7 +79,7 @@
 						<span class="showDictLabel" dictType="PRICE_UNIT" dictCode="${varitem.priceUnit}"></span> 
 					</td>  
 					<td> ${varitem.quantity}
-						<span class="showDictLabel" dictType="QUANTITY_UNIT" dictCode="${varitem.quantityUnit}"></span>
+<%-- 						<span class="showDictLabel" dictType="QUANTITY_UNIT" dictCode="${varitem.quantityUnit}"></span> --%>
 					</td>   
 					<td> ${varitem.region.regionName}
 					</td>   

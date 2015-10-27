@@ -72,6 +72,15 @@ public class ProductService extends BaseService<Product> {
 		if (!CollectionUtils.isEmpty(certLabelList)) {
 			product.setCertLabelList(certLabelList);
 		}
+		
+		if(product.getPrice()==null){
+			product.setPrice(0.0);
+		}
+		
+		if(product.getPrice2()==null){
+			product.setPrice2(0.0);
+		}
+		
 		this.save(product);
 	}
 
