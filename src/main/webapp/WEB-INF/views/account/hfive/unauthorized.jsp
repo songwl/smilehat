@@ -32,8 +32,13 @@
 		
 		<div style="color: #fff;">您没有该操作的访问授权！！！</div>
 		
-		<div class="form-actions">
+		<div class="form-actions ">
 			<a class="btn-submit" href="${ctx}/trading">返回交易中心</a>
+		</div>
+		</br>
+		</br>
+		<div class="form-actions">
+			<a class="btn-submit" href="${ctx}/login">登录</a>
 		</div>
 	</form>
 </div>

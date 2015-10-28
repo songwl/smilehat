@@ -32,7 +32,7 @@
 						<dd>
 							<select name="certType" class="combox" onchange="changeCertType(this);">
 								<option value="PRODUCT" <c:if test="${vm.certType=='PRODUCT'}">selected="selected"</c:if> >产品标签</option>
-								<option value="CUSTOMER" <c:if test="${vm.certType=='PRODUCT'}">selected="selected"</c:if> >商户标签</option>
+								<option value="CUSTOMER" <c:if test="${vm.certType!='PRODUCT'}">selected="selected"</c:if> >商户标签</option>
 							</select>
 						</dd>
 					</dl>

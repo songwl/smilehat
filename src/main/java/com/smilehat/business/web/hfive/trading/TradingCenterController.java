@@ -109,13 +109,13 @@ public class TradingCenterController extends HfiveBaseController {
 
 	@RequestMapping(value = "/product/publish/save")
 	public ModelAndView productPublish(@Valid @ModelAttribute("preloadModel") Product product, @RequestParam(value = "customer.regionId", required = false) Long regionId,
-			@RequestParam(value = "categoryId", required = false) Long categoryId) {
+			@RequestParam(value = "categoryId", required = false) Long categoryId, @RequestParam(value = "attachIds") Long[] attachIds) {
 		product.setCreateTime(CoreUtils.nowtime());
 		product.setUpdateTime(CoreUtils.nowtime());
 		product.setPublishTime(CoreUtils.nowtime());
 
 		if (this.getCurrentUser() != null) {
-			productService.saveProduct(product, regionId, this.getCurrentUser().getId(), categoryId, null);
+			productService.saveProduct(product, regionId, this.getCurrentUser().getId(), categoryId, null,attachIds);
 			return this.ajaxDoneSuccess("创建成功");
 		} else {
 			return this.ajaxDoneError("请登录！");

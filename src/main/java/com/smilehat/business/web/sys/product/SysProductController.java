@@ -85,7 +85,8 @@ public class SysProductController extends BaseController {
 
 	@RequestMapping(value = BaseController.CREATE, method = RequestMethod.POST)
 	public ModelAndView create(@Valid Product product, @RequestParam(required = false) Long regionId, @RequestParam(value = "userId", required = false) Long userId,
-			@RequestParam(value = "categoryId", required = false) Long categoryId, @RequestParam(value = "certLabels", required = false) String certLabels) {
+			@RequestParam(value = "categoryId", required = false) Long categoryId, @RequestParam(value = "certLabels", required = false) String certLabels
+			,@RequestParam(value = "attachIds", required = false) Long[] attachIds) {
 		List<CertLabel> certLabelList = new ArrayList<>();
 		if (!StringUtils.isEmpty(certLabels)) {
 			String[] arr = certLabels.split(",");
@@ -98,7 +99,7 @@ public class SysProductController extends BaseController {
 		product.setCreateTime(CoreUtils.nowtime());
 		product.setUpdateTime(CoreUtils.nowtime());
 		product.setPublishTime(CoreUtils.nowtime());
-		productService.saveProduct(product, regionId, userId, categoryId, certLabelList);
+		productService.saveProduct(product, regionId, userId, categoryId, certLabelList, attachIds);
 		return this.ajaxDoneSuccess("创建成功");
 	}
 
@@ -119,7 +120,8 @@ public class SysProductController extends BaseController {
 
 	@RequestMapping(value = BaseController.UPDATE, method = RequestMethod.POST)
 	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Product product, @RequestParam(required = false) Long regionId, @RequestParam(value = "userId", required = false) Long userId,
-			@RequestParam(value = "categoryId", required = false) Long categoryId, @RequestParam(value = "certLabels", required = false) String certLabels) {
+			@RequestParam(value = "categoryId", required = false) Long categoryId, @RequestParam(value = "certLabels", required = false) String certLabels,
+			@RequestParam(value = "attachIds", required = false) Long[] attachIds) {
 		List<CertLabel> certLabelList = new ArrayList<>();
 		if (!StringUtils.isEmpty(certLabels)) {
 			String[] arr = certLabels.split(",");
@@ -129,7 +131,7 @@ public class SysProductController extends BaseController {
 			}
 		}
 		product.setUpdateTime(CoreUtils.nowtime());
-		productService.saveProduct(product, regionId, userId, categoryId, certLabelList);
+		productService.saveProduct(product, regionId, userId, categoryId, certLabelList, attachIds);
 		return this.ajaxDoneSuccess("修改成功");
 	}
 

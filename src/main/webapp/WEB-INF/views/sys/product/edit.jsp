@@ -128,6 +128,12 @@
 						</dd>
 					</dl>
 					<dl class="nowrap">
+						<dt>产品图片：</dt>
+						<dd>
+							<tag:multipleFileUpload uploadifyFileId="sys_product_attachs_uploadifyFileId" hiddenName="attachIds" attachs="${vm.attachs}"></tag:multipleFileUpload>
+						</dd>
+					</dl>
+					<dl class="nowrap">
 						<dt><label>产品标签:</label></dt>
 						<dd>
 							<c:if test="${empty vm}">

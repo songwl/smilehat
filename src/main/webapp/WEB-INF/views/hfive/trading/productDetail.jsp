@@ -8,7 +8,8 @@
 
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/productDetail.css" type="text/css" />
-
+<link rel="stylesheet" href="${ctx}/static/js/swiper/swiper.min.css" type="text/css" />
+<script type="text/javascript" src="${ctx}/static/js/swiper/swiper.min.js"></script>
 <%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
 
 
@@ -23,6 +24,33 @@
 		
 	</div>
 	<div id="main_div">
+		
+        <div id="header-img">
+		<!-- 焦点图 S -->
+			<div class="swiper-container swiper-top">
+				<div class="swiper-wrapper">
+					<c:if test="${not empty vm.attachs}">
+						<c:forEach items="${vm.attachs}" var="image">
+							<div class="swiper-slide">
+								<a href="javascript:;">
+									<img class="farm-img"  alt="" src="${ctx}/${image.downloadPath}" onerror="javascript:this.src='${ctx}/static/images/farmDBg.png'" >
+								</a>
+							</div>
+						</c:forEach>
+					</c:if>
+					
+					<c:if test="${empty vm.attachs}">
+						<div class="swiper-slide">
+							<a href="javascript:;">
+								<img class="farm-img" alt="" src="${ctx}/static/images/farmDBg.png" />
+							</a>
+						</div>
+					</c:if>
+				</div>
+				<div class="swiper-pagination swiper-pagination-top"></div>
+			</div>
+		<!-- 焦点图 E -->
+		</div>
 		<div class="back">
 	        <a href="javascript:history.back(-1);">
 	        	<img class="search-img" src="${ctx}/static/images/back2.png"  alt="返回">
@@ -33,7 +61,7 @@
 				<div class="d_item" id="d_main">
 					<h2>${vm.name} </h2>
 					<div class="veiwCert">
-						<c:forEach items="${varitem.certLabelList}" var="cert">
+						<c:forEach items="${vm.certLabelList}" var="cert">
 							<img class="product_cert"  src="${ctx}/${cert.photoAttach.downloadPath}" />
 						</c:forEach>
 					</div>

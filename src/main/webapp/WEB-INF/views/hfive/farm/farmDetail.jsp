@@ -48,20 +48,26 @@
 			<div class="row1">
 				<div class="left">
 					${vm.user.name}
+					
 				</div>
-				<div class="right">
-					<div class="up">
-						认证标签
-					</div>
+				
+<!-- 					<div class="up"> -->
+<!-- 						认证标签 -->
+<!-- 					</div> -->
 					<div class="down" >
-						<c:forEach items="${vm.user.labels}" var="label">
-							<img class="product_cert"  src="${ctx}/${label.photoAttach.downloadPath}" />
-						</c:forEach>
+<%-- 						<c:forEach items="${vm.user.labels}" var="label"> --%>
+<%-- 							<img class="product_cert"  src="${ctx}/${label.photoAttach.downloadPath}" /> --%>
+<%-- 						</c:forEach> --%>
 <%-- 						<img class="product_cert"  src="${ctx}/static/images/location.png"> --%>
 <%-- 						<img class="product_cert" src="${ctx}/static/images/location.png"> --%>
 <%-- 						<img class="product_cert" src="${ctx}/static/images/location.png"> --%>
 					</div>
-				</div>
+				
+			</div>
+			<div class="row1_right">
+				<c:forEach items="${vm.user.labels}" var="label">
+					<img class="product_cert"  src="${ctx}/${label.photoAttach.downloadPath}" />
+				</c:forEach>
 			</div>
 			<div class="rowline">
 			</div>
@@ -81,7 +87,7 @@
 					<c:if test="${not empty userCategorys}">
 					<ul>
 						<c:forEach items="${userCategorys}" var="c">
-							<li><a href="${ctx}/trading/product/center?search_EQ_user.id=${vm.user.id}&search_EQ_category.id=${c.id}">${c.categoryName}</a></li>
+							<li><a href="${ctx}/trading/product/center?search_EQ_user.id=${vm.user.id}&search_EQ_category.id=${c.id}" class="list_product">${c.categoryName}</a></li>
 						</c:forEach>
 					</ul>
 					</c:if>

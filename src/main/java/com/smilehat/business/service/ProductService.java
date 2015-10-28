@@ -14,7 +14,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
+import com.smilehat.business.core.entity.sys.upload.Attach;
 import com.smilehat.business.core.service.security.UserService;
+import com.smilehat.business.core.service.sys.upload.AttachService;
 import com.smilehat.business.entity.Category;
 import com.smilehat.business.entity.CertLabel;
 import com.smilehat.business.entity.Product;
@@ -47,6 +49,9 @@ public class ProductService extends BaseService<Product> {
 	@Autowired
 	private CertLabelDao certLabelDao;
 
+	@Autowired
+	private AttachService attachService;
+	
 	@Override
 	public PagingAndSortingRepository<Product, Long> getPagingAndSortingRepositoryDao() {
 		return this.productDao;
@@ -57,7 +62,7 @@ public class ProductService extends BaseService<Product> {
 		return this.productDao;
 	}
 
-	public void saveProduct(Product product, Long regionId, Long userId, Long categoryId, List<CertLabel> certLabelList) {
+	public void saveProduct(Product product, Long regionId, Long userId, Long categoryId, List<CertLabel> certLabelList, Long[] attachIds) {
 		if (regionId != null) {
 			product.setRegion(regionService.getObjectById(regionId));
 		}
@@ -79,6 +84,18 @@ public class ProductService extends BaseService<Product> {
 		
 		if(product.getPrice2()==null){
 			product.setPrice2(0.0);
+		}
+		if (attachIds != null && attachIds.length > 0) {
+			List<Attach> attachs = new ArrayList<Attach>();
+			for (Long attachId : attachIds) {
+				if (attachId != null) {
+					attachs.add(attachService.findUniqueBy("id", attachId));
+				}
+			}
+
+			if (!attachs.isEmpty()) {
+				product.setAttachs(attachs);
+			}
 		}
 		
 		this.save(product);

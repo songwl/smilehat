@@ -3,6 +3,11 @@ width: 30px;
 height: 30px;
 }
 
+div#header-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
 .pageContent {
 color: white;
 padding: 0px 15px 50px 15px;
@@ -14,6 +19,7 @@ margin-top: 20px;
 	position: absolute;
 	right: 20px;
 	top: 20px;
+	z-index: 9999;
 }
 
 .pageContent .d_item{
@@ -97,5 +103,14 @@ margin-top: 20px;
 
 .veiwCert {
     width: 100%;
+    float: right;
+}
+
+img.farm-img {
+    width: 100%;
+    height: 200px;
+}
+
+img.product_cert {
     float: right;
 }

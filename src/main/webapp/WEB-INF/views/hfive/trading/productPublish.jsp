@@ -172,7 +172,12 @@
 						<textarea rows="" cols="" id="description" name="description" style="width: 100%;">${vm.description}</textarea>
 					 </div>
 				 </div>
-				
+				<div class="form-group hidden-group" >
+					<label style="color:#fff;width:25%;display: block;float: left;">产品图片：</label>
+					<div style="float: left;width:75%;">
+						<tag:h5MultiPicUpload width="100" height="80" uploadifyFileId="productAttach" hiddenName="attachIds"  attachs="${vm.attachs}"></tag:h5MultiPicUpload>
+					</div>
+				</div>
 				<div class="form-actions">
 					<a class="btn-submit">发布</a>
 				</div>

@@ -17,7 +17,9 @@ import javax.persistence.Transient;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import com.google.common.collect.Lists;
 import com.smilehat.business.core.entity.security.User;
+import com.smilehat.business.core.entity.sys.upload.Attach;
 import com.smilehat.constants.Constants;
 import com.smilehat.modules.entity.IdEntity;
 
@@ -64,10 +66,21 @@ public class Product extends IdEntity {
 	private User user;
 
 	private List<CertLabel> certLabelList = new ArrayList<>();
+	private List<Attach> attachs = Lists.newArrayList(); //产品图片
 
 	@Transient
 	private Map<Long, CertLabel> certLabelMap;
 
+	@ManyToMany
+	@JoinTable(name = Constants.TABLE_PREFIX + "product_attach", joinColumns = { @JoinColumn(name = "product_id") }, inverseJoinColumns = { @JoinColumn(name = "attach_id") })
+	public List<Attach> getAttachs() {
+		return attachs;
+	}
+
+	public void setAttachs(List<Attach> attachs) {
+		this.attachs = attachs;
+	}
+	
 	/**
 	 * @return
 	 */

@@ -20,9 +20,20 @@
 				</tr>
 				<tr>
 					<td align="right" valign="top">头像：</td>
-					<td align="left" colspan="3"><img src="${ctx}/${vm.user.photoAttach.downloadPath}" onerror="javascript:this.src='${ctx}/static/styles/base/images/user_default.jpg'" width="180"
-						height="180" /></td>
+					<td align="left" colspan="3">
+						<img src="${ctx}/${vm.user.photoAttach.downloadPath}" onerror="javascript:this.src='${ctx}/static/styles/base/images/user_default.jpg'" width="180"
+						height="180" />
+					</td>
 				</tr>
+				
+				<tr>
+					<td align="right" valign="top">认证图片：</td>
+					<td align="left" colspan="3">
+						<img src="${ctx}/${vm.user.photoAttach.downloadPath}" onerror="javascript:this.src='${ctx}/static/styles/base/images/user_default.jpg'" width="180"
+						height="180" />
+					</td>
+				</tr>
+				
 				<tr>
 					<td align="right">商户类型：</td>
 					<td align="left"><s:message code="user.usertype.${vm.user.userType}"></s:message></td>
@@ -40,12 +51,12 @@
 						${vm.address}
 					</td>
 				</tr>
-				<tr>
-					<td align="right" valign="top">签名：</td>
-					<td align="left" colspan="3">
-						${vm.signature}
-					</td>
-				</tr>
+<!-- 				<tr> -->
+<!-- 					<td align="right" valign="top">签名：</td> -->
+<!-- 					<td align="left" colspan="3"> -->
+<%-- 						${vm.signature} --%>
+<!-- 					</td> -->
+<!-- 				</tr> -->
 				<tr>
 					<td align="right" valign="top">详细说明：</td>
 					<td align="left" colspan="3">

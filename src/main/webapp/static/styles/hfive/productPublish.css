@@ -84,3 +84,7 @@ left: 5px;
     bottom: 40px;
     overflow: auto
 }
+
+.form-group.hidden-group {
+    visibility: hidden;
+}

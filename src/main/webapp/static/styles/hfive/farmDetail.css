@@ -47,23 +47,28 @@ height: 90px;
 
 .row1 .left {
 float: left;
-width: 60%;
+width: 100%;
 font-size: 30px;
 }
 
-.row1 .right {
-float: right;
-padding-top: 30px;
+.row1_right {
+    width: 100%;
+    height: 20px;
 }
+/* .row1 .right { */
+/* float: right; */
+/* padding-top: 30px; */
+/* } */
 
-.row1 .right .up{
-padding: 0px 0px 5px 30px;
-font-size: 10px;
-color: #6EBD28;
-}
+/* .row1 .right .up{ */
+/* padding: 0px 0px 5px 30px; */
+/* font-size: 10px; */
+/* color: #6EBD28; */
+/* } */
 
 img.product_cert {
 width: 22px;
+    float: right;
 }
 
 .row2 {
@@ -107,4 +112,9 @@ padding: 10px 0px;
 
 a.farmProductList {
 	color: #6EBD28;
+}
+
+a.list_product {
+	color: white;
+    text-decoration: underline;
 }

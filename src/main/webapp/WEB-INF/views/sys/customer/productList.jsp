@@ -15,7 +15,7 @@
 				<th >上市时间</th>	
 				<th <tag:orderField name="branchInfo"/>>规格</th>   
 				<th <tag:orderField name="price"/>>价格(单位)</th>   
-				<th <tag:orderField name="quantity"/>>供应量(单位)</th>   
+				<th <tag:orderField name="quantity"/>>供应量</th>   
 				<th <tag:orderField name="region.regionName"/>>区域名称</th>   
 				<th <tag:orderField name="user.name"/>>所属商户</th>   
 				<th <tag:orderField name="category.categoryName"/>>品类名称</th>  
@@ -39,9 +39,11 @@
 					</td>   
 					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="查看"> ${varitem.branchInfo} </a> 
 					</td>   
-					<td>${varitem.price} (${varitem.priceUnit}) 
+					<td>${varitem.price}-${varitem.price2} 
+					<span class="showDictLabel" dictType="PRICE_UNIT" dictCode="${varitem.priceUnit}"></span>
 					</td>  
-					<td> ${varitem.quantity}(${varitem.quantityUnit})
+					<td> ${varitem.quantity}
+<%-- 					(${varitem.quantityUnit}) --%>
 					</td>   
 					<td> ${varitem.region.regionName}
 					</td>   

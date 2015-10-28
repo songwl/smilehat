@@ -132,3 +132,12 @@ alter table t_product add start_time2 datetime ;
 alter table t_product add end_time2 datetime ;
 
 alter table t_product modify column quantity varchar(255); 
+
+CREATE TABLE t_product_attach(
+`product_id`  bigint(20) NULL DEFAULT NULL ,
+`attach_id`  bigint(20) NULL DEFAULT NULL 
+)
+ENGINE=InnoDB
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+ROW_FORMAT=COMPACT
+;
