@@ -26,13 +26,12 @@
 					</td>
 				</tr>
 				
-				<tr>
-					<td align="right" valign="top">认证图片：</td>
-					<td align="left" colspan="3">
-						<img src="${ctx}/${vm.user.photoAttach.downloadPath}" onerror="javascript:this.src='${ctx}/static/styles/base/images/user_default.jpg'" width="180"
-						height="180" />
-					</td>
-				</tr>
+<!-- 				<tr> -->
+<!-- 					<td align="right" valign="top">认证图片：</td> -->
+<!-- 					<td align="left" colspan="3"> -->
+<%-- 						<tag:multipleFileUpload uploadifyFileId="sys_identity_attachs_uploadifyFileId" hiddenName="identityAttachIds" attachs="${vm.user.identityAttachs}"></tag:multipleFileUpload> --%>
+<!-- 					</td> -->
+<!-- 				</tr> -->
 				
 				<tr>
 					<td align="right">商户类型：</td>
