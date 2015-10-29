@@ -1,11 +1,11 @@
 var $form = $("form.pageForm");
 var $body = $(".list");
 var nload = false;
-$(window).scroll(function() {
+$("#product_list").scroll(function() {
 	if(nload || $("#pageEnd").length==1) return;
-	var scrollTop = $(window).scrollTop();
-	var scrollBodyHeight = $("body").height();
-	var height = $(window).height();
+	var scrollTop = $("#product_list").scrollTop();
+	var scrollBodyHeight = $body.height();
+	var height = $("#product_list").height();
 	if(scrollTop>=scrollBodyHeight-height){
 		nload = true;
 		var pageNum = $form.find("input[name='pageNum']").val();
@@ -17,30 +17,6 @@ $(window).scroll(function() {
 	}
 });
 
-/*window.addEventListener('scroll', scrollPage, false);
-function scrollPage() {
-	alert(1);
-    if(nload || $("#pageEnd").length==1) return false;
-    window.webkitRequestAnimationFrame(scrollPageAction)
-    || window.webkitAnimationFrame(scrollPageAction)
-    || window.mozRequestAnimationFrame(scrollPageAction)
-    || window.requestAnimationFrame(scrollPageAction);
-}
-function scrollPageAction() {
-    var $win = $(window),
-        curScrollTop = $win.scrollTop(),
-        winH = $win.height(),
-        docH = $(document).height();
-    if(docH - curScrollTop < winH + 50) {
-    	nload = true;
-		var pageNum = $form.find("input[name='pageNum']").val();
-		pageNum = parseInt(pageNum)+1;
-		$form.find("input[name='pageNum']").val(pageNum);
-		getItemList($form,$body,function(){
-			nload = false;
-		});
-    }
-}*/
 
 //获取列表数据
 function getItemList($form,$div,callback){
@@ -61,7 +37,7 @@ function publish(){
 
 
 //地区选择事件
-function regionEvent(item,pid){
+/*function regionEvent(item,pid){
 	if($(item).parents("ul").parents("ul").parents("ul").length>0){ //第三级
 		$("#regionId").val($(item).attr("id"));
 		$("#regionName").text($(item).attr("name"));
@@ -98,14 +74,52 @@ function regionEvent(item,pid){
 	   }
 	});
 	
+}*/
+function fillRegion(obj){
+	$.getJSON(CTX+"/static/js/hfive/region.json", function(json){
+		var data = json;
+		var htm = '<ul class="ul-my-tree">';
+		for(var i in data){
+			var rf = data[i];
+			htm += '<li onclick="regionEvent(this)">'+rf["name"];
+			htm += '<ul class="ul-my-tree">';
+			for(var j in rf["values"]){
+				var rfv = rf["values"][j];
+				htm += '<li onclick="regionEvent(this)" id="'+rfv["id"]+'" name="'+rfv["name"]+'">'+rfv["name"]+'</li>';
+			}
+			htm += '</ul>';
+			htm += '</li>';
+		}
+		htm +='</ul>';
+		$(obj).append(htm);
+	});
+}
+
+function regionEvent(item,pid){
+	if($(item).parents("ul").parents("ul").length>0){ //第二级
+		$("ul.ul-my-tree").hide();
+		$("#regionId").val($(item).attr("id"));
+		$("#regionName").text($(item).attr("name"));
+		
+		$body.html("");
+		$form.find("input[name='pageNum']").val("1");
+		getItemList($form,$body);
+		return ;
+	}
+	
+	if($(item).find("ul").length>0){
+		$(item).siblings().find("ul").hide();
+		$(item).find("ul").show();
+		return ;
+	}
 }
 
 //品类选择事件
 function categoryEvent(item,pid){
 	if($(item).parents("ul").parents("ul").length>0){ //第二级
+		$("ul.ul-my-tree").hide();
 		$("#categoryId").val($(item).attr("id"));
 		$("#categoryName").text($(item).attr("name"));
-		$("#categoryName").next().next().hide();
 		
 		$body.html("");
 		$form.find("input[name='pageNum']").val("1");

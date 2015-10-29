@@ -85,9 +85,9 @@
 			<form id="productForm" action="${ctx}/trading/purchase/list" method="post" class="pageForm">
 				<input type="hidden" name="pageNum" value="1" />
 				<input type="hidden" name="numPerPage" value="10" />
-				<input type="hidden" name="search_EQ_region.id" value="${param.search_EQ_region.id}" id="regionId" />
-				<input type="hidden" name="search_EQ_category.id" value="${param.search_EQ_category.id}" id="categoryId" />
-				<input type="hidden" name="search_LIKE_title" value="${param.search_LIKE_title}" />
+				<input type="hidden" name="search_EQ_region.parent.parent.id" value="${param['search_EQ_region.parent.parent.id']}" id="regionId" />
+				<input type="hidden" name="search_EQ_category.id" value="${param['search_EQ_category.id']}" id="categoryId" />
+				<input type="hidden" name="search_LIKE_title" value="${param['search_LIKE_title']}" />
 			</form>
 			
 			<div id="product_list">
@@ -107,13 +107,12 @@
 		$(function(){
 			getItemList($("#productForm"),$("#product_list .list"));
 			
+			fillRegion(".region_search .btn-my-group");
+			
 			$(".btn-my-select2").click(function(){
 				$(this).next().toggle();
 			});
-
-			$(".region_search .btn-my-group").each(function(i,item){
-				regionEvent(item,1);
-			});
+			
 			
 			$("#div_search").click(function(){
 				$("#text_search").toggle();

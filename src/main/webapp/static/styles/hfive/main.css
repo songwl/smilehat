@@ -462,7 +462,7 @@ text-decoration: initial;
   /* left: 0; */
   z-index: 1000;
   float: left;
-  min-width: 80px;
+  width: 125px;
   padding: 5px 0;
   margin: 2px 0 0;
   font-size: 14px;
@@ -473,7 +473,6 @@ text-decoration: initial;
   background-clip: padding-box;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, .15);
-  border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
   max-height: 300px;
@@ -486,6 +485,13 @@ text-decoration: initial;
 
 .ul-my-tree li {
 	text-align: center;
+	padding: 5px 0;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.ul-my-tree li:nth-of-type(2n+1) {
+    background-color: #f9f9f9;
 }
 
 .ul-my-tree-right{
