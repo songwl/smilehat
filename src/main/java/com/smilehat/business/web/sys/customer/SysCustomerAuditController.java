@@ -49,7 +49,9 @@ public class SysCustomerAuditController extends BaseController {
 		PageRequest pageRequest = this.getPageRequest();
 		Map<String, Object> searchParams = this.getSearchRequest();
 		searchParams.put("EQ_isDeleted", Boolean.FALSE);
-		searchParams.put("ISNULL_user.isAudit", null);
+//		searchParams.put("ISNULL_user.isAudit", null);
+		searchParams.put("NOTEQ_user.isAudit",  Boolean.TRUE);
+
 		Page<Customer> page = customerService.findPage(searchParams, pageRequest);
 		model.addAttribute("page", page);
 

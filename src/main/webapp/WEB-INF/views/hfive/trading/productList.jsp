@@ -18,9 +18,7 @@
 					<div class="left">
 						<div class="category">品类：${varitem.category.categoryName}</div>
 						<span class="place_who">${varitem.user.name}</span>
-						<c:forEach items="${varitem.certLabelList}" var="cert">
-							<img class="product_cert"  src="${ctx}/${cert.photoAttach.downloadPath}" />
-						</c:forEach>
+						
 <!-- 									<span class="lv"></span> -->
 					</div>
 					<div class="right">
@@ -32,6 +30,11 @@
 						<span id="showDictLabel" class="showDictLabel" dictType="PRICE_UNIT" dictCode="${varitem.priceUnit}"></span>
 <%-- 						<span class="unit">/${varitem.priceUnit}</span> --%>
 					</div>
+				</div>
+				<div class="row4">
+					<c:forEach items="${varitem.certLabelList}" var="cert">
+						<img class="product_cert"  src="${ctx}/${cert.photoAttach.downloadPath}" />
+					</c:forEach>
 				</div>
 			</a>
 		</li>
