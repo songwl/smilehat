@@ -7,23 +7,11 @@
 <%@ attribute name="width" type="java.lang.Integer" required="true"%>
 <%@ attribute name="height" type="java.lang.Integer"  required="true"%>
 
-<%-- <div class="picUpload" style="width:${width}px;">
-	<input type="hidden" id="${uploadifyFileId}_hiddenId" name="${hiddenName}" value="${hiddenValue}">
-	<div class="b_bar">
-		<div class="b_upload">
-			<tag:uploadify name="${uploadifyFileId}_name" onUploadSuccess="uploadifyPreviewComplete" id="${uploadifyFileId}" queueID="${uploadifyFileId}_queueID"
-				fileSizeLimit="2MB" fileTypeExts="*.gif;*.jpge;*.jpg;*.png"></tag:uploadify>
-		</div>
-	</div>
-	<div class="remarks">
-		<span>图片大小(${width}px*${height}px)</span>
-	</div>
-	<div class="b_queue" id="${uploadifyFileId}_queueID"></div>	
-</div> --%>
 
 <div class="h5-upload-row h5PicUpload">
-	<tag:uploadify multi="true" name="${uploadifyFileId}_name" id="${uploadifyFileId}" queueID="${uploadifyFileId}_queueID"
-			accept="image/*;capture=camera"	fileSizeLimit="2MB" fileTypeExts="*.gif;*.jpge;*.jpg;*.png"></tag:uploadify>
+	<%-- <tag:uploadify multi="true" name="${uploadifyFileId}_name" id="${uploadifyFileId}" queueID="${uploadifyFileId}_queueID"
+			accept="image/*;capture=camera"	fileSizeLimit="2MB" fileTypeExts="*.gif;*.jpge;*.jpg;*.png"></tag:uploadify> --%>
+	<button id="${uploadifyFileId}" type="button" class="ajaxupload btn-upload">上传图片</button>
 </div>
 
 <div class="h5-upload-row" id="${uploadifyFileId}_fileId" hiddenName="${hiddenName}">
