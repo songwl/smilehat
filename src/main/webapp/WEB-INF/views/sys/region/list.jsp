@@ -32,10 +32,10 @@
 <div class="pageContent">
 	<div class="panelBar">
 		<ul class="toolBar">
-			<li><a class="add" title="添加" href="${ctx}/sys/region/new?navTabId=sys_region" target="dialog" rel="region_new"><span>添加</span></a></li>
-			<li><a class="edit" title="编辑" href="${ctx}/sys/region/update/{sid}?navTabId=sys_region" target="dialog" rel="region_update"
-				warn="请选择一个记录"><span>编辑</span></a></li>
-			<li><a title="确实要删除这些记录吗?" target="selectedTodo" rel="ids" href="${ctx}/sys/region/delete" class="delete"><span>删除</span></a></li>
+<%-- 			<li><a class="add" title="添加" href="${ctx}/sys/region/new?navTabId=sys_region" target="dialog" rel="region_new"><span>添加</span></a></li> --%>
+<%-- 			<li><a class="edit" title="编辑" href="${ctx}/sys/region/update/{sid}?navTabId=sys_region" target="dialog" rel="region_update" --%>
+<!-- 				warn="请选择一个记录"><span>编辑</span></a></li> -->
+<%-- 			<li><a title="确实要删除这些记录吗?" target="selectedTodo" rel="ids" href="${ctx}/sys/region/delete" class="delete"><span>删除</span></a></li> --%>
 <!-- 			<li class="line">line</li> -->
 <%-- 			<li><a class="icon" href="${ctx}/sys/region/export" target="dwzExport" targetType="navTab" title="确实要导出这些记录吗?"><span>导出</span></a></li> --%>
 		</ul>
@@ -52,7 +52,7 @@
 <!-- 				<th <tag:orderField name="regionSort"/>>区域顺序</th>    -->
 				<th <tag:orderField name="regionNameEn"/>>区域英文名称</th>   
 				<th <tag:orderField name="regionShortnameEn"/>>区域英文缩写</th>  
-				<th width="200">操作</th>
+<!-- 				<th width="200">操作</th> -->
 			</tr>
 		</thead>
 		<tbody>
@@ -74,8 +74,8 @@
 					</td>   
 					<td> <a href="${ctx}/sys/region/view/${varitem.id}" target="dialog" title="查看"> ${varitem.regionShortnameEn} </a> 
 					</td>  
-					<td><a title="编辑" target="dialog" ref="region_update" href="${ctx}/sys/region/update/${varitem.id}" class="btnEdit">编辑</a> <a title="删除"
-						target="ajaxTodo" href="${ctx}/sys/region/delete/${varitem.id}" class="btnDel">删除</a></td>
+<%-- 					<td><a title="编辑" target="dialog" ref="region_update" href="${ctx}/sys/region/update/${varitem.id}" class="btnEdit">编辑</a> <a title="删除" --%>
+<%-- 						target="ajaxTodo" href="${ctx}/sys/region/delete/${varitem.id}" class="btnDel">删除</a></td> --%>
 				</tr>
 			</c:forEach>
 		</tbody>
