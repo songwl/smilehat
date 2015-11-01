@@ -106,6 +106,18 @@
 					<input type="text" name="website" value="${vm.website}" style="width: 480px;" />
 				</dd>
 			</dl>
+			<dl class="nowrap">
+				<dt>认证图片：</dt>
+				<dd>
+					<tag:multipleFileUpload uploadifyFileId="sys_identity_attachs_uploadifyFileId" hiddenName="identityAttachIds" attachs="${vm.user.identityAttachs}"></tag:multipleFileUpload>
+				</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt>商户图片：</dt>
+				<dd>
+					<tag:multipleFileUpload uploadifyFileId="sys_user_attachs_uploadifyFileId" hiddenName="attachIds" attachs="${vm.user.attachs}"></tag:multipleFileUpload>
+				</dd>
+			</dl>
 		</div>
 		
 		<div class="formBar">

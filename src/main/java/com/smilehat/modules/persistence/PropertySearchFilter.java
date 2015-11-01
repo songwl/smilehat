@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.util.Assert;
 import org.springside.modules.utils.Collections3;
 
 import com.google.common.collect.Lists;
@@ -60,7 +59,7 @@ public class PropertySearchFilter {
 	}
 
 	public PropertySearchFilter(String fieldExpression, Object value) {
-		String operatorTypeStr = StringUtils.substringBefore(fieldExpression, "_");
+		/*String operatorTypeStr = StringUtils.substringBefore(fieldExpression, "_");
 		Operator tempOperator = Operator.valueOf(operatorTypeStr);
 		String propertyNameStr = StringUtils.substringAfter(fieldExpression, "_");
 
@@ -81,6 +80,34 @@ public class PropertySearchFilter {
 				orDisjunctionPropertyFilter.add(new PropertySearchFilter(propertyNamesStr[i], tempOperator, value));
 			}
 
+		}*/
+		String[] fieldExpressions = StringUtils.splitByWholeSeparator(fieldExpression, PropertySearchFilter.OR_SEPARATOR);
+		if (fieldExpressions.length == 0) {
+			throw new IllegalArgumentException("filter名称" + fieldExpression + "没有按规则编写,无法得到属性名称.");
+		}
+		String operatorTypeStr = null;
+		String propertyNameStr = null;
+		String firstOperatorTypeStr = "EQ";
+		for (int i = 0; i < fieldExpressions.length; i++) {
+			// 有时候收取[.]做分割不方便,多扩展一个[:]做分割
+			fieldExpressions[i] = fieldExpressions[i].replace(PropertySearchFilter.CHILD_SEPARATOR, PropertySearchFilter.CHILD_PROPERTY);
+			String[] names = StringUtils.split(fieldExpressions[i], "_");
+			if (names.length == 1) {
+				operatorTypeStr = firstOperatorTypeStr;
+				propertyNameStr = names[0];
+			} else if (names.length >= 2) {
+				operatorTypeStr = names[0];
+				propertyNameStr = names[1];
+			}
+			// 第一个参数归自己，其它参数属于子条件
+			if (i == 0) {
+				this.value = value;
+				this.operator = Operator.valueOf(operatorTypeStr.toUpperCase());
+				this.fieldName = propertyNameStr;
+				firstOperatorTypeStr = operatorTypeStr;
+			} else {
+				orDisjunctionPropertyFilter.add(new PropertySearchFilter(propertyNameStr, Operator.valueOf(operatorTypeStr.toUpperCase()), value));
+			}
 		}
 
 	}

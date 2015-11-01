@@ -78,7 +78,7 @@ function publish(){
 function fillRegion(obj){
 	$.getJSON(CTX+"/static/js/hfive/region.json", function(json){
 		var data = json;
-		var htm = '<ul class="ul-my-tree">';
+		var htm = '<ul class="ul-my-tree"><li onclick="regionEvent(this,0)">全部地区</li>';
 		for(var i in data){
 			var rf = data[i];
 			htm += '<li onclick="regionEvent(this)">'+rf["name"];
@@ -96,6 +96,16 @@ function fillRegion(obj){
 }
 
 function regionEvent(item,pid){
+	if(pid==0){
+		$("ul.ul-my-tree").hide();
+		$("#regionId").val("");
+		$("#regionName").text("地区选择");
+		
+		$body.html("");
+		$form.find("input[name='pageNum']").val("1");
+		getItemList($form,$body);
+		return;
+	}
 	if($(item).parents("ul").parents("ul").length>0){ //第二级
 		$("ul.ul-my-tree").hide();
 		$("#regionId").val($(item).attr("id"));
@@ -116,6 +126,16 @@ function regionEvent(item,pid){
 
 //品类选择事件
 function categoryEvent(item,pid){
+	if(pid==0){
+		$("ul.ul-my-tree").hide();
+		$("#categoryId").val("");
+		$("#categoryName").text("品类选择");
+		
+		$body.html("");
+		$form.find("input[name='pageNum']").val("1");
+		getItemList($form,$body);
+		return;
+	}
 	if($(item).parents("ul").parents("ul").length>0){ //第二级
 		$("ul.ul-my-tree").hide();
 		$("#categoryId").val($(item).attr("id"));

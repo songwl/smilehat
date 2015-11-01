@@ -36,7 +36,7 @@
 							</select>
 						</dd>
 					</dl>
-					<dl class="nowrap" style="display:none;" for="CUSTOMER">
+					<dl class="nowrap" <c:if test="${vm.certType!='CUSTOMER'}">style="display:none;"</c:if> for="CUSTOMER">
 						<dt><label>认证二级分类:</label></dt>
 						<dd>
 							<select name="certType2" class="combox">

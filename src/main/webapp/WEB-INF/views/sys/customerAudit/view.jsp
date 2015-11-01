@@ -69,6 +69,39 @@
 					</td>
 				</tr>
 				<tr>
+					<td align="right" valign="top">认证图片：</td>
+					<td align="left" colspan="3">
+						
+						<div class="fileView" >
+							<ul>
+					         <c:forEach items="${vm.user.identityAttachs}" var="item">
+					            <li>
+					            <a  target="_blank" href="${ctx}/${item.downloadPath}">
+					            ${item.name}
+					            </a>
+					            </li>
+					        </c:forEach>
+					        </ul> 
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td align="right" valign="top">商户图片：</td>
+					<td align="left" colspan="3">
+						<div class="fileView" >
+							<ul>
+					         <c:forEach items="${vm.user.attachs}" var="item">
+					            <li>
+					            <a  target="_blank" href="${ctx}/${item.downloadPath}">
+					            ${item.name}
+					            </a>
+					            </li>
+					        </c:forEach>
+					        </ul> 
+						</div>
+					</td>
+				</tr>
+				<tr>
 					<td align="right" valign="top">审核：</td>
 					<td align="left" colspan="3">
 						<input type="radio" name="isAudit" value="1"  />通过

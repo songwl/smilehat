@@ -38,8 +38,6 @@ public class Product extends IdEntity {
 	private java.util.Date createTime;//创建时间
 	private java.util.Date updateTime;//更新时间
 	private java.util.Date publishTime;//发布时间
-	private java.util.Date startTime;//上市开始时间
-	private java.util.Date endTime;//上市结束时间
 	private java.lang.String branch;//规格
 	private java.lang.String branchInfo;//规格单位
 	private java.lang.String priceUnit;//价格单位
@@ -56,11 +54,12 @@ public class Product extends IdEntity {
 	private java.lang.String packing;//包装方式
 	private java.lang.String depot;//贮藏方式
 	private java.lang.String expiratinDate;//保质期
-	
-	private java.util.Date startTime2;//上市开始时间2
-	private java.util.Date endTime2;//上市结束时间2
-	
-	
+
+	private java.lang.String startTime;//上市开始时间
+	private java.lang.String endTime;//上市结束时间
+	private java.lang.String startTime2;//上市开始时间2
+	private java.lang.String endTime2;//上市结束时间2
+
 	private Region region;//区域
 	private Category category;//品类
 	private User user;
@@ -80,7 +79,7 @@ public class Product extends IdEntity {
 	public void setAttachs(List<Attach> attachs) {
 		this.attachs = attachs;
 	}
-	
+
 	/**
 	 * @return
 	 */
@@ -92,7 +91,7 @@ public class Product extends IdEntity {
 	public void setTrademark(java.lang.String value) {
 		this.trademark = value;
 	}
-	
+
 	/**
 	 * @return
 	 */
@@ -104,7 +103,7 @@ public class Product extends IdEntity {
 	public void setPacking(java.lang.String value) {
 		this.packing = value;
 	}
-	
+
 	/**
 	 * @return
 	 */
@@ -116,7 +115,7 @@ public class Product extends IdEntity {
 	public void setDepot(java.lang.String value) {
 		this.depot = value;
 	}
-	
+
 	/**
 	 * @return
 	 */
@@ -128,7 +127,7 @@ public class Product extends IdEntity {
 	public void setExpiratinDate(java.lang.String value) {
 		this.expiratinDate = value;
 	}
-	
+
 	/**
 	 * @return
 	 */
@@ -242,11 +241,11 @@ public class Product extends IdEntity {
 	 * @return
 	 */
 	@Column(name = "start_time")
-	public java.util.Date getStartTime() {
+	public java.lang.String getStartTime() {
 		return this.startTime;
 	}
 
-	public void setStartTime(java.util.Date value) {
+	public void setStartTime(java.lang.String value) {
 		this.startTime = value;
 	}
 
@@ -254,23 +253,23 @@ public class Product extends IdEntity {
 	 * @return
 	 */
 	@Column(name = "end_time")
-	public java.util.Date getEndTime() {
+	public java.lang.String getEndTime() {
 		return this.endTime;
 	}
 
-	public void setEndTime(java.util.Date value) {
+	public void setEndTime(java.lang.String value) {
 		this.endTime = value;
 	}
-	
+
 	/**
 	 * @return
 	 */
 	@Column(name = "start_time2")
-	public java.util.Date getStartTime2() {
+	public java.lang.String getStartTime2() {
 		return this.startTime2;
 	}
 
-	public void setStartTime2(java.util.Date value) {
+	public void setStartTime2(java.lang.String value) {
 		this.startTime2 = value;
 	}
 
@@ -278,14 +277,14 @@ public class Product extends IdEntity {
 	 * @return
 	 */
 	@Column(name = "end_time2")
-	public java.util.Date getEndTime2() {
+	public java.lang.String getEndTime2() {
 		return this.endTime2;
 	}
 
-	public void setEndTime2(java.util.Date value) {
+	public void setEndTime2(java.lang.String value) {
 		this.endTime2 = value;
 	}
-	
+
 	/**
 	 * @return
 	 */
@@ -297,6 +296,7 @@ public class Product extends IdEntity {
 	public void setBranch(java.lang.String value) {
 		this.branch = value;
 	}
+
 	/**
 	 * @return
 	 */
@@ -332,6 +332,7 @@ public class Product extends IdEntity {
 	public void setPrice(java.lang.Double value) {
 		this.price = value;
 	}
+
 	/**
 	 * @return
 	 */

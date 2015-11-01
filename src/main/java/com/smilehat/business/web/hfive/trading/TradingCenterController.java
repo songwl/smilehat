@@ -11,7 +11,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -108,14 +107,19 @@ public class TradingCenterController extends HfiveBaseController {
 	}
 
 	@RequestMapping(value = "/product/publish/save")
-	public ModelAndView productPublish(@Valid @ModelAttribute("preloadModel") Product product, @RequestParam(value = "customer.regionId", required = false) Long regionId,
-			@RequestParam(value = "categoryId", required = false) Long categoryId, @RequestParam(value = "attachIds") Long[] attachIds) {
+	public ModelAndView productPublish(@Valid Product product, PublishForm form, @RequestParam(value = "regionId", required = false) Long regionId,
+			@RequestParam(value = "categoryId", required = false) Long categoryId, @RequestParam(value = "attachIds", required = false) Long[] attachIds) {
+		product.setStartTime(form.getStartMonthDay1());
+		product.setEndTime(form.getEndMonthDay1());
+		product.setStartTime2(form.getStartMonthDay2());
+		product.setEndTime2(form.getEndMonthDay2());
+
 		product.setCreateTime(CoreUtils.nowtime());
 		product.setUpdateTime(CoreUtils.nowtime());
 		product.setPublishTime(CoreUtils.nowtime());
 
 		if (this.getCurrentUser() != null) {
-			productService.saveProduct(product, regionId, this.getCurrentUser().getId(), categoryId, null,attachIds);
+			productService.saveProduct(product, regionId, this.getCurrentUser().getId(), categoryId, null, attachIds);
 			return this.ajaxDoneSuccess("创建成功");
 		} else {
 			return this.ajaxDoneError("请登录！");
@@ -133,7 +137,8 @@ public class TradingCenterController extends HfiveBaseController {
 	}
 
 	@RequestMapping(value = "/purchase/publish/save")
-	public ModelAndView purchasePublish(@Valid Purchase purchase, @RequestParam(value = "categoryId", required = false) Long categoryId, @RequestParam(value = "regionId", required = false) Long regionId) {
+	public ModelAndView purchasePublish(@Valid Purchase purchase, @RequestParam(value = "categoryId", required = false) Long categoryId,
+			@RequestParam(value = "regionId", required = false) Long regionId) {
 		purchase.setCreateTime(CoreUtils.nowtime());
 		purchase.setUpdateTime(CoreUtils.nowtime());
 		purchase.setPublishTime(CoreUtils.nowtime());
@@ -150,4 +155,97 @@ public class TradingCenterController extends HfiveBaseController {
 	public String helpCenter(Model model, HttpServletRequest request) {
 		return "hfive/trading/help";
 	}
+
+	public static class PublishForm {
+		private String smonth1;
+		private String sday1;
+		private String emonth1;
+		private String eday1;
+
+		private String smonth2;
+		private String sday2;
+		private String emonth2;
+		private String eday2;
+
+		public String getSmonth1() {
+			return smonth1;
+		}
+
+		public void setSmonth1(String smonth1) {
+			this.smonth1 = smonth1;
+		}
+
+		public String getSday1() {
+			return sday1;
+		}
+
+		public void setSday1(String sday1) {
+			this.sday1 = sday1;
+		}
+
+		public String getEmonth1() {
+			return emonth1;
+		}
+
+		public void setEmonth1(String emonth1) {
+			this.emonth1 = emonth1;
+		}
+
+		public String getEday1() {
+			return eday1;
+		}
+
+		public void setEday1(String eday1) {
+			this.eday1 = eday1;
+		}
+
+		public String getSmonth2() {
+			return smonth2;
+		}
+
+		public void setSmonth2(String smonth2) {
+			this.smonth2 = smonth2;
+		}
+
+		public String getSday2() {
+			return sday2;
+		}
+
+		public void setSday2(String sday2) {
+			this.sday2 = sday2;
+		}
+
+		public String getEmonth2() {
+			return emonth2;
+		}
+
+		public void setEmonth2(String emonth2) {
+			this.emonth2 = emonth2;
+		}
+
+		public String getEday2() {
+			return eday2;
+		}
+
+		public void setEday2(String eday2) {
+			this.eday2 = eday2;
+		}
+
+		public String getStartMonthDay1() {
+			return this.smonth1 + this.sday1;
+		}
+
+		public String getStartMonthDay2() {
+			return this.smonth2 + this.sday2;
+		}
+
+		public String getEndMonthDay1() {
+			return this.emonth1 + this.eday1;
+		}
+
+		public String getEndMonthDay2() {
+			return this.emonth2 + this.eday2;
+		}
+	}
+
 }

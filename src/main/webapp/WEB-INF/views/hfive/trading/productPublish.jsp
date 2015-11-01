@@ -116,7 +116,7 @@
 								<c:if test="${not empty vm.region.parent.parent.id}">dataUrl="${ctx}/sys/region/selectJson?pid=${vm.region.parent.parent.id}"</c:if> style="width: 27%;float: left;">
 							<option value="">----市----</option> 
 						</select>
-						<select class="form-control combox" name="customer.regionId" selectedValue="${vm.region.id}" id="w_combox_area" <c:if test="${not empty vm.region.parent.id}">dataUrl="${ctx}/sys/region/selectJson?pid=${vm.region.parent.id}"</c:if> style="width: 27%;float: left;">
+						<select class="form-control combox" name="regionId" selectedValue="${vm.region.id}" id="w_combox_area" <c:if test="${not empty vm.region.parent.id}">dataUrl="${ctx}/sys/region/selectJson?pid=${vm.region.parent.id}"</c:if> style="width: 27%;float: left;">
 							<option value="">----区----</option> 
 						</select>
 					</div>
@@ -140,18 +140,26 @@
 					供应量：
 					<div class="input-icon" style="height: 35px;">
 						<input type="text" id="quantity" name="quantity"  class="form-control" size="30"  style="width: 100%;" />	
-<!-- 						onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');"  -->
-<%-- 						<select id="quantityUnit" name="quantityUnit"  class="form-control combox" dataUrl="${sctx}/dict/selectDictByType?dictType=QUANTITY_UNIT"> --%>
-<!-- 						</select>	 -->
 					</div>
 				 </div>
 				
 				 <div class="form-group">
 					供应期1：
 					<div class="input-icon" style="height: 35px;">
-						<input class="form-control mtime" type="text" id="startTime" name="startTime" class="date" value="" readonly="true" style="width: 40%;" />
+						<select name="smonth1" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/month.json">
+							<option value="">请选择</option>
+						</select>	
+						<select name="sday1" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/day.json">
+							<option value="">请选择</option>
+						</select>
+						
 						<span style="float:left;line-height: 35px;">&nbsp;至&nbsp;</span>
-						<input class="form-control mtime" type="text" id="endTime" name="endTime" class="date" value="" readonly="true" style="width: 40%;" />
+						<select name="emonth1" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/month.json">
+							<option value="">请选择</option>
+						</select>	
+						<select name="eday1" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/day.json">
+							<option value="">请选择</option>
+						</select>
 					</div>
 					<div id="datePlugin"></div>
 				 </div>
@@ -159,9 +167,20 @@
 				 <div class="form-group">
 					供应期2：
 					<div class="input-icon" style="height: 35px;">
-						<input class="form-control mtime" type="text" id="startTime2" name="startTime2" class="date" value="" readonly="true" style="width: 40%;" />
+						<select name="smonth2" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/month.json">
+							<option value="">请选择</option>
+						</select>	
+						<select name="sday2" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/day.json">
+							<option value="">请选择</option>
+						</select>
+						
 						<span style="float:left;line-height: 35px;">&nbsp;至&nbsp;</span>
-						<input class="form-control mtime" type="text" id="endTime2" name="endTime2" class="date" value="" readonly="true" style="width: 40%;" />
+						<select name="emonth2" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/month.json">
+							<option value="">请选择</option>
+						</select>	
+						<select name="eday2" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/day.json">
+							<option value="">请选择</option>
+						</select>
 					</div>
 					<div id="datePlugin"></div>
 				 </div>
