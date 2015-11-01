@@ -393,6 +393,11 @@ color: #838488;
 overflow: hidden;
 }
 
+.list li a .row4{
+    overflow: hidden;
+    width: 100%;
+}
+
 .list li a .row3 .left,.list_purchase li a .row3 .left {
 float: left;
 width: 50%;
@@ -422,7 +427,7 @@ color: #ffffff;
 }
 
 img.product_cert {
-    width: 20px;
+    width: 30px;
     padding-right: 3px;
 }
 
@@ -468,7 +473,8 @@ text-decoration: initial;
   font-size: 14px;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: #2D2929;
+  color:#fff;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   border: 1px solid #ccc;
@@ -491,7 +497,7 @@ text-decoration: initial;
 }
 
 .ul-my-tree li:nth-of-type(2n+1) {
-    background-color: #f9f9f9;
+    background-color: #272525;
 }
 
 .ul-my-tree-right{

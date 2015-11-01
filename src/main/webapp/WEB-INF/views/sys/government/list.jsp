@@ -13,8 +13,8 @@
 					<input type="text" class="date" size="9" value="${param.search_GTE_createTime}" dateFmt="yyyy-MM-dd" name="search_GTE_createTime" readonly="true" />
 					- <input type="text" class="date" size="9" value="${param.search_LTE_createTime}" dateFmt="yyyy-MM-dd" name="search_LTE_createTime" readonly="true" />
 				</li>    
-				<li><label>区域选择:</label> 
-					<input type="text" value="${param.search_LIKE_region.regionName}" name="search_LIKE_region.regionName" /> </li>   
+				<li><label>市县 名称:</label> 
+					<input type="text" value="${param.search_LIKE_region.parent.regionName}" name="search_LIKE_region.parent.regionName" /> </li>   
 <!-- 				<li><label>REGION_DETAIL:</label>  -->
 <%-- 					<input type="text" value="${param.search_LIKE_regionDetail}" name="search_LIKE_regionDetail" /> </li>       --%>
 <!-- 				<li><label>CREATE_TIME:</label>  <input type="text" class="date" size="9" -->

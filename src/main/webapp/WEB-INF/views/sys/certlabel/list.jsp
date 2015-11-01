@@ -10,8 +10,8 @@
 				<li><label>认证标签名称:</label> 
 					<input type="text" value="${param.search_LIKE_certName}" name="search_LIKE_certName" /> </li>   
 				     
-				<li><label>认证类型:</label> 
-					<input type="text" value="${param.search_LIKE_certType}" name="search_LIKE_certType" /> </li> 
+<!-- 				<li><label>认证类型:</label>  -->
+<%-- 					<input type="text" value="${param.search_LIKE_certType}" name="search_LIKE_certType" /> </li>  --%>
 			</ul>
 			<div class="subBar">
 				<ul>

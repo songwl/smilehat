@@ -10,7 +10,7 @@
 				<dd>
 					<div style="float:left;">
 					<input value="${param.search_IN_user.id}" name="search_IN_user.id" type="hidden" /> 
-					<input value="${param.search_IN_user.name}" name="search_IN_user.name" /> </div>
+					<input value="${param.search_IN_user.name}" name="search_IN_user.name" readonly="true"/> </div>
 					<a class="btnLook" rel="customer_select" title="选择商户" href="${ctx}/sys/customer/select" lookupGroup="search_IN_user">查找带回</a>
 				</dd>
 				<li><label>发布时间:</label>  <input type="text" class="date" size="9"
