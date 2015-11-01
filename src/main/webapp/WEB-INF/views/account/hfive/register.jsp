@@ -88,13 +88,13 @@
 		</div>
 		<div class="form-group">
 			<label style="color:#fff;width:25%;display: block;float: left;">认证图片：</label>
-			<div style="float: left;width:75%; ">
+			<div style="float: left;width:75%; position: relative;">
 				<tag:h5MultiPicUpload width="100" height="80" uploadifyFileId="identityAttach" hiddenName="identityAttachIds"  attachs="${vm.identityAttachs}"></tag:h5MultiPicUpload>
 			</div>
 		</div>
 		<div class="form-group">
 			<label style="color:#fff;width:25%;display: block;float: left;">商户图片：</label>
-			<div style="float: left;width:75%;">
+			<div style="float: left;width:75%;position: relative;">
 				<%-- <tag:multipleFileUpload uploadifyFileId="userAttach" hiddenName="userAttachs" attachs="${vm.attachs}"></tag:multipleFileUpload> --%>
 				<tag:h5MultiPicUpload width="100" height="80" uploadifyFileId="userAttach" hiddenName="userAttachIds"  attachs="${vm.attachs}"></tag:h5MultiPicUpload>
 				<!-- <a class="uploadButton">
@@ -114,6 +114,8 @@
 <%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
  <script src="${ctx}/static/js/hfive/custom.js"></script>
  <script src="${ctx}/static/js/hfive/combox.js"></script>
+ <script type="text/javascript" src="${ctx}/static/js/ajaxupload/ajaxupload.js"></script>
+ <script type="text/javascript" src="${ctx}/static/js/ajaxupload/extend.ajaxupload.js"></script>
  <script src="${ctx}/static/js/hfive/h5uploader.js"></script>
 <script>
 	$(function(){

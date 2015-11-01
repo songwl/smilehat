@@ -25,7 +25,7 @@
 	});
 	
 	
-	function success(url,file){
+	function success($ele,id,url,file){
 		alert(url);
 		var img = '<img src="${ctx}/'+url+'" style="max-width:360px;max-height:120px" class="img-thumbnail" />'
 		$("#showImage").append(img);

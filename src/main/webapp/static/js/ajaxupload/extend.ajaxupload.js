@@ -103,7 +103,7 @@
 						callback = eval('(' + callback + ')');
 					}
 					if($.isFunction(callback)){
-						callback(data["downloadUrl"],file);
+						callback($ele,data["id"],data["downloadUrl"],file);
 					}
 				}else{
 					alert(data.message);
