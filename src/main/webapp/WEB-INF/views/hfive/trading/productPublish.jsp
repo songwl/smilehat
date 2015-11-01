@@ -147,18 +147,18 @@
 					供应期1：
 					<div class="input-icon" style="height: 35px;">
 						<select name="smonth1" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/month.json">
-							<option value="">请选择</option>
+							<option value="">选择</option>
 						</select>	
 						<select name="sday1" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/day.json">
-							<option value="">请选择</option>
+							<option value="">选择</option>
 						</select>
 						
 						<span style="float:left;line-height: 35px;">&nbsp;至&nbsp;</span>
 						<select name="emonth1" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/month.json">
-							<option value="">请选择</option>
+							<option value="">选择</option>
 						</select>	
 						<select name="eday1" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/day.json">
-							<option value="">请选择</option>
+							<option value="">选择</option>
 						</select>
 					</div>
 					<div id="datePlugin"></div>
@@ -168,18 +168,18 @@
 					供应期2：
 					<div class="input-icon" style="height: 35px;">
 						<select name="smonth2" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/month.json">
-							<option value="">请选择</option>
+							<option value="">选择</option>
 						</select>	
 						<select name="sday2" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/day.json">
-							<option value="">请选择</option>
+							<option value="">选择</option>
 						</select>
 						
 						<span style="float:left;line-height: 35px;">&nbsp;至&nbsp;</span>
 						<select name="emonth2" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/month.json">
-							<option value="">请选择</option>
+							<option value="">选择</option>
 						</select>	
 						<select name="eday2" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/day.json">
-							<option value="">请选择</option>
+							<option value="">选择</option>
 						</select>
 					</div>
 					<div id="datePlugin"></div>
