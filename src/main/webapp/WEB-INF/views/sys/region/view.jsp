@@ -6,37 +6,37 @@
 		<table class="viewTable">
 			<tbody>
 				<tr>
-					<td width="10%" align="right">区域CODE:</td>
+					<td width="30%" align="right">区域CODE:</td>
 					<td align="left">
 ${vm.regionCode}					</td>
 				</tr>
 				<tr>
-					<td width="10%" align="right">区域名称:</td>
+					<td width="30%" align="right">区域名称:</td>
 					<td align="left">
 ${vm.regionName}					</td>
 				</tr>
 				<tr>
-					<td width="10%" align="right">上级区域:</td>
+					<td width="30%" align="right">上级区域:</td>
 					<td align="left">
 ${vm.parent.regionName}					</td>
 				</tr>
 				<tr>
-					<td width="10%" align="right">区域等级:</td>
+					<td width="30%" align="right">区域等级:</td>
 					<td align="left">
 ${vm.regionLevel}					</td>
 				</tr>
 <!-- 				<tr> -->
-<!-- 					<td width="10%" align="right">REGION_SORT:</td> -->
+<!-- 					<td width="30%" align="right">REGION_SORT:</td> -->
 <!-- 					<td align="left"> -->
 <%-- ${vm.regionSort}					</td> --%>
 <!-- 				</tr> -->
 				<tr>
-					<td width="10%" align="right">区域英文名称:</td>
+					<td width="30%" align="right">区域英文名称:</td>
 					<td align="left">
 ${vm.regionNameEn}					</td>
 				</tr>
 				<tr>
-					<td width="10%" align="right">区域英文缩写:</td>
+					<td width="30%" align="right">区域英文缩写:</td>
 					<td align="left">
 ${vm.regionShortnameEn}					</td>
 				</tr>

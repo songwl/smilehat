@@ -73,10 +73,10 @@
 				</select>
 				<select class="form-control combox" selectedValue="${vm.region.parent.id}" id="w_combox_city" ref="w_combox_area" refUrl="${ctx}/sys/region/selectJson?pid={value}" 
 						<c:if test="${not empty vm.region.parent.parent.id}">dataUrl="${ctx}/sys/region/selectJson?pid=${vm.region.parent.parent.id}"</c:if> style="width: 27%;float: left;">
-					<option value="">----市----</option> 
+<!-- 					<option value="">----市----</option>  -->
 				</select>
 				<select class="form-control combox" name="customer.region.id" selectedValue="${vm.region.id}" id="w_combox_area" <c:if test="${not empty vm.region.parent.id}">dataUrl="${ctx}/sys/region/selectJson?pid=${vm.region.parent.id}"</c:if> style="width: 27%;float: left;">
-					<option value="">----区----</option> 
+<!-- 					<option value="">----区----</option>  -->
 				</select>
 			</div>
 		</div>

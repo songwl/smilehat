@@ -31,8 +31,8 @@
 	<div class="panelBar">
 		<ul class="toolBar">
 			<li><a class="add" title="添加" href="${ctx}/sys/certlabel/new?navTabId=app_certlabel" target="dialog" rel="certlabel_new"><span>添加</span></a></li>
-			<li><a class="edit" title="编辑" href="${ctx}/sys/certlabel/update/{sid}?navTabId=app_certlabel" target="dialog" rel="certlabel_update"
-				warn="请选择一个记录"><span>编辑</span></a></li>
+<%-- 			<li><a class="edit" title="编辑" href="${ctx}/sys/certlabel/update/{sid}?navTabId=app_certlabel" target="dialog" rel="certlabel_update" --%>
+<!-- 				warn="请选择一个记录"><span>编辑</span></a></li> -->
 			<li><a title="确实要删除这些记录吗?" target="selectedTodo" rel="ids" href="${ctx}/sys/certlabel/delete" class="delete"><span>删除</span></a></li>
 <!-- 			<li class="line">line</li> -->
 <%-- 			<li><a class="icon" href="${ctx}/sys/certlabel/export" target="dwzExport" targetType="navTab" title="确实要导出这些记录吗?"><span>导出</span></a></li> --%>
