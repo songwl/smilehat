@@ -63,7 +63,8 @@
 								}
 							});
 							
-							$ref.append(html);
+							$ref.html(html);
+							$ref.change();
 						}
 					});
 				}
