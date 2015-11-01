@@ -106,18 +106,18 @@
 					<dl  class="nowrap" >
 						<dt><label>供应期1:</label></dt>
 						<dd>
-							<input type="text" id="startTime" name="startTime" class="date" value="<fmt:formatDate value='${vm.startTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" />
+							<input type="text" id="startTime" name="startTime" class="date" value="${vm.startTime}" dateFmt="M月d日" readonly="true" />
 							<span style="float:left;">&nbsp;至&nbsp;</span>
-							<input type="text" id="endTime" name="endTime" class="date" value="<fmt:formatDate value='${vm.endTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" />
+							<input type="text" id="endTime" name="endTime" class="date" value="${vm.endTime}" dateFmt="M月d日" readonly="true" />
 							
 						</dd>
 					</dl>
 					<dl  class="nowrap" >
 						<dt><label>供应期2:</label></dt>
 						<dd>
-							<input type="text" id="startTime2" name="startTime2" class="date" value="<fmt:formatDate value='${vm.startTime2}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" />
+							<input type="text" id="startTime2" name="startTime2" class="date" value="${vm.startTime2}" dateFmt="M月d日" readonly="true" />
 							<span style="float:left;">&nbsp;至&nbsp;</span>
-							<input type="text" id="endTime2" name="endTime2" class="date" value="<fmt:formatDate value='${vm.endTime2}' pattern='yyyy-MM-dd HH:mm:ss'/>" dateFmt="yyyy-MM-dd HH:mm:ss" readonly="true" />
+							<input type="text" id="endTime2" name="endTime2" class="date" value="${vm.endTime2}" dateFmt="M月d日" readonly="true" />
 							
 						</dd>
 					</dl>

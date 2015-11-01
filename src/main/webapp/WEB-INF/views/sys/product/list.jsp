@@ -72,8 +72,7 @@
 <!-- 					</td>    -->
 					<td> <fmt:formatDate value='${varitem.publishTime}' pattern='yyyy-MM-dd'/> 
 					</td>   
-					<td> <fmt:formatDate value='${varitem.startTime}' pattern='yyyy-MM-dd'/>- 
-						<fmt:formatDate value='${varitem.endTime}' pattern='yyyy-MM-dd'/> 
+					<td> ${varitem.startTime} - ${varitem.endTime} 
 					</td>   
 					<td>${varitem.price} - ${varitem.price2} 
 						<span class="showDictLabel" dictType="PRICE_UNIT" dictCode="${varitem.priceUnit}"></span> 
