@@ -58,6 +58,11 @@
 	
 	<%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
 	<div id="help-bottom">
+		<a href="${ctx}/login" id="logout">
+	   		注销
+	   	</a>
+	</div>
+	<div id="help-bottom">
 		<a href="${ctx}/trading/help">
        		<img class="help-img" src="/smilehat/static/images/help.png" alt="帮助">
        	</a>

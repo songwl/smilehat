@@ -34,6 +34,7 @@
 				<dd>
 					<input type="text" id="branch" name="branch" style="width: 140px;" size="18" value="${vm.branch}" />	
 					<select  id="branchInfo" name=branchInfo  class="required combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
+						<option value="">--</option>
 					</select>
 				</dd>
 			</dl>

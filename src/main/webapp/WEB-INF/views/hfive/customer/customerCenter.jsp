@@ -105,7 +105,11 @@
 	</div>
 		
 <%@ include file="/WEB-INF/inc/hfive/include.systemname.jsp"%>
-
+<div id="help-bottom">
+	<a href="${ctx}/login" id="logout">
+   		注销
+   	</a>
+</div>
  <script src="${ctx}/static/js/hfive/custom.js"></script>
  <script src="${ctx}/static/js/hfive/combox.js"></script>
  <script>

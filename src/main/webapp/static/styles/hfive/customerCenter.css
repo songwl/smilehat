@@ -168,3 +168,10 @@ div#product_list {
     top: 200px;
     bottom: 40px;
 }
+
+a#logout {
+color: green;
+font-size: 1.2em;
+padding-left: 10px;
+display: block;
+}

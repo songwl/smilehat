@@ -66,6 +66,7 @@
 				  </button>
 				  
 				  <ul class="ul-my-tree ul-my-tree-right">
+				  	<li onclick="categoryEvent(this,0)">全部</li>
 				  	<c:forEach items="${categoryList}" var="item">
 				  		<li onclick="categoryEvent(this,'${item.id}')" id="${item.id}" name="${item.categoryName}">${item.categoryName}
 					  		<c:if test="${not empty item.children}">

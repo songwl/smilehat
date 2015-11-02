@@ -45,7 +45,6 @@
 		</div>
 		<div id="purchase_search">
 			<div class="region_search">
-				<!-- Split button -->
 				<div class="btn-group btn-my-group">
 				  <button type="button" class="btn btn-default btn-my-select" id="regionName">地区选择</button>
 				  <button type="button" class="btn btn-warning btn-my-select2 dropdown-toggle">
@@ -54,28 +53,13 @@
 				  </button>
 				</div>
 	        </div>
-	        <div class="category_search" style="display:none">
-	        	<div class="btn-group btn-my-group">
-				  <button type="button" class="btn btn-default btn-my-select">品类选择</button>
-				  <button type="button" class="btn btn-warning btn-my-select2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    <img class="drop-down-img"  alt="" src="${ctx}/static/images/down.png">
-				    <span class="sr-only">Toggle Dropdown</span>
-				  </button>
-				  <ul class="dropdown-menu dropdown-menu-right">
-				    <li><a href="#">Action</a></li>
-				    <li><a href="#">Another action</a></li>
-				    <li><a href="#">Something else here</a></li>
-				    <li role="separator" class="divider"></li>
-				    <li><a href="#">Separated link</a></li>
-				  </ul>
-				</div>
-	        </div>
 		</div>
 		<div id="main_list_purchase">
 			<form id="productForm" action="${ctx}/farm/list" method="post" class="pageForm">
 				<input type="hidden" name="pageNum" value="1" />
 				<input type="hidden" name="numPerPage" value="10" />
-				<input type="hidden" name="search_EQ_region.id" value="${param.search_EQ_region.id}" id="regionId" />
+				<input type="hidden" name="search_EQ_region.parent.parent.id" value="${param['search_EQ_region.parent.parent.id']}" id="regionId" />
+<%-- 				<input type="hidden" name="search_EQ_region.id" value="${param.search_EQ_region.id}" id="regionId" /> --%>
 				<input type="hidden" name="search_LIKE_user.name" value="${param['search_LIKE_user.name']}" />
 			</form>
 			<div id="product_list">
@@ -93,14 +77,21 @@
 			getItemList($("#productForm"),$("#product_list .list"));
 		});
 		
-		$(".btn-my-select2").click(function(){
-			$(this).next().toggle();
-		});
+// 		$(".btn-my-select2").click(function(){
+// 			$(this).next().toggle();
+// 		});
 
-		$(".region_search .btn-my-group").each(function(i,item){
-			regionEvent(item,1);
-		});
+// 		$(".region_search .btn-my-group").each(function(i,item){
+// 			regionEvent(item,1);
+// 		});
 		
+		fillRegion(".region_search .btn-my-group");
+
+			$(".btn-my-select2").click(function(){
+				$(".btn-group > ul").hide();
+				$(this).next().toggle();
+			});
+			
 		$("#div_search").click(function(){
 			$("#text_search").toggle();
 		});
