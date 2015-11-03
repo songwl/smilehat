@@ -143,3 +143,6 @@ ENGINE=InnoDB
 DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
 ROW_FORMAT=COMPACT
 ;
+
+--2015/11/13 用户增加前台显示的背景颜色
+alter table t_user add background_color varchar(20);

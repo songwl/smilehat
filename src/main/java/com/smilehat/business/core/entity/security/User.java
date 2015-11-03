@@ -44,6 +44,7 @@ public class User extends IdEntity {
 	private java.lang.Boolean isAudit; //是否审核通过
 	private java.util.Date auditTime;//审核时间
 	private String phone;//联系电话
+	private String backgroundColor;//前台显示的背景颜色
 
 	private Attach photoAttach;
 
@@ -55,6 +56,14 @@ public class User extends IdEntity {
 
 	private List<CertLabel> labels = Lists.newArrayList();
 
+	public String getBackgroundColor() {
+		return backgroundColor;
+	}
+
+	public void setBackgroundColor(String backgroundColor) {
+		this.backgroundColor = backgroundColor;
+	}
+	
 	@NotBlank
 	public String getLoginName() {
 		return loginName;

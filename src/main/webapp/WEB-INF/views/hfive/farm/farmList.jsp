@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/inc/include.inc.jsp"%>
 
 	<c:forEach items="${page.content}" var="varitem" varStatus="varindex">
-		<li>
+		<li <c:if test="${!empty varitem.user.backgroundColor}"> style="background-color: ${varitem.user.backgroundColor};"</c:if> >
 			<a href="${ctx}/farm/detail/${varitem.id}">
 				<div class="frow1">
 					<span class="place_who">${varitem.region.parent.parent.regionName}</span>

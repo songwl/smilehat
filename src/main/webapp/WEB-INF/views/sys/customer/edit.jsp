@@ -140,6 +140,12 @@
 							</dd>
 						</dl>
 						</c:if>
+						<dl class="nowrap">
+							<dt>前台显示背景色：</dt>
+							<dd>
+								<input type="text" name="address" value="${vm.address}"   style="width: 480px;" />
+							</dd>
+						</dl>
 					</div>
 					
 					<div class="formBar">
