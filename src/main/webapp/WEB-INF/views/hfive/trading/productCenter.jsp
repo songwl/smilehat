@@ -105,6 +105,7 @@
 	<script src="${ctx}/static/js/hfive/trading.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(function(){
+			$("#productForm input[name='pageNum']").val("1");
 			getItemList($("#productForm"),$("#product_list .list"));
 // 			$("#btn_pp").bind('click',function(){
 				

@@ -1,9 +1,7 @@
 <%@page import="org.apache.shiro.SecurityUtils"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="/WEB-INF/inc/include.inc.jsp"%>
-<script type="text/javascript" src="${ctx}/static/js/pub/farbtastic.js"></script>
 
-<link rel="stylesheet" href="${ctx}/static/styles/base/farbtastic.css" type="text/css" />
 
 <div class="pageContent">
 	<div class="tabs" currentIndex="0" eventType="click" >
@@ -147,7 +145,7 @@
 						<dl class="nowrap">
 							<dt>前台显示背景色：</dt>
 							<dd class="bgcolor">
-								<input type="text" id="color" name="color" value="${vm.user.backgroundColor}" />
+								<input type="text" id="color" name="color" <c:if test="${not empty vm.user.backgroundColor}">value="${vm.user.backgroundColor}"</c:if> <c:if test="${empty vm.user.backgroundColor}">value="#ffffff"</c:if> />
 								<div id="colorpicker"></div>
 							</dd>
 						</dl>
@@ -183,6 +181,7 @@
   $(document).ready(function() {
 
     $('#colorpicker').farbtastic('#color');
+    
 
   });
 

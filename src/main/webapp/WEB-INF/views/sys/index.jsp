@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="${ctx}/static/js/jquery-validation/poshytip/tip-green/tip-green.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/base/main.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/base/upload.css" type="text/css" />
-
+<link rel="stylesheet" href="${ctx}/static/styles/base/farbtastic.css" type="text/css" />
 <!--[if IE]>
 <link href="${ctx}/static/styles/themes/css/ieHack.css" rel="stylesheet" type="text/css" media="screen"/>
 <![endif]-->

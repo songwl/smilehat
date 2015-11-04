@@ -65,6 +65,7 @@
 					<div class="input-icon" style="height: 35px;">
 						<input type="text" id="branch" name="branch" placeholder="规格" class="form-control"  size="18" style="width: 40%;"/>
 						<select  id="branchInfo" name=branchInfo  class="form-control combox"  selectedValue="${vm.branchInfo}"   dataUrl="${sctx}/dict/selectDictByType?dictType=BRANCH_INFO">
+							<option value="">请选择</option>
 						</select>
 					</div>
 				 </div>
@@ -73,6 +74,7 @@
 					<div class="input-icon" style="height: 35px;">
 						<input type="text" id="price" name="price" placeholder="请输入数字" class="form-control" size="18"  onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');"/>		
 						<select  id="priceUnit" name="priceUnit"  class="form-control combox"  dataUrl="${sctx}/dict/selectDictByType?dictType=PRICE_UNIT">
+							<option value="">请选择</option>
 						</select>	
 					</div>
 				 </div>
@@ -81,6 +83,7 @@
 					<div class="input-icon" style="height: 35px;">
 						<input type="text" id="quantity" name="quantity" placeholder="请输入数字" class="form-control" size="18"  onkeyup="this.value=this.value.replace(/[^0-9.]+/,'');"/>	
 						<select id="quantityUnit" name="quantityUnit"  class="form-control combox" dataUrl="${sctx}/dict/selectDictByType?dictType=QUANTITY_UNIT">
+							<option value="">请选择</option>
 						</select>	
 					</div>
 				 </div>

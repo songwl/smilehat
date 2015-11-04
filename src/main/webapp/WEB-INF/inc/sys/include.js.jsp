@@ -41,6 +41,7 @@
 <script src="${ctx}/static/js/dwz/dwz.print.js" type="text/javascript"></script>
 <script src="${ctx}/static/js/dwz/select.comboxSelectRemoteData.js" type="text/javascript"></script>
  
+<script type="text/javascript" src="${ctx}/static/js/pub/farbtastic.js"></script>
 <%--dwz.scrollCenter.js
     dwz.util.number.js
 未引入 --%>

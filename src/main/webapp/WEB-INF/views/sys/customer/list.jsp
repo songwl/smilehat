@@ -66,7 +66,7 @@
 					<td><fmt:formatDate value="${item.user.registerDate}" pattern="yyyy-MM-dd HH:mm" /></td>
 					<td>
 <%-- 						<a title="删除 ${item.user.name}" target="ajaxTodo" href="${sctx}/customer/delete/${item.id}" class="btnDel">删除</a> --%>
-						<a title="重置密码" rel="sys_user_reset" target="dialog" href="${sctx}/user/reset/${item.user.id}" class="btnEdit">重置密码</a>
+						<a title="重置密码" rel="sys_user_reset" target="dialog" href="${sctx}/customer/update/${item.user.id}?navTabId=app_customer" class="btnEdit">重置密码</a>
 					</td>
 				</tr>
 			</c:forEach>
