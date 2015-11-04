@@ -93,8 +93,8 @@ public class SysCustomerController extends BaseController {
 
 	@RequestMapping(value = BaseController.CREATE, method = RequestMethod.POST)
 	public ModelAndView create(@Valid Customer customer, @RequestParam(value = "identityAttachIds", required = false) Long[] identityAttachIds, @RequestParam(required = false) Long regionId,
-			@RequestParam(value = "attachIds", required = false) Long[] attachIds) {
-		customerService.createCustomer(customer, identityAttachIds, attachIds, regionId);
+			@RequestParam(value = "attachIds", required = false) Long[] attachIds,@RequestParam(value = "color", required = false) String backgroundColor) {
+		customerService.createCustomer(customer, identityAttachIds, attachIds, regionId,backgroundColor);
 		return this.ajaxDoneSuccess("创建成功");
 	}
 
@@ -117,7 +117,7 @@ public class SysCustomerController extends BaseController {
 	@RequestMapping(value = BaseController.UPDATE, method = RequestMethod.POST)
 	public ModelAndView update(@Valid @ModelAttribute("preloadModel") Customer customer, @RequestParam(value = "identityAttachIds", required = false) Long[] identityAttachIds,
 			@RequestParam(required = false) Long regionId, @RequestParam(value = "attachIds", required = false) Long[] attachIds,
-			@RequestParam(value = "certLabels", required = false) String certLabels) {
+			@RequestParam(value = "certLabels", required = false) String certLabels,@RequestParam(value = "color", required = false) String backgroundColor) {
 		List<CertLabel> certLabelList = new ArrayList<>();
 		if (!StringUtils.isEmpty(certLabels)) {
 			String[] arr = certLabels.split(",");
@@ -128,7 +128,7 @@ public class SysCustomerController extends BaseController {
 			customer.getUser().setLabels(certLabelList);
 		}
 
-		customerService.saveCustomer(customer, identityAttachIds, attachIds, regionId);
+		customerService.saveCustomer(customer, identityAttachIds, attachIds, regionId,backgroundColor);
 		return this.ajaxDoneSuccess("修改成功");
 	}
 
