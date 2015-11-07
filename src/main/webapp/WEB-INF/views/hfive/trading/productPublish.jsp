@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/customerCenter.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/productPublish.css" type="text/css" />
+<link rel="stylesheet" href="${ctx}/static/styles/hfive/h5upload.css" type="text/css" />
 
 <script type="text/javascript" src="${ctx}/static/js/mtime/date.js" ></script>
 <script type="text/javascript" src="${ctx}/static/js/mtime/iscroll.js" ></script>
@@ -191,9 +192,9 @@
 						<textarea rows="" cols="" id="description" name="description" style="width: 100%;">${vm.description}</textarea>
 					 </div>
 				 </div>
-				<div class="form-group hidden-group" >
+				<div class="form-group" >
 					<label style="color:#fff;width:25%;display: block;float: left;">产品图片：</label>
-					<div style="float: left;width:75%;">
+					<div style="float: left;width:75%;position: relative;">
 						<tag:h5MultiPicUpload width="100" height="80" uploadifyFileId="productAttach" hiddenName="attachIds"  attachs="${vm.attachs}"></tag:h5MultiPicUpload>
 					</div>
 				</div>
@@ -209,6 +210,10 @@
  <script src="${ctx}/static/js/hfive/custom.js"></script>
  <script src="${ctx}/static/js/hfive/combox.js"></script>
  <script type="text/javascript" src="${ctx}/static/js/base/dict.js"></script>
+ 
+ <script type="text/javascript" src="${ctx}/static/js/ajaxupload/ajaxupload.js"></script>
+ <script type="text/javascript" src="${ctx}/static/js/ajaxupload/extend.ajaxupload.js"></script>
+ <script src="${ctx}/static/js/hfive/h5uploader.js"></script>
  <script>
 	$(function(){
 		    $("select.combox").comboxSelectRemoteData();

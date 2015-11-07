@@ -72,8 +72,8 @@ public class CustomerCenterController extends HfiveBaseController {
 
 	@RequestMapping(value = "/updateCustomer", method = RequestMethod.POST)
 	public ModelAndView updateCustomer(@Valid @ModelAttribute("preloadModel") Customer customer, @RequestParam(value = "identityAttachIds", required = false) Long[] identityAttachIds,
-			@RequestParam(required = false) Long regionId, @RequestParam(value = "attachIds") Long[] attachIds) {
-		customerService.saveCustomer(customer, identityAttachIds, attachIds, regionId,"");
+			@RequestParam(required = false) Long regionId, @RequestParam(value = "userAttachIds") Long[] attachIds) {
+		customerService.saveCustomer(customer, identityAttachIds, attachIds, regionId, "");
 		return this.ajaxDoneSuccess("修改成功");
 	}
 

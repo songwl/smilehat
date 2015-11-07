@@ -30,7 +30,13 @@
 			<a class="btn-back" href="javascript:history.back();"></a>
 		</div>
 		
-		<div style="color: #fff;">您没有该操作的访问授权！！！</div>
+		<div style="color: #fff;">
+			<shiro:hasAnyRoles name="role_dealer_lack,role_famer_lack,role_person_lack">
+				正在审核，若需沟通请咨询：021-56979859.<br/>
+			</shiro:hasAnyRoles>
+			您没有该操作的访问授权！！！
+		
+		</div>
 		
 		<div class="form-actions ">
 			<a class="btn-submit" href="${ctx}/trading">返回交易中心</a>

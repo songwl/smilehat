@@ -145,7 +145,8 @@
 						<dl class="nowrap">
 							<dt>前台显示背景色：</dt>
 							<dd class="bgcolor">
-								<input type="text" id="color" name="color" <c:if test="${not empty vm.user.backgroundColor}">value="${vm.user.backgroundColor}"</c:if> <c:if test="${empty vm.user.backgroundColor}">value="#ffffff"</c:if> />
+								<input type="text" id="color" name="color" <c:if test="${not empty vm.user.backgroundColor}">value="${vm.user.backgroundColor}"</c:if> <c:if test="${empty vm.user.backgroundColor}">value="none"</c:if> />
+								<div class="buttonContent"><button id="clearColor" type="button">清除</button></div>
 								<div id="colorpicker"></div>
 							</dd>
 						</dl>
@@ -182,7 +183,11 @@
 
     $('#colorpicker').farbtastic('#color');
     
-
+	$("#clearColor").click(function(){
+		//$('#colorpicker').setColor("none");
+		$("#color").css("background","none");
+		$("#color").val(" ");
+	})
   });
 
 </script>

@@ -65,7 +65,7 @@ public class CustomerService extends BaseService<Customer> {
 	@Autowired
 	private RegionService regionService;
 
-	public void createCustomer(Customer customer, Long[] identityAttachIds, Long[] attachIds, Long regionId,String backgroundColor) {
+	public void createCustomer(Customer customer, Long[] identityAttachIds, Long[] attachIds, Long regionId, String backgroundColor) {
 		User user = customer.getUser();
 		user.setPassword(MD5Util.MD5(user.getPlainPassword()));
 		user.setCreateTime(CoreUtils.nowtime());
@@ -96,9 +96,9 @@ public class CustomerService extends BaseService<Customer> {
 				user.setAttachs(attachs);
 			}
 		}
-		if(backgroundColor!=""){
+		if (backgroundColor != "") {
 			user.setBackgroundColor(backgroundColor);
-		}else if(backgroundColor==null){
+		} else if (backgroundColor == null) {
 			user.setBackgroundColor(null);
 		}
 		Long[] roleIds = new Long[1];
@@ -117,7 +117,7 @@ public class CustomerService extends BaseService<Customer> {
 		this.save(customer);
 	}
 
-	public void saveCustomer(Customer customer, Long[] identityAttachIds, Long[] attachIds, Long regionId,String backgroundColor) {
+	public void saveCustomer(Customer customer, Long[] identityAttachIds, Long[] attachIds, Long regionId, String backgroundColor) {
 		User user = customer.getUser();
 		user.setUpdateTime(CoreUtils.nowtime());
 		if (identityAttachIds != null && identityAttachIds.length > 0) {
@@ -144,11 +144,11 @@ public class CustomerService extends BaseService<Customer> {
 				user.setAttachs(attachs);
 			}
 		}
-		
-		if(backgroundColor!=""){
-			user.setBackgroundColor(backgroundColor);
-		}else if(backgroundColor==null){
+
+		if (backgroundColor == null || backgroundColor.trim() == "") {
 			user.setBackgroundColor(null);
+		} else {
+			user.setBackgroundColor(backgroundColor);
 		}
 
 		User oldUser = userService.getObjectById(user.getId());
