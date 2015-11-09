@@ -33,8 +33,10 @@
 <!-- 					</td>    -->
 					<td> <fmt:formatDate value='${varitem.publishTime}' pattern='yyyy-MM-dd'/> 
 					</td>   
-					<td> <fmt:formatDate value='${varitem.startTime}' pattern='yyyy-MM-dd'/>- 
-						<fmt:formatDate value='${varitem.endTime}' pattern='yyyy-MM-dd'/> 
+					<td> 
+					${varitem.startTime} - ${varitem.endTime} 
+<%-- 					<fmt:formatDate value='${varitem.startTime}' pattern='yyyy-MM-dd'/>-  --%>
+<%-- 						<fmt:formatDate value='${varitem.endTime}' pattern='yyyy-MM-dd'/>  --%>
 					
 					</td>   
 					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="查看"> ${varitem.branchInfo} </a> 
