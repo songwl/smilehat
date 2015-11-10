@@ -5,14 +5,12 @@
 <head>
 <%@ include file="/WEB-INF/inc/hfive/include.meta.jsp"%>
 <%@ include file="/WEB-INF/inc/hfive/include.css.jsp"%>
+<%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
 
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/styles/hfive/productDetail.css" type="text/css" />
 <link rel="stylesheet" href="${ctx}/static/js/swiper/swiper.min.css" type="text/css" />
 <script type="text/javascript" src="${ctx}/static/js/swiper/swiper.min.js"></script>
-<%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
-
-
 
 <title>微笑草帽</title>
 </head>
@@ -76,10 +74,18 @@
 						<c:if test="${ vm.price!=0.0 && vm.price2==0.0}">${vm.price}  </c:if>
 						<c:if test="${ vm.price!=0.0 && vm.price2!=0.0}">${vm.price}- ${vm.price2} </c:if>
 						<span id="showDictLabel" class="unit showDictLabel" dictType="PRICE_UNIT" dictCode="${vm.priceUnit}"></span>
-						
-						
 					</div>
 				</div>
+				
+				<div class="d_item" id="d_memo">
+					<h5 class="d_item_title">起订量</h5>
+					<div class="d_item_content">
+					<c:if test="${not empty vm.minOrder}">
+					 ${vm.minOrder} 起订
+					 </c:if>
+					</div>
+				</div>
+				
 				<div class="d_item" id="d_unit">
 					<h5 class="d_item_title">规格 / 供应量</h5>
 					<div class="d_item_content">
@@ -119,6 +125,7 @@
 					<h5 class="d_item_title">供应期</h5>
 					<div class="d_item_content">${vm.startTime}-${vm.endTime} </div>
 					<div class="d_item_content">${vm.startTime2}-${vm.endTime2} </div>
+					<div class="d_item_content">${vm.startTime3}-${vm.endTime3} </div>
 				</div>
 				<div class="d_item" id="d_memo">
 					<h5 class="d_item_title">产品特色</h5>
@@ -153,6 +160,23 @@ $(function(){
 			$(this).text(info);
 		}
 	});
+	
+	var topSliderSwiper = new Swiper('.swiper-top', {
+		pagination: '.swiper-pagination-top',
+		autoplay: 3000,
+		autoplayDisableOnInteraction: false,
+		loop: true,
+		effect: 'fade',
+		observe: true,
+		observeParents: true,
+		paginationClickable: false,
+		runCallbacksOnInit: true,
+		paginationBulletRender: function (index, className) {
+				return '<span class="' + className + '"></span>';
+		},
+		onSlideChangeEnd: function(swiper) {
+		}
+});
 });
 	
 </script>

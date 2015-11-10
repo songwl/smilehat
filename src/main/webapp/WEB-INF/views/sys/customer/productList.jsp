@@ -12,7 +12,7 @@
 				<th <tag:orderField name="name"/>>产品名称</th>   
 <!-- 				<th <tag:orderField name="title"/>>产品标题</th>    -->
 				<th <tag:orderField name="publishTime"/>>发布时间</th>   
-				<th >上市时间</th>	
+<!-- 				<th >上市时间</th>	 -->
 				<th <tag:orderField name="branchInfo"/>>规格</th>   
 				<th <tag:orderField name="price"/>>价格(单位)</th>   
 				<th <tag:orderField name="quantity"/>>供应量</th>   
@@ -33,12 +33,12 @@
 <!-- 					</td>    -->
 					<td> <fmt:formatDate value='${varitem.publishTime}' pattern='yyyy-MM-dd'/> 
 					</td>   
-					<td> 
-					${varitem.startTime} - ${varitem.endTime} 
+<!-- 					<td>  -->
+<%-- 					${varitem.startTime} - ${varitem.endTime}  --%>
 <%-- 					<fmt:formatDate value='${varitem.startTime}' pattern='yyyy-MM-dd'/>-  --%>
 <%-- 						<fmt:formatDate value='${varitem.endTime}' pattern='yyyy-MM-dd'/>  --%>
 					
-					</td>   
+<!-- 					</td>    -->
 					<td> <a href="${ctx}/sys/product/update/${varitem.id}?navTabId=app_product" target="dialog" title="查看"> ${varitem.branchInfo} </a> 
 					</td>   
 					<td>${varitem.price}-${varitem.price2} 

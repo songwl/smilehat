@@ -113,7 +113,9 @@ public class TradingCenterController extends HfiveBaseController {
 		product.setEndTime(form.getEndMonthDay1());
 		product.setStartTime2(form.getStartMonthDay2());
 		product.setEndTime2(form.getEndMonthDay2());
-
+		product.setStartTime3(form.getStartMonthDay3());
+		product.setEndTime3(form.getEndMonthDay3());
+		
 		product.setCreateTime(CoreUtils.nowtime());
 		product.setUpdateTime(CoreUtils.nowtime());
 		product.setPublishTime(CoreUtils.nowtime());
@@ -166,6 +168,12 @@ public class TradingCenterController extends HfiveBaseController {
 		private String sday2;
 		private String emonth2;
 		private String eday2;
+		
+		private String smonth3;
+		private String sday3;
+		private String emonth3;
+		private String eday3;
+
 
 		public String getSmonth1() {
 			return smonth1;
@@ -230,13 +238,47 @@ public class TradingCenterController extends HfiveBaseController {
 		public void setEday2(String eday2) {
 			this.eday2 = eday2;
 		}
+		public String getSmonth3() {
+			return smonth3;
+		}
 
+		public void setSmonth3(String smonth3) {
+			this.smonth3 = smonth3;
+		}
+
+		public String getSday3() {
+			return sday3;
+		}
+
+		public void setSday3(String sday3) {
+			this.sday3 = sday3;
+		}
+
+		public String getEmonth3() {
+			return emonth3;
+		}
+
+		public void setEmonth3(String emonth3) {
+			this.emonth3 = emonth3;
+		}
+
+		public String getEday3() {
+			return eday3;
+		}
+
+		public void setEday3(String eday3) {
+			this.eday3 = eday3;
+		}
 		public String getStartMonthDay1() {
 			return this.smonth1 + this.sday1;
 		}
 
 		public String getStartMonthDay2() {
 			return this.smonth2 + this.sday2;
+		}
+		
+		public String getStartMonthDay3() {
+			return this.smonth3 + this.sday3;
 		}
 
 		public String getEndMonthDay1() {
@@ -245,6 +287,10 @@ public class TradingCenterController extends HfiveBaseController {
 
 		public String getEndMonthDay2() {
 			return this.emonth2 + this.eday2;
+		}
+		
+		public String getEndMonthDay3() {
+			return this.emonth3 + this.eday3;
 		}
 	}
 

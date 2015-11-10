@@ -24,12 +24,25 @@ public class Customer extends IdEntity {
 	private String signature; //签名
 	private String description; //详细说明
 	private String website; //官网网址
-
+	
+	private String remarks; //备注
+	
 	private Boolean isDeleted = Boolean.FALSE; // 默认未删除
-
+	
+	private Boolean isArea = Boolean.FALSE; // 默认不是专区
+	
 	private Region region; //所属地区
 
 	private User user;//用户
+
+	@Column(name = "remarks")
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
 
 	@Column(name = "address")
 	public String getAddress() {
@@ -74,6 +87,15 @@ public class Customer extends IdEntity {
 
 	public void setIsDeleted(Boolean isDeleted) {
 		this.isDeleted = isDeleted;
+	}
+	
+	@Column(name = "is_area")
+	public Boolean getIsArea() {
+		return isArea;
+	}
+
+	public void setIsArea(Boolean isArea) {
+		this.isArea = isArea;
 	}
 
 	@ManyToOne

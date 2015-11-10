@@ -52,7 +52,7 @@
 				<th <tag:orderField name="name"/>>产品名称</th>   
 <!-- 				<th <tag:orderField name="title"/>>产品标题</th>    -->
 				<th <tag:orderField name="publishTime"/>>发布时间</th>   
-				<th >上市时间</th>	
+<!-- 				<th >上市时间</th>	 -->
 				<th <tag:orderField name="price"/>>价格(单位)</th>   
 				<th <tag:orderField name="quantity"/>>供应量</th>   
 				<th <tag:orderField name="region.regionName"/>>区域名称</th>   
@@ -72,8 +72,8 @@
 <!-- 					</td>    -->
 					<td> <fmt:formatDate value='${varitem.publishTime}' pattern='yyyy-MM-dd'/> 
 					</td>   
-					<td> ${varitem.startTime} - ${varitem.endTime} 
-					</td>   
+<%-- 					<td> ${varitem.startTime} - ${varitem.endTime}  --%>
+<!-- 					</td>    -->
 					<td>${varitem.price} - ${varitem.price2} 
 						<span class="showDictLabel" dictType="PRICE_UNIT" dictCode="${varitem.priceUnit}"></span> 
 					</td>  

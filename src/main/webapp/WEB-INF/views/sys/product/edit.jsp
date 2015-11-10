@@ -69,14 +69,14 @@
 					<dl class="nowrap">
 					<dt>产地：</dt>
 						<dd>
-							<select class="required combox" selectedValue="${vm.region.parent.parent.id}" ref="w_combox_city" dataUrl="${sctx}/region/selectJson" refUrl="${sctx}/region/selectJson?pid={value}">
+							<select class="combox" selectedValue="${vm.region.parent.parent.id}" ref="w_combox_city" dataUrl="${sctx}/region/selectJson" refUrl="${sctx}/region/selectJson?pid={value}">
 								<option value="">----省----</option> 
 							</select>
-							<select class="required combox" selectedValue="${vm.region.parent.id}" id="w_combox_city" ref="w_combox_area" refUrl="${sctx}/region/selectJson?pid={value}" 
+							<select class="combox" selectedValue="${vm.region.parent.id}" id="w_combox_city" ref="w_combox_area" refUrl="${sctx}/region/selectJson?pid={value}" 
 									<c:if test="${not empty vm.region.parent.parent.id}">dataUrl="${sctx}/region/selectJson?pid=${vm.region.parent.parent.id}"</c:if>>
 								<option value="">----市----</option> 
 							</select>
-							<select class="required combox" name="regionId" selectedValue="${vm.region.id}" id="w_combox_area" <c:if test="${not empty vm.region.parent.id}">dataUrl="${sctx}/region/selectJson?pid=${vm.region.parent.id}"</c:if>>
+							<select class="combox" name="regionId" selectedValue="${vm.region.id}" id="w_combox_area" <c:if test="${not empty vm.region.parent.id}">dataUrl="${sctx}/region/selectJson?pid=${vm.region.parent.id}"</c:if>>
 								<option value="">----区----</option> 
 							</select>
 						</dd>
@@ -102,7 +102,12 @@
 <!-- 							</select> -->
 						</dd>
 					</dl>
-					
+					<dl class="nowrap">
+						<dt><label>起订量:</label></dt>
+						<dd>
+							<input type="text" id="minOrder" name="minOrder" style="width: 140px;" size="18" value="${vm.minOrder}"  />	
+						</dd>
+					</dl>
 					<dl  class="nowrap" >
 						<dt><label>供应期1:</label></dt>
 						<dd>
@@ -118,6 +123,15 @@
 							<input type="text" id="startTime2" name="startTime2" class="date" value="${vm.startTime2}" dateFmt="M月d日" readonly="true" />
 							<span style="float:left;">&nbsp;至&nbsp;</span>
 							<input type="text" id="endTime2" name="endTime2" class="date" value="${vm.endTime2}" dateFmt="M月d日" readonly="true" />
+							
+						</dd>
+					</dl>
+					<dl  class="nowrap" >
+						<dt><label>供应期3:</label></dt>
+						<dd>
+							<input type="text" id="startTime3" name="startTime3" class="date" value="${vm.startTime3}" dateFmt="M月d日" readonly="true" />
+							<span style="float:left;">&nbsp;至&nbsp;</span>
+							<input type="text" id="endTime3" name="endTime3" class="date" value="${vm.endTime3}" dateFmt="M月d日" readonly="true" />
 							
 						</dd>
 					</dl>

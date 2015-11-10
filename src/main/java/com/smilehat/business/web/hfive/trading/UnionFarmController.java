@@ -48,6 +48,7 @@ public class UnionFarmController extends HfiveBaseController {
 		PageRequest pageRequest = this.getPageRequest("user.createTime", "asc");
 		Map<String, Object> searchParams = this.getSearchRequest();
 		searchParams.put("EQ_isDeleted", false);
+		searchParams.put("EQ_user.isAudit", Boolean.TRUE);
 		searchParams.put("EQ_user.isDeleted", false);
 		searchParams.put("EQ_user.userType", Enums.USER_TYPE.FARMER.name());
 

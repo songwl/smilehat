@@ -107,6 +107,12 @@
 				</dd>
 			</dl>
 			<dl class="nowrap">
+				<dt>备注：</dt>
+				<dd>
+					<input type="text" name="remarks" value="${vm.remarks}" style="width: 480px;" />
+				</dd>
+			</dl>
+			<dl class="nowrap">
 				<dt>认证图片：</dt>
 				<dd>
 					<tag:multipleFileUpload uploadifyFileId="sys_identity_attachs_uploadifyFileId" hiddenName="identityAttachIds" attachs="${vm.user.identityAttachs}"></tag:multipleFileUpload>

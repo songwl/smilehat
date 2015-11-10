@@ -121,6 +121,21 @@
 							</dd>
 						</dl>
 						<dl class="nowrap">
+							<dt>是否专区：</dt>
+							<dd>
+							<c:if test="${!empty varitem.user.backgroundColor}"> style="background-color: ${varitem.user.backgroundColor};"</c:if> 
+								<input type="radio" name="isArea" value="1" <c:if test="${vm.isArea==true}"> checked="checked"</c:if> />是
+								<input type="radio" name="isArea" value="0" <c:if test="${vm.isArea==false}"> checked="checked"</c:if>  />否
+							</dd>
+						</dl>
+						<dl class="nowrap">
+							<dt>备注：</dt>
+							<dd>
+								<input type="text" name="remarks" value="${vm.remarks}" style="width: 480px;" />
+							</dd>
+						</dl>
+						
+						<dl class="nowrap">
 							<dt>认证图片：</dt>
 							<dd>
 								<tag:multipleFileUpload uploadifyFileId="sys_identity_attachs_uploadifyFileId" hiddenName="identityAttachIds" attachs="${vm.user.identityAttachs}"></tag:multipleFileUpload>

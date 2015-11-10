@@ -138,6 +138,12 @@
 					</div>
 				 </div>
 				 <div class="form-group">
+					起订量：
+					<div class="input-icon" style="height: 35px;">
+						<input type="text" id="minOrder" name="minOrder"  class="form-control" size="30"  style="width: 100%;" />	
+					</div>
+				 </div>
+				 <div class="form-group">
 					供应量：
 					<div class="input-icon" style="height: 35px;">
 						<input type="text" id="quantity" name="quantity"  class="form-control" size="30"  style="width: 100%;" />	
@@ -185,11 +191,30 @@
 					</div>
 					<div id="datePlugin"></div>
 				 </div>
-				 
+				  <div class="form-group">
+					供应期3：
+					<div class="input-icon" style="height: 35px;">
+						<select name="smonth3" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/month.json">
+							<option value="">选择</option>
+						</select>	
+						<select name="sday3" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/day.json">
+							<option value="">选择</option>
+						</select>
+						
+						<span style="float:left;line-height: 35px;">&nbsp;至&nbsp;</span>
+						<select name="emonth3" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/month.json">
+							<option value="">选择</option>
+						</select>	
+						<select name="eday3" class="form-control combox" style="width: auto;" dataUrl="${ctx}/static/js/hfive/day.json">
+							<option value="">选择</option>
+						</select>
+					</div>
+					<div id="datePlugin"></div>
+				 </div>
 				 <div class="form-group">
 				 	产品特色:
 					<div class="input-icon" style="height: 80px;">
-						<textarea rows="" cols="" id="description" name="description" style="width: 100%;">${vm.description}</textarea>
+						<textarea rows="" cols="" id="description" name="description" style="width: 100%;"  placeholder="请输入50字以内" >${vm.description}</textarea>
 					 </div>
 				 </div>
 				<div class="form-group" >

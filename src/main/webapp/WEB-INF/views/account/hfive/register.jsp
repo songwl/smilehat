@@ -160,6 +160,7 @@
 					});
 					return false;
 				}
+			    
 // 				else if (region == ''){
 // 					C.localAlert({
 // 						type: '',

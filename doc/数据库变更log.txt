@@ -144,5 +144,17 @@ DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
 ROW_FORMAT=COMPACT
 ;
 
---2015/11/13 用户增加前台显示的背景颜色
+--2015/11/03 用户增加前台显示的背景颜色
 alter table t_user add background_color varchar(20);
+
+--2015/11/10产品供应期增加到3个，采购再增加价格，
+alter table t_product add start_time3 varchar(20);
+alter table t_product add end_time3 varchar(20);
+
+alter table t_product add min_order varchar(20);
+
+alter table t_purchase add price2 double;
+
+alter table t_customer add remarks varchar(20);
+--是否专区
+alter table t_customer add is_area int(1); 

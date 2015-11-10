@@ -36,7 +36,11 @@
 						<div>${vm.user.name}</div>
 					</div>
 					<div class="d_main_right">
-						<span class="unit">￥</span> <c:if test="${empty vm.price}">面议 </c:if>${vm.price} 
+						<span class="unit">￥</span> 
+						<c:if test="${ vm.price==0.0 && vm.price2==0.0}">面议 </c:if>
+						<c:if test="${ vm.price==0.0 && vm.price2!=0.0}">${vm.price2}  </c:if>
+						<c:if test="${ vm.price!=0.0 && vm.price2==0.0}">${vm.price}  </c:if>
+						<c:if test="${ vm.price!=0.0 && vm.price2!=0.0}">${vm.price}- ${vm.price2} </c:if>
 						<span id="showDictLabel" class="unit showDictLabel" dictType="PRICE_UNIT" dictCode="${vm.priceUnit}"></span>
 					</div>
 				</div>

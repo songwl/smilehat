@@ -27,6 +27,7 @@ public class Purchase extends IdEntity {
 	private java.lang.Double quantity;//采购量
 	private java.lang.String quantityUnit;//采购量单位
 	private java.lang.Double price;//采购价格
+	private java.lang.Double price2;//价格
 	private java.lang.String priceUnit;//采购价格单位
 	private java.util.Date createTime;//创建时间
 	private java.util.Date updateTime;//更新时间
@@ -122,7 +123,18 @@ public class Purchase extends IdEntity {
 	public void setDescription(java.lang.String value) {
 		this.description = value;
 	}
+	
+	/**
+	 * @return
+	 */
+	@Column(name = "price2")
+	public java.lang.Double getPrice2() {
+		return this.price2;
+	}
 
+	public void setPrice2(java.lang.Double value) {
+		this.price2 = value;
+	}
 	/**
 	 * @return
 	 */

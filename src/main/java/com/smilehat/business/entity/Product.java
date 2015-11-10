@@ -59,7 +59,11 @@ public class Product extends IdEntity {
 	private java.lang.String endTime;//上市结束时间
 	private java.lang.String startTime2;//上市开始时间2
 	private java.lang.String endTime2;//上市结束时间2
+	private java.lang.String startTime3;//上市开始时间3
+	private java.lang.String endTime3;//上市结束时间3
 
+	private java.lang.String minOrder;//起订量
+	
 	private Region region;//区域
 	private Category category;//品类
 	private User user;
@@ -80,6 +84,18 @@ public class Product extends IdEntity {
 		this.attachs = attachs;
 	}
 
+	/**
+	 * @return
+	 */
+	@Column(name = "min_order")
+	public java.lang.String getMinOrder() {
+		return this.minOrder;
+	}
+
+	public void setMinOrder(java.lang.String value) {
+		this.minOrder = value;
+	}
+	
 	/**
 	 * @return
 	 */
@@ -285,6 +301,31 @@ public class Product extends IdEntity {
 		this.endTime2 = value;
 	}
 
+	/**
+	 * @return
+	 */
+	@Column(name = "start_time3")
+	public java.lang.String getStartTime3() {
+		return this.startTime3;
+	}
+
+	public void setStartTime3(java.lang.String value) {
+		this.startTime3 = value;
+	}
+
+	/**
+	 * @return
+	 */
+	@Column(name = "end_time3")
+	public java.lang.String getEndTime3() {
+		return this.endTime3;
+	}
+
+	public void setEndTime3(java.lang.String value) {
+		this.endTime3 = value;
+	}
+
+	
 	/**
 	 * @return
 	 */
