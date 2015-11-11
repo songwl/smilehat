@@ -20,7 +20,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.common.collect.Maps;
 import com.smilehat.business.core.web.BaseController;
 import com.smilehat.business.entity.Category;
+import com.smilehat.business.entity.Product;
+import com.smilehat.business.entity.Purchase;
 import com.smilehat.business.service.CategoryService;
+import com.smilehat.business.service.ProductService;
+import com.smilehat.business.service.PurchaseService;
 import com.smilehat.constants.Constants;
 import com.smilehat.util.CoreUtils;
 
@@ -35,6 +39,8 @@ public class SysCategoryController extends BaseController {
 
 	@Autowired
 	private CategoryService categoryService;
+	private ProductService productService ;
+	private PurchaseService purchaseService;
 	public static final String PATH = "sys/category";
 	public static final String PATH_LIST = PATH + Constants.SPT + "list";
 	public static final String PATH_EDIT = PATH + Constants.SPT + "edit";
@@ -97,8 +103,17 @@ public class SysCategoryController extends BaseController {
 
 	@RequestMapping(value = BaseController.DELETE + "/{id}")
 	public ModelAndView delete(@PathVariable("id") java.lang.Long id) {
-		categoryService.deleteById(id);
-		return this.ajaxDoneSuccess("删除成功");
+		
+//		List<Product>list=productService.findProductListByCategoryID(id);
+//		List<Purchase>purlist=purchaseService.findPurchaseListByCategoryID(id);
+//		if(list.size()>0){
+//			return this.ajaxDoneSuccess("已有产品选择该品类，不可删除！");
+//		}else if(purlist.size()>0){
+//			return this.ajaxDoneSuccess("已有采购选择该品类，不可删除！");
+//		}else{
+			categoryService.deleteById(id);
+			return this.ajaxDoneSuccess("删除成功");
+//		}
 	}
 
 	@RequestMapping(value = BaseController.DELETE, method = RequestMethod.POST)

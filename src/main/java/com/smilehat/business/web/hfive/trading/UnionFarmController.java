@@ -44,8 +44,8 @@ public class UnionFarmController extends HfiveBaseController {
 
 	@RequestMapping(value = "/list")
 	public String farmList(Model model, HttpServletRequest request) {
-
-		PageRequest pageRequest = this.getPageRequest("user.createTime", "asc");
+		
+		PageRequest pageRequest = this.getPageRequest("isArea", "desc");
 		Map<String, Object> searchParams = this.getSearchRequest();
 		searchParams.put("EQ_isDeleted", false);
 		searchParams.put("EQ_user.isAudit", Boolean.TRUE);

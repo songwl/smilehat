@@ -29,7 +29,7 @@ public class Customer extends IdEntity {
 	
 	private Boolean isDeleted = Boolean.FALSE; // 默认未删除
 	
-	private Boolean isArea = Boolean.FALSE; // 默认不是专区
+	private Boolean isArea = Boolean.FALSE; // 默认不是专区,1：专区，0：不是专区
 	
 	private Region region; //所属地区
 

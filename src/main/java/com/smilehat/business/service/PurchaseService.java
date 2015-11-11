@@ -1,5 +1,7 @@
 package com.smilehat.business.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.smilehat.business.core.service.security.UserService;
+import com.smilehat.business.entity.Product;
 import com.smilehat.business.entity.Purchase;
 import com.smilehat.business.repository.PurchaseDao;
 import com.smilehat.modules.service.BaseService;
@@ -59,5 +62,10 @@ public class PurchaseService extends BaseService<Purchase> {
 		this.save(purchase);
 
 	}
+	
+//	public List<Purchase> findPurchaseListByCategoryID(Long categoryId) {
+//		List<Purchase> list = purchaseDao.findPurchaseByCategoryID(categoryId);
+//		return list;
+//	}
 
 }
