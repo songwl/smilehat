@@ -107,7 +107,7 @@ public class SysCategoryController extends BaseController {
 	public ModelAndView delete(@PathVariable("id") java.lang.Long id) {
 		Category category = categoryService.getObjectById(id);
 		if (category.getChildren() != null && !category.getChildren().isEmpty()) {
-			return this.ajaxDoneSuccess("改品类包含下级品类，不建议直接删除！");
+			return this.ajaxDoneError("该品类包含下级品类，不建议直接删除！");
 		}
 
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -116,7 +116,7 @@ public class SysCategoryController extends BaseController {
 		long c1 = productService.count(params);
 		long c2 = purchaseService.count(params);
 		if (c1 > 0 || c2 > 0) {
-			return this.ajaxDoneSuccess("已有产品或采购选择该品类，不可删除！");
+			return this.ajaxDoneError("已有产品或采购选择该品类，不可删除！");
 		} else {
 			categoryService.deleteById(id);
 			return this.ajaxDoneSuccess("删除成功");
