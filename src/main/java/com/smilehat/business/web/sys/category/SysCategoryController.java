@@ -1,5 +1,6 @@
 package com.smilehat.business.web.sys.category;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,8 +21,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.common.collect.Maps;
 import com.smilehat.business.core.web.BaseController;
 import com.smilehat.business.entity.Category;
-import com.smilehat.business.entity.Product;
-import com.smilehat.business.entity.Purchase;
 import com.smilehat.business.service.CategoryService;
 import com.smilehat.business.service.ProductService;
 import com.smilehat.business.service.PurchaseService;
@@ -39,8 +38,11 @@ public class SysCategoryController extends BaseController {
 
 	@Autowired
 	private CategoryService categoryService;
-	private ProductService productService ;
+	@Autowired
+	private ProductService productService;
+	@Autowired
 	private PurchaseService purchaseService;
+
 	public static final String PATH = "sys/category";
 	public static final String PATH_LIST = PATH + Constants.SPT + "list";
 	public static final String PATH_EDIT = PATH + Constants.SPT + "edit";
@@ -103,17 +105,22 @@ public class SysCategoryController extends BaseController {
 
 	@RequestMapping(value = BaseController.DELETE + "/{id}")
 	public ModelAndView delete(@PathVariable("id") java.lang.Long id) {
-		
-//		List<Product>list=productService.findProductListByCategoryID(id);
-//		List<Purchase>purlist=purchaseService.findPurchaseListByCategoryID(id);
-//		if(list.size()>0){
-//			return this.ajaxDoneSuccess("已有产品选择该品类，不可删除！");
-//		}else if(purlist.size()>0){
-//			return this.ajaxDoneSuccess("已有采购选择该品类，不可删除！");
-//		}else{
+		Category category = categoryService.getObjectById(id);
+		if (category.getChildren() != null && !category.getChildren().isEmpty()) {
+			return this.ajaxDoneSuccess("改品类包含下级品类，不建议直接删除！");
+		}
+
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("EQ_category.id", id);
+		params.put("EQ_isDeleted", false);
+		long c1 = productService.count(params);
+		long c2 = purchaseService.count(params);
+		if (c1 > 0 || c2 > 0) {
+			return this.ajaxDoneSuccess("已有产品或采购选择该品类，不可删除！");
+		} else {
 			categoryService.deleteById(id);
 			return this.ajaxDoneSuccess("删除成功");
-//		}
+		}
 	}
 
 	@RequestMapping(value = BaseController.DELETE, method = RequestMethod.POST)

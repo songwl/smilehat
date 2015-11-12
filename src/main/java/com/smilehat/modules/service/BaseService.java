@@ -63,8 +63,7 @@ public abstract class BaseService<T> {
 		PropertySearchFilter filter = new PropertySearchFilter(propertyName, Operator.EQ, value);
 		List<PropertySearchFilter> filters = Lists.newArrayList();
 		filters.add(filter);
-		return (T) this.getJpaSpecificationExecutorDao().findOne(
-				DynamicSpecifications.byPropertySearchFilter(filters, clazz));
+		return (T) this.getJpaSpecificationExecutorDao().findOne(DynamicSpecifications.byPropertySearchFilter(filters, clazz));
 	}
 
 	public Iterable<T> findAllByIds(Iterable<Long> ids) {
@@ -152,8 +151,7 @@ public abstract class BaseService<T> {
 		return this.getJpaSpecificationExecutorDao().findAll(spec, pageRequest);
 	}
 
-	public Page<T> findPageByPropertySearchFilter(Map<String, PropertySearchFilter> filterParams,
-			PageRequest pageRequest) {
+	public Page<T> findPageByPropertySearchFilter(Map<String, PropertySearchFilter> filterParams, PageRequest pageRequest) {
 		Specification<T> spec = buildSpecificationByPropertySearchFilter(filterParams);
 		return this.getJpaSpecificationExecutorDao().findAll(spec, pageRequest);
 	}
@@ -165,7 +163,7 @@ public abstract class BaseService<T> {
 	/**
 	 * 创建动态查询条件组合.
 	 */
-	@SuppressWarnings( { "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	protected Specification<T> buildSpecification(Map<String, Object> filterParams, final Class clazz) {
 		Map<String, PropertySearchFilter> filters = PropertySearchFilter.parse(filterParams);
 
@@ -178,8 +176,7 @@ public abstract class BaseService<T> {
 
 	}
 
-	protected Specification<T> buildSpecificationByPropertySearchFilter(Map<String, PropertySearchFilter> filters,
-			final Class clazz) {
+	protected Specification<T> buildSpecificationByPropertySearchFilter(Map<String, PropertySearchFilter> filters, final Class clazz) {
 		Specification<T> spec = DynamicSpecifications.byPropertySearchFilter(filters.values(), clazz);
 		return spec;
 	}
@@ -216,4 +213,8 @@ public abstract class BaseService<T> {
 		return ibatisQueryDao.findAll(sqlId, filters, order);
 	}
 
+	public long count(Map<String, Object> params) {
+		Specification<T> spec = buildSpecification(params);
+		return this.getJpaSpecificationExecutorDao().count(spec);
+	}
 }
