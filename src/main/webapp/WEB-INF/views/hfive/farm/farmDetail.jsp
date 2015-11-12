@@ -87,7 +87,8 @@
 					<c:if test="${not empty userCategorys}">
 					<ul>
 						<c:forEach items="${userCategorys}" var="c">
-							<li><a href="${ctx}/trading/product/center?search_EQ_user.id=${vm.user.id}&search_EQ_category.id=${c.id}" class="list_product">${c.categoryName}</a></li>
+<%-- 							<li><a href="${ctx}/trading/product/center?search_EQ_user.id=${vm.user.id}&search_EQ_category.id=${c.id}" class="list_product">${c.categoryName}</a></li> --%>
+							<li><a href="${ctx}/farm/productCenter?search_EQ_user.id=${vm.user.id}&search_EQ_category.id=${c.id}" class="list_product">${c.categoryName}</a></li>
 						</c:forEach>
 					</ul>
 					</c:if>

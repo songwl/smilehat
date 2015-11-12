@@ -137,7 +137,9 @@ public class SysProductController extends BaseController {
 
 	@RequestMapping(value = BaseController.DELETE + "/{id}")
 	public ModelAndView delete(@PathVariable("id") java.lang.Long id) {
-		productService.deleteById(id);
+//		productService.deleteById(id);
+		Product product=productService.getObjectById(id);
+		product.setIsDeleted(true);
 		return this.ajaxDoneSuccess("删除成功");
 	}
 

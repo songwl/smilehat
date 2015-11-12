@@ -41,6 +41,12 @@ public class UnionFarmController extends HfiveBaseController {
 	public String farmCenter(Model model, HttpServletRequest request) {
 		return "hfive/farm/farmCenter";
 	}
+	
+	@RequestMapping(value = "/productCenter")
+	public String farmProductCenter(Model model, HttpServletRequest request) {
+		model.addAttribute("categoryList", productService.findCategoryListByProduct());
+		return "hfive/farm/farmProductCenter";
+	}
 
 	@RequestMapping(value = "/list")
 	public String farmList(Model model, HttpServletRequest request) {

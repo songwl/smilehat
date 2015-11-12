@@ -523,3 +523,13 @@ div#text_search input.form-control {
     border-radius: 0px;
     width: 100%;
 }
+
+div#title {
+    width: 100%;
+    padding: 11px 2% 12px 2%;
+    position: fixed;
+    top: 60px;
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+}
