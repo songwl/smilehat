@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.common.collect.Maps;
+import com.smilehat.business.core.service.security.UserService;
 import com.smilehat.business.core.web.BaseController;
 import com.smilehat.business.entity.Customer;
 import com.smilehat.business.entity.Product;
@@ -35,22 +36,26 @@ public class UnionFarmController extends HfiveBaseController {
 	private CustomerService customerService;
 
 	@Autowired
+	private UserService userService;
+
+	@Autowired
 	private ProductService productService;
 
 	@RequestMapping(value = "/center")
 	public String farmCenter(Model model, HttpServletRequest request) {
 		return "hfive/farm/farmCenter";
 	}
-	
-	@RequestMapping(value = "/productCenter")
-	public String farmProductCenter(Model model, HttpServletRequest request) {
+
+	@RequestMapping(value = "/productCenter/{userId}")
+	public String farmProductCenter(@PathVariable Long userId, Model model, HttpServletRequest request) {
+		model.addAttribute("user", userService.getObjectById(userId));
 		model.addAttribute("categoryList", productService.findCategoryListByProduct());
 		return "hfive/farm/farmProductCenter";
 	}
 
 	@RequestMapping(value = "/list")
 	public String farmList(Model model, HttpServletRequest request) {
-		
+
 		PageRequest pageRequest = this.getPageRequest("isArea", "desc");
 		Map<String, Object> searchParams = this.getSearchRequest();
 		searchParams.put("EQ_isDeleted", false);

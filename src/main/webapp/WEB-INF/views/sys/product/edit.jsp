@@ -35,7 +35,7 @@
 							<dd>
 								<input type="hidden" name="categoryId" id="categoryTree.id" value="${vm.category.id}" /> 
 								<input name="categoryName" id="categoryTree.name" value="${vm.category.categoryName}" type="text" readonly="readonly" /> 
-								<a class="btnLook" href="${sctx}/category/select" lookupGroup="categoryTree">查找带回</a>
+								<a class="btnLook" href="${sctx}/product/selectCategory" lookupGroup="categoryTree">查找带回</a>
 							</dd>	
 						</dd>
 					</dl>

@@ -51,7 +51,7 @@ public class ProductService extends BaseService<Product> {
 
 	@Autowired
 	private AttachService attachService;
-	
+
 	@Override
 	public PagingAndSortingRepository<Product, Long> getPagingAndSortingRepositoryDao() {
 		return this.productDao;
@@ -77,12 +77,12 @@ public class ProductService extends BaseService<Product> {
 		if (!CollectionUtils.isEmpty(certLabelList)) {
 			product.setCertLabelList(certLabelList);
 		}
-		
-		if(product.getPrice()==null){
+
+		if (product.getPrice() == null) {
 			product.setPrice(0.0);
 		}
-		
-		if(product.getPrice2()==null){
+
+		if (product.getPrice2() == null) {
 			product.setPrice2(0.0);
 		}
 		if (attachIds != null && attachIds.length > 0) {
@@ -97,7 +97,7 @@ public class ProductService extends BaseService<Product> {
 				product.setAttachs(attachs);
 			}
 		}
-		
+
 		this.save(product);
 	}
 
@@ -131,9 +131,9 @@ public class ProductService extends BaseService<Product> {
 		List<Category> list = productDao.findDistinctUserCategory(userId);
 		return list;
 	}
-	
-//	public List<Product> findProductListByCategoryID(Long categoryId) {
-//		List<Product> list = productDao.findProductByCategoryID(categoryId);
-//		return list;
-//	}
+
+	//	public List<Product> findProductListByCategoryID(Long categoryId) {
+	//		List<Product> list = productDao.findProductByCategoryID(categoryId);
+	//		return list;
+	//	}
 }
