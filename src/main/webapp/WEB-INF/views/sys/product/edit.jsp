@@ -138,7 +138,7 @@
 					<dl class="nowrap">
 						<dt><label>产品特色:</label></dt>
 						<dd>
-							<textarea rows="" cols="" id="description" name="description" style="width: 480px;">${vm.description}</textarea>
+							<textarea rows="" cols="" validate="{maxlength:50}" id="description" name="description" style="width: 480px;">${vm.description}</textarea>
 						</dd>
 					</dl>
 					<dl class="nowrap">
