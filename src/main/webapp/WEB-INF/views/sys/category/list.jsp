@@ -17,7 +17,7 @@
 			    <input type="hidden" id="pid" value="${empty vm?0:vm.id}">
 				<div id="viewCatalogTree" layoutH="45" style="float: left; display: block; overflow: auto; width: 240px; border: solid 1px #CCC; line-height: 21px; background: #fff">
 					<tag:tree root="${categorylist}" isRoot="true" childFieldName="children" idFieldName="id" nameFieldName="categoryName" pidFieldName="parent" noteTemplet="${noteTemplet}"
-					curSelectid="${vm.id}" onClickTemplet="${onClickTemplet}" className="tree treeFolder expand"></tag:tree>
+					curSelectid="${vm.id}" onClickTemplet="${onClickTemplet}" className="tree treeFolder collapse"></tag:tree>
 				</div>
 				<div id="viewCatalog" style="margin-left: 246px;">
 				 <c:if test="${not empty vm}">

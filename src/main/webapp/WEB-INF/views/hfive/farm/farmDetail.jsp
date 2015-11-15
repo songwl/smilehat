@@ -79,7 +79,7 @@
 			</div>
 			<div class="rowline"></div>
 			<div class="row4">
-				<a href="${ctx}/trading/product/center?search_EQ_user.id=${vm.user.id}" class="farmProductList">农场产品</a>
+				<a href="${ctx}/farm/productCenter/${vm.user.id}?search_EQ_user.id=${vm.user.id}" class="farmProductList">农场产品</a>
 				<div>
 					<c:if test="${empty userCategorys}">
 						暂无
@@ -88,7 +88,7 @@
 					<ul>
 						<c:forEach items="${userCategorys}" var="c">
 <%-- 							<li><a href="${ctx}/trading/product/center?search_EQ_user.id=${vm.user.id}&search_EQ_category.id=${c.id}" class="list_product">${c.categoryName}</a></li> --%>
-							<li><a href="${ctx}/farm/productCenter?search_EQ_user.id=${vm.user.id}&search_EQ_category.id=${c.id}" class="list_product">${c.categoryName}</a></li>
+							<li><a href="${ctx}/farm/productCenter/${vm.user.id}?search_EQ_user.id=${vm.user.id}&search_EQ_category.id=${c.id}" class="list_product">${c.categoryName}</a></li>
 						</c:forEach>
 					</ul>
 					</c:if>

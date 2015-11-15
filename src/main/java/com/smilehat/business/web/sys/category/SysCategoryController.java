@@ -149,7 +149,7 @@ public class SysCategoryController extends BaseController {
 	}
 
 	/**
-	 * 栏目树
+	 * 品类树
 	 * @param model
 	 * @param request
 	 * @return

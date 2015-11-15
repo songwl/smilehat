@@ -21,9 +21,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.common.collect.Maps;
 import com.smilehat.business.core.web.BaseController;
+import com.smilehat.business.entity.Category;
 import com.smilehat.business.entity.CertLabel;
 import com.smilehat.business.entity.Product;
+import com.smilehat.business.service.CategoryService;
 import com.smilehat.business.service.CertLabelService;
 import com.smilehat.business.service.CustomerService;
 import com.smilehat.business.service.ProductService;
@@ -47,6 +50,9 @@ public class SysProductController extends BaseController {
 
 	@Autowired
 	private CertLabelService certLabelService;
+
+	@Autowired
+	private CategoryService categoryService;
 
 	public static final String PATH = "sys/product";
 	public static final String PATH_LIST = PATH + Constants.SPT + "list";
@@ -85,8 +91,8 @@ public class SysProductController extends BaseController {
 
 	@RequestMapping(value = BaseController.CREATE, method = RequestMethod.POST)
 	public ModelAndView create(@Valid Product product, @RequestParam(required = false) Long regionId, @RequestParam(value = "userId", required = false) Long userId,
-			@RequestParam(value = "categoryId", required = false) Long categoryId, @RequestParam(value = "certLabels", required = false) String certLabels
-			,@RequestParam(value = "attachIds", required = false) Long[] attachIds) {
+			@RequestParam(value = "categoryId", required = false) Long categoryId, @RequestParam(value = "certLabels", required = false) String certLabels,
+			@RequestParam(value = "attachIds", required = false) Long[] attachIds) {
 		List<CertLabel> certLabelList = new ArrayList<>();
 		if (!StringUtils.isEmpty(certLabels)) {
 			String[] arr = certLabels.split(",");
@@ -137,8 +143,8 @@ public class SysProductController extends BaseController {
 
 	@RequestMapping(value = BaseController.DELETE + "/{id}")
 	public ModelAndView delete(@PathVariable("id") java.lang.Long id) {
-//		productService.deleteById(id);
-		Product product=productService.getObjectById(id);
+		//		productService.deleteById(id);
+		Product product = productService.getObjectById(id);
 		product.setIsDeleted(true);
 		return this.ajaxDoneSuccess("删除成功");
 	}
@@ -172,5 +178,20 @@ public class SysProductController extends BaseController {
 		Map<String, Object> params = new HashMap<>();
 		params.put("EQ_certType", Enums.CERT_TYPE.PRODUCT.name());
 		return certLabelService.findList(params);
+	}
+
+	/**
+	 * 品类树
+	 * @param model
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "selectCategory")
+	public String select(Model model, HttpServletRequest request) {
+		Map<String, Object> searchParams = Maps.newHashMap();
+		searchParams.put("ISNULL_parent", null);
+		List<Category> category = categoryService.findAll(searchParams, "sort", "asc");
+		model.addAttribute("categorylist", category);
+		return "sys/product/selectCategory";
 	}
 }

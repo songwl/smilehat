@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/WEB-INF/inc/include.inc.jsp"%> 
-<c:set var="onClickTemplet" value="$.bringBack({id:'{id}', name:'{name}', pname:'{pname}'})"></c:set> 
+<%-- <c:set var="onClickTemplet" value="$.bringBack({id:'{id}', name:'{name}', pname:'{pname}'})"></c:set> --%> 
+<c:set var="onClickTemplet" value="selectCategory('{id}','{name}','{pname}')"></c:set>
 <div class="pageContent">
 	 <div class="pageFormContent" layoutH="56">
 	 	<tag:tree root="${categorylist}" isRoot="true" childFieldName="children" 
@@ -19,3 +20,13 @@
 		</ul>
 	</div>
 </div>
+
+<script type="text/javascript">
+	function selectCategory(id,name,pname){
+		if(pname==''){
+			alertMsg.error("请选择末级品类！");
+			return false;
+		}
+		$.bringBack({id, name, pname});
+	}
+</script>

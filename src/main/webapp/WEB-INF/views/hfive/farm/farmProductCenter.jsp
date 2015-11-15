@@ -46,7 +46,7 @@
 <!-- 			</form> -->
 <!-- 		</div> -->
 		<div id="title">
-		以下产品由XX提供
+		以下产品由[${user.name}]提供
 		</div>
 
 		<div id="purchase_search"  style="display:none;height=0px;" >

@@ -167,8 +167,14 @@ public class UserController extends SysBaseController {
 
 	@RequestMapping(value = "checkloginname")
 	@ResponseBody
-	public Boolean checkLoginName(@RequestParam(value = "oldLoginName", required = false) String oldLoginName, @RequestParam(value = "loginName") String loginName) {
-		return userService.isPropertyUnique("loginName", loginName, oldLoginName);
+	public Boolean checkLoginName(@RequestParam(value = "oldLoginName", required = false) String oldLoginName, @RequestParam(value = "user.loginName") String loginName) {
+		if (loginName == null || loginName.equals(oldLoginName))
+			return true;
+		User object = userService.findUniqueBy("loginName", loginName);
+		if (object == null || object.getIsDeleted()) {
+			return true;
+		}
+		return false;
 	}
 
 	@ModelAttribute("preloadModel")

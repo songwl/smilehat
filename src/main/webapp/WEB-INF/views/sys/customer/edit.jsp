@@ -28,7 +28,7 @@
 							<dt>登录名(手机)：</dt>
 							<dd>
 								<input name="user.loginName" alt="请输入手机号" class="required ignoreKeyUp" type="text" size="30" value="${vm.user.loginName}"
-									validate="{required:true,rangelength:[11,11],remote:'${ctx}/sys/user/checkloginname?oldLoginName=${vm.user.loginName}',messages:{remote:'登录名已存在'}}" />
+									validate="{required:true,rangelength:[11,11],remote:'${ctx}/sys/user/checkloginname?oldLoginName=${vm.user.loginName}',messages:{rangelength:'请输入11位的手机号',remote:'登录名已存在'}}" />
 							</dd>
 						</dl>
 						<br/>

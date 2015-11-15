@@ -159,6 +159,12 @@
 						msg: '确认密码不正确!'
 					});
 					return false;
+				}else if($('input[name="identityAttachIds"]').length==0){
+					C.localAlert({
+						type: '',
+						msg: '请上传认证图片!'
+					});
+					return false;
 				}
 			    
 // 				else if (region == ''){
