@@ -251,6 +251,24 @@
 		    
 		    $(".btn-submit").click(function(){
 		    	var $form = $("#productPublishForm");
+		    	var name = $.trim($('input[name="name"]').val());
+		    	var description = $.trim($('textarea[name="description"]').val());
+		    	alert(description.length);
+		    	
+		    	if(name ==''){
+					C.localAlert({
+						type: '',
+						msg: '产品名称不可以为空!'
+					});
+					return false;
+				}else if (description.length>50){
+					C.localAlert({
+						type: '',
+						msg: '产品特色描述不能超过50字!'
+					});
+					return false;
+				}
+		    	
 		    	$.post($form.attr("action"), $form.serialize(),
     			   function(json){
 		    		if(json){
