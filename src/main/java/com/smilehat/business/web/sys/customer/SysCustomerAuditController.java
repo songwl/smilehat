@@ -63,7 +63,7 @@ public class SysCustomerAuditController extends BaseController {
 	}
 
 	@RequestMapping(value = "audit/{id}", method = RequestMethod.POST)
-	public ModelAndView update(@PathVariable("id") java.lang.Long id, @RequestParam Boolean isAudit) {
+	public ModelAndView update(@PathVariable("id") java.lang.Long id, @RequestParam Boolean isAudit, @RequestParam String remarks) {
 		Customer customer = customerService.getObjectById(id);
 		User user = customer.getUser();
 		if (isAudit) { //审核通过
@@ -75,6 +75,8 @@ public class SysCustomerAuditController extends BaseController {
 			user.setIsAudit(Boolean.FALSE);
 			userService.save(user);
 		}
+		customer.setRemarks(remarks);
+		customerService.save(customer);
 		return this.ajaxDoneSuccess("审核成功");
 	}
 

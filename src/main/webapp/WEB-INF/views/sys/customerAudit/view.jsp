@@ -108,6 +108,12 @@
 						<input type="radio" name="isAudit" value="0" checked />不通过
 					</td>
 				</tr>
+				<tr class="nowrap">
+					<td align="right" valign="top">备注：</td>
+					<td  align="left" colspan="3">
+						<input type="text" name="remarks" value="${vm.remarks}" style="width: 480px;" />
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
