@@ -508,6 +508,7 @@ text-decoration: initial;
 .ul-my-tree-right >li >ul {
 	right: 100%;
 	left: auto;
+	overflow: scroll;
 }
 
 div#text_search {

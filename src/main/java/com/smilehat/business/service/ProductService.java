@@ -131,6 +131,11 @@ public class ProductService extends BaseService<Product> {
 		List<Category> list = productDao.findDistinctUserCategory(userId);
 		return list;
 	}
+	
+	public List<Category> findCategoryParentListByProductUser(Long userId) {
+		List<Category> list = productDao.findDistinctUserCategoryParent(userId);
+		return list;
+	}
 
 	//	public List<Product> findProductListByCategoryID(Long categoryId) {
 	//		List<Product> list = productDao.findProductByCategoryID(categoryId);
