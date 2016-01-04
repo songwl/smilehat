@@ -29,7 +29,7 @@
 					<dl class="nowrap">
 						<dt><label>图:</label></dt>
 						<dd>
-							<tag:multipleFileUpload uploadifyFileId="sys_governmentcatalog_attachs_uploadifyFileId" hiddenName="attachIds" attachs="${vm.attachList}"></tag:multipleFileUpload>
+							<tag:multipleFileUpload uploadifyFileId="sys_governmentcatalog_attachs_uploadifyFileId_${id}" hiddenName="attachIds" attachs="${vm.attachList}"></tag:multipleFileUpload>
 						</dd>
 					</dl>
 		</div>
