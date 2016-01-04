@@ -80,7 +80,7 @@
 			<div class="rowline"></div>
 			<div class="row4">
 				<a href="${ctx}/farm/productCenter/${vm.user.id}?search_EQ_user.id=${vm.user.id}" class="farmProductList">农场产品</a>
-				<div>
+				<div class="listcategory">
 					<c:if test="${empty userCategorys && empty parentCategorys}">
 						暂无
 					</c:if>
