@@ -80,18 +80,24 @@
 			<div class="rowline"></div>
 			<div class="row4">
 				<a href="${ctx}/farm/productCenter/${vm.user.id}?search_EQ_user.id=${vm.user.id}" class="farmProductList">农场产品</a>
-				<div>
-					<c:if test="${empty userCategorys}">
+				<div class="listcategory">
+					<c:if test="${empty userCategorys && empty parentCategorys}">
 						暂无
 					</c:if>
-					<c:if test="${not empty userCategorys}">
+					
 					<ul>
-						<c:forEach items="${userCategorys}" var="c">
-<%-- 							<li><a href="${ctx}/trading/product/center?search_EQ_user.id=${vm.user.id}&search_EQ_category.id=${c.id}" class="list_product">${c.categoryName}</a></li> --%>
-							<li><a href="${ctx}/farm/productCenter/${vm.user.id}?search_EQ_user.id=${vm.user.id}&search_EQ_category.parent。id=${c.id}" class="list_product">${c.categoryName}</a></li>
-						</c:forEach>
+						<c:if test="${not empty parentCategorys}">
+							<c:forEach items="${parentCategorys}" var="c">
+								<li><a href="${ctx}/farm/productCenter/${vm.user.id}?search_EQ_user.id=${vm.user.id}&search_EQ_category.parent.id=${c.id}" class="list_product">${c.categoryName}</a></li>
+							</c:forEach>
+						</c:if>
+						<c:if test="${not empty userCategorys}">
+							<c:forEach items="${userCategorys}" var="c">
+	 							<li><a href="${ctx}/farm/productCenter/${vm.user.id}?search_EQ_user.id=${vm.user.id}&search_EQ_category.id=${c.id}" class="list_product">${c.categoryName}</a></li>
+							</c:forEach>
+						</c:if>
 					</ul>
-					</c:if>
+					
 				</div>
 			</div>
 			<div class="rowline"></div>

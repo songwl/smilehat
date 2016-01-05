@@ -74,12 +74,12 @@ public class UnionFarmController extends HfiveBaseController {
 		Customer vm = customerService.getObjectById(id);
 		model.addAttribute("vm", vm);
 		model.addAttribute("action", BaseController.UPDATE);
-		if(vm.getUser().getCustomer().getIsArea()==null){
+		if (vm.getUser().getCustomer().getIsArea() == null) {
 			model.addAttribute("userCategorys", productService.findCategoryListByProductUser(vm.getUser().getId()));
-		}else{
-			if(vm.getUser().getCustomer().getIsArea()){//Boolean.FALSE 不是专区,true 专区
-				model.addAttribute("userCategorys", productService.findCategoryParentListByProductUser(vm.getUser().getId()));
-			}else{
+		} else {
+			if (vm.getUser().getCustomer().getIsArea()) {//Boolean.FALSE 不是专区,true 专区
+				model.addAttribute("parentCategorys", productService.findCategoryParentListByProductUser(vm.getUser().getId()));
+			} else {
 				model.addAttribute("userCategorys", productService.findCategoryListByProductUser(vm.getUser().getId()));
 			}
 		}

@@ -13,6 +13,6 @@
 		dataUrl="${ctx}/static/js/data/page_option.js">
 	</select> <span>条，共 ${page.totalPages}页，合计 ${page.totalElements}条</span>
 </div>
-<div <c:if test="${empty rel}">rel="${rel}"</c:if> class="pagination" targetType="${targetType}" totalCount="${page.totalElements}" numPerPage="${page.size}" currentPage="${page.number+1}"></div>
+<div <c:if test="${not empty rel}">rel="${rel}"</c:if> class="pagination" targetType="${targetType}" totalCount="${page.totalElements}" numPerPage="${page.size}" currentPage="${page.number+1}"></div>
 
 

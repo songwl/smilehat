@@ -59,6 +59,6 @@
 		</tbody>
 	</table>
 	<div class="panelBar">
-		<tag:pagination page="${page}" numPerPageOnchange="dialogPageBreak({numPerPage:this.value},'customer-product')"></tag:pagination>
+		<tag:pagination page="${page}" targetType="dialog" rel="customer-product" numPerPageOnchange="dialogPageBreak({numPerPage:this.value},'customer-product')"></tag:pagination>
 	</div>
 </div>
