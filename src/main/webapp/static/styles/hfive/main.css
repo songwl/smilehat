@@ -458,7 +458,9 @@ text-decoration: initial;
 /*     padding: 2px 0px 0px 30%; */
 	text-align: center;
 }
-
+li#pageEnd {
+color: white;
+}
 
 .ul-my-tree{
   display:none;
