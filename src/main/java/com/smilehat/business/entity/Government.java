@@ -39,6 +39,7 @@ public class Government extends IdEntity {
      private java.lang.Long attachId;//附件图片id
      private java.util.Date createTime;//创建时间
      private  java.lang.Integer sort;//排序字段
+     private  java.lang.Integer themeid;//主题样式
 	 
      private Region region;//区域
      
@@ -49,6 +50,7 @@ public class Government extends IdEntity {
      /**
  	 * @return
  	 */
+     @Column(name = "sort" )
      public java.lang.Integer getSort() {
 		return sort;
 	}
@@ -56,6 +58,19 @@ public class Government extends IdEntity {
 	public void setSort(java.lang.Integer sort) {
 		this.sort = sort;
 	}
+	
+	 /**
+ 	 * @return
+ 	 */
+	@Column(name = "themeid" )
+     public java.lang.Integer getThemeid() {
+		return themeid;
+	}
+
+	public void setThemeid(java.lang.Integer themeid) {
+		this.themeid = themeid;
+	}
+
 
 	/**
  	 * @return

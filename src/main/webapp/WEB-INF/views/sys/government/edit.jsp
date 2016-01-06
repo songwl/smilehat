@@ -66,6 +66,13 @@
 									<dd><input type="text" id="contact" name="contact" class="required" size="30" value="${vm.contact}" validate="{required:true}"/></dd>
 								</dl>
 								<dl class="nowrap">
+									<dt>展示样式：</dt>
+									<dd>
+										<input type="radio" name="themeid" value="1" checked="checked" <c:if test="${vm.themeid=='1'}"> checked="checked"</c:if> />经典黑色
+										<input type="radio" name="themeid" value="2" <c:if test="${vm.themeid=='2'}"> checked="checked"</c:if> />简约白色
+									</dd>
+								</dl>
+								<dl class="nowrap">
 									<dt><label>图:</label></dt>
 									<dd>
 										<tag:multipleFileUpload uploadifyFileId="sys_government_attachs_uploadifyFileId" hiddenName="attachIds" attachs="${vm.attachList}"></tag:multipleFileUpload>

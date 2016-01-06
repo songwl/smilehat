@@ -158,3 +158,6 @@ alter table t_purchase add price2 double;
 alter table t_customer add remarks varchar(20);
 --是否专区
 alter table t_customer add is_area int(1); 
+
+--政府平台可选择展示时的主题样式
+alter table t_government add themeid int(2); 
