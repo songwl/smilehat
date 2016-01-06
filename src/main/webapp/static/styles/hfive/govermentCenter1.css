@@ -1,8 +1,7 @@
 div.background-img {
     background:url(images/bg.png) no-repeat center center scroll;
+    z-index:-1;
 }
-
-
 
 .system-name {
     background-color: black;
