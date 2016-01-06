@@ -82,7 +82,7 @@ public class SysGovernmentCatalogController extends BaseController {
 			,@RequestParam(required=false) String farmIds) {
 		governmentCatalog.setGovernment(governmentService.getObjectById(governmentId));
 		Long[] farms = null;
-		if(farmIds!=null){
+		if(farmIds!=null&& farmIds!=""){
 			String[] ids = farmIds.split(",");
 			farms = new Long[ids.length];
 			for (int i=0;i<ids.length;i++) {

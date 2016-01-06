@@ -10,7 +10,7 @@
 	<%@ include file="/WEB-INF/inc/hfive/include.css.jsp"%>
 	<link rel="stylesheet" href="${ctx}/static/styles/hfive/main.css" type="text/css" />
 	
-	<link rel="stylesheet" href="${ctx}/static/styles/hfive/govermentCenter.css" type="text/css" />
+	<link rel="stylesheet" href="${ctx}/static/styles/hfive/goverMain.css" type="text/css" />
 	<%@ include file="/WEB-INF/inc/hfive/include.js.jsp"%>
 	
 </head>
